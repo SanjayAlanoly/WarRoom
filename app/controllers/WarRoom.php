@@ -2,14 +2,17 @@
 
 class WarRoom extends BaseController {
 
-	public function index()
+	public function showWarRoom()
 	{
+		
 		return View::make('WarRoom');
 
 		
 	}
 
-	public function add_conv(){
+
+
+	public function addConv(){
 
 
 		DB::connection('WarRoom')->insert('insert into conversation (user_id, created_at) values (?, ?)', array(1, date("Y-m-d H:i:s")));
@@ -81,7 +84,7 @@ class WarRoom extends BaseController {
 
 	}
 
-	public function add_pledged(){
+	public function addPledged(){
 
 		$pledged_amount = Input::get('pledged_amount', 0);
 

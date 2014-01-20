@@ -67,3 +67,12 @@ $clocal = dirname(__FILE__).'/config.local.php';
 if (file_exists($clocal)) {
   include $clocal;
 }
+
+
+$GLOBALS['pfc_hooks']['pfc.before.auth'][5] = function ($app, $req, $res) {
+	 	return function () use ($app, $req, $res) {
+		return 'guest'.rand(1,1000);
+	 	};
+};
+
+?>

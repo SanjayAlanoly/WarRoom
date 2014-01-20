@@ -7,6 +7,7 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
 	<link href="css/custom.css" rel="stylesheet">
     
+   
 
 </head>
 
@@ -17,6 +18,7 @@
 		<br>
 		
 		<h1 class="text-center">CFR War Room</h1>
+		<h1><?php //echo $_SESSION['nick']; ?></h1>
 		
 		<br>
 

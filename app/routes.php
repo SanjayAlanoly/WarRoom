@@ -11,6 +11,14 @@
 |
 */
 
-Route::get('/', 'WarRoom@index');
-Route::get('/WarRoom/add_conv', 'WarRoom@add_conv');
-Route::get('/WarRoom/add_pledged', 'WarRoom@add_pledged');
+
+Route::get('/WarRoom/add_conv', 'WarRoom@addConv');
+Route::get('/WarRoom/add_pledged', 'WarRoom@addPledged');
+
+Route::get('login', array('as' => 'login', 'uses' => 'AuthController@showLogin'));
+Route::post('login', 'AuthController@postLogin');
+
+Route::group(array('before' => 'auth'), function()
+{
+    Route::get('/', 'WarRoom@showWarRoom');
+});
