@@ -22,7 +22,7 @@ class AuthController extends BaseController {
         // Get all the inputs
         // id is used for login, username is used for validation to return correct error-strings
         $userdata = array(
-            'phone' => Input::get('phone'),
+            'phone_no' => Input::get('phone'),
             'password' => Input::get('password')
         );
 
@@ -31,7 +31,7 @@ class AuthController extends BaseController {
         // Declare the rules for the form validation.
 
         $rules = array(
-            'phone'  => 'Required',
+            'phone_no'  => 'Required',
             'password'  => 'Required'
         );
 
@@ -48,15 +48,8 @@ class AuthController extends BaseController {
             {
                 // Redirect to homepage
 
-                //session_start();
-                //$_SESSION['nick'] = Auth::user()->name;
-                
-
-
-                //View::make('hello')->with('name',Auth::user()->name);
                 // return Redirect::to('/WarRoom')->with('success', 'You have logged in successfully');
-                return Redirect::to('/')->with('name',Auth::user()->name);
-
+                return Redirect::to('/');
             }
             else
             {
@@ -72,4 +65,18 @@ class AuthController extends BaseController {
 
         
     }
+
+
+    public function getLogout()
+    {
+
+        
+        
+        // Log out
+        Auth::logout();
+
+        // Redirect to homepage
+        return Redirect::to('/login')->with('success', 'You are logged out');
+    }
+
 }

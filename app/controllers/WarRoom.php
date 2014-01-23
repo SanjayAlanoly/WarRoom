@@ -4,13 +4,36 @@ class WarRoom extends BaseController {
 
 	public function showWarRoom()
 	{
-		
-		return View::make('WarRoom');
 
-		
+		session_start();
+        $_SESSION['name'] = Auth::user()->first_name;
+
+        //$user = DB::connection('cfrapp')->select('SELECT SUM(donation_amount) as donation_amount FROM donations WHERE fundraiser_id=?',array(Auth::user()->id));
+
+		//return View::make('WarRoom',array('donation_amount' => $user[0]->donation_amount));
+		return View::make('WarRoom');
 	}
 
 
+	public static function renderChildrenSupported(){
+
+
+		$result_pledged_amount =  DB::select('SELECT SUM(pledged_amount) as amount FROM money_pledged WHERE DATE(created_at) = CURDATE()');
+
+		if(isset($result_pledged_amount[0])){
+
+			$pledged_amount = $result_pledged_amount[0]->amount;
+		}else{
+
+			$pledged_amount = 0;
+		}
+
+		$children_supported = round($pledged_amount/1000,0,PHP_ROUND_HALF_DOWN);
+
+		echo "<h2 class='text-center'>Children Supported : " . $children_supported . "</h2>";
+
+
+	}
 
 	public function addConv(){
 
@@ -151,6 +174,15 @@ class WarRoom extends BaseController {
 		echo '</div>';
 
 		echo '</div>';
+	}
+
+	public function destroySession(){
+
+		// Destroy session
+		session_start();
+        session_destroy();
+
+        return Redirect::to('logout');
 	}
 
 }

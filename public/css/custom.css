@@ -14,8 +14,19 @@ h1 {
 	font-family:BebasNeueRegular,Arial;
 	text-transform:uppercase;
 	//text-shadow: 2px 2px #666;
-	font-size:500%;
+	font-size:400%;
 	color:#ed1849;
+}
+
+h2 {
+
+	font-family:BebasNeueRegular,Arial;
+	text-transform:uppercase;
+	//text-shadow: 2px 2px #666;
+	font-size:500%;
+	color:#7f3f98;
+
+
 }
 
 h4{
@@ -25,14 +36,22 @@ h4{
 	//text-shadow: 2px 2px #666;
 }
 
+body {
+
+
+
+	background-color:#7f3f98;
+}
+
+
 div.board {
 	
-	margin-top: 20px;
-	margin-bottom: 20px;
+	margin-top: -30px;
+	//margin-bottom: 20px;
 	
 	background-color:#ffe800;
 
-	box-shadow: 10px 10px 5px #888888;
+	//box-shadow: 10px 10px 5px #888888;
 	padding :30px;
 	//border : 2px solid black;
 	

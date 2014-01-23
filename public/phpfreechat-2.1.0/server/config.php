@@ -71,7 +71,7 @@ if (file_exists($clocal)) {
 
 $GLOBALS['pfc_hooks']['pfc.before.auth'][5] = function ($app, $req, $res) {
 	 	return function () use ($app, $req, $res) {
-		return 'guest'.rand(1,1000);
+		return $_SESSION['name'];
 	 	};
 };
 

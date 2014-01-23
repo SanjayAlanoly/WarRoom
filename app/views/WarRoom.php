@@ -6,6 +6,7 @@
 	<link rel="stylesheet" type="text/css" href="phpfreechat-2.1.0/client/themes/default/jquery.phpfreechat.min.css" />
     <link href="css/bootstrap.min.css" rel="stylesheet">
 	<link href="css/custom.css" rel="stylesheet">
+	<link href="css/custom-navbar.css" rel="stylesheet">
     
    
 
@@ -13,12 +14,22 @@
 
 <body>
 
+	<nav class="navbar navbar-default navbar-static-top" role="navigation">
+		<a class="navbar-brand" href="#">FOE</a>
+		<button type="button" class="btn btn-default navbar-btn navbar-right" onclick="location.href='destroySession'">Logout</button>
+	</nav>
+	
+
+
 	<div class="container board">
 		
 		<br>
 		
-		<h1 class="text-center">CFR War Room</h1>
-		<h1><?php //echo $_SESSION['nick']; ?></h1>
+		<h1 class="text-center">War Room</h1>
+		<div id="children_supported">
+			<?php WarRoom::renderChildrenSupported(); ?>	
+		</div>
+		
 		
 		<br>
 
