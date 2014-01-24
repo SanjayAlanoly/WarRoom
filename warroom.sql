@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 20, 2014 at 04:46 PM
+-- Generation Time: Jan 24, 2014 at 06:11 PM
 -- Server version: 5.5.34
 -- PHP Version: 5.4.22
 
@@ -23,6 +23,34 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `city_target`
+--
+
+CREATE TABLE IF NOT EXISTS `city_target` (
+  `city_id` int(11) NOT NULL,
+  `target` int(11) NOT NULL,
+  `start_date` date NOT NULL,
+  `end_date` date NOT NULL,
+  PRIMARY KEY (`city_id`),
+  UNIQUE KEY `city_id` (`city_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `city_target`
+--
+
+INSERT INTO `city_target` (`city_id`, `target`, `start_date`, `end_date`) VALUES
+(1, 200000, '2014-01-01', '2014-01-31'),
+(2, 200000, '2014-01-01', '2014-01-31'),
+(3, 200000, '2014-01-01', '2014-01-31'),
+(4, 200000, '2014-01-01', '2014-01-31'),
+(5, 200000, '2014-01-01', '2014-01-31'),
+(6, 200000, '2014-01-01', '2014-01-31'),
+(7, 200000, '2014-01-01', '2014-01-31');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `conversation`
 --
 
@@ -31,7 +59,7 @@ CREATE TABLE IF NOT EXISTS `conversation` (
   `user_id` int(11) NOT NULL,
   `created_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=122 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=140 ;
 
 --
 -- Dumping data for table `conversation`
@@ -157,7 +185,25 @@ INSERT INTO `conversation` (`id`, `user_id`, `created_at`) VALUES
 (118, 1, '2014-01-17 12:42:49'),
 (119, 1, '2014-01-17 12:54:53'),
 (120, 1, '2014-01-17 17:46:26'),
-(121, 1, '2014-01-17 17:46:27');
+(121, 1, '2014-01-17 17:46:27'),
+(122, 1, '2014-01-21 17:08:20'),
+(123, 1, '2014-01-21 20:49:59'),
+(124, 1, '2014-01-21 20:50:01'),
+(125, 1, '2014-01-21 21:02:02'),
+(126, 1, '2014-01-21 21:02:45'),
+(127, 1, '2014-01-21 21:14:21'),
+(128, 1, '2014-01-21 21:14:23'),
+(129, 1, '2014-01-21 21:14:25'),
+(130, 1, '2014-01-21 21:14:43'),
+(131, 1, '2014-01-23 13:27:30'),
+(132, 1, '2014-01-23 13:27:32'),
+(133, 1, '2014-01-23 13:27:34'),
+(134, 1, '2014-01-23 13:27:36'),
+(135, 1, '2014-01-23 13:27:38'),
+(136, 1, '2014-01-23 13:27:46'),
+(137, 1, '2014-01-23 13:27:51'),
+(138, 1, '2014-01-23 13:27:59'),
+(139, 1, '2014-01-23 20:05:40');
 
 -- --------------------------------------------------------
 
@@ -189,7 +235,7 @@ CREATE TABLE IF NOT EXISTS `money_pledged` (
   `pledged_amount` int(11) NOT NULL,
   `created_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=41 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=53 ;
 
 --
 -- Dumping data for table `money_pledged`
@@ -235,7 +281,19 @@ INSERT INTO `money_pledged` (`id`, `user_id`, `pledged_amount`, `created_at`) VA
 (37, 1, 0, '2014-01-16 01:01:42'),
 (38, 1, 0, '2014-01-16 15:20:33'),
 (39, 1, 0, '2014-01-17 12:42:51'),
-(40, 1, 12, '2014-01-17 12:42:52');
+(40, 1, 12, '2014-01-17 12:42:52'),
+(41, 1, 0, '2014-01-21 17:08:22'),
+(42, 1, 5000, '2014-01-21 22:20:04'),
+(43, 1, 6000, '2014-01-21 22:21:30'),
+(44, 1, -9000, '2014-01-21 22:21:48'),
+(45, 1, -2000, '2014-01-21 22:39:26'),
+(46, 1, 0, '2014-01-21 23:25:42'),
+(47, 1, 2000, '2014-01-21 23:25:47'),
+(48, 1, 0, '2014-01-21 23:30:52'),
+(49, 1, 50, '2014-01-21 23:30:58'),
+(50, 1, 5, '2014-01-21 23:31:08'),
+(51, 1, 2000, '2014-01-22 12:23:17'),
+(52, 1, 455, '2014-01-23 12:43:44');
 
 -- --------------------------------------------------------
 
@@ -274,14 +332,14 @@ CREATE TABLE IF NOT EXISTS `user` (
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`id`, `name`, `password`, `phone`, `email`, `created_at`, `updated_at`) VALUES
-(1, 'Administrator', '$2y$10$mDAclFnsx7YLtsPF/Z6fX.npgrQfd/FrGRTFfsDXQHvqoMBj0rcli', '1234567890', 'admin@localhost', '2014-01-17 11:41:31', '2014-01-17 11:41:31');
+(2, 'Administrator', '$2y$10$tSi62sqsGZIki/wCWJVMg.JgwGyeD3AxQMhnZS57qCVOawlwOeuGm', '1234567890', 'admin@localhost', '2014-01-21 07:51:55', '2014-01-21 07:51:55');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

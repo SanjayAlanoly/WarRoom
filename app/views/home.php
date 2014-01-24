@@ -3,57 +3,99 @@
 <head>
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link href="css/bootstrap.min.css" rel="stylesheet">
 	
-    	<script src="js/jquery-1.10.2.min.js" type="text/javascript"></script>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/custom-navbar.css" rel="stylesheet">
+
+    <link href="css/custom.css" rel="stylesheet">
+   
 
 </head>
 
 <body>
 
-	<div class="container">
-		
-		<br>
-		<h1 class="text-center">CFR War Room</h1>
+	<nav class="navbar navbar-default navbar-static-top" role="navigation">
+		<div class="navbar-header">
+		    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
+			      <span class="sr-only">Toggle navigation</span>
+			      <span class="icon-bar"></span>
+			      <span class="icon-bar"></span>
+			      <span class="icon-bar"></span>
+		    </button>
+		    <a class="navbar-brand" href="#">FOE</a>
+	  	</div>
+	  	<div class="collapse navbar-collapse" id="navbar-collapse-1">
+	  		<ul class="nav navbar-nav">
+      			<li class="active"><a href="#">Home</a></li>
+      			<li><a href="../public">War Room</a></li>
+      		</ul>
+      		<button type="button" class="btn btn-default navbar-btn navbar-right" onclick="location.href='destroySession'">Logout</button>
+	  	</div>
+	</nav>
+
+
+	<div class="container board">
+
+		<h1 class="text-center title">Home</h1>
 
 		<br>
-		<div class="row">
-			<div id = "conv_progress" class="col-md-6">
-				
-			</div>
-			<div id = "money_progress" class="col-md-6">
-				<div class="progress progress-striped active">
-				 	 <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-					  		<span class="sr-only">60% Complete</span>
-					 </div>
-				</div>
-			</div>
+
+		<ul class="nav nav-tabs nav-justified" id="myTab">
+			  <li><a href="#you" data-toggle="tab">You</a></li>
+			  <li><a href="#city" data-toggle="tab">City</a></li>
+			  <li><a href="#mad" data-toggle="tab">MAD</a></li>
+			  
+		</ul>
+
+		<!-- Tab panes -->
+		<div class="tab-content">
+		  	<div class="tab-pane fade in active" id="you">
+
+		  		<br>
+
+		  		<p class="normal">Amount Raised : <?php echo $dashboard['you_amount_raised']; ?></p>
+		  		
+		  	</div>
+	  		<div class="tab-pane fade" id="city">
+
+		  		<br>
+
+		  		<p class="normal">Amount Raised : <?php echo $dashboard['city_amount_raised']; ?></p>
+
+		  	</div>
+		  	<div class="tab-pane fade" id="mad">
+
+		  		<br>
+
+		  		<p class="normal">Amount Raised : <?php echo $dashboard['mad_amount_raised']; ?></p>
+
+		  	</div>
+			  
 		</div>
-		<div class="row">
-			<div class="col-md-3">
-				<button id="add_conv" class="btn btn-large btn-primary" type="button" >Add Conversation</button>
-			</div>
-			<div class="col-md-3 col-md-offset-6">
-				<button id="pledge_money" class="btn btn-large btn-primary pull-right" type="button">Pledge Money</button>
-			</div>
-		</div>
+		
+		<?php 
+		//var_dump($run_rate)
 	
-		<br><br>
-		
+		echo "<table>";
+		echo "<th>City</th><th>Amount Raised</th><th>Ideal Amount</th><th>Difference in Amount</th>";
 
-		
+		foreach($run_rate as $city){
 
+			echo "<tr><td>$city[city_name]</td><td>$city[city_amount_raised]</td><td>$city[ideal_amount]</td><td>$city[diff_in_amount]</td></tr>";
+
+		}
+
+		echo "</table>";
+
+		?>
 	</div>
 
-	<div id="test">
-	</div>
+	<script src="https://code.jquery.com/jquery.js"></script>
 
-	
+	<script src="js/bootstrap.min.js"></script>	
+	<script src="js/Home.js" type="text/javascript"></script>
 
-
-	<script src="js/warroom.js" type="text/javascript"></script>
-    <script src="js/bootstrap.min.js"></script>	
-
+    
+	  
 </body>
 </html>

@@ -8,8 +8,7 @@ class WarRoom extends BaseController {
 		session_start();
         $_SESSION['name'] = Auth::user()->first_name;
 
-        //$user = DB::connection('cfrapp')->select('SELECT SUM(donation_amount) as donation_amount FROM donations WHERE fundraiser_id=?',array(Auth::user()->id));
-
+        
 		//return View::make('WarRoom',array('donation_amount' => $user[0]->donation_amount));
 		return View::make('WarRoom');
 	}
@@ -30,7 +29,7 @@ class WarRoom extends BaseController {
 
 		$children_supported = round($pledged_amount/1000,0,PHP_ROUND_HALF_DOWN);
 
-		echo "<h2 class='text-center'>Children Supported : " . $children_supported . "</h2>";
+		echo "<h2 class='text-center sub_title'>Children Supported : " . $children_supported . "</h2>";
 
 
 	}
@@ -76,14 +75,14 @@ class WarRoom extends BaseController {
 
 		echo '<div class="col-md-6">';
 
-		echo '<h4>Conversations : ' . $conv_count . '</h4>';
+		echo '<p class="normal">Conversations : ' . $conv_count . '</p>';
 
 		echo '</div>';
 
 
 		echo '<div class="col-md-6">';
 
-		echo '<h4 class="pull-right">Target : ' . $conv_target . '</h4>';
+		echo '<p class="pull-right normal">Target : ' . $conv_target . '</p>';
 
 		echo '</div>';
 		 
@@ -146,14 +145,14 @@ class WarRoom extends BaseController {
 
 		echo '<div class="col-md-6">';
 
-		echo '<h4>Money Pledged : ' . $pledged_amount . '</h4>';
+		echo '<p class="normal">Money Pledged : ' . $pledged_amount . '</p>';
 
 		echo '</div>';
 
 
 		echo '<div class="col-md-6">';
 
-		echo '<h4 class="pull-right">Target : ' . $pledged_target . '</h4>';
+		echo '<p class="pull-right normal">Target : ' . $pledged_target . '</p>';
 
 		echo '</div>';
 

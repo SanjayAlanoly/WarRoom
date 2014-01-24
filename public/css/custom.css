@@ -10,7 +10,7 @@
 
 }
 
-h1 {
+h1.title {
 	font-family:BebasNeueRegular,Arial;
 	text-transform:uppercase;
 	//text-shadow: 2px 2px #666;
@@ -18,7 +18,7 @@ h1 {
 	color:#ed1849;
 }
 
-h2 {
+h2.sub_title {
 
 	font-family:BebasNeueRegular,Arial;
 	text-transform:uppercase;
@@ -29,7 +29,7 @@ h2 {
 
 }
 
-h4{
+p.normal {
 	font-family:BebasNeueRegular,Arial;
 	color:#ed1849;
 	font-size: 200%;
@@ -56,6 +56,42 @@ div.board {
 	//border : 2px solid black;
 	
 }
+
+
+table {
+
+	width:100%;
+	text-align:left;
+
+}
+
+td,th {
+
+	padding:2px;
+
+}
+
+th {
+	font-family:BebasNeueRegular,Arial;
+	font-size:150%;
+	color:#f70048;
+	
+	
+}
+
+td{ 
+
+	color:black;
+	font-weight:bold;
+	font-family:Trebuchet MS;
+
+}
+
+/*.your-clock	{
+	zoom: 0.75;
+	-moz-transform: scale(0.75)
+}
+*/
 /*
 div.pin {
 
