@@ -31,7 +31,7 @@ class AuthController extends BaseController {
         // Declare the rules for the form validation.
 
         $rules = array(
-            'phone_no'  => 'Required',
+            'phone_no'  => 'Required|digits:10',
             'password'  => 'Required'
         );
 
@@ -49,13 +49,13 @@ class AuthController extends BaseController {
                 // Redirect to homepage
 
                 // return Redirect::to('/WarRoom')->with('success', 'You have logged in successfully');
-                return Redirect::to('/');
+                return Redirect::to('/')->with('success', 'You have logged in successfully');
             }
             else
             {
                 // Redirect to the login page.
                 
-                return Redirect::to('login')->withErrors(array('password' => 'Password invalid'))->withInput(Input::except('password'));
+                return Redirect::to('login')->with('password', 'Wrong password/phone nubmer')->withInput(Input::except('password'));
             }
         }
 

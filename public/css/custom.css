@@ -30,19 +30,36 @@ h2.sub_title {
 }
 
 p.normal {
-	font-family:BebasNeueRegular,Arial;
+	font-family:Trebuchet MS,Arial;
 	color:#ed1849;
-	font-size: 200%;
+	font-size: 150%;
 	//text-shadow: 2px 2px #666;
 }
 
-body {
+a {
 
+
+	font-weight: bold;
+}
+
+
+img.banner {
+
+
+
+}
+
+
+body {
 
 
 	background-color:#7f3f98;
 }
 
+div.inner {
+
+	padding:30px;
+}
 
 div.board {
 	
@@ -52,11 +69,17 @@ div.board {
 	background-color:#ffe800;
 
 	//box-shadow: 10px 10px 5px #888888;
-	padding :30px;
+	//padding :30px;
 	//border : 2px solid black;
 	
 }
 
+
+div.no-padding {
+
+	padding:0px;
+
+}
 
 table {
 
@@ -84,6 +107,14 @@ td{
 	color:black;
 	font-weight:bold;
 	font-family:Trebuchet MS;
+
+}
+
+
+td.middle{ 
+
+	color:#7f3f98;
+	font-size: 150%;
 
 }
 

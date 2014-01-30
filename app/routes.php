@@ -27,6 +27,6 @@ Route::get('destroySession','WarRoom@destroySession');
 
 Route::group(array('before' => 'auth'), function()
 {
-    Route::get('/', 'WarRoom@showWarRoom');
-    Route::get('/home', 'Home@showHome');
+    Route::get('/WarRoom', 'WarRoom@showWarRoom');
+    Route::get('/', 'Home@showHome');
 });

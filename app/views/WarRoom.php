@@ -24,19 +24,21 @@
 			      <span class="icon-bar"></span>
 			      <span class="icon-bar"></span>
 		    </button>
-		    <a class="navbar-brand" href="#">FOE</a>
+		    <a class="navbar-brand" href="#"><strong>FOE</strong></a>
 	  	</div>
 	  	<div class="collapse navbar-collapse" id="navbar-collapse-1">
 	  		<ul class="nav navbar-nav">
-      			<li><a href="../public/home">Home</a></li>
+      			<li><a href="../public/">Home</a></li>
       			<li class="active"><a href="#">War Room</a></li>
       		</ul>
       		<button type="button" class="btn btn-default navbar-btn navbar-right" onclick="location.href='destroySession'">Logout</button>
 	  	</div>
 	</nav>
-
+<p>
 
 	<div class="container board">
+
+		
 
 		<h1 class="text-center title">War Room</h1>
 
@@ -93,6 +95,28 @@
 				</div>
 			</div>
 		</div>
+
+		<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+		  	Launch demo modal
+		</button>
+
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+		        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+		      </div>
+		      <div class="modal-body">
+		        ...
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		        <button type="button" class="btn btn-primary">Save changes</button>
+		      </div>
+		    </div><!-- /.modal-content -->
+		  </div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->
 	
 		<br><br>
 		
@@ -120,8 +144,8 @@
 	});
 
 	clock.setTime(3600);
-	clock.start();
-*/
+	clock.start();*/
+
 	</script>
 </body>
 </html>

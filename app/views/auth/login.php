@@ -13,6 +13,38 @@
 
 	<div class="container">
 
+        <?php 
+
+          if($message = Session::get('password')){
+
+          echo '<div class="alert alert-danger alert-dismissable">
+                  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>';
+          echo "<strong>Error</strong> : $message";
+              
+          echo '</div>';
+
+          }
+
+
+          if($errors->count()>0){
+
+            echo '<div class="alert alert-danger alert-dismissable">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>';
+            
+
+            foreach($errors->all() as $message){
+
+              echo "<strong>Error</strong> : $message";
+
+            }
+
+            echo "</div>";
+          }
+
+
+        
+       ?>
+
       <form class="form-signin" role="form" method="post">
         <h2 class="form-signin-heading">Sign in</h2>
         <input name="phone" type="text" class="form-control" placeholder="Phone number" required autofocus>
@@ -27,7 +59,7 @@
 
 
 
-
+    <script src="https://code.jquery.com/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>	
 </body>
 </html>
