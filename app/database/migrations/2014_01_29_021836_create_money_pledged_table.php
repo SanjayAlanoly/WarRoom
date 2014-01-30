@@ -17,7 +17,7 @@ class CreateMoneyPledgedTable extends Migration {
                     $t->integer('amount_pledged');
                     $t->integer('amount_collected');
                     $t->date('collect_date');
-                    $t->text('comment');
+                    $t->text('comments');
                     $t->timestamps();
                 });
 	}

@@ -11,7 +11,8 @@ class Callback extends Eloquent
     
     public static function getCallBack()
     {
-        return static::where('call_date','<=', date('Y-m-d'))->get();
+        return static::where('volunteer_id','=',Auth::user()->id)
+                ->where('call_date','<=', date('Y-m-d'))->get();
     }
     
     
@@ -33,6 +34,7 @@ class Callback extends Eloquent
                 $pl->amount_pledged = $input['amount_pledged'];
                 $pl->collect_date = $input['collect_date'];
                 $pl->comments = $input['comments'];
+                $pl->volunteer_id = Auth::user()->id;
                 if ($pl->save())
                 {
                     $callback->delete();

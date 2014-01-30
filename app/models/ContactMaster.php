@@ -3,7 +3,7 @@
 
 class ContactMaster extends Eloquent
 {
-    protected $table = 'contact_master';
+	protected $table = 'contact_master';
         public static $statuses = array(
             'open' => 'Open',
             'pledged' => 'Pledged',
