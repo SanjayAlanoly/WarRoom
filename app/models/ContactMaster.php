@@ -3,7 +3,7 @@
 
 class ContactMaster extends Eloquent
 {
-	protected $table = 'contact_master';
+    protected $table = 'contact_master';
         public static $statuses = array(
             'open' => 'Open',
             'pledged' => 'Pledged',
@@ -36,7 +36,8 @@ class ContactMaster extends Eloquent
         
         public static function getContacts()
         {
-            $contacts = ContactMaster::where('displayed_at', '=', date("Y-m-d"))->take(5)->get();
+            $contacts = ContactMaster::where('volunteer_id','=',Auth::user()->id)
+                    ->where('displayed_at', '=', date("Y-m-d"))->take(5)->get();
             
             if (count($contacts)== static::$contactsToDisplay )
             {
@@ -46,7 +47,8 @@ class ContactMaster extends Eloquent
             elseif (count($contacts)==0)
             {
                 $cArr = array();
-                $contacts = ContactMaster::whereIn('status', array('open','call_back'))
+                $contacts = ContactMaster::where('volunteer_id','=',Auth::user()->id)
+                    ->whereIn('status', array('open','call_back'))
                     ->where('displayed','=', '0')
                     ->orderBy('updated_at', 'ASC')
                     ->take(static::$contactsToDisplay)
@@ -65,7 +67,7 @@ class ContactMaster extends Eloquent
                 }
                 else
                 {
-                    $contacts = static::rotateContacts($cArr);
+                    $contacts = (static::rotateContacts($cArr) !== false)?static::rotateContacts($cArr):$contacts;
                     return $contacts;
                 }
             }
@@ -80,7 +82,7 @@ class ContactMaster extends Eloquent
                     $contact->save();
                     $cArr[] = $contact->id;
                 }
-                $contacts = static::rotateContacts($cArr);
+                $contacts = (static::rotateContacts($cArr) !== false)?static::rotateContacts($cArr):$contacts;
                 return $contacts;
             }
             
@@ -89,6 +91,11 @@ class ContactMaster extends Eloquent
         public static function rotateContacts($ids)
         {
             $toReturn = static::$contactsToDisplay - count($ids);
+            if(count($ids) == 0)
+            {
+                return false;
+                exit;
+            }
             $c = ContactMaster::whereNotIn('id', $ids)->take($toReturn)->get();
             foreach($c as $cont)
             {
@@ -96,8 +103,8 @@ class ContactMaster extends Eloquent
             }
             
             $contacts = ContactMaster::whereIn('id', $ids)->get();
-            $markNotDisplayed = ContactMaster::whereNotIn('id', $ids)->update(array('displayed'=> '0'));
-            $markDisplayed = ContactMaster::whereIn('id', $ids)->update(array('displayed'=>'1', 'displayed_at'=> date('Y-m-d')));
+            $markNotDisplayed = ContactMaster::whereNotIn('id', $ids)->where('volunteer_id','=',Auth::user()->id)->update(array('displayed'=> '0'));
+            $markDisplayed = ContactMaster::whereIn('id', $ids)->where('volunteer_id','=',Auth::user()->id)->update(array('displayed'=>'1', 'displayed_at'=> date('Y-m-d')));
             return $contacts;
             
         }
@@ -120,6 +127,7 @@ class ContactMaster extends Eloquent
                     $cb->contact_id = $contact->id;
                     $cb->call_date = $input['call_date'];
                     $cb->comments = $input['comments'];
+                    $cb->volunteer_id = Auth::user()->id;
                     $cb->save();
                     break;
                 case 'pledged':
@@ -129,6 +137,7 @@ class ContactMaster extends Eloquent
                     $pl = new Pledged();
                     $pl->contact_id = $contact->id;
                     $pl->amount_pledged = $input['amount_pledged'];
+                    $pl->volunteer_id = Auth::user()->id;
                     $pl->collect_date = $input['collect_date'];
                     $pl->comments = $input['comments'];
                     $pl->save();
