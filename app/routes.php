@@ -18,6 +18,10 @@ Route::get('/WarRoom/render_conv_progress', 'WarRoom@render_conv_progress');
 Route::get('/WarRoom/render_pledged_progress', 'WarRoom@render_pledged_progress');
 Route::get('/WarRoom/renderChildrenSupported', 'WarRoom@renderChildrenSupported');
 
+Route::post('/WarRoom/addContact', 'WarRoom@addContact');
+Route::post('/WarRoom/updateContact', 'WarRoom@updateContact');
+Route::post('/WarRoom/updateCallback', 'WarRoom@updateCallback');
+Route::post('/WarRoom/updatePledge', 'WarRoom@updatePledge');
 
 Route::get('login', array('as' => 'login', 'uses' => 'AuthController@showLogin'));
 Route::post('login', 'AuthController@postLogin');
