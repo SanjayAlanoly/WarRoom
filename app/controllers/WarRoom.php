@@ -4,13 +4,16 @@ class WarRoom extends BaseController {
 
 	public function showWarRoom()
 	{
-
 		session_start();
         $_SESSION['name'] = Auth::user()->first_name;
 
         
 		//return View::make('WarRoom',array('donation_amount' => $user[0]->donation_amount));
-		return View::make('WarRoom');
+		return View::make('WarRoom')
+                    ->with('donationRanges', ContactMaster::getDonationRange())
+                    ->with('contacts', ContactMaster::getContacts())
+                    ->with('callbacks', Callback::getCallBack())
+                    ->with('pledged', Pledged::getPledged());
 	}
 
 
@@ -183,5 +186,57 @@ class WarRoom extends BaseController {
 
         return Redirect::to('logout');
 	}
+        
+        public function addContact()
+        {
+            $data = array(
+                'name' => Input::get('name'),
+                'phone' => Input::get('phone'),
+                'email' => Input::get('email'),
+                'status' => Input::get('status'),
+                'donation_range' => Input::get('donation_range'),
+                'volunteer_id' => Auth::user()->id
+            );
+            
+            $cm = new ContactMaster();
+            
+            if($cm->validate($data))
+            {
+                $cm->name = $data['name'];
+                $cm->phone = $data['phone'];
+                $cm->email = $data['email'];
+                $cm->status = $data['status'];
+                $cm->donation_range = $data['donation_range'];
+                $cm->volunteer_id = $data['volunteer_id'];
+                $cm->save();
+                $res = "Contact added successfully";
+            }
+            
+            else
+            {
+                $res = "There was an error adding the contact. Please try again";
+            }
+            
+            return $res;
+            
+        }
+        
+        public function updateContact()
+        {
+            
+            return ContactMaster::updateContact(Input::all());
+            
+        }
+        
+        public function updateCallback()
+        {
+            
+            return Callback::updateCallback(Input::all());
+        }
+        
+        public function updatePledge()
+        {
+            return Pledged::updatePledge(Input::all());
+        }
 
 }
