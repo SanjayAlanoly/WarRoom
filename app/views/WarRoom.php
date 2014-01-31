@@ -92,7 +92,23 @@
 					<button id="add_pledged" class="btn btn-large btn-primary pull-right " type="button">Add Money Pledged</button>
 				</div>
 			</div>
-                        <div class="row" style="margin-top:10px;">
+                        
+		</div>
+
+        <div class="panel-group" id="accordion">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                  Collapsible Group Item #1
+                </a>
+              </h4>
+            </div>
+            <div id="collapseOne" class="panel-collapse collapse in">
+              <div class="panel-body">
+                
+
+                 <div class="row" style="margin-top:10px;">
                             <table>
                                 <tr>
                                     <th>Name</th>
@@ -188,7 +204,14 @@
                                 <button id="add_contact" class="btn btn-large" type="button">Add Contact</button>
                             </div>
                         </div>
-		</div>
+
+
+
+                
+              </div>
+            </div>
+          </div>
+        </div>
 
 		<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
 		  	Launch demo modal
@@ -202,7 +225,12 @@
 		        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
 		      </div>
 		      <div class="modal-body">
-		        ...
+
+
+                   
+
+
+		        
 		      </div>
 		      <div class="modal-footer">
 		        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

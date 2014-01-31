@@ -5,7 +5,7 @@ class WarRoom extends BaseController {
 	public function showWarRoom()
 	{
 		session_start();
-        $_SESSION['name'] = Auth::user()->first_name;
+        $_SESSION['name'] = Auth::user()->first_name . " " . Auth::user()->last_name;
 
         
 		//return View::make('WarRoom',array('donation_amount' => $user[0]->donation_amount));
