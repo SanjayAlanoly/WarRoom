@@ -186,6 +186,45 @@ class WarRoom extends BaseController {
 
         return Redirect::to('logout');
 	}
+
+	public static function renderOpenConv()
+	{
+
+		$contacts = ContactMaster::getContacts();
+
+		echo "	        
+
+		<table>
+	            <tr>
+	                <th>Name</th>
+	                <th>Email</th>
+	                <th>Phone</th>
+	                <th>Status</th>
+	                <th>Donation Range</th>
+	                <th>&nbsp;</th>
+	                <th>&nbsp;</th>
+	                <th>&nbsp;</th>
+	            </tr>";
+
+        foreach($contacts as $contact)
+        {
+
+
+        echo "
+		        <tr>
+		            <td>$contact->name</td>
+		            <td>$contact->email</td>
+		            <td>$contact->phone</td>
+		            <td>$contact->status</td>
+		            <td>$contact->donation_range</td>
+		            <td><button onclick=\"updatecm('pledged',$contact->id)\">Pledge</button></td>
+		            <td><button onclick=\"updatecm('call_back',$contact->id)\">Call Back</button></td>
+		            <td><button onclick=\"updatecm('not_interested',$contact->id)\">Not Interested</button></td>
+		        </tr>";
+       }
+
+       echo "</table>";
+	}
         
         public function addContact()
         {

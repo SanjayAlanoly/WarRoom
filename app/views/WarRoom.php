@@ -109,30 +109,11 @@
                 
 
                  <div class="row" style="margin-top:10px;">
-                            <table>
-                                <tr>
-                                    <th>Name</th>
-                                    <th>Email</th>
-                                    <th>Phone</th>
-                                    <th>Status</th>
-                                    <th>Donation Range</th>
-                                    <th>&nbsp;</th>
-                                    <th>&nbsp;</th>
-                                    <th>&nbsp;</th>
-                                </tr>
-                                <?php foreach($contacts as $contact): ?>
-                                <tr>
-                                    <td><?php echo $contact->name?></td>
-                                    <td><?php echo $contact->email?></td>
-                                    <td><?php echo $contact->phone?></td>
-                                    <td><?php echo $contact->status?></td>
-                                    <td><?php echo $contact->donation_range?></td>
-                                    <td><button onclick="updatecm('pledged',<?php echo $contact->id?>)">Pledge</button></td>
-                                    <td><button onclick="updatecm('call_back', <?php echo $contact->id?>)">Call Back</button></td>
-                                    <td><button onclick="updatecm('not_interested',<?php echo $contact->id?>)">Not Interested</button></td>
-                                </tr>
-                                <?php endforeach ?>
-                            </table>
+
+                                <div id="open_conv_list">
+                                    <?php WarRoom::renderOpenConv(); ?>
+                                </div>
+                           
                         </div>
                         
                         <h3>Call Back</h3>
@@ -207,7 +188,7 @@
 
 
 
-                
+
               </div>
             </div>
           </div>
@@ -356,10 +337,19 @@
                             $("#email").val('');
                             $("#phone").val('');
                             $("#addContact").dialog("close");
-                            location.reload();
+                            
                         }
                                 
-                                )
+                        )
+
+                        $.get("<?php echo url('/WarRoom/renderOpenConv')?>",{},
+                            function(data)
+                            {
+                                //alert("hello");
+
+                                $("#open_conv_list").html(data);
+                            }
+                        )
                     },
                     Cancel: function(){
                         $(this).dialog("close");

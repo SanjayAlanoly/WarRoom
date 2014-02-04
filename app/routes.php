@@ -17,6 +17,7 @@ Route::get('/WarRoom/add_pledged', 'WarRoom@addPledged');
 Route::get('/WarRoom/render_conv_progress', 'WarRoom@render_conv_progress');
 Route::get('/WarRoom/render_pledged_progress', 'WarRoom@render_pledged_progress');
 Route::get('/WarRoom/renderChildrenSupported', 'WarRoom@renderChildrenSupported');
+Route::get('/WarRoom/renderOpenConv','WarRoom@renderOpenConv');
 
 Route::post('/WarRoom/addContact', 'WarRoom@addContact');
 Route::post('/WarRoom/updateContact', 'WarRoom@updateContact');

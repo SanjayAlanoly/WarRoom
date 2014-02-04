@@ -12,7 +12,7 @@ class Callback extends Eloquent
     public static function getCallBack()
     {
         return static::where('volunteer_id','=',Auth::user()->id)
-                ->where('call_date','<=', date('Y-m-d'))->get();
+                ->orderBy('call_date','ASC')->get();
     }
     
     

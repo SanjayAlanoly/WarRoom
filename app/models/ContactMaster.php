@@ -37,78 +37,16 @@ class ContactMaster extends Eloquent
         public static function getContacts()
         {
             $contacts = ContactMaster::where('volunteer_id','=',Auth::user()->id)
-                    ->where('displayed_at', '=', date("Y-m-d"))->take(5)->get();
-            
-            if (count($contacts)== static::$contactsToDisplay )
-            {
-                return $contacts;
-            }
-            
-            elseif (count($contacts)==0)
-            {
-                $cArr = array();
-                $contacts = ContactMaster::where('volunteer_id','=',Auth::user()->id)
-                    ->whereIn('status', array('open','call_back'))
-                    ->where('displayed','=', '0')
+                    ->whereIn('status', array('open'))
                     ->orderBy('updated_at', 'ASC')
-                    ->take(static::$contactsToDisplay)
                     ->get();
-                foreach($contacts as $c)
-                {
-                    $contact = ContactMaster::find($c->id);
-                    $contact->displayed_at = date("Y-m-d");
-                    $contact->displayed = '1';
-                    $contact->save();
-                    $cArr[] = $contact->id;
-                }
-                if(count($cArr) == static::$contactsToDisplay)
-                {
-                    return $contacts;
-                }
-                else
-                {
-                    $contacts = (static::rotateContacts($cArr) !== false)?static::rotateContacts($cArr):$contacts;
-                    return $contacts;
-                }
-            }
-            else
-            {
-                $cArr = array();
-                foreach ($contacts as $c)
-                {
-                    $contact = ContactMaster::find($c->id);
-                    $contact->displayed_at = date("Y-m-d");
-                    $contact->displayed = '1';
-                    $contact->save();
-                    $cArr[] = $contact->id;
-                }
-                $contacts = (static::rotateContacts($cArr) !== false)?static::rotateContacts($cArr):$contacts;
-                return $contacts;
-            }
-            
-        }
-        
-        public static function rotateContacts($ids)
-        {
-            $toReturn = static::$contactsToDisplay - count($ids);
-            if(count($ids) == 0)
-            {
-                return false;
-                exit;
-            }
-            $c = ContactMaster::whereNotIn('id', $ids)->take($toReturn)->get();
-            foreach($c as $cont)
-            {
-                $ids[] = $cont->id;
-            }
-            
-            $contacts = ContactMaster::whereIn('id', $ids)->get();
-            $markNotDisplayed = ContactMaster::whereNotIn('id', $ids)->where('volunteer_id','=',Auth::user()->id)->update(array('displayed'=> '0'));
-            $markDisplayed = ContactMaster::whereIn('id', $ids)->where('volunteer_id','=',Auth::user()->id)->update(array('displayed'=>'1', 'displayed_at'=> date('Y-m-d')));
+
             return $contacts;
-            
+         
+         
         }
         
+
         public static function updateContact($input)
         {
             $contact = ContactMaster::find($input['id']);

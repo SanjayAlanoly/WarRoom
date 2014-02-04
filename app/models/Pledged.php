@@ -12,7 +12,7 @@ class Pledged extends Eloquent
     public static function getPledged()
     {
         return static::where('volunteer_id','=',Auth::user()->id)
-                ->where('collect_date', '<=', date('Y-m-d'))->get();
+                ->orderBy('collect_date','ASC')->get();
     }
     
     public static function updatePledge($input)
