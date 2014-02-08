@@ -11,7 +11,7 @@ $GLOBALS['pfc_timeout'] = 35;
 
 // Gives channel operator rights to the first connected user
 // (Default value: true)
-$GLOBALS['first_is_op'] = true;
+$GLOBALS['first_is_op'] = false;
 
 // custom user hooks
 $GLOBALS['pfc_hooks'] = array();
@@ -73,6 +73,17 @@ $GLOBALS['pfc_hooks']['pfc.before.auth'][5] = function ($app, $req, $res) {
 	 	return function () use ($app, $req, $res) {
 		return $_SESSION['name'];
 	 	};
+};
+
+
+$GLOBALS['pfc_hooks']['pfc.isop'][5] = function ($app, $req, $res) {
+  return function ($login, $channel, $uid, $cid) use ($app, $req, $res) {
+    if ($login == 'Admin MakeaDiff' or $login == 'Sanjay Thomas') {
+      return true;
+    } else {
+      return false;
+    }
+  };
 };
 
 ?>

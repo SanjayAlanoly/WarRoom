@@ -52,7 +52,7 @@ function init(){
 		})
 
 
-	})
+	});
 
 
 	$("#add_pledged").click(function(){
@@ -79,7 +79,9 @@ function init(){
 
 
 
-	})
+	});
+
+
 
 
 

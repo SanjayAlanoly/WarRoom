@@ -187,12 +187,18 @@ class WarRoom extends BaseController {
         return Redirect::to('logout');
 	}
 
-	public static function renderOpenConv()
+	public static function renderConvList()
 	{
 
 		$contacts = ContactMaster::getContacts();
 
-		echo "	        
+        $callbacks = Callback::getCallBack();
+
+        $pledged = Pledged::getPledged();
+
+		echo "	 
+
+		<div class=\"row\" style=\"margin-top:10px;\">       
 
 		<table>
 	            <tr>
@@ -217,65 +223,168 @@ class WarRoom extends BaseController {
 		            <td>$contact->phone</td>
 		            <td>$contact->status</td>
 		            <td>$contact->donation_range</td>
-		            <td><button onclick=\"updatecm('pledged',$contact->id)\">Pledge</button></td>
-		            <td><button onclick=\"updatecm('call_back',$contact->id)\">Call Back</button></td>
-		            <td><button onclick=\"updatecm('not_interested',$contact->id)\">Not Interested</button></td>
+		            <td><button class='list_button' title=\"Pledged\" onclick=\"updatecm('pledged',$contact->id)\"><img src=\"img/pledged.png\" alt=\"Pledged\" ></button></td>
+		            <td><button class='list_button' title=\"Call Back\" onclick=\"updatecm('call_back',$contact->id)\"><img src=\"img/call_back.png\" alt=\"Call Back\" ></button></td>
+		            <td><button class='list_button' title=\"Not Interested\" onclick=\"updatecm('not_interested',$contact->id)\"><img src=\"img/not_interested.png\" alt=\"Not Interested\" ></button></td>
 		        </tr>";
        }
 
-       echo "</table>";
+        echo "</table>";
+
+        echo "</div>";
+
+
+       	echo	"
+	       		<h3>Call Back</h3>
+		        <div class=\"row\" style=\"margin-top:10px;\">
+		            <table>
+		                <tr>
+		                    <th>Name</th>
+		                    <th>Email</th>
+		                    <th>Phone</th>
+		                    <th>Call Date</th>
+		                    <th>Comments</th>
+		                    <th>&nbsp;</th>
+		                    <th>&nbsp;</th>
+		                </tr>
+		               
+		        ";
+
+		foreach($callbacks as $cb){
+
+			echo "
+		                <tr>
+		                    <td>";
+		                    print_r($cb->contactmaster->name);
+		                    echo "</td>
+		                    <td>";
+		                    print_r($cb->contactmaster->email);
+		                    echo"</td>
+		                    <td>";
+		                    print($cb->contactmaster->phone);
+		                    echo"</td>
+		                    <td>$cb->call_date</td>
+		                    <td>$cb->comments</td>
+		                    <td><button class='list_button' title=\"Pledged\" onclick=\"updatecb('pledged',$cb->id)\"><img src=\"img/pledged.png\" alt=\"Pledged\" ></button></td>
+		                    <td><button class='list_button' title=\"Call Back\" onclick=\"updatecb('call_back',$cb->id)\"><img src=\"img/call_back.png\" alt=\"Call Back\" ></button></td>
+		                    <td><button class='list_button' title=\"Not Interested\" onclick=\"updatecb('not_interested',$cb->id)\"><img src=\"img/not_interested.png\" alt=\"Not Interested\" ></button></td>
+		                </tr>
+		         ";
+
+		}
+
+
+		echo "</table>";
+
+		if(count($callbacks)==0){
+		    echo "<p>List Empty</p>";
+		}
+
+		echo "
+		        </div>
+		        
+		        <h3>Pledged</h3>
+		        <div class=\"row\" style=\"margin-top:10px;\">
+		            <table>
+		                <tr>
+		                    <th>Name</th>
+		                    <th>Email</th>
+		                    <th>Phone</th>
+		                    <th>Amount pledged</th>
+		                    <th>Collect Date</th>
+		                    <th>Comments</th>
+		                    <th>&nbsp;</th>
+		                    <th>&nbsp;</th>
+		                </tr>
+		    ";
+		               
+        foreach($pledged as $pl){
+        
+       		echo "	
+                <tr>
+                    <td>";
+                    print_r($pl->contactmaster->name);
+                    echo "</td>
+                    <td>";
+                    print_r($pl->contactmaster->email);
+                    echo"</td>
+                    <td>";
+                    print_r($pl->contactmaster->phone);
+                    echo"</td>
+                    <td>$pl->amount_pledged</td>
+                    <td>$pl->collect_date</td>
+                    <td>$pl->comments</td>
+                    <td><button class='list_button' title=\"Collected\" onclick=\"updatepl('collected', $pl->id)\"><img src=\"img/collected.png\" alt=\"Collected\" ></button></td>
+                    <td><button class='list_button' title=\"Retractecd\" onclick=\"updatepl('retracted',$pl->id)\"><img src=\"img/not_interested.png\" alt=\"Retractecd\" ></button></td>
+                </tr>
+
+                ";
+        }
+
+
+		echo "</table>";
+
+		if(count($pledged)==0){
+		  	echo "<p>List Empty</p>";
+		}
+		       
+
+		echo "</div>";
+                        
 	}
+
+
         
-        public function addContact()
+    public function addContact()
+    {
+        $data = array(
+            'name' => Input::get('name'),
+            'phone' => Input::get('phone'),
+            'email' => Input::get('email'),
+            'status' => Input::get('status'),
+            'donation_range' => Input::get('donation_range'),
+            'volunteer_id' => Auth::user()->id
+        );
+        
+        $cm = new ContactMaster();
+        
+        if($cm->validate($data))
         {
-            $data = array(
-                'name' => Input::get('name'),
-                'phone' => Input::get('phone'),
-                'email' => Input::get('email'),
-                'status' => Input::get('status'),
-                'donation_range' => Input::get('donation_range'),
-                'volunteer_id' => Auth::user()->id
-            );
-            
-            $cm = new ContactMaster();
-            
-            if($cm->validate($data))
-            {
-                $cm->name = $data['name'];
-                $cm->phone = $data['phone'];
-                $cm->email = $data['email'];
-                $cm->status = $data['status'];
-                $cm->donation_range = $data['donation_range'];
-                $cm->volunteer_id = $data['volunteer_id'];
-                $cm->save();
-                $res = "Contact added successfully";
-            }
-            
-            else
-            {
-                $res = "There was an error adding the contact. Please try again";
-            }
-            
-            return $res;
-            
+            $cm->name = $data['name'];
+            $cm->phone = $data['phone'];
+            $cm->email = $data['email'];
+            $cm->status = $data['status'];
+            $cm->donation_range = $data['donation_range'];
+            $cm->volunteer_id = $data['volunteer_id'];
+            $cm->save();
+            $res = "Contact added successfully";
         }
         
-        public function updateContact()
+        else
         {
-            
-            return ContactMaster::updateContact(Input::all());
-            
+            $res = "There was an error adding the contact. Please try again";
         }
         
-        public function updateCallback()
-        {
-            
-            return Callback::updateCallback(Input::all());
-        }
+        return $res;
         
-        public function updatePledge()
-        {
-            return Pledged::updatePledge(Input::all());
-        }
+    }
+    
+    public function updateContact()
+    {
+        
+        return ContactMaster::updateContact(Input::all());
+        
+    }
+    
+    public function updateCallback()
+    {
+        
+        return Callback::updateCallback(Input::all());
+    }
+    
+    public function updatePledge()
+    {
+        return Pledged::updatePledge(Input::all());
+    }
 
 }

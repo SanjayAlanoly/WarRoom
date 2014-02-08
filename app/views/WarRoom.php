@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="utf-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" type="text/css" href="phpfreechat-2.1.0/client/themes/default/jquery.phpfreechat.min.css" />
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -107,120 +108,22 @@
             <div id="collapseOne" class="panel-collapse collapse in">
               <div class="panel-body">
                 
-
-                 <div class="row" style="margin-top:10px;">
-
-                                <div id="open_conv_list">
-                                    <?php WarRoom::renderOpenConv(); ?>
-                                </div>
-                           
-                        </div>
+                <div id="conv_list">
+                    <?php WarRoom::renderConvList(); ?>
+                </div>
                         
-                        <h3>Call Back</h3>
-                        <div class="row" style="margin-top:10px;">
-                            <table>
-                                <tr>
-                                    <th>Name</th>
-                                    <th>Email</th>
-                                    <th>Phone</th>
-                                    <th>Call Date</th>
-                                    <th>Comments</th>
-                                    <th>&nbsp;</th>
-                                    <th>&nbsp;</th>
-                                </tr>
-                               
-                                <?php foreach($callbacks as $cb): ?>
-                                <tr>
-                                    <td><?php print_r($cb->contactmaster->name) ?></td>
-                                    <td><?php print_r($cb->contactmaster->email) ?></td>
-                                    <td><?php print_r($cb->contactmaster->phone) ?></td>
-                                    <td><?php echo $cb->call_date?></td>
-                                    <td><?php echo $cb->comments?></td>
-                                    <td><button onclick="updatecb('pledged',<?php echo $cb->id?>)">Pledge</button></td>
-                                    <td><button onclick="updatecb('call_back', <?php echo $cb->id?>)">Call Back</button></td>
-                                    <td><button onclick="updatecb('not_interested',<?php echo $cb->id?>)">Not Interested</button></td>
-                                </tr>
-                                <?php endforeach ?>
-                            </table>
-                             <?php if(count($callbacks)==0): ?>
-                                <p>List Empty</p>
-                                <?php endif ?>
-                        </div>
-                        
-                        <h3>Pledged</h3>
-                        <div class="row" style="margin-top:10px;">
-                            <table>
-                                <tr>
-                                    <th>Name</th>
-                                    <th>Email</th>
-                                    <th>Phone</th>
-                                    <th>Amount pledged</th>
-                                    <th>Collect Date</th>
-                                    <th>Comments</th>
-                                    <th>&nbsp;</th>
-                                    <th>&nbsp;</th>
-                                </tr>
-                               
-                                <?php foreach($pledged as $pl): ?>
-                                <tr>
-                                    <td><?php print_r($pl->contactmaster->name) ?></td>
-                                    <td><?php print_r($pl->contactmaster->email) ?></td>
-                                    <td><?php print_r($pl->contactmaster->phone) ?></td>
-                                    <td><?php echo $pl->amount_pledged?></td>
-                                    <td><?php echo $pl->collect_date?></td>
-                                    <td><?php echo $pl->comments?></td>
-                                    <td><button onclick="updatepl('collected', <?php echo $pl->id?>)">Collect</button></td>
-                                    <td><button onclick="updatepl('retracted',<?php echo $pl->id?>)">Retract</button></td>
-                                </tr>
-                                <?php endforeach ?>
-                            </table>
-                             <?php if(count($pledged)==0): ?>
-                                <p>List Empty</p>
-                                <?php endif ?>
-                        </div>
-                        
-                        
-                        <div class="row" style="margin-top:10px;">
-                            <div class="col-md-3">
-                                <button id="add_contact" class="btn btn-large" type="button">Add Contact</button>
-                            </div>
-                        </div>
-
-
-
+                <div class="row" style="margin-top:10px;">
+                    <div class="col-md-3">
+                        <button id="add_contact" class="btn btn-large" type="button">Add Contact</button>
+                    </div>
+                </div>
 
               </div>
             </div>
           </div>
         </div>
 
-		<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-		  	Launch demo modal
-		</button>
-
-		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-		  <div class="modal-dialog">
-		    <div class="modal-content">
-		      <div class="modal-header">
-		        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-		        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-		      </div>
-		      <div class="modal-body">
-
-
-                   
-
-
-		        
-		      </div>
-		      <div class="modal-footer">
-		        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-		        <button type="button" class="btn btn-primary">Save changes</button>
-		      </div>
-		    </div><!-- /.modal-content -->
-		  </div><!-- /.modal-dialog -->
-		</div><!-- /.modal -->
-	
+		
 		<br><br>
 		
 		
@@ -306,7 +209,10 @@
 
         <link href="<?php echo url('css/ui-lightness/jquery-ui-1.10.4.custom.css') ?>" media="all" type="text/css" rel="stylesheet">
     <script type="text/javascript">
-  	$('#mychat').phpfreechat({ serverUrl: 'phpfreechat-2.1.0/server' });
+  	$('#mychat').phpfreechat({ 
+        refresh_delay : 2000,
+        focus_on_connect : false,
+        serverUrl: 'phpfreechat-2.1.0/server' });
 
 /*	var clock = $('.your-clock').FlipClock({
 		countdown : true	
@@ -337,19 +243,21 @@
                             $("#email").val('');
                             $("#phone").val('');
                             $("#addContact").dialog("close");
+
+                            $.get("<?php echo url('/WarRoom/renderConvList')?>",{},
+                                function(data)
+                                {
+                                    //alert(data);
+
+                                    $("#conv_list").html(data);
+                                }
+                            )
                             
                         }
                                 
                         )
 
-                        $.get("<?php echo url('/WarRoom/renderOpenConv')?>",{},
-                            function(data)
-                            {
-                                //alert("hello");
-
-                                $("#open_conv_list").html(data);
-                            }
-                        )
+                        
                     },
                     Cancel: function(){
                         $(this).dialog("close");
@@ -375,7 +283,14 @@
                             $("#datepicker1").val('');
                             $("#comments").val('');
                             $("#contactCallback").dialog("close");
-                            location.reload();
+                            $.get("<?php echo url('/WarRoom/renderConvList')?>",{},
+                                function(data)
+                                {
+                                    //alert(data);
+
+                                    $("#conv_list").html(data);
+                                }
+                            )
                         }
                                 
                                 );
@@ -404,7 +319,14 @@
                             $("#datepicker41").val('');
                             $("#comments4").val('');
                             $("#contactCallbackCB").dialog("close");
-                            location.reload();
+                            $.get("<?php echo url('/WarRoom/renderConvList')?>",{},
+                                function(data)
+                                {
+                                    //alert(data);
+
+                                    $("#conv_list").html(data);
+                                }
+                            )
                         }
                                 
                                 );
@@ -434,7 +356,14 @@
                         {
                             $("#datepicker1").val('');
                             $("#contactPledged").dialog("close");
-                            location.reload();
+                            $.get("<?php echo url('/WarRoom/renderConvList')?>",{},
+                                function(data)
+                                {
+                                    //alert(data);
+
+                                    $("#conv_list").html(data);
+                                }
+                            )
                         }
                                 
                                 );
@@ -463,7 +392,14 @@
                         {
                             $("#datepicker3").val('');
                             $("#contactPledgedCB").dialog("close");
-                            location.reload();
+                            $.get("<?php echo url('/WarRoom/renderConvList')?>",{},
+                                function(data)
+                                {
+                                    //alert(data);
+
+                                    $("#conv_list").html(data);
+                                }
+                            )
                         }
                                 
                                 );
@@ -490,7 +426,14 @@
                         {
                             $("#amount_collected").val('');
                             $("#collect").dialog("close");
-                            location.reload();
+                            $.get("<?php echo url('/WarRoom/renderConvList')?>",{},
+                                function(data)
+                                {
+                                    //alert(data);
+
+                                    $("#conv_list").html(data);
+                                }
+                            )
                         }
                                 
                                 );
@@ -535,7 +478,14 @@
                                 },
                                 function(data)
                                 {
-                                    location.reload();
+                                    $.get("<?php echo url('/WarRoom/renderConvList')?>",{},
+                                        function(data)
+                                        {
+                                            //alert(data);
+
+                                            $("#conv_list").html(data);
+                                        }
+                                    )
                                 }
                                 );
                             }
@@ -567,8 +517,14 @@
                                 },
                                 function(data)
                                 {
-                                    location.reload();
-                                }
+                                    $.get("<?php echo url('/WarRoom/renderConvList')?>",{},
+                                        function(data)
+                                        {
+                                            //alert(data);
+
+                                            $("#conv_list").html(data);
+                                        }
+                                    )                                }
                                 );
                             }
                     break;
@@ -600,9 +556,15 @@
                                     id: id
                                 },
                                 function(data)
-                                {
-                                    location.reload();
-                                }
+                                 {
+                                    $.get("<?php echo url('/WarRoom/renderConvList')?>",{},
+                                        function(data)
+                                        {
+                                            //alert(data);
+
+                                            $("#conv_list").html(data);
+                                        }
+                                    )                                }
                                 );
                             }
                     
