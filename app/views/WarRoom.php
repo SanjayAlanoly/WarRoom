@@ -48,17 +48,12 @@
 				<div class="your-clock"></div>
 			</div>
 		</div>
-
-		
-		<br>
-		
-		
+	
 
 		
 		<div id="children_supported">
 			<?php WarRoom::renderChildrenSupported(); ?>	
 		</div>
-		
 		
 		
 		<br>
@@ -78,21 +73,6 @@
 				</div>
 			</div>
 
-			<div class="row">
-				<div class="col-md-3">
-					<button id="add_conv" class="btn btn-large btn-primary" type="button" >Add Conversation</button>
-				</div>
-				<div class="col-md-2 col-md-offset-5">
-					<div class="input-group">
-					  <span class="input-group-addon">Rs</span>
-					  <input id="pledged_amount" type="text" class="form-control pull-right">
-					  
-					</div>
-				</div>		
-				<div class="col-md-2">
-					<button id="add_pledged" class="btn btn-large btn-primary pull-right " type="button">Add Money Pledged</button>
-				</div>
-			</div>
                         
 		</div>
 
@@ -101,20 +81,20 @@
             <div class="panel-heading">
               <h4 class="panel-title">
                 <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-                  Collapsible Group Item #1
+                  Contact List
                 </a>
               </h4>
             </div>
             <div id="collapseOne" class="panel-collapse collapse in">
               <div class="panel-body">
                 
-                <div id="conv_list">
+                <div id="conv_list" class="conv_list">
                     <?php WarRoom::renderConvList(); ?>
                 </div>
                         
                 <div class="row" style="margin-top:10px;">
-                    <div class="col-md-3">
-                        <button id="add_contact" class="btn btn-large" type="button">Add Contact</button>
+                    <div class="col-md-12">
+                        <button id="add_contact" class="btn btn-primary btn-lg" type="button">Add Contact</button>
                     </div>
                 </div>
 
@@ -229,6 +209,9 @@
                 width: 400,
                 buttons: {
                     'Save' : function(){
+
+                        $("#addContact").dialog("close");
+
                         $.post("<?php echo url('/WarRoom/addContact')?>",
                         {
                             name: $("#name").val(),
@@ -242,7 +225,7 @@
                             $("#name").val('');
                             $("#email").val('');
                             $("#phone").val('');
-                            $("#addContact").dialog("close");
+                            
 
                             $.get("<?php echo url('/WarRoom/renderConvList')?>",{},
                                 function(data)
@@ -250,6 +233,7 @@
                                     //alert(data);
 
                                     $("#conv_list").html(data);
+
                                 }
                             )
                             
@@ -271,6 +255,9 @@
                 width: 350,
                 buttons: {
                     'Save' : function(){
+
+                        $("#contactCallback").dialog("close");
+
                         $.post("<?php echo url('/WarRoom/updateContact')?>",
                         {
                             type: 'call_back',
@@ -282,7 +269,7 @@
                         {
                             $("#datepicker1").val('');
                             $("#comments").val('');
-                            $("#contactCallback").dialog("close");
+                            
                             $.get("<?php echo url('/WarRoom/renderConvList')?>",{},
                                 function(data)
                                 {
@@ -307,6 +294,9 @@
                 width: 350,
                 buttons: {
                     'Save' : function(){
+
+                        $("#contactCallbackCB").dialog("close");
+
                         $.post("<?php echo url('/WarRoom/updateCallback')?>",
                         {
                             type: 'call_back',
@@ -318,7 +308,7 @@
                         {
                             $("#datepicker41").val('');
                             $("#comments4").val('');
-                            $("#contactCallbackCB").dialog("close");
+                            
                             $.get("<?php echo url('/WarRoom/renderConvList')?>",{},
                                 function(data)
                                 {
@@ -344,6 +334,9 @@
                 width: 380,
                 buttons: {
                     'Save' : function(){
+
+                        $("#contactPledged").dialog("close");
+
                         $.post("<?php echo url('/WarRoom/updateContact')?>",
                         {
                             type: 'pledged',
@@ -355,7 +348,7 @@
                         function()
                         {
                             $("#datepicker1").val('');
-                            $("#contactPledged").dialog("close");
+                            
                             $.get("<?php echo url('/WarRoom/renderConvList')?>",{},
                                 function(data)
                                 {
@@ -380,6 +373,9 @@
                 width: 380,
                 buttons: {
                     'Save' : function(){
+
+                        $("#contactPledgedCB").dialog("close");
+
                         $.post("<?php echo url('/WarRoom/updateCallback')?>",
                         {
                             type: 'pledged',
@@ -391,7 +387,7 @@
                         function(data)
                         {
                             $("#datepicker3").val('');
-                            $("#contactPledgedCB").dialog("close");
+                            
                             $.get("<?php echo url('/WarRoom/renderConvList')?>",{},
                                 function(data)
                                 {
@@ -416,6 +412,9 @@
                 width: 380,
                 buttons: {
                     'Save' : function(){
+                         
+                        $("#collect").dialog("close");
+
                         $.post("<?php echo url('/WarRoom/updatePledge')?>",
                         {
                             type: 'collect',
@@ -425,7 +424,7 @@
                         function(data)
                         {
                             $("#amount_collected").val('');
-                            $("#collect").dialog("close");
+                           
                             $.get("<?php echo url('/WarRoom/renderConvList')?>",{},
                                 function(data)
                                 {

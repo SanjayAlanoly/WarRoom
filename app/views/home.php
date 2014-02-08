@@ -193,9 +193,9 @@
 						$j = $i + 1;
 
 						if($i == $leaderboard['user_count_city'])
-							echo "<tr><td class='middle'>$j</td><td class='middle'>" .  $leaderboard['fundraisers_city'][$i]->first_name . "</td><td class='middle'>" . $leaderboard['fundraisers_city'][$i]->amount . "</td>";
+							echo "<tr><td class='middle'>$j</td><td class='middle'>" .  $leaderboard['fundraisers_city'][$i]->first_name . " " . $leaderboard['fundraisers_city'][$i]->last_name . "</td><td class='middle'>" . $leaderboard['fundraisers_city'][$i]->amount . "</td>";
 						else
-							echo "<tr><td>$j</td><td>" .  $leaderboard['fundraisers_city'][$i]->first_name . "</td><td>" . $leaderboard['fundraisers_city'][$i]->amount . "</td>";
+							echo "<tr><td>$j</td><td>" .  $leaderboard['fundraisers_city'][$i]->first_name . " " . $leaderboard['fundraisers_city'][$i]->last_name . "</td><td>" . $leaderboard['fundraisers_city'][$i]->amount . "</td>";
 
 					}
 						
@@ -213,7 +213,7 @@
 
 
 				<table>
-				<th>Rank</th><th>Name</th><th>Amount Raised</th>
+				<th>Rank</th><th>Name</th><th>City</th><th>Amount Raised</th>
 
 				<?php
 
@@ -224,9 +224,11 @@
 						$j = $i + 1;
 
 						if($i == $leaderboard['user_count_national'])
-							echo "<tr><td class='middle'>$j</td><td class='middle'>" .  $leaderboard['fundraisers_national'][$i]->first_name . "</td><td class='middle'>" . $leaderboard['fundraisers_national'][$i]->amount . "</td>";
+							echo "<tr><td class='middle'>$j</td><td class='middle'>" .  $leaderboard['fundraisers_national'][$i]->first_name . " " . $leaderboard['fundraisers_national'][$i]->last_name . "</td><td class='middle'>" . $leaderboard['fundraisers_national'][$i]->city_name . "</td><td class='middle'>" . $leaderboard['fundraisers_national'][$i]->amount . "</td>";
 						else
-							echo "<tr><td>$j</td><td>" .  $leaderboard['fundraisers_national'][$i]->first_name . "</td><td>" . $leaderboard['fundraisers_national'][$i]->amount . "</td>";
+							echo "<tr><td>$j</td><td>" .  $leaderboard['fundraisers_national'][$i]->first_name . " " 
+						. $leaderboard['fundraisers_national'][$i]->last_name . "</td><td>" . $leaderboard['fundraisers_national'][$i]->city_name 
+						. "</td><td>" . $leaderboard['fundraisers_national'][$i]->amount . "</td>";
 
 					}
 						

@@ -1,7 +1,10 @@
 function init(){
 
 
+	$('.list_popover').popover({'html' : true});
+
 	$(document).ready(function() {
+		
 		$.ajaxSetup({ cache: false }); 
 		setInterval(function() {
 		$('#children_supported').load('WarRoom/renderChildrenSupported');

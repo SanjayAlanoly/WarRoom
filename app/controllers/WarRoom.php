@@ -1,6 +1,7 @@
 <?php
 
-class WarRoom extends BaseController {
+class WarRoom extends BaseController
+{
 
 	public function showWarRoom()
 	{
@@ -20,7 +21,7 @@ class WarRoom extends BaseController {
 	public static function renderChildrenSupported(){
 
 
-		$result_pledged_amount =  DB::select('SELECT SUM(pledged_amount) as amount FROM money_pledged WHERE DATE(created_at) = CURDATE()');
+		$result_pledged_amount =  DB::select('SELECT SUM(amount_pledged) as amount FROM pledged WHERE DATE(updated_at) = CURDATE()');
 
 		if(isset($result_pledged_amount[0])){
 
@@ -52,7 +53,7 @@ class WarRoom extends BaseController {
 
 		$result_target =  DB::select('select quantity from target where target_date = ? AND type = ?', array(date("Y-m-d"),'conversation'));
 
-		$result_conv_count =  DB::select('SELECT COUNT(*) as count FROM conversation WHERE DATE(created_at) = CURDATE()');
+		$result_conv_count =  DB::select('SELECT COUNT(*) as count FROM contact_master WHERE DATE(updated_at) = CURDATE() AND status <> ? AND status <> ? AND status <> ?',array('collected','retracted','open'));
 		
 		if(isset($result_target[0])){
 
@@ -122,7 +123,7 @@ class WarRoom extends BaseController {
 
 		$result_target =  DB::select('select quantity from target where target_date = ? AND type = ?', array(date("Y-m-d"),'money_pledged'));
 
-		$result_pledged_amount =  DB::select('SELECT SUM(pledged_amount) as amount FROM money_pledged WHERE DATE(created_at) = CURDATE()');
+		$result_pledged_amount =  DB::select('SELECT SUM(amount_pledged) as amount FROM pledged WHERE DATE(updated_at) = CURDATE()');
 		
 		if(isset($result_target[0])){
 
@@ -198,18 +199,16 @@ class WarRoom extends BaseController {
 
 		echo "	 
 
-		<div class=\"row\" style=\"margin-top:10px;\">       
+		<div class=\"row\">
+
+		<h3>To Call</h3>       
 
 		<table>
 	            <tr>
 	                <th>Name</th>
-	                <th>Email</th>
-	                <th>Phone</th>
-	                <th>Status</th>
-	                <th>Donation Range</th>
-	                <th>&nbsp;</th>
-	                <th>&nbsp;</th>
-	                <th>&nbsp;</th>
+	                <th>Pledged</th>
+	                <th>Call Back</th>
+	                <th>Not Interested</th>
 	            </tr>";
 
         foreach($contacts as $contact)
@@ -218,11 +217,12 @@ class WarRoom extends BaseController {
 
         echo "
 		        <tr>
-		            <td>$contact->name</td>
-		            <td>$contact->email</td>
-		            <td>$contact->phone</td>
-		            <td>$contact->status</td>
-		            <td>$contact->donation_range</td>
+		            <td>
+		            	<a class=\"list_popover\" data-container=\"body\" data-toggle=\"popover\" data-placement=\"top\" 
+		            	data-content=\" <strong> $contact->name </strong> <br /> Phone : $contact->phone <br /> Email : $contact->email <br /> Donation Range : $contact->donation_range\">
+          					$contact->name
+        				</a>
+					</td>
 		            <td><button class='list_button' title=\"Pledged\" onclick=\"updatecm('pledged',$contact->id)\"><img src=\"img/pledged.png\" alt=\"Pledged\" ></button></td>
 		            <td><button class='list_button' title=\"Call Back\" onclick=\"updatecm('call_back',$contact->id)\"><img src=\"img/call_back.png\" alt=\"Call Back\" ></button></td>
 		            <td><button class='list_button' title=\"Not Interested\" onclick=\"updatecm('not_interested',$contact->id)\"><img src=\"img/not_interested.png\" alt=\"Not Interested\" ></button></td>
@@ -235,36 +235,40 @@ class WarRoom extends BaseController {
 
 
        	echo	"
-	       		<h3>Call Back</h3>
+	       		
 		        <div class=\"row\" style=\"margin-top:10px;\">
+		        <h3>To Call Back</h3>
 		            <table>
 		                <tr>
 		                    <th>Name</th>
-		                    <th>Email</th>
-		                    <th>Phone</th>
 		                    <th>Call Date</th>
-		                    <th>Comments</th>
-		                    <th>&nbsp;</th>
-		                    <th>&nbsp;</th>
+		                    <th>Pledged</th>
+		                    <th>Call Back</th>
+		                    <th>Not Interested</th>
 		                </tr>
 		               
 		        ";
 
 		foreach($callbacks as $cb){
 
+			$rd = WarRoom::relativeDate(strtotime($cb->call_date));
+
 			echo "
 		                <tr>
-		                    <td>";
-		                    print_r($cb->contactmaster->name);
-		                    echo "</td>
-		                    <td>";
-		                    print_r($cb->contactmaster->email);
-		                    echo"</td>
-		                    <td>";
-		                    print($cb->contactmaster->phone);
-		                    echo"</td>
-		                    <td>$cb->call_date</td>
-		                    <td>$cb->comments</td>
+		                    <td>
+				            	<a class=\"list_popover\" data-container=\"body\" data-toggle=\"popover\" data-placement=\"top\" 
+				            	data-content=\" <strong> ";
+				            	print_r($cb->contactmaster->name);
+				            	echo "</strong> <br /> Phone : ";
+				            	print($cb->contactmaster->phone);
+				            	echo " <br /> Email : ";
+				            	print_r($cb->contactmaster->email);
+				            	echo " <br /> Call Date : $cb->call_date";
+				            	echo " <br /> Comments : $cb->comments\">";
+				            	print_r($cb->contactmaster->name);
+				            	echo "</a></td>";
+
+		    echo "          <td>$rd</td>
 		                    <td><button class='list_button' title=\"Pledged\" onclick=\"updatecb('pledged',$cb->id)\"><img src=\"img/pledged.png\" alt=\"Pledged\" ></button></td>
 		                    <td><button class='list_button' title=\"Call Back\" onclick=\"updatecb('call_back',$cb->id)\"><img src=\"img/call_back.png\" alt=\"Call Back\" ></button></td>
 		                    <td><button class='list_button' title=\"Not Interested\" onclick=\"updatecb('not_interested',$cb->id)\"><img src=\"img/not_interested.png\" alt=\"Not Interested\" ></button></td>
@@ -283,37 +287,41 @@ class WarRoom extends BaseController {
 		echo "
 		        </div>
 		        
-		        <h3>Pledged</h3>
+		        
 		        <div class=\"row\" style=\"margin-top:10px;\">
+		        <h3>To Collect</h3>
 		            <table>
 		                <tr>
 		                    <th>Name</th>
-		                    <th>Email</th>
-		                    <th>Phone</th>
-		                    <th>Amount pledged</th>
 		                    <th>Collect Date</th>
-		                    <th>Comments</th>
-		                    <th>&nbsp;</th>
-		                    <th>&nbsp;</th>
+		                    <th>Collected</th>
+		                    <th>Retracted</th>
 		                </tr>
 		    ";
 		               
         foreach($pledged as $pl){
+
+        	$rd = WarRoom::relativeDate(strtotime($pl->collect_date));
         
        		echo "	
                 <tr>
-                    <td>";
-                    print_r($pl->contactmaster->name);
-                    echo "</td>
-                    <td>";
-                    print_r($pl->contactmaster->email);
-                    echo"</td>
-                    <td>";
-                    print_r($pl->contactmaster->phone);
-                    echo"</td>
-                    <td>$pl->amount_pledged</td>
-                    <td>$pl->collect_date</td>
-                    <td>$pl->comments</td>
+              		<td>
+		            	<a class=\"list_popover\" data-container=\"body\" data-toggle=\"popover\" data-placement=\"top\" 
+		            	data-content=\" <strong> ";
+		            	print_r($pl->contactmaster->name);
+		            	echo "</strong> <br /> Phone : ";
+		            	print($pl->contactmaster->phone);
+		            	echo " <br /> Email : ";
+		            	print_r($pl->contactmaster->email);
+		            	echo " <br /> Amount Pledged : $pl->amount_pledged";
+		            	echo " <br /> Collect Date : $pl->collect_date";
+		            	echo " <br /> Comments : $pl->comments\">";
+		            	print_r($pl->contactmaster->name);
+		            	echo "</a></td>";
+		    echo "
+
+                    <td>$rd</td>
+  
                     <td><button class='list_button' title=\"Collected\" onclick=\"updatepl('collected', $pl->id)\"><img src=\"img/collected.png\" alt=\"Collected\" ></button></td>
                     <td><button class='list_button' title=\"Retractecd\" onclick=\"updatepl('retracted',$pl->id)\"><img src=\"img/not_interested.png\" alt=\"Retractecd\" ></button></td>
                 </tr>
@@ -330,6 +338,10 @@ class WarRoom extends BaseController {
 		       
 
 		echo "</div>";
+
+		echo "<script type=\"text/javascript\">$('.list_popover').popover({'html' : true});</script>";
+
+
                         
 	}
 
@@ -386,5 +398,63 @@ class WarRoom extends BaseController {
     {
         return Pledged::updatePledge(Input::all());
     }
+
+
+
+
+
+
+    public static function relativeDate($time) 
+    {
+
+		$today = strtotime(date('M j, Y'));
+
+		$reldays = ($time - $today)/86400;
+
+		if ($reldays >= 0 && $reldays < 1) {
+
+		return 'Today';
+
+		} else if ($reldays >= 1 && $reldays < 2) {
+
+		return 'Tomorrow';
+
+		} else if ($reldays >= -1 && $reldays < 0) {
+
+		return 'Yesterday';
+
+		}
+
+		if (abs($reldays) < 7) {
+
+		if ($reldays > 0) {
+
+		$reldays = floor($reldays);
+
+		return 'In ' . $reldays . ' day' . ($reldays != 1 ? 's' : '');
+
+		} else {
+
+		$reldays = abs(floor($reldays));
+
+		return $reldays . ' day' . ($reldays != 1 ? 's' : '') . ' ago';
+
+		}
+
+		}
+
+		if (abs($reldays) < 182) {
+
+		return date('j F',$time ? $time : time());
+
+		} else {
+
+		return date('j F, Y',$time ? $time : time());
+
+		}
+
+		
+
+	}
 
 }
