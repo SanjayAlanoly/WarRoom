@@ -26,7 +26,7 @@ return array(
 	|
 	*/
 
-	'url' => 'http://localhost/apps/foe',
+	'url' => 'http://localhost/apps/WarRoom',
 
 	/*
 	|--------------------------------------------------------------------------

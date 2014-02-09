@@ -31,16 +31,22 @@ class Home extends BaseController {
 							ORDER BY SUM(donations.donation_amount) DESC",array('Beyond Bangalore','FOM%'));
 		$count = 0;
 		$user_count_national = 0;
+		$flag = false;
 
 		foreach($fundraisers_national as $fn){
 
 			if($fn->id == Auth::user()->id){
 				$user_count_national = $count;
+				$flag = true;
 				break;
 			}
 				
 
 			$count++;
+		}
+
+		if($flag == false){
+			$user_count_national = -1;
 		}
 
 
@@ -57,17 +63,24 @@ class Home extends BaseController {
 							ORDER BY SUM(donations.donation_amount) DESC",array(Auth::user()->city_id,'Beyond Bangalore','FOM%'));
 		$count = 0;
 		$user_count_city = 0;
+		$flag = false;
 
 		foreach($fundraisers_city as $fn){
 
 			if($fn->id == Auth::user()->id){
 				$user_count_city = $count;
+				$flag=true;
 				break;
 			}
 				
 
 			$count++;
 		}
+
+		if($flag == false){
+			$user_count_city = -1;
+		}
+
 
 		$leaderboard = compact("fundraisers_national","user_count_national","fundraisers_city","user_count_city");
 
@@ -115,12 +128,14 @@ class Home extends BaseController {
 
 			$percentage = round($percentage,0,PHP_ROUND_HALF_DOWN);
 
-			$city_data = compact("city_name", "diff_in_amount","city_amount_raised","ideal_amount","percentage");
+			$city_data = compact("percentage", "diff_in_amount","city_amount_raised","ideal_amount","city_name");
 
 			array_push($data,$city_data);
 
 
 		}
+
+		arsort($data);
 
 		return $data;
 

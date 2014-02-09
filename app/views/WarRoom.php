@@ -6,7 +6,6 @@
 	<link rel="stylesheet" type="text/css" href="phpfreechat-2.1.0/client/themes/default/jquery.phpfreechat.min.css" />
     <link href="css/bootstrap.min.css" rel="stylesheet">
 	<link href="css/custom-navbar.css" rel="stylesheet">
-	<link rel="stylesheet" href="css/flipclock.css">
     <link href="css/custom.css" rel="stylesheet">
 
 </head>
@@ -37,20 +36,24 @@
 
 	<div class="container board">
 
-		
+        <div id="countdown_modal" class="modal fade bs-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <p class = "text-center countdown_content" id="countdown_in_modal"></p>
+            </div>
+          </div>
+        </div>
 
-		<h1 class="text-center title">War Room</h1>
 
-		<br>
+        <h1 class="text-center title">War Room</h1>
 
-		<div class="row">
-			<div class="col-md-9 col-md-offset-3	">
-				<div class="your-clock"></div>
-			</div>
-		</div>
-	
+        <br>
 
-		
+        <h1 class = "text-center countdown" id="countdown"></h1>
+
+        
+        
+
 		<div id="children_supported">
 			<?php WarRoom::renderChildrenSupported(); ?>	
 		</div>
@@ -85,7 +88,7 @@
                 </a>
               </h4>
             </div>
-            <div id="collapseOne" class="panel-collapse collapse in">
+            <div id="collapseOne" class="panel-collapse collapse">
               <div class="panel-body">
                 
                 <div id="conv_list" class="conv_list">
@@ -184,7 +187,6 @@
 	<script src="phpfreechat-2.1.0/client/jquery.phpfreechat.min.js" type="text/javascript"></script>
 	<script src="js/WarRoom.js" type="text/javascript"></script>
     <script src="js/bootstrap.min.js"></script>	
-	<script src="js/flipclock.min.js"></script>	
         <script src="<?php echo url('js/jquery-ui-1.10.4.custom.min.js')?>"></script>	
 
         <link href="<?php echo url('css/ui-lightness/jquery-ui-1.10.4.custom.css') ?>" media="all" type="text/css" rel="stylesheet">
@@ -193,13 +195,6 @@
         refresh_delay : 2000,
         focus_on_connect : false,
         serverUrl: 'phpfreechat-2.1.0/server' });
-
-/*	var clock = $('.your-clock').FlipClock({
-		countdown : true	
-	});
-
-	clock.setTime(3600);
-	clock.start();*/
 
 	</script>
     <script type="text/javascript">

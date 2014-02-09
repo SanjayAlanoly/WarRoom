@@ -19,25 +19,22 @@
           ['City', 'Target Amount', 'Amount Raised'],
 
         <?php
+
+        $i = 01;
+
   		foreach($run_rate as $city){
 
-			echo "[" . "'" . $city['city_name'] . "($city[percentage]%)" . "'" . ",$city[ideal_amount],$city[city_amount_raised]],";
+			echo "[" . "'" . $i . ". " . $city['city_name'] . "($city[percentage]%)" . "'" . ",$city[ideal_amount],$city[city_amount_raised]],";
+			$i++;
 
 		}?>
 
-          ['Delhi',  1000,      400],
-          ['Kolkata',  1170,      460],
-          ['Nagpur',  660,       1120],
-          ['Delhi',  1000,      400],
-          ['Kolkata',  1170,      460],
-          ['Nagpur',  660,       1120],
-          ['Coimbatore',  1030,      540]
         ]);
 
         var options = {
           'backgroundColor':'#ffe800',
-          'title': 'City',
-          'hAxis': {title: 'Year', titleTextStyle: {color: 'red'}}
+          'title': '',
+          'hAxis': {title: 'Cities', titleTextStyle: {color: 'red'}}
         };
 
         var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
@@ -75,7 +72,7 @@
 	  	<div class="collapse navbar-collapse" id="navbar-collapse-1">
 	  		<ul class="nav navbar-nav">
       			<li class="active"><a href="#">Home</a></li>
-      			<li><a href="../public/WarRoom">War Room</a></li>
+      			<li><a target="_blank" href="../public/WarRoom">War Room</a></li>
       		</ul>
       		<button type="button" class="btn btn-default navbar-btn navbar-right" onclick="location.href='destroySession'">Logout</button>
 	  	</div>
@@ -106,7 +103,9 @@
 
 		
 
-		<br>
+		
+
+		<h2 class="sub_title text-center">Dashboard</h2>
 
 		<ul class="nav nav-tabs nav-justified" id="myTab">
 			  <li class="active"><a href="#you" data-toggle="tab">You</a></li>
@@ -167,6 +166,9 @@
 		?>
  -->
 
+ 		<br />
+
+ 		<h2 class="sub_title text-center">Leaderboard</h2>
 
 		<ul class="nav nav-tabs nav-justified" id="myTab2">
 			  <li class="active"><a href="#you_city" data-toggle="tab">You vs City</a></li>
@@ -181,25 +183,33 @@
 
 
 
-				<table>
-				<th>Rank</th><th>Name</th><th>Amount Raised</th>
+				
 
 				<?php
 
-				for($i = $leaderboard['user_count_city'] - 3 ; $i <= ($leaderboard['user_count_city'] + 3) ; $i++){
+				if($leaderboard['user_count_city'] == -1){
+					echo "<p class='normal'><br />You haven't started fundraising yet.</p>";
+				}else{
 
-					if(isset($leaderboard['fundraisers_city'][$i])){
+					echo "
+						<table>
+						<th>Rank</th><th>Name</th><th>Amount Raised</th>";
 
-						$j = $i + 1;
+					for($i = $leaderboard['user_count_city'] - 3 ; $i <= ($leaderboard['user_count_city'] + 3) ; $i++){
 
-						if($i == $leaderboard['user_count_city'])
-							echo "<tr><td class='middle'>$j</td><td class='middle'>" .  $leaderboard['fundraisers_city'][$i]->first_name . " " . $leaderboard['fundraisers_city'][$i]->last_name . "</td><td class='middle'>" . $leaderboard['fundraisers_city'][$i]->amount . "</td>";
-						else
-							echo "<tr><td>$j</td><td>" .  $leaderboard['fundraisers_city'][$i]->first_name . " " . $leaderboard['fundraisers_city'][$i]->last_name . "</td><td>" . $leaderboard['fundraisers_city'][$i]->amount . "</td>";
+						if(isset($leaderboard['fundraisers_city'][$i])){
+
+							$j = $i + 1;
+
+							if($i == $leaderboard['user_count_city'])
+								echo "<tr><td class='middle'>$j</td><td class='middle'>" .  $leaderboard['fundraisers_city'][$i]->first_name . " " . $leaderboard['fundraisers_city'][$i]->last_name . "</td><td class='middle'>" . $leaderboard['fundraisers_city'][$i]->amount . "</td>";
+							else
+								echo "<tr><td>$j</td><td>" .  $leaderboard['fundraisers_city'][$i]->first_name . " " . $leaderboard['fundraisers_city'][$i]->last_name . "</td><td>" . $leaderboard['fundraisers_city'][$i]->amount . "</td>";
+
+						}
+							
 
 					}
-						
-
 				}
 				?>
 
@@ -212,27 +222,37 @@
 
 
 
-				<table>
-				<th>Rank</th><th>Name</th><th>City</th><th>Amount Raised</th>
+				
 
 				<?php
 
-				for($i = $leaderboard['user_count_national'] - 3 ; $i <= ($leaderboard['user_count_national'] + 3) ; $i++){
+				if($leaderboard['user_count_national'] == -1){
 
-					if(isset($leaderboard['fundraisers_national'][$i])){
+					echo "<p class='normal'><br />You haven't started fundraising yet.</p>";
 
-						$j = $i + 1;
+				}else{
 
-						if($i == $leaderboard['user_count_national'])
-							echo "<tr><td class='middle'>$j</td><td class='middle'>" .  $leaderboard['fundraisers_national'][$i]->first_name . " " . $leaderboard['fundraisers_national'][$i]->last_name . "</td><td class='middle'>" . $leaderboard['fundraisers_national'][$i]->city_name . "</td><td class='middle'>" . $leaderboard['fundraisers_national'][$i]->amount . "</td>";
-						else
-							echo "<tr><td>$j</td><td>" .  $leaderboard['fundraisers_national'][$i]->first_name . " " 
-						. $leaderboard['fundraisers_national'][$i]->last_name . "</td><td>" . $leaderboard['fundraisers_national'][$i]->city_name 
-						. "</td><td>" . $leaderboard['fundraisers_national'][$i]->amount . "</td>";
+					echo "
+						<table>
+						<th>Rank</th><th>Name</th><th>City</th><th>Amount Raised</th>";
+
+					for($i = $leaderboard['user_count_national'] - 3 ; $i <= ($leaderboard['user_count_national'] + 3) ; $i++){
+
+						if(isset($leaderboard['fundraisers_national'][$i])){
+
+							$j = $i + 1;
+
+							if($i == $leaderboard['user_count_national'])
+								echo "<tr><td class='middle'>$j</td><td class='middle'>" .  $leaderboard['fundraisers_national'][$i]->first_name . " " . $leaderboard['fundraisers_national'][$i]->last_name . "</td><td class='middle'>" . $leaderboard['fundraisers_national'][$i]->city_name . "</td><td class='middle'>" . $leaderboard['fundraisers_national'][$i]->amount . "</td>";
+							else
+								echo "<tr><td>$j</td><td>" .  $leaderboard['fundraisers_national'][$i]->first_name . " " 
+							. $leaderboard['fundraisers_national'][$i]->last_name . "</td><td>" . $leaderboard['fundraisers_national'][$i]->city_name 
+							. "</td><td>" . $leaderboard['fundraisers_national'][$i]->amount . "</td>";
+
+						}
+							
 
 					}
-						
-
 				}
 				?>
 
@@ -244,7 +264,42 @@
 			</div>
 		</div>
 
+		<br />
+
+		<h2 class="sub_title text-center">City Run Rate</h2>
+
 		<div id="chart_div" style="width: 100%; height: 500px;"></div>
+
+		<br>
+
+		<h2 class="sub_title text-center">Contacts</h2>
+
+		<div class="panel-group" id="accordion">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                  Contact List
+                </a>
+              </h4>
+            </div>
+            <div id="collapseOne" class="panel-collapse collapse">
+              <div class="panel-body">
+                
+                <div id="conv_list" class="conv_list">
+                    <?php WarRoom::renderConvList(); ?>
+                </div>
+                        
+                <div class="row" style="margin-top:10px;">
+                    <div class="col-md-12">
+                        <button id="add_contact" class="btn btn-primary btn-lg" type="button">Add Contact</button>
+                    </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
 		</div>	
 	</div>
 

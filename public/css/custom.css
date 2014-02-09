@@ -13,27 +13,43 @@
 h1.title {
 	font-family:BebasNeueRegular,Arial;
 	text-transform:uppercase;
-	//text-shadow: 2px 2px #666;
-	font-size:400%;
+	font-size:500%;
 	color:#ed1849;
+}
+
+h1.countdown {
+	font-family:BebasNeueRegular,Arial;
+	text-transform:uppercase;
+	font-size:400%;
+	color:#7f3f98;
 }
 
 h2.sub_title {
 
 	font-family:BebasNeueRegular,Arial;
 	text-transform:uppercase;
-	//text-shadow: 2px 2px #666;
-	font-size:500%;
+	font-size:400%;
 	color:#7f3f98;
 
 
 }
 
+
+p.countdown_content {
+	
+	font-family:BebasNeueRegular,Arial;
+	font-size:300%;
+	color:#ed1849;
+
+
+}
+
+
 p.normal {
 	font-family:Trebuchet MS,Arial;
 	color:#ed1849;
 	font-size: 150%;
-	//text-shadow: 2px 2px #666;
+	
 }
 
 a {
@@ -95,8 +111,8 @@ div.conv_list {
 table {
 
 	width:100%;
-	/*text-align:left;
-*/
+	
+
 }
 
 td,th {
