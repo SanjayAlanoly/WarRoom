@@ -93,10 +93,10 @@ function init(){
 		    // find the amount of "seconds" between now and target
 			var now = new Date();
 
-			var start_time = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 16,00,0).getTime();
+			var start_time = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 12,00,0).getTime();
 			var end_time = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 22,00,0).getTime();
 
-			var tom_start_time = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 16,00,0).getTime();
+			var tom_start_time = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 12,00,0).getTime();
 
 			if(now < start_time){
 
