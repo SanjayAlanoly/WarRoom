@@ -194,9 +194,9 @@ class Home extends BaseController {
 		//Calculate total conversations by the user's city
 
 		$result_city_conversations = DB::connection('WarRoom')->select('SELECT COUNT(*) AS count
-																	FROM WarRoom.contact_master
+																	FROM makeadiff_warroom.contact_master
 																	INNER JOIN cfrapp.users
-																	ON WarRoom.contact_master.volunteer_id = cfrapp.users.id
+																	ON makeadiff_warroom.contact_master.volunteer_id = cfrapp.users.id
 																	WHERE contact_master.status <> ? AND cfrapp.users.city_id=?',
 																	array('open',Auth::user()->city_id));
 

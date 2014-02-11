@@ -67,7 +67,7 @@ return array(
 		'WarRoom' => array(
 			'driver'    => 'mysql',
 			'host'      => 'localhost',
-			'database'  => 'WarRoom',
+			'database'  => 'makeadiff_warroom',
 			'username'  => 'makeadiff',
 			'password'  => 'M@k3aDi',
 			'charset'   => 'utf8',
