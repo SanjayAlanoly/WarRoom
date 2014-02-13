@@ -93,10 +93,10 @@ function init(){
 		    // find the amount of "seconds" between now and target
 			var now = new Date();
 
-			var start_time = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 12,00,0).getTime();
-			var end_time = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 22,00,0).getTime();
+			var start_time = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 14,00,0).getTime();
+			var end_time = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 15,00,0).getTime();
 
-			var tom_start_time = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 12,00,0).getTime();
+			var tom_start_time = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 22,15,0).getTime();
 
 			if(now < start_time){
 
@@ -116,8 +116,8 @@ function init(){
 			    seconds = parseInt(seconds_left % 60);
 			     
 			    // format countdown string + set tag value
-			    countdown_in_modal.innerHTML = "War Room starts in <br>" + hours + "H, "
-			    + minutes + "M, " + seconds + "S"; 
+			    countdown_in_modal.innerHTML = "War Room starts in <br>" + hours + " hours, "
+			    + minutes + " minutes, " + seconds + " seconds"; 
 
 			}else if(now >= start_time && now <=end_time){
 
@@ -137,8 +137,8 @@ function init(){
 			    seconds = parseInt(seconds_left % 60);
 			     
 			    // format countdown string + set tag value
-			    countdown.innerHTML = hours + "H : "
-			    + minutes + "M : " + seconds + "S"; 
+			    countdown.innerHTML = hours + "h : "
+			    + minutes + "m : " + seconds + "s"; 
 
 
 			}else{
