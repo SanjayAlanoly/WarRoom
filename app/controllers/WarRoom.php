@@ -121,7 +121,7 @@ class WarRoom extends BaseController
 
 	public static function render_pledged_progress(){
 
-		$result_target =  DB::select('select quantity from target where target_date = ? AND type = ?', array(date("Y-m-d"),'money_pledged'));
+		$result_target =  DB::select('select quantity from target where target_date = ? AND type = ?', array(date("Y-m-d"),'pledged'));
 
 		$result_pledged_amount =  DB::select('SELECT SUM(amount_pledged) as amount FROM pledged WHERE DATE(updated_at) = CURDATE()');
 		
