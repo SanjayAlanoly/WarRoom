@@ -94,7 +94,7 @@ function init(){
 			var now = new Date();
 
 			var start_time = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 14,00,0).getTime();
-			var end_time = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 15,00,0).getTime();
+			var end_time = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 21,00,0).getTime();
 
 			var tom_start_time = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 22,15,0).getTime();
 
