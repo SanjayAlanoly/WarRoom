@@ -9,6 +9,9 @@
 
     <link href="css/custom.css" rel="stylesheet">
 
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="js/Import.js" type="text/javascript"></script>
+
 </head>
 
 <body>
@@ -34,12 +37,29 @@
 
 	<div class="container board">
 
-		<form enctype='multipart/form-data' action='Import/uploadFile' method='post'>
+		<select id="cities_dropdown" class="form-control">
+
+			<?php
+			foreach($cities as $city){
+
+				echo "<option value=\"$city->id\">$city->name</option>";
+			}
+			?>
+
+		</select>
+
+		<select id="volunteers_dropdown" class="form-control">
+
+		</select>
+
+		<form enctype='multipart/form-data' onSubmit="return submitFile()">
 			<input size='50' type='file' name='filename'><br />
 			<input type='submit' name='submit' value='Upload'>
 		</form>
 
 	</div>
+
+
 
 </body> 
 </html> 

@@ -11,7 +11,7 @@ class Pledged extends Eloquent
     
     public static function getPledged()
     {
-        return static::where('volunteer_id','=',Auth::user()->id)
+        return static::where('volunteer_id','=',Auth::user()->id)->where('amount_collected','=',0)
                 ->orderBy('collect_date','ASC')->get();
     }
     

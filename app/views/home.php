@@ -120,27 +120,27 @@
 
 		  		<br>
 
-		  		<p class="normal">Amount Raised by You : <?php echo $dashboard['you_amount_raised']; ?></p>
+		  		<p class="normal">Amount Raised by You : <?php echo "Rs. " . number_format($dashboard['you_amount_raised']); ?></p>
 		  		<p class="normal">Children Supported by You: <?php echo round($dashboard['you_amount_raised']/1000,0,PHP_ROUND_HALF_DOWN); ?></p>
-		  		<p class="normal">Conversations made by You: <?php echo $dashboard['you_conversations']; ?></p>
+		  		<p class="normal">Conversations made by You: <?php echo number_format($dashboard['you_conversations']); ?></p>
 		  		
 		  	</div>
 	  		<div class="tab-pane fade" id="city">
 
 		  		<br>
 
-		  		<p class="normal">Amount Raised by your City: <?php echo $dashboard['city_amount_raised']; ?></p>
-		  		<p class="normal">Children Supported by your City: <?php echo round($dashboard['city_amount_raised']/1000,0,PHP_ROUND_HALF_DOWN); ?></p>
-		  		<p class="normal">Conversations made by your City: <?php echo $dashboard['city_conversations']; ?></p>
+		  		<p class="normal">Amount Raised by your City: <?php echo "Rs. " . number_format($dashboard['city_amount_raised']); ?></p>
+		  		<p class="normal">Children Supported by your City: <?php echo number_format(round($dashboard['city_amount_raised']/1000,0,PHP_ROUND_HALF_DOWN)); ?></p>
+		  		<p class="normal">Conversations made by your City: <?php echo number_format($dashboard['city_conversations']); ?></p>
 
 		  	</div>
 		  	<div class="tab-pane fade" id="mad">
 
 		  		<br>
 
-		  		<p class="normal">Amount Raised by MAD: <?php echo $dashboard['mad_amount_raised']; ?></p>
-		  		<p class="normal">Children Supported by MAD : <?php echo round($dashboard['mad_amount_raised']/1000,0,PHP_ROUND_HALF_DOWN); ?></p>
-		  		<p class="normal">Conversations made by MAD : <?php echo $dashboard['mad_conversations']; ?></p>
+		  		<p class="normal">Amount Raised by MAD: <?php echo "Rs. " . number_format($dashboard['mad_amount_raised']); ?></p>
+		  		<p class="normal">Children Supported by MAD : <?php echo number_format(round($dashboard['mad_amount_raised']/1000,0,PHP_ROUND_HALF_DOWN)); ?></p>
+		  		<p class="normal">Conversations made by MAD : <?php echo number_format($dashboard['mad_conversations']); ?></p>
 
 		  	</div>
 			  

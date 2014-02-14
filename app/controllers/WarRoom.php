@@ -33,7 +33,7 @@ class WarRoom extends BaseController
 
 		$children_supported = round($pledged_amount/1000,0,PHP_ROUND_HALF_DOWN);
 
-		echo "<h2 class='text-center sub_title'>Children Supported : " . $children_supported . "</h2>";
+		echo "<h2 class='text-center sub_title'>Children Supported : " . number_format($children_supported) . "</h2>";
 
 
 	}
@@ -79,14 +79,14 @@ class WarRoom extends BaseController
 
 		echo '<div class="col-md-6">';
 
-		echo '<p class="normal">Conversations : ' . $conv_count . '</p>';
+		echo '<p class="normal">Conversations : ' . number_format($conv_count) . '</p>';
 
 		echo '</div>';
 
 
 		echo '<div class="col-md-6">';
 
-		echo '<p class="pull-right normal">Target : ' . $conv_target . '</p>';
+		echo '<p class="pull-right normal">Target : ' . number_format($conv_target) . '</p>';
 
 		echo '</div>';
 		 
@@ -123,7 +123,7 @@ class WarRoom extends BaseController
 
 		$result_target =  DB::select('select quantity from target where target_date = ? AND type = ?', array(date("Y-m-d"),'pledged'));
 
-		$result_pledged_amount =  DB::select('SELECT SUM(amount_pledged) as amount FROM pledged WHERE DATE(updated_at) = CURDATE()');
+		$result_pledged_amount =  DB::select('SELECT SUM(amount_pledged) as amount FROM pledged WHERE DATE(created_at) = CURDATE()');
 		
 		if(isset($result_target[0])){
 
@@ -149,14 +149,14 @@ class WarRoom extends BaseController
 
 		echo '<div class="col-md-6">';
 
-		echo '<p class="normal">Money Pledged : ' . $pledged_amount . '</p>';
+		echo '<p class="normal">Money Pledged : Rs. ' . number_format($pledged_amount) . '</p>';
 
 		echo '</div>';
 
 
 		echo '<div class="col-md-6">';
 
-		echo '<p class="pull-right normal">Target : ' . $pledged_target . '</p>';
+		echo '<p class="pull-right normal">Target : Rs. ' . number_format($pledged_target) . '</p>';
 
 		echo '</div>';
 

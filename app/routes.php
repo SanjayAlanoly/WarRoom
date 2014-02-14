@@ -25,6 +25,7 @@ Route::post('/WarRoom/updateCallback', 'WarRoom@updateCallback');
 Route::post('/WarRoom/updatePledge', 'WarRoom@updatePledge');
 
 Route::post('/Import/uploadFile' , 'Import@uploadFile');
+Route::get('/Import/getVolunteers','Import@getVolunteers');
 
 Route::get('login', array('as' => 'login', 'uses' => 'AuthController@showLogin'));
 Route::post('login', 'AuthController@postLogin');
