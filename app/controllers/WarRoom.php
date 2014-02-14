@@ -21,7 +21,7 @@ class WarRoom extends BaseController
 	public static function renderChildrenSupported(){
 
 
-		$result_pledged_amount =  DB::select('SELECT SUM(amount_pledged) as amount FROM pledged WHERE DATE(updated_at) = CURDATE()');
+		$result_pledged_amount =  DB::select('SELECT SUM(amount_pledged) as amount FROM pledged WHERE DATE(created_at) = CURDATE()');
 
 		if(isset($result_pledged_amount[0])){
 
