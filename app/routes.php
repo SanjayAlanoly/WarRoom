@@ -24,6 +24,7 @@ Route::post('/WarRoom/updateContact', 'WarRoom@updateContact');
 Route::post('/WarRoom/updateCallback', 'WarRoom@updateCallback');
 Route::post('/WarRoom/updatePledge', 'WarRoom@updatePledge');
 
+Route::get('/Import','Import@showImport');
 Route::post('/Import/uploadFile' , 'Import@uploadFile');
 Route::get('/Import/getVolunteers','Import@getVolunteers');
 
@@ -37,5 +38,4 @@ Route::group(array('before' => 'auth'), function()
 {
     Route::get('/WarRoom', 'WarRoom@showWarRoom');
     Route::get('/', 'Home@showHome');
-    Route::get('/Import','Import@showImport');
 });

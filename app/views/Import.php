@@ -16,28 +16,16 @@
 
 <body>
 
-	<nav class="navbar navbar-default navbar-static-top" role="navigation">
-		<div class="navbar-header">
-		    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
-			      <span class="sr-only">Toggle navigation</span>
-			      <span class="icon-bar"></span>
-			      <span class="icon-bar"></span>
-			      <span class="icon-bar"></span>
-		    </button>
-		    <a class="navbar-brand" href="#">FRaise</a>
-	  	</div>
-	  	<div class="collapse navbar-collapse" id="navbar-collapse-1">
-	  		<ul class="nav navbar-nav">
-      			<li class="active"><a href="#">Home</a></li>
-      			<li><a target="_blank" href="../public/WarRoom">War Room</a></li>
-      		</ul>
-      		<button type="button" class="btn btn-default navbar-btn navbar-right" onclick="location.href='destroySession'">Logout</button>
-	  	</div>
-	</nav>
 
 	<div class="container board">
 
+		<h1 class="text-center title">Upload Contacts</h1>
+
+		<br/>
+
 		<select id="cities_dropdown" class="form-control">
+
+			<option value="">Please select the city</option>
 
 			<?php
 			foreach($cities as $city){
@@ -48,14 +36,22 @@
 
 		</select>
 
-		<select id="volunteers_dropdown" class="form-control">
+		<br/>
 
-		</select>
+		<form action="Import/uploadFile" method="post" enctype="multipart/form-data">
+			
+			<select name="volunteers_dropdown" id="volunteers_dropdown" class="form-control">
 
-		<form enctype='multipart/form-data' onSubmit="return submitFile()">
-			<input size='50' type='file' name='filename'><br />
+			</select>
+
+			<br/>
+			
+ 			<input size='50' type='file' name='filename'><br />
+
 			<input type='submit' name='submit' value='Upload'>
 		</form>
+
+		<div id="preview_area"></div>
 
 	</div>
 

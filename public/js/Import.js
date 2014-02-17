@@ -14,14 +14,6 @@ function init(){
 		})
 	})
 
-	function submitFile(){
-
-		$.post("")
-	}
-
-
-
-
 
 }
 $(init);
