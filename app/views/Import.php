@@ -12,6 +12,8 @@
     <script src="https://code.jquery.com/jquery.js"></script>
     <script src="js/Import.js" type="text/javascript"></script>
 
+    <?php include_once("analyticstracking.php") ?>
+
 </head>
 
 <body>

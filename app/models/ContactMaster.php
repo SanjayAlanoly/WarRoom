@@ -54,11 +54,13 @@ class ContactMaster extends Eloquent
             {
                 case 'not_interested':
                     $contact->status = 'not_interested';
+                    $contact->first_updated_at = date('Y-m-d H:i:s');
                     $contact->save();
                     break;
                 
                 case 'call_back':
                     $contact->status = 'call_back';
+                    $contact->first_updated_at = date('Y-m-d H:i:s');
                     $contact->save();
                     
                     $cb = new Callback();
@@ -70,6 +72,7 @@ class ContactMaster extends Eloquent
                     break;
                 case 'pledged':
                     $contact->status = 'pledged';
+                    $contact->first_updated_at = date('Y-m-d H:i:s');
                     $contact->save();
                     
                     $pl = new Pledged();

@@ -9,6 +9,15 @@
 
     <link href="css/custom.css" rel="stylesheet">
 
+    <link href="css/ui-lightness/jquery-ui-1.10.4.custom.css" media="all" type="text/css" rel="stylesheet">
+
+	<script src="js/jquery.js"></script>
+	<script src="js/jquery-ui-1.10.4.custom.min.js"></script>   
+	<script src="js/bootstrap.min.js"></script>	
+	<script src="js/Home.js" type="text/javascript"></script>
+
+	<?php include_once("analyticstracking.php") ?>
+
 
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
     <script type="text/javascript">
@@ -279,7 +288,7 @@
             <div class="panel-heading">
               <h4 class="panel-title">
                 <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-                  Contact List
+                  Contact List (click to toggle)
                 </a>
               </h4>
             </div>
@@ -303,10 +312,7 @@
 		</div>	
 	</div>
 
-	<script src="https://code.jquery.com/jquery.js"></script>
 
-	<script src="js/bootstrap.min.js"></script>	
-	<script src="js/Home.js" type="text/javascript"></script>
 
     
 	  

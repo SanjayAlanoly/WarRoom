@@ -7,7 +7,7 @@ $GLOBALS['pfc_version'] = '2.1.0';
 // A user is inactive only if s/he closed his/her chat window. A user with an open chat window is not 
 // inactive because s/he sends each refresh_delay an HTTP request.
 // (Default value: 35 seconds)
-$GLOBALS['pfc_timeout'] = 35;
+$GLOBALS['pfc_timeout'] = 180;
 
 // Gives channel operator rights to the first connected user
 // (Default value: true)

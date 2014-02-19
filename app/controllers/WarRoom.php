@@ -3,6 +3,45 @@
 class WarRoom extends BaseController
 {
 
+	private static $war_room_start_time;
+	private static $war_room_end_time;
+
+	public function __construct(){
+
+		//Select the warroom timing from db if specified for today
+		$db_time = DB::select('SELECT warroom_date,start_time,end_time FROM warroom_timing WHERE warroom_date = CURDATE()');
+
+		//If not specified for today take the values from '0000-00-00'
+		if(!isset($db_time[0])){
+			$db_time = DB::select('SELECT warroom_date,start_time,end_time FROM warroom_timing WHERE warroom_date = ?',array('0000-00-00'));
+		}
+
+
+		if(isset($db_time[0])){
+
+			$start_time = (string)$db_time[0]->start_time;
+			$end_time = (string)$db_time[0]->end_time;
+
+			WarRoom::$war_room_start_time = new DateTime("today $start_time");
+			WarRoom::$war_room_start_time = WarRoom::$war_room_start_time->format("Y-m-d H:i:s");
+
+			WarRoom::$war_room_end_time = new DateTime("today $end_time");
+			WarRoom::$war_room_end_time = WarRoom::$war_room_end_time->format("Y-m-d H:i:s");
+		}else{
+
+			WarRoom::$war_room_start_time = new DateTime("today 8:30 PM");
+			WarRoom::$war_room_start_time = WarRoom::$war_room_start_time->format("Y-m-d H:i:s");
+
+			WarRoom::$war_room_end_time = new DateTime("today 9:30 PM");
+			WarRoom::$war_room_end_time = WarRoom::$war_room_end_time->format("Y-m-d H:i:s");
+
+		}
+
+
+
+
+	}
+
 	public function showWarRoom()
 	{
 		session_start();
@@ -21,7 +60,8 @@ class WarRoom extends BaseController
 	public static function renderChildrenSupported(){
 
 
-		$result_pledged_amount =  DB::select('SELECT SUM(amount_pledged) as amount FROM pledged WHERE DATE(created_at) = CURDATE()');
+		$result_pledged_amount =  DB::select('SELECT SUM(amount_pledged) as amount FROM pledged WHERE created_at BETWEEN ? AND ?'
+			,array(WarRoom::$war_room_start_time, WarRoom::$war_room_end_time));
 
 		if(isset($result_pledged_amount[0])){
 
@@ -51,9 +91,12 @@ class WarRoom extends BaseController
 
 	public static function render_conv_progress(){
 
+
+
 		$result_target =  DB::select('select quantity from target where target_date = ? AND type = ?', array(date("Y-m-d"),'conversation'));
 
-		$result_conv_count =  DB::select('SELECT COUNT(*) as count FROM contact_master WHERE DATE(updated_at) = CURDATE() AND status <> ? AND status <> ? AND status <> ?',array('collected','retracted','open'));
+		$result_conv_count =  DB::select('SELECT COUNT(*) as count FROM contact_master WHERE first_updated_at BETWEEN ? AND ?'
+			,array(WarRoom::$war_room_start_time, WarRoom::$war_room_end_time));
 		
 		if(isset($result_target[0])){
 
@@ -123,7 +166,8 @@ class WarRoom extends BaseController
 
 		$result_target =  DB::select('select quantity from target where target_date = ? AND type = ?', array(date("Y-m-d"),'pledged'));
 
-		$result_pledged_amount =  DB::select('SELECT SUM(amount_pledged) as amount FROM pledged WHERE DATE(created_at) = CURDATE()');
+		$result_pledged_amount =  DB::select('SELECT SUM(amount_pledged) as amount FROM pledged WHERE created_at BETWEEN ? AND ?'
+			,array(WarRoom::$war_room_start_time, WarRoom::$war_room_end_time));
 		
 		if(isset($result_target[0])){
 
