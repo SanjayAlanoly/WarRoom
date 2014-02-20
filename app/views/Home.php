@@ -16,7 +16,7 @@
 	<script src="js/bootstrap.min.js"></script>	
 	<script src="js/Home.js" type="text/javascript"></script>
 
-	
+
 
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -142,6 +142,7 @@
 		  		<p class="normal">Amount Raised by You : <?php echo "Rs. " . number_format($dashboard['you_amount_raised']); ?></p>
 		  		<p class="normal">Children Supported by You : <?php echo round($dashboard['you_amount_raised']/1000,0,PHP_ROUND_HALF_DOWN); ?></p>
 		  		<p class="normal">Conversations made by You : <?php echo number_format($dashboard['you_conversations']); ?></p>
+		  		<p class="normal">Sparta Days completed by You : <?php echo $dashboard['sparta_days_completed']; ?>/21</p>
 		  		
 		  	</div>
 	  		<div class="tab-pane fade" id="city">
@@ -321,6 +322,73 @@
         </div>
 		</div>	
 	</div>
+
+	<div id="addContact">
+        <form>
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" /><br>
+            
+            <label for="phone">Phone</label>
+            <input type="text" id="phone" name="phone" /><br>
+            
+            <label for="email">Email</label>
+            <input type="text" id="email" name="email" /><br>
+            
+          
+            <label for="donation_range">Donation range</label>
+            <select name="donation_range" id="donation_range">
+                   <?php foreach ($donationRanges as $k=>$v): ?>
+                <option value="<?php echo $k?>"><?php echo $v ?></option>
+                    <?php endforeach ?>
+            </select><br>
+            
+            
+        </form>
+        
+    </div>
+    <div id="contactCallback">
+         <form>
+            <label for="date">Call Date</label>
+            <input type="text" id="datepicker1" value="<?php echo date("Y-m-d")?>"/><br><br>
+            <label for="comments">Comments</label>
+            <textarea name="comments" id="comments"></textarea>
+            
+    </div>
+    <div id="contactCallbackCB">
+         <form>
+            <label for="date">Call Date</label>
+            <input type="text" id="datepicker4" value="<?php echo date("Y-m-d")?>"/><br><br>
+            <label for="comments4">Comments</label>
+            <textarea name="comments4" id="comments4"></textarea>
+            
+    </div>
+    <div id="contactPledged">
+         <form>
+            <label for="date">Collect Date</label>
+            <input type="text" id="datepicker2" value="<?php echo date("Y-m-d")?>"/><br>
+            <label for="date">Amount Pledged</label>
+            <input type="text" id="ampl"/><br>
+         
+            <label for="comments">Comments</label>
+            <textarea name="comments1" id="comments1"></textarea>
+            
+    </div>
+    <div id="contactPledgedCB">
+         <form>
+            <label for="date">Collect Date</label>
+            <input type="text" id="datepicker3" value="<?php echo date("Y-m-d")?>"/><br>
+            <label for="date">Amount Pledged</label>
+            <input type="text" id="ampl3"/><br>
+         
+            <label for="comments3">Comments</label>
+            <textarea name="comments3" id="comments3"></textarea>
+            
+    </div>
+    <div id="collect">
+        <form>
+            <label for="amount_collected">Amount collected</label>
+            <input type="text" id="amount_collected" /><br>
+    </div>
 
 
 

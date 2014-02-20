@@ -12,7 +12,7 @@ class Home extends BaseController {
 
 		$data = compact("dashboard","run_rate","leaderboard");
 
-		return View::make('Home',$data);
+		return View::make('Home',$data)->with('donationRanges', ContactMaster::getDonationRange());
 	}
 
 
@@ -172,6 +172,40 @@ class Home extends BaseController {
 			$you_conversations = 0;
 		}
 
+
+
+		//Calculate the number of Sparta days by the user
+
+
+		$result_you_sparta_days = DB::connection('WarRoom')->select('SELECT DATE(first_updated_at) as first_updated_at FROM contact_master WHERE volunteer_id = ?',array(Auth::user()->id));
+
+		$sparta_days_completed = 0;
+
+		for($day = 0; $day <=100; $day++){
+
+			$same_day = 0;
+			$check_date = new DateTime("today -$day day");
+
+
+			foreach($result_you_sparta_days as $row){
+
+				
+				if((string)$row->first_updated_at == $check_date->format('Y-m-d')){
+
+						$same_day++;
+
+				}
+
+			}
+
+			$sparta_days_completed += (int)($same_day/5);
+
+
+		}
+
+
+		
+
 		//Calculate total amount raised by users's city
 
 		$result_city_amount_raised = DB::connection('cfrapp')->select('SELECT SUM(donations.donation_amount) AS sum
@@ -242,7 +276,8 @@ class Home extends BaseController {
 		}
 
 
-		$data = compact("you_amount_raised","city_amount_raised","mad_amount_raised","you_conversations","city_conversations","mad_conversations");
+
+		$data = compact("you_amount_raised","city_amount_raised","mad_amount_raised","you_conversations","city_conversations","mad_conversations","sparta_days_completed");
 
 		return $data;
 

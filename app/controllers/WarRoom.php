@@ -50,10 +50,7 @@ class WarRoom extends BaseController
         
 		//return View::make('WarRoom',array('donation_amount' => $user[0]->donation_amount));
 		return View::make('WarRoom')
-                    ->with('donationRanges', ContactMaster::getDonationRange())
-                    ->with('contacts', ContactMaster::getContacts())
-                    ->with('callbacks', Callback::getCallBack())
-                    ->with('pledged', Pledged::getPledged());
+                    ->with('donationRanges', ContactMaster::getDonationRange());
 	}
 
 
