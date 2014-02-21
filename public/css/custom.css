@@ -22,6 +22,8 @@ h1.countdown {
 	text-transform:uppercase;
 	font-size:400%;
 	color:#7f3f98;
+
+
 }
 
 h2.sub_title {
@@ -90,9 +92,9 @@ div.board {
 	
 	background-color:#ffe800;
 
-	//box-shadow: 10px 10px 5px #888888;
+
 	padding :30px;
-	//border : 2px solid black;
+
 	
 }
 
@@ -145,6 +147,8 @@ td.middle{
 	font-size: 150%;
 
 }
+
+
 
 /*.your-clock	{
 	zoom: 0.75;

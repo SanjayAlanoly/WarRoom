@@ -58,6 +58,8 @@
 
 	<div class="container board">
 
+
+
         <div id="countdown_modal" class="modal fade bs-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
           <div class="modal-dialog modal-sm">
             <div class="modal-content">

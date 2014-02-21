@@ -1,63 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fcbe90e1-0536-4bc7-9506-575ed05dfc7b" name="Default" comment="Lot of bug fixes&#10;# Please enter the commit message for your changes. Lines starting&#10;# with '#' will be ignored, and an empty message aborts the commit.&#10;# On branch master&#10;# Your branch is ahead of 'origin/master' by 1 commit.&#10;#   (use &quot;git push&quot; to publish your local commits)&#10;#&#10;# Changes to be committed:&#10;#   (use &quot;git reset HEAD &lt;file&gt;...&quot; to unstage)&#10;#&#10;#&#9;new file:   .idea/.name&#10;#&#9;new file:   .idea/dataSources.ids&#10;#&#9;new file:   .idea/dataSources.xml&#10;#&#9;new file:   .idea/encodings.xml&#10;#&#9;new file:   .idea/fraise.iml&#10;#&#9;new file:   .idea/inspectionProfiles/Project_Default.xml&#10;#&#9;new file:   .idea/inspectionProfiles/profiles_settings.xml&#10;#&#9;new file:   .idea/misc.xml&#10;#&#9;new file:   .idea/modules.xml&#10;#&#9;new file:   .idea/scopes/scope_settings.xml&#10;#&#9;new file:   .idea/vcs.xml&#10;#&#9;new file:   .idea/workspace.xml&#10;#&#9;new file:   _ide_helper.php&#10;#&#9;new file:   app/controllers/CoachDashboard.php&#10;#&#9;modified:   app/controllers/Import.php&#10;#&#9;modified:   app/controllers/WarRoom.php&#10;#&#9;modified:   app/models/Callback.php&#10;#&#9;modified:   app/models/ContactMaster.php&#10;#&#9;modified:   app/models/Pledged.php&#10;#&#9;modified:   app/views/Home.php&#10;#&#9;modified:   app/views/WarRoom.php&#10;#&#9;deleted:    public/css/bootstrap-cerulean.min.css&#10;#&#9;deleted:    public/css/bootstrap-readable.min.css&#10;#&#9;deleted:    public/css/bootstrap-theme.css&#10;#&#9;deleted:    public/css/bootstrap-theme.min.css&#10;#&#9;deleted:    public/css/bootstrap.css&#10;#&#9;deleted:    public/css/flipclock.css&#10;#&#9;deleted:    public/css/ui-lightness/images/ui-bg_diagonals-thick_18_b81900_40x40.png&#10;#&#9;deleted:    public/css/ui-lightness/images/ui-bg_diagonals-thick_20_666666_40x40.png&#10;#&#9;new file:   public/css/ui-lightness/images/ui-bg_flat_0_aaaaaa_40x100.png&#10;#&#9;deleted:    public/css/ui-lightness/images/ui-bg_flat_10_000000_40x100.png&#10;#&#9;new file:   public/css/ui-lightness/images/ui-bg_flat_75_ffffff_40x100.png&#10;#&#9;deleted:    public/css/ui-lightness/images/ui-bg_glass_100_f6f6f6_1x400.png&#10;#&#9;deleted:    public/css/ui-lightness/images/ui-bg_glass_100_fdf5ce_1x400.png&#10;#&#9;new file:   public/css/ui-lightness/images/ui-bg_glass_55_fbf9ee_1x400.png&#10;#&#9;modified:   public/css/ui-lightness/images/ui-bg_glass_65_ffffff_1x400.png&#10;#&#9;new file:   public/css/ui-lightness/images/ui-bg_glass_75_dadada_1x400.png&#10;#&#9;new file:   public/css/ui-lightness/images/ui-bg_glass_75_e6e6e6_1x400.png&#10;#&#9;new file:   public/css/ui-lightness/images/ui-bg_glass_95_fef1ec_1x400.png&#10;#&#9;deleted:    public/css/ui-lightness/images/ui-bg_gloss-wave_35_f6a828_500x100.png&#10;#&#9;deleted:    public/css/ui-lightness/images/ui-bg_highlight-soft_100_eeeeee_1x100.png&#10;#&#9;new file:   public/css/ui-lightness/images/ui-bg_highlight-soft_75_cccccc_1x100.png&#10;#&#9;deleted:    public/css/ui-lightness/images/ui-bg_highlight-soft_75_ffe45c_1x100.png&#10;#&#9;renamed:    public/css/ui-lightness/images/ui-icons_228ef1_256x240.png -&gt; public/css/ui-lightness/images/ui-icons_2e83ff_256x240.png&#10;#&#9;new file:   public/css/ui-lightness/images/ui-icons_454545_256x240.png&#10;#&#9;new file:   public/css/ui-lightness/images/ui-icons_888888_256x240.png&#10;#&#9;renamed:    public/css/ui-lightness/images/ui-icons_ef8c08_256x240.png -&gt; public/css/ui-lightness/images/ui-icons_cd0a0a_256x240.png&#10;#&#9;deleted:    public/css/ui-lightness/images/ui-icons_ffd27a_256x240.png&#10;#&#9;deleted:    public/css/ui-lightness/images/ui-icons_ffffff_256x240.png&#10;#&#9;modified:   public/css/ui-lightness/jquery-ui-1.10.4.custom.css&#10;#&#9;modified:   public/css/ui-lightness/jquery-ui-1.10.4.custom.min.css&#10;#&#9;modified:   public/js/Home.js&#10;#&#9;modified:   public/js/WarRoom.js&#10;#&#9;new file:   public/js/jquery.form-validator.min.js&#10;#&#9;modified:   public/phpfreechat-2.1.0/server/config.php&#10;#&#9;new file:   public/test.php&#10;#&#10;">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dataSources.ids" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/ui-lightness/images/ui-bg_flat_0_aaaaaa_40x100.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/ui-lightness/images/ui-bg_flat_75_ffffff_40x100.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/ui-lightness/images/ui-bg_glass_55_fbf9ee_1x400.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/ui-lightness/images/ui-bg_glass_75_dadada_1x400.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/ui-lightness/images/ui-bg_glass_75_e6e6e6_1x400.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/ui-lightness/images/ui-bg_glass_95_fef1ec_1x400.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/ui-lightness/images/ui-bg_highlight-soft_75_cccccc_1x100.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/ui-lightness/images/ui-icons_454545_256x240.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/ui-lightness/images/ui-icons_888888_256x240.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/.name" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/controllers/CoachDashboard.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/_ide_helper.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/fraise.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/jquery.form-validator.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/scopes/scope_settings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/test.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="DELETED" beforePath="C:\makeadiff.in\home\makeadiff\public_html\apps\fraise\public\css\bootstrap-cerulean.min.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\makeadiff.in\home\makeadiff\public_html\apps\fraise\public\css\bootstrap-readable.min.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\makeadiff.in\home\makeadiff\public_html\apps\fraise\public\css\bootstrap-theme.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\makeadiff.in\home\makeadiff\public_html\apps\fraise\public\css\bootstrap-theme.min.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\makeadiff.in\home\makeadiff\public_html\apps\fraise\public\css\bootstrap.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\makeadiff.in\home\makeadiff\public_html\apps\fraise\public\css\flipclock.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\makeadiff.in\home\makeadiff\public_html\apps\fraise\public\css\ui-lightness\images\ui-bg_diagonals-thick_18_b81900_40x40.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\makeadiff.in\home\makeadiff\public_html\apps\fraise\public\css\ui-lightness\images\ui-bg_diagonals-thick_20_666666_40x40.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\makeadiff.in\home\makeadiff\public_html\apps\fraise\public\css\ui-lightness\images\ui-bg_flat_10_000000_40x100.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\makeadiff.in\home\makeadiff\public_html\apps\fraise\public\css\ui-lightness\images\ui-bg_glass_100_f6f6f6_1x400.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\makeadiff.in\home\makeadiff\public_html\apps\fraise\public\css\ui-lightness\images\ui-bg_glass_100_fdf5ce_1x400.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\makeadiff.in\home\makeadiff\public_html\apps\fraise\public\css\ui-lightness\images\ui-bg_gloss-wave_35_f6a828_500x100.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\makeadiff.in\home\makeadiff\public_html\apps\fraise\public\css\ui-lightness\images\ui-bg_highlight-soft_100_eeeeee_1x100.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\makeadiff.in\home\makeadiff\public_html\apps\fraise\public\css\ui-lightness\images\ui-bg_highlight-soft_75_ffe45c_1x100.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\makeadiff.in\home\makeadiff\public_html\apps\fraise\public\css\ui-lightness\images\ui-icons_ffd27a_256x240.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\makeadiff.in\home\makeadiff\public_html\apps\fraise\public\css\ui-lightness\images\ui-icons_ffffff_256x240.png" afterPath="" />
-      <change type="MOVED" beforePath="C:\makeadiff.in\home\makeadiff\public_html\apps\fraise\public\css\ui-lightness\images\ui-icons_228ef1_256x240.png" afterPath="$PROJECT_DIR$/public/css/ui-lightness/images/ui-icons_2e83ff_256x240.png" />
-      <change type="MOVED" beforePath="C:\makeadiff.in\home\makeadiff\public_html\apps\fraise\public\css\ui-lightness\images\ui-icons_ef8c08_256x240.png" afterPath="$PROJECT_DIR$/public/css/ui-lightness/images/ui-icons_cd0a0a_256x240.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/ui-lightness/images/ui-bg_glass_65_ffffff_1x400.png" afterPath="$PROJECT_DIR$/public/css/ui-lightness/images/ui-bg_glass_65_ffffff_1x400.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/Callback.php" afterPath="$PROJECT_DIR$/app/models/Callback.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/ContactMaster.php" afterPath="$PROJECT_DIR$/app/models/ContactMaster.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/Home.js" afterPath="$PROJECT_DIR$/public/js/Home.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/Home.php" afterPath="$PROJECT_DIR$/app/views/Home.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/Import.php" afterPath="$PROJECT_DIR$/app/controllers/Import.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/Pledged.php" afterPath="$PROJECT_DIR$/app/models/Pledged.php" />
+    <list default="true" id="fcbe90e1-0536-4bc7-9506-575ed05dfc7b" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/WarRoom.js" afterPath="$PROJECT_DIR$/public/js/WarRoom.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/WarRoom.php" afterPath="$PROJECT_DIR$/app/controllers/WarRoom.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/WarRoom.php" afterPath="$PROJECT_DIR$/app/views/WarRoom.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/phpfreechat-2.1.0/server/config.php" afterPath="$PROJECT_DIR$/public/phpfreechat-2.1.0/server/config.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/ui-lightness/jquery-ui-1.10.4.custom.css" afterPath="$PROJECT_DIR$/public/css/ui-lightness/jquery-ui-1.10.4.custom.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/ui-lightness/jquery-ui-1.10.4.custom.min.css" afterPath="$PROJECT_DIR$/public/css/ui-lightness/jquery-ui-1.10.4.custom.min.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/custom.css" afterPath="$PROJECT_DIR$/public/css/custom.css" />
     </list>
     <ignored path="fraise.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -83,7 +30,7 @@
       <file leaf-file-name="WarRoom.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/WarRoom.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="211" column="10" selection-start="7618" selection-end="7618" vertical-scroll-proportion="-63.384617" vertical-offset="1939" max-vertical-offset="3876">
+            <state line="60" column="0" selection-start="2328" selection-end="2328" vertical-scroll-proportion="-11.730769" vertical-offset="715" max-vertical-offset="3910">
               <folding>
                 <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#4;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -98,10 +45,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WarRoom.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="custom.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/css/custom.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="150" column="0" selection-start="1629" selection-end="1629" vertical-scroll-proportion="0.0" vertical-offset="2287" max-vertical-offset="2873">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="WarRoom.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/WarRoom.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="64" column="32" selection-start="2117" selection-end="2117" vertical-scroll-proportion="0.8610603" vertical-offset="617" max-vertical-offset="8636">
+            <state line="46" column="110" selection-start="1473" selection-end="1473" vertical-scroll-proportion="78.11539" vertical-offset="2813" max-vertical-offset="8636">
               <folding>
                 <marker date="1392977219374" expanded="true" signature="241:331" placeholder="SELECT warro..warroom_timing..." />
                 <marker date="1392977219374" expanded="true" signature="454:536" placeholder="SELECT warro..warroom_timing..." />
@@ -154,10 +110,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WarRoom.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="WarRoom.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/js/WarRoom.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="112" column="0" selection-start="3639" selection-end="3639" vertical-scroll-proportion="0.0" vertical-offset="706" max-vertical-offset="9622">
+            <state line="208" column="90" selection-start="5488" selection-end="5488" vertical-scroll-proportion="0.4778157" vertical-offset="3256" max-vertical-offset="9622">
               <folding />
             </state>
           </provider>
@@ -232,12 +188,13 @@
         <option value="$PROJECT_DIR$/app/controllers/CoachDashboard.php" />
         <option value="$PROJECT_DIR$/app/views/Home.php" />
         <option value="$PROJECT_DIR$/public/js/Home.js" />
-        <option value="$PROJECT_DIR$/app/views/WarRoom.php" />
-        <option value="$PROJECT_DIR$/public/js/WarRoom.js" />
         <option value="$PROJECT_DIR$/app/models/ContactMaster.php" />
         <option value="$PROJECT_DIR$/app/models/Pledged.php" />
         <option value="$PROJECT_DIR$/app/models/Callback.php" />
         <option value="$PROJECT_DIR$/app/controllers/WarRoom.php" />
+        <option value="$PROJECT_DIR$/public/css/custom.css" />
+        <option value="$PROJECT_DIR$/app/views/WarRoom.php" />
+        <option value="$PROJECT_DIR$/public/js/WarRoom.js" />
       </list>
     </option>
   </component>
@@ -344,7 +301,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
+              <option name="myItemId" value="css" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -444,7 +401,7 @@
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="840" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../donutleaderboard" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../profile" />
   </component>
   <component name="RunManager">
     <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
@@ -492,6 +449,11 @@
       <created>1392879708793</created>
       <updated>1392879708793</updated>
     </task>
+    <task id="LOCAL-00001" summary="Lot of bug fixes&#10;# Please enter the commit message for your changes. Lines starting&#10;# with '#' will be ignored, and an empty message aborts the commit.&#10;# On branch master&#10;# Your branch is ahead of 'origin/master' by 1 commit.&#10;#   (use &quot;git push&quot; to publish your local commits)&#10;#&#10;# Changes to be committed:&#10;#   (use &quot;git reset HEAD &lt;file&gt;...&quot; to unstage)&#10;#&#10;#&#9;new file:   .idea/.name&#10;#&#9;new file:   .idea/dataSources.ids&#10;#&#9;new file:   .idea/dataSources.xml&#10;#&#9;new file:   .idea/encodings.xml&#10;#&#9;new file:   .idea/fraise.iml&#10;#&#9;new file:   .idea/inspectionProfiles/Project_Default.xml&#10;#&#9;new file:   .idea/inspectionProfiles/profiles_settings.xml&#10;#&#9;new file:   .idea/misc.xml&#10;#&#9;new file:   .idea/modules.xml&#10;#&#9;new file:   .idea/scopes/scope_settings.xml&#10;#&#9;new file:   .idea/vcs.xml&#10;#&#9;new file:   .idea/workspace.xml&#10;#&#9;new file:   _ide_helper.php&#10;#&#9;new file:   app/controllers/CoachDashboard.php&#10;#&#9;modified:   app/controllers/Import.php&#10;#&#9;modified:   app/controllers/WarRoom.php&#10;#&#9;modified:   app/models/Callback.php&#10;#&#9;modified:   app/models/ContactMaster.php&#10;#&#9;modified:   app/models/Pledged.php&#10;#&#9;modified:   app/views/Home.php&#10;#&#9;modified:   app/views/WarRoom.php&#10;#&#9;deleted:    public/css/bootstrap-cerulean.min.css&#10;#&#9;deleted:    public/css/bootstrap-readable.min.css&#10;#&#9;deleted:    public/css/bootstrap-theme.css&#10;#&#9;deleted:    public/css/bootstrap-theme.min.css&#10;#&#9;deleted:    public/css/bootstrap.css&#10;#&#9;deleted:    public/css/flipclock.css&#10;#&#9;deleted:    public/css/ui-lightness/images/ui-bg_diagonals-thick_18_b81900_40x40.png&#10;#&#9;deleted:    public/css/ui-lightness/images/ui-bg_diagonals-thick_20_666666_40x40.png&#10;#&#9;new file:   public/css/ui-lightness/images/ui-bg_flat_0_aaaaaa_40x100.png&#10;#&#9;deleted:    public/css/ui-lightness/images/ui-bg_flat_10_000000_40x100.png&#10;#&#9;new file:   public/css/ui-lightness/images/ui-bg_flat_75_ffffff_40x100.png&#10;#&#9;deleted:    public/css/ui-lightness/images/ui-bg_glass_100_f6f6f6_1x400.png&#10;#&#9;deleted:    public/css/ui-lightness/images/ui-bg_glass_100_fdf5ce_1x400.png&#10;#&#9;new file:   public/css/ui-lightness/images/ui-bg_glass_55_fbf9ee_1x400.png&#10;#&#9;modified:   public/css/ui-lightness/images/ui-bg_glass_65_ffffff_1x400.png&#10;#&#9;new file:   public/css/ui-lightness/images/ui-bg_glass_75_dadada_1x400.png&#10;#&#9;new file:   public/css/ui-lightness/images/ui-bg_glass_75_e6e6e6_1x400.png&#10;#&#9;new file:   public/css/ui-lightness/images/ui-bg_glass_95_fef1ec_1x400.png&#10;#&#9;deleted:    public/css/ui-lightness/images/ui-bg_gloss-wave_35_f6a828_500x100.png&#10;#&#9;deleted:    public/css/ui-lightness/images/ui-bg_highlight-soft_100_eeeeee_1x100.png&#10;#&#9;new file:   public/css/ui-lightness/images/ui-bg_highlight-soft_75_cccccc_1x100.png&#10;#&#9;deleted:    public/css/ui-lightness/images/ui-bg_highlight-soft_75_ffe45c_1x100.png&#10;#&#9;renamed:    public/css/ui-lightness/images/ui-icons_228ef1_256x240.png -&gt; public/css/ui-lightness/images/ui-icons_2e83ff_256x240.png&#10;#&#9;new file:   public/css/ui-lightness/images/ui-icons_454545_256x240.png&#10;#&#9;new file:   public/css/ui-lightness/images/ui-icons_888888_256x240.png&#10;#&#9;renamed:    public/css/ui-lightness/images/ui-icons_ef8c08_256x240.png -&gt; public/css/ui-lightness/images/ui-icons_cd0a0a_256x240.png&#10;#&#9;deleted:    public/css/ui-lightness/images/ui-icons_ffd27a_256x240.png&#10;#&#9;deleted:    public/css/ui-lightness/images/ui-icons_ffffff_256x240.png&#10;#&#9;modified:   public/css/ui-lightness/jquery-ui-1.10.4.custom.css&#10;#&#9;modified:   public/css/ui-lightness/jquery-ui-1.10.4.custom.min.css&#10;#&#9;modified:   public/js/Home.js&#10;#&#9;modified:   public/js/WarRoom.js&#10;#&#9;new file:   public/js/jquery.form-validator.min.js&#10;#&#9;modified:   public/phpfreechat-2.1.0/server/config.php&#10;#&#9;new file:   public/test.php&#10;#&#10;">
+      <created>1392977953876</created>
+      <updated>1392977953876</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -515,7 +477,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32843137" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -524,7 +486,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32843137" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32930514" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18202417" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18202417" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32913387" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -568,6 +530,7 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
@@ -714,32 +677,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/WarRoom.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="112" column="0" selection-start="3639" selection-end="3639" vertical-scroll-proportion="0.0" vertical-offset="706" max-vertical-offset="9622">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/WarRoom.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="211" column="10" selection-start="7618" selection-end="7618" vertical-scroll-proportion="-63.384617" vertical-offset="1939" max-vertical-offset="3876">
-          <folding>
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#4;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#p#0;n#form#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#p#0;n#form#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#p#0;n#form#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#p#0;n#form#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#p#0;n#form#0;n#div#5;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#p#0;n#form#0;n#div#6;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/WarRoom.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="64" column="32" selection-start="2117" selection-end="2117" vertical-scroll-proportion="0.8610603" vertical-offset="617" max-vertical-offset="8636">
+        <state line="46" column="110" selection-start="1473" selection-end="1473" vertical-scroll-proportion="78.11539" vertical-offset="2813" max-vertical-offset="8636">
           <folding>
             <marker date="1392977219374" expanded="true" signature="241:331" placeholder="SELECT warro..warroom_timing..." />
             <marker date="1392977219374" expanded="true" signature="454:536" placeholder="SELECT warro..warroom_timing..." />
@@ -788,6 +728,36 @@
             <marker date="1392977219374" expanded="true" signature="9978:10132" placeholder="..." />
             <marker date="1392977219374" expanded="true" signature="10091:10132" placeholder="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/css/custom.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="150" column="0" selection-start="1629" selection-end="1629" vertical-scroll-proportion="0.0" vertical-offset="2287" max-vertical-offset="2873">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/WarRoom.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="60" column="0" selection-start="2328" selection-end="2328" vertical-scroll-proportion="-11.730769" vertical-offset="715" max-vertical-offset="3910">
+          <folding>
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#4;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#form#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#form#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#form#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#form#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#form#0;n#div#5;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#form#0;n#div#6;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/WarRoom.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="208" column="90" selection-start="5488" selection-end="5488" vertical-scroll-proportion="0.4778157" vertical-offset="3256" max-vertical-offset="9622">
+          <folding />
         </state>
       </provider>
     </entry>
