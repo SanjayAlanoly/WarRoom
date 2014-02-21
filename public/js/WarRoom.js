@@ -205,7 +205,7 @@ function init(){
 		    // find the amount of "seconds" between now and target
 			var now = new Date();
 
-			var start_time = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 19,55,0).getTime();
+			var start_time = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 20,00,0).getTime();
 			var end_time = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 20,20,0).getTime();
 
 			var tom_start_time = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 12,15,0).getTime();
