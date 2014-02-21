@@ -133,8 +133,13 @@
         </div>
 
 		
-		<br><br>
-		
+		<br>
+
+        <div id="to_know_more" class="text-center">
+        <a style="font-size:120%" target="_blank" href="https://docs.google.com/a/makeadiff.in/document/d/1k5yjcEXHAYHEkOKAhxeIGmCAEooIG0F1pDW65oRwesA">To know more about Sparta click here</a>
+        </div>
+
+        <br><br>
 		
 		<div class="row">
 			<div id="mychat" style="padding-left:20px"><a href="http://www.phpfreechat.net">phpFreeChat: simple Web chat</a></div>

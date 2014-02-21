@@ -70,7 +70,7 @@ class WarRoom extends BaseController
 			$pledged_amount = 0;
 		}
 
-		$children_supported = round($pledged_amount/1000,0,PHP_ROUND_HALF_DOWN);
+		$children_supported = round($pledged_amount/910,0,PHP_ROUND_HALF_DOWN);
 
 		echo "<h2 class='text-center sub_title'>Children Supported : " . number_format($children_supported) . "</h2>";
 
