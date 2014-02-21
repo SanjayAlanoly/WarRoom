@@ -107,7 +107,7 @@ class Home extends BaseController {
 
 
 
-            if(!isset($result_city[0]->name)){
+            if(!isset($result_city[0]->sum)){
                 $result_city = DB::connection("cfrapp")->select('SELECT name FROM cities WHERE id = ?',array($city->city_id));
                 $city_amount_raised = 0;
                 $city_name = $result_city[0]->name;
