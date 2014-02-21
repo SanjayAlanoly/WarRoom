@@ -106,7 +106,7 @@
 		<div class="inner">
 
 
-		<?php if($message = Session::get('success')){
+<!--		--><?php /*if($message = Session::get('success')){
 
 		echo '<div class="alert alert-success alert-dismissable">
 		  			<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>';
@@ -115,7 +115,7 @@
 		echo '</div>';
 
 
-		}
+		}*/
 
 		?>
 

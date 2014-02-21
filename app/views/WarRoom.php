@@ -3,6 +3,8 @@
 <head>
     <meta charset="utf-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="ihhUtEI6HzxmcIqIGqJnUP9f0t8ztbawetksOIKpaPA" />
+
 	<link rel="stylesheet" type="text/css" href="phpfreechat-2.1.0/client/themes/default/jquery.phpfreechat.min.css" />
     <link href="css/bootstrap.min.css" rel="stylesheet">
 	<link href="css/custom-navbar.css" rel="stylesheet">

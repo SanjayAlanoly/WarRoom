@@ -106,8 +106,17 @@ class Home extends BaseController {
 											WHERE cities.id = ?',array($city->city_id));
 
 
-			$city_amount_raised = $result_city[0]->sum;
-			$city_name = $result_city[0]->name;
+
+            if(!isset($result_city[0])){
+                $result_city = DB::connection("cfrapp")->select('SELECT name FROM cities WHERE id = ?',array($city->city_id));
+                $city_amount_raised = 0;
+                $city_name = $result_city[0]->name;
+            }else{
+                $city_amount_raised = $result_city[0]->sum;
+                $city_name = $result_city[0]->name;
+            }
+
+
 
 			$start_date = new DateTime("$city->start_date");
 			$end_date = new DateTime("$city->end_date");
