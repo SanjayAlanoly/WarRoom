@@ -15,10 +15,8 @@ class ContactMaster extends Eloquent
         
         public static $donationRange = array(
             '0-500',
-            '501-1000',
-            '1001-5000',
-            '5001-20000',
-            '20001-above'
+            '501-2000',
+            '2001-above'
         );
         
         private $rules = array(
@@ -77,7 +75,13 @@ class ContactMaster extends Eloquent
                     
                     $pl = new Pledged();
                     $pl->contact_id = $contact->id;
-                    $pl->amount_pledged = $input['amount_pledged'];
+
+                    if($input['amount_pledged']<0){
+                        $pl->amount_pledged = $input['amount_pledged'] * -1;
+                    }else{
+                        $pl->amount_pledged = $input['amount_pledged'];
+                    }
+
                     $pl->volunteer_id = Auth::user()->id;
                     $pl->collect_date = $input['collect_date'];
                     $pl->comments = $input['comments'];

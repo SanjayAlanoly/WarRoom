@@ -78,7 +78,7 @@ $GLOBALS['pfc_hooks']['pfc.before.auth'][5] = function ($app, $req, $res) {
 
 $GLOBALS['pfc_hooks']['pfc.isop'][5] = function ($app, $req, $res) {
   return function ($login, $channel, $uid, $cid) use ($app, $req, $res) {
-    if ($login == 'Admin MakeaDiff' or $login == 'Sanjay Thomas') {
+    if ($login == 'Admin MakeaDiff (National)' or $login == 'Sanjay Thomas (National)') {
       return true;
     } else {
       return false;

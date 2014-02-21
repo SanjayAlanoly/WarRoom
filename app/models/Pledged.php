@@ -22,8 +22,19 @@ class Pledged extends Eloquent
         switch($input['type'])
         {
             case 'collect':
+                //0 in collected amount column is used to check whether the amount is collected or not
+                if($input['amount_collected']==0){
+                    break;
+                }
+
                 ContactMaster::where('id','=',$pledge->contact_id)->update(array('status'=>'collected'));
-                $pledge->amount_collected = $input['amount_collected'];
+
+                if($input['amount_collected']<0){
+                    $pledge->amount_collected = $input['amount_collected'] * -1;
+                }else{
+                    $pledge->amount_collected = $input['amount_collected'];
+                }
+
                 $pledge->save();
                 break;
             case 'retracted':

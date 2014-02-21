@@ -44,8 +44,10 @@ class WarRoom extends BaseController
 
 	public function showWarRoom()
 	{
+        $city_name = DB::connection('cfrapp')->select('SELECT name FROM cities WHERE id =?',array(Auth::user()->city_id));
+
 		session_start();
-        $_SESSION['name'] = Auth::user()->first_name . " " . Auth::user()->last_name;
+        $_SESSION['name'] = Auth::user()->first_name . " " . Auth::user()->last_name . " (" .$city_name[0]->name . ")";
 
         
 		//return View::make('WarRoom',array('donation_amount' => $user[0]->donation_amount));

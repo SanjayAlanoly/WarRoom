@@ -31,7 +31,11 @@ class Callback extends Eloquent
                 ContactMaster::where('id','=',$callback->contact_id)->update(array('status'=>'pledged'));
                 $pl = new Pledged();
                 $pl->contact_id = $callback->contact_id;
-                $pl->amount_pledged = $input['amount_pledged'];
+                if($input['amount_pledged']<0){
+                    $pl->amount_pledged = $input['amount_pledged'] * -1;
+                }else{
+                    $pl->amount_pledged = $input['amount_pledged'];
+                }
                 $pl->collect_date = $input['collect_date'];
                 $pl->comments = $input['comments'];
                 $pl->volunteer_id = Auth::user()->id;

@@ -35,8 +35,8 @@ class Import extends BaseController {
 				echo "\n"; 
 				echo "	<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n"; 
 				echo "	\n"; 
-				echo "    <link href=\"../css/bootstrap.min.css\" rel=\"stylesheet\">\n"; 
-				echo "    <link href=\"../css/custom.css\" rel=\"stylesheet\">\n"; 
+				echo "    <link href=\"../css/bootstrap.min.css\" rel=\"stylesheet\">\n";
+				echo "    <link href=\"../css/custom.css\" rel=\"stylesheet\">\n";
 				echo "</head>\n"; 
 				echo "\n"; 
 				echo "<body>\n"; 

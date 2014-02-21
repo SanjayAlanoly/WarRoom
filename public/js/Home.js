@@ -108,6 +108,8 @@ function updatepl(type, id)
 
 function init(){
 
+    $.validate();
+
 	$('#myTab a').click(function (e) {
 	  e.preventDefault()
 	  $(this).tab('show')
@@ -165,10 +167,11 @@ function init(){
             }
         }
     });
-    
+
+
     $("#contactCallback").dialog({
         autoOpen: false,
-        height:450,
+        height:300,
         width: 350,
         buttons: {
             'Save' : function(){
@@ -190,7 +193,7 @@ function init(){
                     $.get("WarRoom/renderConvList",{},
                         function(data)
                         {
-                            alert(data);
+                            //alert(data);
 
                             $("#conv_list").html(data);
                         }
@@ -207,7 +210,7 @@ function init(){
     });
     $("#contactCallbackCB").dialog({
         autoOpen: false,
-        height:450,
+        height:300,
         width: 350,
         buttons: {
             'Save' : function(){
@@ -223,7 +226,7 @@ function init(){
                 },
                 function()
                 {
-                    $("#datepicker41").val('');
+                    $("#datepicker4").val('');
                     $("#comments4").val('');
                     
                     $.get("WarRoom/renderConvList",{},
@@ -247,8 +250,8 @@ function init(){
     
      $("#contactPledged").dialog({
         autoOpen: false,
-        height:400,
-        width: 380,
+        height:350,
+        width: 390,
         buttons: {
             'Save' : function(){
 
@@ -264,8 +267,10 @@ function init(){
                 },
                 function()
                 {
-                    $("#datepicker1").val('');
-                    
+                    $("#datepicker2").val('');
+                    $("#ampl").val('');
+                    $("#comments1").val('');
+
                     $.get("WarRoom/renderConvList",{},
                         function(data)
                         {
@@ -286,8 +291,8 @@ function init(){
     });
      $("#contactPledgedCB").dialog({
         autoOpen: false,
-        height:400,
-        width: 380,
+        height:350,
+        width: 390,
         buttons: {
             'Save' : function(){
 
@@ -304,6 +309,8 @@ function init(){
                 function(data)
                 {
                     $("#datepicker3").val('');
+                    $("#ampl3").val('');
+                    $("#comments3").val('');
                     
                     $.get("WarRoom/renderConvList",{},
                         function(data)
@@ -325,7 +332,7 @@ function init(){
     });
      $("#collect").dialog({
         autoOpen: false,
-        height:200,
+        height:250,
         width: 380,
         buttons: {
             'Save' : function(){
@@ -361,10 +368,10 @@ function init(){
         }
     });
     
-    $( "#datepicker1" ).datepicker( {dateFormat: 'yy-mm-dd' });
-    $( "#datepicker2" ).datepicker( {dateFormat: 'yy-mm-dd' });
-    $( "#datepicker3" ).datepicker( {dateFormat: 'yy-mm-dd' });
-    $( "#datepicker4" ).datepicker( {dateFormat: 'yy-mm-dd' });
+    $( "#datepicker1" ).datepicker( {dateFormat: 'yy-mm-dd', minDate : 0 });
+    $( "#datepicker2" ).datepicker( {dateFormat: 'yy-mm-dd', minDate : 0 });
+    $( "#datepicker3" ).datepicker( {dateFormat: 'yy-mm-dd', minDate : 0 });
+    $( "#datepicker4" ).datepicker( {dateFormat: 'yy-mm-dd', minDate : 0 });
     
     $(document).ready(function(){
         $("#add_contact").click(function(){
