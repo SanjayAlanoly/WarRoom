@@ -294,7 +294,7 @@ class Home extends BaseController {
 																	INNER JOIN users
 																	ON donations.fundraiser_id = users.id
 																	INNER JOIN cities
-																	ON cities.id = users.city_id AND cities.name <> ?',array('Beyond Bangalore'));
+																	ON cities.id = users.city_id AND cities.name LIKE ?',array('Sparta%'));
 
 		if(isset($result_mad_amount_raised[0])){
 
@@ -308,8 +308,13 @@ class Home extends BaseController {
 		//Calculate total conversations by MAD
 
 		$result_mad_conversations = DB::connection('WarRoom')->select('SELECT COUNT(*) AS count
-																	FROM contact_master WHERE status <> ?',
-																	array('open'));
+																	FROM contact_master
+																	INNER JOIN cfrapp.users
+																	ON contact_master.volunteer_id = cfrapp.users.id
+																	INNER JOIN cfrapp.cities
+																	ON cfrapp.cities.id = cfrapp.users.city_id AND cities.name LIKE ?
+																	WHERE status <> ?',
+																	array('Sparta%','open'));
 
 		if(isset($result_mad_conversations[0])){
 
@@ -322,7 +327,11 @@ class Home extends BaseController {
         //Calculate total pledged by the MAD
 
         $result_mad_pledged = DB::connection('WarRoom')->select("SELECT COALESCE(SUM(pledged.amount_pledged),0) AS amount_pledged
-                                                               FROM pledged");
+                                                                FROM pledged
+                                                                INNER JOIN cfrapp.users
+                                                                ON pledged.volunteer_id = cfrapp.users.id
+                                                                INNER JOIN cfrapp.cities
+                                                                ON cfrapp.cities.id = cfrapp.users.city_id AND cities.name LIKE ?",array('Sparta%'));
 
 
         if(isset($result_mad_pledged[0])){
