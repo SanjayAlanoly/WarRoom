@@ -106,24 +106,6 @@
 		<div class="inner">
 
 
-<!--		--><?php /*if($message = Session::get('success')){
-
-		echo '<div class="alert alert-success alert-dismissable">
-		  			<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>';
-		echo "<strong>Success</strong>: $message";
-  			
-		echo '</div>';
-
-
-		}*/
-
-		?>
-
-		
-
-		
-
-		
 
 		<h2 class="sub_title text-center">Dashboard</h2>
 
@@ -139,28 +121,32 @@
 		  	<div class="tab-pane fade in active" id="you">
 
 		  		<br>
-
+                <p class="normal">Children Supported by You : <?php echo round($dashboard['you_amount_raised']/910,0,PHP_ROUND_HALF_DOWN); ?></p>
 		  		<p class="normal">Amount Raised by You : <?php echo "Rs. " . number_format($dashboard['you_amount_raised']); ?></p>
-		  		<p class="normal">Children Supported by You : <?php echo round($dashboard['you_amount_raised']/1000,0,PHP_ROUND_HALF_DOWN); ?></p>
+                <br>
+                <p class="normal">Amount Pledged by You : <?php echo "Rs. " . number_format($dashboard['you_pledged']); ?></p>
 		  		<p class="normal">Conversations made by You : <?php echo number_format($dashboard['you_conversations']); ?></p>
+                <br>
 		  		<p class="normal">Sparta Days completed by You : <?php echo $dashboard['sparta_days_completed']; ?>/21</p>
 		  		
 		  	</div>
 	  		<div class="tab-pane fade" id="city">
 
 		  		<br>
-
+                <p class="normal">Children Supported by your City: <?php echo number_format(round($dashboard['city_amount_raised']/910,0,PHP_ROUND_HALF_DOWN)); ?></p>
 		  		<p class="normal">Amount Raised by your City: <?php echo "Rs. " . number_format($dashboard['city_amount_raised']); ?></p>
-		  		<p class="normal">Children Supported by your City: <?php echo number_format(round($dashboard['city_amount_raised']/1000,0,PHP_ROUND_HALF_DOWN)); ?></p>
+                <br>
+                <p class="normal">Amount Pledged by your City: <?php echo "Rs. " . number_format($dashboard['city_pledged']); ?></p>
 		  		<p class="normal">Conversations made by your City: <?php echo number_format($dashboard['city_conversations']); ?></p>
 
 		  	</div>
 		  	<div class="tab-pane fade" id="mad">
 
 		  		<br>
-
+                <p class="normal">Children Supported by MAD : <?php echo number_format(round($dashboard['mad_amount_raised']/910,0,PHP_ROUND_HALF_DOWN)); ?></p>
 		  		<p class="normal">Amount Raised by MAD : <?php echo "Rs. " . number_format($dashboard['mad_amount_raised']); ?></p>
-		  		<p class="normal">Children Supported by MAD : <?php echo number_format(round($dashboard['mad_amount_raised']/1000,0,PHP_ROUND_HALF_DOWN)); ?></p>
+                <br>
+                <p class="normal">Amount Pledged by MAD : <?php echo "Rs. " . number_format($dashboard['mad_pledged']); ?></p>
 		  		<p class="normal">Conversations made by MAD : <?php echo number_format($dashboard['mad_conversations']); ?></p>
 
 		  	</div>

@@ -34,8 +34,20 @@ Route::post('login', 'AuthController@postLogin');
 Route::get('logout', 'AuthController@getLogout');
 Route::get('destroySession','WarRoom@destroySession');
 
+Route::filter('poc_check', function()
+{
+    if (Input::get('age') < 200)
+    {
+        return Redirect::to('home');
+    }
+});
+
 Route::group(array('before' => 'auth'), function()
 {
+
+
+    Route::get('/Volunteer/{id}','CoachDashboard@showVolunteer');
+    Route::get('/CoachDashboard','CoachDashboard@showCoachDashboard');
     Route::get('/WarRoom', 'WarRoom@showWarRoom');
     Route::get('/', 'Home@showHome');
 });

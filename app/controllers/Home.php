@@ -19,6 +19,8 @@ class Home extends BaseController {
 	public function calculateLeaderboard(){
 
 
+
+
 		$fundraisers_national = DB::connection('cfrapp')->select("SELECT users.id as id, users.first_name AS first_name, users.last_name AS last_name,
 							SUM(donations.donation_amount) AS amount,
 							cities.name as city_name
@@ -182,11 +184,26 @@ class Home extends BaseController {
 		}
 
 
+        //Calculate total pledged by the user
+
+        $result_you_pledged = DB::connection('WarRoom')->select("SELECT COALESCE(SUM(pledged.amount_pledged),0) AS amount_pledged
+                                                               FROM pledged
+                                                               WHERE pledged.volunteer_id = ?",array(Auth::user()->id));
+
+
+        if(isset($result_you_pledged[0])){
+
+            $you_pledged = $result_you_pledged[0]->amount_pledged;
+        }else{
+
+            $you_pledged = 0;
+        }
+
 
 		//Calculate the number of Sparta days by the user
 
 
-		$result_you_sparta_days = DB::connection('WarRoom')->select('SELECT DATE(first_updated_at) as first_updated_at FROM contact_master WHERE volunteer_id = ?',array(Auth::user()->id));
+		$result_you_sparta_days = DB::connection('WarRoom')->select('SELECT DATE(first_updated_at) as first_updated_at FROM contact_master WHERE status <> ? AND volunteer_id = ?',array('open',Auth::user()->id));
 
 		$sparta_days_completed = 0;
 
@@ -234,12 +251,30 @@ class Home extends BaseController {
 		}
 
 
+        //Calculate total pledged by the user's city
+
+        $result_city_pledged = DB::connection('WarRoom')->select("SELECT COALESCE(SUM(pledged.amount_pledged),0) AS amount_pledged
+                                                               FROM pledged
+                                                               INNER JOIN cfrapp.users
+                                                               ON pledged.volunteer_id = cfrapp.users.id
+                                                               WHERE cfrapp.users.city_id = ?",array(Auth::user()->city_id));
+
+
+        if(isset($result_city_pledged[0])){
+
+            $city_pledged = $result_city_pledged[0]->amount_pledged;
+        }else{
+
+            $city_pledged = 0;
+        }
+
+
 		//Calculate total conversations by the user's city
 
 		$result_city_conversations = DB::connection('WarRoom')->select('SELECT COUNT(*) AS count
-																	FROM makeadiff_warroom.contact_master
+																	FROM contact_master
 																	INNER JOIN cfrapp.users
-																	ON makeadiff_warroom.contact_master.volunteer_id = cfrapp.users.id
+																	ON contact_master.volunteer_id = cfrapp.users.id
 																	WHERE contact_master.status <> ? AND cfrapp.users.city_id=?',
 																	array('open',Auth::user()->city_id));
 
@@ -284,9 +319,23 @@ class Home extends BaseController {
 			$mad_conversations = 0;
 		}
 
+        //Calculate total pledged by the MAD
+
+        $result_mad_pledged = DB::connection('WarRoom')->select("SELECT COALESCE(SUM(pledged.amount_pledged),0) AS amount_pledged
+                                                               FROM pledged");
 
 
-		$data = compact("you_amount_raised","city_amount_raised","mad_amount_raised","you_conversations","city_conversations","mad_conversations","sparta_days_completed");
+        if(isset($result_mad_pledged[0])){
+
+            $mad_pledged = $result_mad_pledged[0]->amount_pledged;
+        }else{
+
+            $mad_pledged = 0;
+        }
+
+
+
+		$data = compact("you_amount_raised","city_amount_raised","mad_amount_raised","you_conversations","city_conversations","mad_conversations","sparta_days_completed","you_pledged","city_pledged","mad_pledged");
 
 		return $data;
 
