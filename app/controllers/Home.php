@@ -28,9 +28,9 @@ class Home extends BaseController {
 							INNER JOIN users
 							ON donations.fundraiser_id = users.id
 							INNER JOIN cities
-							ON cities.id = users.city_id AND cities.name <> ? AND cities.name NOT LIKE ?
+							ON cities.id = users.city_id AND cities.name <> ? AND cities.name LIKE ?
 							GROUP BY users.id
-							ORDER BY SUM(donations.donation_amount) DESC",array('Beyond Bangalore','FOM%'));
+							ORDER BY SUM(donations.donation_amount) DESC",array('Sparta%','FOM%'));
 		$count = 0;
 		$user_count_national = 0;
 		$flag = false;
@@ -60,9 +60,9 @@ class Home extends BaseController {
 							INNER JOIN users
 							ON donations.fundraiser_id = users.id
 							INNER JOIN cities
-							ON cities.id = users.city_id AND cities.id = ? AND cities.name <> ? AND cities.name NOT LIKE ?
+							ON cities.id = users.city_id AND cities.id = ? AND cities.name <> ? AND cities.name LIKE ?
 							GROUP BY users.id
-							ORDER BY SUM(donations.donation_amount) DESC",array(Auth::user()->city_id,'Beyond Bangalore','FOM%'));
+							ORDER BY SUM(donations.donation_amount) DESC",array(Auth::user()->city_id,'Sparta%','FOM%'));
 		$count = 0;
 		$user_count_city = 0;
 		$flag = false;

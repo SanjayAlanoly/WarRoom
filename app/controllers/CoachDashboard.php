@@ -129,4 +129,14 @@ class CoachDashboard extends BaseController {
 
     }
 
+    function submitCalendar(){
+
+        if(!empty($_POST['sparta_day'])){
+            foreach($_POST['sparta_day'] as $sparta_day){
+
+            }
+        }
+
+    }
+
 }

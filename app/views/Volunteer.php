@@ -8,6 +8,7 @@
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/custom-navbar.css" rel="stylesheet">
     <link href="../css/custom.css" rel="stylesheet">
+    <link href="../css/Calendar.css" rel="stylesheet">
 
     <script src="../js/jquery.js"></script>
     <script src="../js/bootstrap.min.js"></script>
@@ -121,7 +122,7 @@
 
     <div class="container board">
 
-        <h2 class="sub_title text-center"><?php echo "$volunteer->first_name $volunteer->last_name"?></h2>
+        <h1 class="title text-center"><?php echo "$volunteer->first_name $volunteer->last_name"?></h1>
 
         <br>
 
@@ -139,7 +140,41 @@
             </div>
         </div>
 
+        <br>
+
         <div id="chart_div"></div>
+
+        <br><br>
+
+        <div id="spartaCalendar">
+
+            <h2 class="sub_title text-center"><?php echo "$volunteer->first_name's Calendar"?></h2>
+
+            <br>
+
+            <form action="CoachDashboard/submitCalendar" method="post" enctype="multipart/form-data">
+
+                <?php
+
+
+
+
+                    $cal = new Calendar("daily");
+
+                    $cal->display();
+
+                    function daily($year, $month, $day) {
+
+                       echo "<label class='checkbox-inline'><input type='checkbox' name='sparta_day[]' value=\"$year-$month-$day\" value=1>Sparta Day</label><br>";
+                       echo "<label class='checkbox-inline'><input type='checkbox' name = 'coached[]' value=\"$year-$month-$day\" value=1>Coached</label>";
+                       echo "<input='hidden' name='month' value=\"$month\">";
+                    }
+
+
+
+                ?>
+            </form>
+        </div>
 
     </div>
 

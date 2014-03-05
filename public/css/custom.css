@@ -36,6 +36,16 @@ h2.sub_title {
 
 }
 
+h2.sub_title {
+
+    font-family:BebasNeueRegular,Arial;
+    text-transform:uppercase;
+    font-size:400%;
+    color:#7f3f98;
+
+
+}
+
 
 p.countdown_content {
 	

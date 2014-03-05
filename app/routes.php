@@ -28,6 +28,8 @@ Route::get('/Import','Import@showImport');
 Route::post('/Import/uploadFile' , 'Import@uploadFile');
 Route::get('/Import/getVolunteers','Import@getVolunteers');
 
+
+
 Route::get('login', array('as' => 'login', 'uses' => 'AuthController@showLogin'));
 Route::post('login', 'AuthController@postLogin');
 
@@ -45,7 +47,7 @@ Route::filter('poc_check', function()
 Route::group(array('before' => 'auth'), function()
 {
 
-
+    Route::post('/CoachDashboard/submitCalendar' , 'CoachDashboard@submitCalendar');
     Route::get('/Volunteer/{id}','CoachDashboard@showVolunteer');
     Route::get('/CoachDashboard','CoachDashboard@showCoachDashboard');
     Route::get('/WarRoom', 'WarRoom@showWarRoom');
