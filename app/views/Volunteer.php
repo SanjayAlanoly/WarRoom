@@ -152,7 +152,7 @@
 
             <br>
 
-            <form action="CoachDashboard/submitCalendar" method="post" enctype="multipart/form-data">
+            <form action="../Volunteer/submitCalendar" method="post" enctype="multipart/form-data">
 
                 <?php
 
@@ -163,12 +163,69 @@
 
                     $cal->display();
 
-                    function daily($year, $month, $day) {
 
-                       echo "<label class='checkbox-inline'><input type='checkbox' name='sparta_day[]' value=\"$year-$month-$day\" value=1>Sparta Day</label><br>";
-                       echo "<label class='checkbox-inline'><input type='checkbox' name = 'coached[]' value=\"$year-$month-$day\" value=1>Coached</label>";
-                       echo "<input='hidden' name='month' value=\"$month\">";
+                    function daily($year, $month, $day, $weekday) {
+
+
+
+                        $sparta_days = DB::connection('WarRoom')->select("SELECT id FROM volunteer_sparta WHERE volunteer_id = ? AND type = ? AND on_date = ?",array( Volunteer::$volunteer_id,'sparta_day',"$year-$month-$day"));
+
+                        $coached_days = DB::connection('WarRoom')->select("SELECT id FROM volunteer_sparta WHERE volunteer_id = ? AND type = ? AND on_date = ?",array( Volunteer::$volunteer_id,'coached',"$year-$month-$day"));
+
+                        $no_of_conv = DB::connection('WarRoom')->select('SELECT COUNT(*) AS count FROM contact_master WHERE status <> ? AND volunteer_id=? AND DATE(first_updated_at)=?',array('open',Volunteer::$volunteer_id,"$year-$month-$day"));
+
+                        $weekly_target = DB::connection('WarRoom')->select('SELECT target FROM volunteer_weekly_target WHERE on_date = ? and volunteer_id = ?',array("$year-$month-$day",Volunteer::$volunteer_id));
+
+
+
+                        if(isset($sparta_days[0])){
+                               echo "<label class='checkbox-inline'><input type='checkbox' name='sparta_day[]' value=\"$year-$month-$day\" value=1 checked>Sparta Day</label><br>";
+
+                        }else{
+                            echo "<label class='checkbox-inline'><input type='checkbox' name='sparta_day[]' value=\"$year-$month-$day\" value=1>Sparta Day</label><br>";
+                        }
+
+                        if(isset($coached_days[0])){
+                            echo "<label class='checkbox-inline'><input type='checkbox' name = 'coached[]' value=\"$year-$month-$day\" value=1 checked>Coached</label>";
+
+                        }else{
+                            echo "<label class='checkbox-inline'><input type='checkbox' name = 'coached[]' value=\"$year-$month-$day\" value=1>Coached</label>";
+                        }
+
+                        echo "<br><p class='regular'>Conversations : " . $no_of_conv[0]->count . "</p>";
+
+                        if($weekday == 'saturday'){
+
+                            if(isset($weekly_target[0])){
+                                echo  "<input type='text' class='form-control' name='weekly_target[]' value=" . $weekly_target[0]->target . ">";
+                            }else{
+                                echo  '<input type="text" class="form-control" name="weekly_target[]" placeholder="Weekly Target">';
+                            }
+
+
+                            echo "<input type='hidden' name='date[]' value=\"$year-$month-$day\">";
+
+                        }
+
+
+                        echo "<input type='hidden' name='month' value=\"$month\">";
                     }
+
+                    echo "<input type='hidden' name='volunteer_id' value=\"$volunteer->id\">";
+
+                    $overall_target = DB::connection('WarRoom')->select('SELECT target FROM volunteer_overall_target WHERE volunteer_id = ?',array(Volunteer::$volunteer_id));
+
+                    echo "<br><p class='normal'>Overall Target : </p>";
+
+                    if(isset($overall_target[0])){
+                        echo "<input type='text' class='form-control' style='width:25%' name='overall_target' value='" . $overall_target[0]->target . "'>";
+                    }else{
+                        echo "<input type='text' class='form-control' style='width:25%' name='overall_target' placeholder='Overall Target'>";
+                    }
+
+
+
+                    echo "<br><div class='text-center'><button type='submit' class='btn btn-lg btn-primary' >SAVE</button></div>";
 
 
 
@@ -177,9 +234,6 @@
         </div>
 
     </div>
-
-
-
 </body>
 </html>
 

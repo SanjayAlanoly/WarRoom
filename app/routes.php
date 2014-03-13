@@ -36,20 +36,37 @@ Route::post('login', 'AuthController@postLogin');
 Route::get('logout', 'AuthController@getLogout');
 Route::get('destroySession','WarRoom@destroySession');
 
-Route::filter('poc_check', function()
+Route::filter('coach_check', function()
 {
-    if (Input::get('age') < 200)
+    $data = DB::connection('WarRoom')->select('SELECT id FROM bro_team_coach WHERE coach_id = ?',array(Auth::user()->id));
+    if (!isset($data[0]->id))
     {
-        return Redirect::to('home');
+        return Redirect::to('/AccessDenied');
     }
+});
+
+Route::filter('bro_check',function()
+{
+    $data = DB::connection('cfrapp')->select('SELECT users.id FROM users
+                                        INNER JOIN cities
+                                        ON users.city_id = cities.id
+                                        WHERE  cities.name = ? AND users.id = ?',array('National',Auth::user()->id));
+    if (!isset($data[0]->id))
+    {
+        return Redirect::to('/AccessDenied');
+    }
+
 });
 
 Route::group(array('before' => 'auth'), function()
 {
-
-    Route::post('/CoachDashboard/submitCalendar' , 'CoachDashboard@submitCalendar');
-    Route::get('/Volunteer/{id}','CoachDashboard@showVolunteer');
-    Route::get('/CoachDashboard','CoachDashboard@showCoachDashboard');
+    Route::post('/BrosDashboard/saveBroTeams','BrosDashboard@saveBroTeams');
+    Route::get('/BrosDashboard',array('before' => 'bro_check', 'uses' => 'BrosDashboard@showBrosDashboard'));
+    Route::get('/AccessDenied',function(){return View::make('AccessDenied');});
+    Route::post('/CoachDashboard/saveVolunteers','CoachDashboard@saveVolunteers');
+    Route::post('/Volunteer/submitCalendar' , 'Volunteer@submitCalendar');
+    Route::get('/Volunteer/{id}','Volunteer@showVolunteer');
+    Route::get('/CoachDashboard',array('before' => 'coach_check', 'uses' => 'CoachDashboard@showCoachDashboard'));
     Route::get('/WarRoom', 'WarRoom@showWarRoom');
     Route::get('/', 'Home@showHome');
 });

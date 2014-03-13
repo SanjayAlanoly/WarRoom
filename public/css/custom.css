@@ -36,12 +36,13 @@ h2.sub_title {
 
 }
 
-h2.sub_title {
+h2.sub_title_left {
 
     font-family:BebasNeueRegular,Arial;
     text-transform:uppercase;
-    font-size:400%;
+    font-size:250%;
     color:#7f3f98;
+    text-align: left;
 
 
 }
@@ -62,6 +63,11 @@ p.normal {
 	color:#ed1849;
 	font-size: 150%;
 	
+}
+
+p.regular {
+    font-family:Trebuchet MS,Arial;
+    font-weight: normal;
 }
 
 a {
@@ -140,6 +146,12 @@ th {
 	text-transform:uppercase;
 	
 	
+}
+
+th.big {
+    font-size:140%;
+    text-transform: capitalize;
+
 }
 
 td{ 

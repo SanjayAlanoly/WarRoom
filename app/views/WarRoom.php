@@ -52,6 +52,7 @@
 	  		<ul class="nav navbar-nav">
       			<li><a href="../public/">Home</a></li>
       			<li class="active"><a href="#">War Room</a></li>
+                <li><a href="./CoachDashboard">Coach Dashboard</a></li>
       		</ul>
       		<button type="button" class="btn btn-default navbar-btn navbar-right" onclick="location.href='destroySession'">Logout</button>
 	  	</div>

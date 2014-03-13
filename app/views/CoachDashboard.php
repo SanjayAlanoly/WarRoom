@@ -8,9 +8,23 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/custom-navbar.css" rel="stylesheet">
     <link href="css/custom.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap-multiselect.css" type="text/css"/>
 
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap-multiselect.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('.multiselect').multiselect({
+                enableCaseInsensitiveFiltering: true,
+                maxHeight: 300,
+                buttonWidth: '100%'
+
+            });
+        });
+    </script>
+
 </head>
 <body>
 
@@ -26,8 +40,9 @@
         </div>
         <div class="collapse navbar-collapse" id="navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
-                <li><a target="_blank" href="../public/WarRoom">War Room</a></li>
+                <li><a href=".">Home</a></li>
+                <li><a target="_blank" href="WarRoom">War Room</a></li>
+                <li class="active"><a href="">Coach Dashboard</a></li>
             </ul>
             <button type="button" class="btn btn-default navbar-btn navbar-right" onclick="location.href='destroySession'">Logout</button>
         </div>
@@ -39,15 +54,55 @@
 
 
 
-            echo "<h2></h2>";
+
+            echo "<h1 class=\"title text-center\">Coach Dashboard</h1><br>";
+
+           /* echo "<h2 class='sub_title_left'>Yesterday : </h2>";
+
+            echo "<p class='normal'>Number of coach calls made : 3/4</p>";
+            echo "<p class='normal'>Amount of money pledged by FRaisers : 2000/3000</p>";
+            echo "<p class='normal'>Amount of money raised by FRaisers : 1000/2000</p>";
+
+            echo "<br><h2 class='sub_title_left'>Today : </h2>";
+
+            echo "<p class='normal'>Number of calls I have to make today : 3</p>";
+            echo "<p class='normal'>Amount pledged to hit today : 1000</p>";
+            echo "<p class='normal'>Amount raised to hit today : 500</p>";*/
+
+            echo "<h2 class='sub_title_left'>Overall : </h2>";
+            echo "<p class='normal'>Total Amount Raised : " . $overall_raised_actual[0]->sum . "</p>";
+            echo "<p class='normal'>Total Amount Pledged : " . $overall_pledged_actual[0]->sum . "</p>";
+            echo "<p class='normal'>Total Converstaions : " . $overall_conversations_actual[0]->count . "</p>";
+
+
+            echo "<form action='CoachDashboard/saveVolunteers' method='post' enctype='multipart/form-data'>";
+
+            echo "<br><h2 class='sub_title_left'>Select your FRaisers : </h2><select  name = 'selected_volunteers[]' class='multiselect' multiple='multiple'>";
+
+            foreach($all_volunteers_list as $volunteer){
+
+                if(isset($volunteer->selected)){
+                    echo "<option value=\"$volunteer->id\" selected>$volunteer->first_name $volunteer->last_name ($volunteer->city_name)</option>";
+                }else{
+                    echo "<option value=\"$volunteer->id\">$volunteer->first_name $volunteer->last_name ($volunteer->city_name)</option>";
+                }
+
+
+            }
+
+            echo "</select>";
+
+            echo "<button type='submit' class='btn btn-primary'>SAVE</button>";
+
+            echo "</form><br><br>";
 
             echo "<table>";
-            echo "<tr><th>Name</th><th>Phone No</th><th>FRaised</th><th>Pledged</th><th>Donors</th><th>Conversations</th></tr>";
+            echo "<tr><th class='big'>Name (Click to view more)</th><th class='big'>Phone No</th><th class='big'>Raised</th><th class='big'>Pledged</th><th class='big'>Donors</th><th class='big'>Conversations</th><th>Next Call</th></tr>";
 
 
             foreach($volunteers_list as $volunteer){
 
-                echo "<tr><td><a>$volunteer->first_name $volunteer->last_name</a></td><td>$volunteer->phone_no</td><td>$volunteer->amount</td><td>$volunteer->amount_pledged</td><td>$volunteer->count</td><td>$volunteer->conv_count</td></tr>";
+                echo "<tr><td><a href=\"Volunteer/$volunteer->id\">$volunteer->first_name $volunteer->last_name</a></td><td>$volunteer->phone_no</td><td>$volunteer->amount</td><td>$volunteer->amount_pledged</td><td>$volunteer->count</td><td>$volunteer->conv_count</td><td>Today</td></tr>";
 
 
             }
