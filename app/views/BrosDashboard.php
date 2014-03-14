@@ -90,6 +90,12 @@
         foreach($bro_teams as $bro_team){
             echo "<h2 class='sub_title text-center'>$bro_team->name</h2>";
             echo "<p class='normal'>Total Amount Raised : " . BrosDashboard::returnTeamOverall($bro_team->id) . "</p>";
+
+           /* echo "<table>";
+            echo "<tr><th class='big'>Name</th><th class='big'>Phone No</th><th class='big'>Group Raised</th><th class='big'>Group Pledged</th><th class='big'>Donors</th><th class='big'>Conversations</th></tr>";*/
+
+
+
         }
     ?>
 

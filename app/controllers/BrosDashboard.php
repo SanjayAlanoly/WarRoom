@@ -42,10 +42,24 @@ class BrosDashboard extends BaseController{
     }
 
     static function returnTeamOverall($bro_team_id){
-        $data = DB::connection('WarRoom')->select('SELECT COALESCE(SUM(cfrapp.donations.donation_amount),0) as sum FROM cfrapp.donations
+        $coach_group = DB::connection('WarRoom')->select('SELECT COALESCE(SUM(cfrapp.donations.donation_amount),0) as sum FROM cfrapp.donations
+                                            INNER JOIN volunteer_coach
+                                            ON volunteer_coach.volunteer_id = cfrapp.donations.fundraiser_id
+                                            INNER JOIN bro_team_coach
+                                            ON bro_team_coach.coach_id = volunteer_coach.coach_id
+                                            WHERE bro_team_coach.bro_team_id = ?',array($bro_team_id));
+
+        $coach_own = DB::connection('WarRoom')->select('SELECT COALESCE(SUM(cfrapp.donations.donation_amount),0) as sum FROM cfrapp.donations
                                             INNER JOIN bro_team_coach
                                             ON bro_team_coach.coach_id = cfrapp.donations.fundraiser_id
                                             WHERE bro_team_coach.bro_team_id = ?',array($bro_team_id));
-        return $data[0]->sum;
+
+
+        $sum = $coach_group[0]->sum + $coach_own[0]->sum;
+        return $sum;
+    }
+
+    static function returnCoaches(){
+
     }
 }
