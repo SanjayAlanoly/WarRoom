@@ -63,7 +63,7 @@
       <file leaf-file-name="BrosDashboard.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/BrosDashboard.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="95" column="0" selection-start="3202" selection-end="3435" vertical-scroll-proportion="0.53382087" vertical-offset="1323" max-vertical-offset="1870">
+            <state line="72" column="0" selection-start="2493" selection-end="2493" vertical-scroll-proportion="0.47166362" vertical-offset="966" max-vertical-offset="1870">
               <folding />
             </state>
           </provider>
@@ -72,15 +72,15 @@
       <file leaf-file-name="BrosDashboard.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/BrosDashboard.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="36" selection-start="434" selection-end="434" vertical-scroll-proportion="-10.461538" vertical-offset="0" max-vertical-offset="1190">
+            <state line="18" column="177" selection-start="613" selection-end="613" vertical-scroll-proportion="-11.769231" vertical-offset="0" max-vertical-offset="1190">
               <folding>
-                <marker date="1394748247884" expanded="true" signature="301:358" placeholder="SELECT users..users..." />
-                <marker date="1394748247884" expanded="true" signature="330:358" placeholder="SELECT id,na..bro_team..." />
-                <marker date="1394748247884" expanded="true" signature="497:993" placeholder="SELECT users..users..." />
-                <marker date="1394748247884" expanded="true" signature="1141:1189" placeholder="DELETE FROM ..." />
-                <marker date="1394748247884" expanded="true" signature="1401:1463" placeholder="INSERT INTO ..." />
-                <marker date="1394748247884" expanded="true" signature="1695:2209" placeholder="SELECT COALE..." />
-                <marker date="1394748247884" expanded="true" signature="2290:2630" placeholder="SELECT COALE..." />
+                <marker date="1394774661272" expanded="true" signature="301:358" placeholder="SELECT users..users..." />
+                <marker date="1394774661272" expanded="true" signature="330:358" placeholder="SELECT id,na..bro_team..." />
+                <marker date="1394774661272" expanded="true" signature="497:1009" placeholder="SELECT users..users..." />
+                <marker date="1394774661272" expanded="true" signature="1157:1205" placeholder="DELETE FROM ..." />
+                <marker date="1394774661272" expanded="true" signature="1417:1479" placeholder="INSERT INTO ..." />
+                <marker date="1394774661272" expanded="true" signature="1711:2225" placeholder="SELECT COALE..." />
+                <marker date="1394774661272" expanded="true" signature="2306:2646" placeholder="SELECT COALE..." />
               </folding>
             </state>
           </provider>
@@ -953,22 +953,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/BrosDashboard.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="36" selection-start="434" selection-end="434" vertical-scroll-proportion="-10.461538" vertical-offset="0" max-vertical-offset="1190">
+        <state line="18" column="177" selection-start="613" selection-end="613" vertical-scroll-proportion="-11.769231" vertical-offset="0" max-vertical-offset="1190">
           <folding>
-            <marker date="1394748247884" expanded="true" signature="301:358" placeholder="SELECT users..users..." />
-            <marker date="1394748247884" expanded="true" signature="330:358" placeholder="SELECT id,na..bro_team..." />
-            <marker date="1394748247884" expanded="true" signature="497:993" placeholder="SELECT users..users..." />
-            <marker date="1394748247884" expanded="true" signature="1141:1189" placeholder="DELETE FROM ..." />
-            <marker date="1394748247884" expanded="true" signature="1401:1463" placeholder="INSERT INTO ..." />
-            <marker date="1394748247884" expanded="true" signature="1695:2209" placeholder="SELECT COALE..." />
-            <marker date="1394748247884" expanded="true" signature="2290:2630" placeholder="SELECT COALE..." />
+            <marker date="1394774661272" expanded="true" signature="301:358" placeholder="SELECT users..users..." />
+            <marker date="1394774661272" expanded="true" signature="330:358" placeholder="SELECT id,na..bro_team..." />
+            <marker date="1394774661272" expanded="true" signature="497:1009" placeholder="SELECT users..users..." />
+            <marker date="1394774661272" expanded="true" signature="1157:1205" placeholder="DELETE FROM ..." />
+            <marker date="1394774661272" expanded="true" signature="1417:1479" placeholder="INSERT INTO ..." />
+            <marker date="1394774661272" expanded="true" signature="1711:2225" placeholder="SELECT COALE..." />
+            <marker date="1394774661272" expanded="true" signature="2306:2646" placeholder="SELECT COALE..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/BrosDashboard.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="95" column="0" selection-start="3202" selection-end="3435" vertical-scroll-proportion="0.53382087" vertical-offset="1323" max-vertical-offset="1870">
+        <state line="72" column="0" selection-start="2493" selection-end="2493" vertical-scroll-proportion="0.47166362" vertical-offset="966" max-vertical-offset="1870">
           <folding />
         </state>
       </provider>

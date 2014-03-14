@@ -16,7 +16,7 @@ class BrosDashboard extends BaseController{
 
     function returnVolunteersList(){
 
-        $volunteers_list = DB::connection('cfrapp')->select("SELECT users.id as id, users.first_name as first_name, users.last_name as last_name, users.city_id , cities.name as city_name FROM users
+        $volunteers_list = DB::connection('cfrapp')->select("SELECT users.id as id, users.first_name as first_name, users.last_name as last_name, users.city_id , users.phone_no, cities.name as city_name FROM users
                                                             INNER JOIN cities
                                                             ON users.city_id = cities.id
                                                             WHERE cities.name LIKE ? OR cities.name LIKE ?

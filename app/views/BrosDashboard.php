@@ -75,7 +75,7 @@
 
             <?php
                 foreach($volunteers_list as $volunteer){
-                    echo "<option value=\"$volunteer->id\">$volunteer->first_name $volunteer->last_name ($volunteer->city_name)</option>";
+                    echo "<option value=\"$volunteer->id\">$volunteer->first_name $volunteer->last_name ($volunteer->city_name) ($volunteer->phone_no)</option>";
                 }
             ?>
 
