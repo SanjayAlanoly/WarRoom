@@ -22,7 +22,7 @@ class BrosDashboard extends BaseController{
                                                         ON bro_team_coach.coach_id = cfrapp.users.id
                                                         WHERE bro_team_coach.bro_team_id = ?",array($bro_team_id));
 
-        $group_raised = DB::connection('cfrapp')->select('SELECT donations.fundraiser_id as id, COALESCE(SUM(donations.donation_amount),0) AS sum
+       /*$group_raised = DB::connection('cfrapp')->select('SELECT donations.fundraiser_id as id, COALESCE(SUM(donations.donation_amount),0) AS sum
                                                             FROM donations
                                                             INNER JOIN makeadiff_warroom.volunteer_coach
                                                             ON makeadiff_warroom.volunteer_coach.volunteer_id = donations.fundraiser_id
@@ -30,7 +30,7 @@ class BrosDashboard extends BaseController{
                                                             ON makeadiff_warroom.bro_team_coach.coach_id = makeadiff_warroom.volunteer_coach.coach_id
                                                             GROUP BY users.id
 							                                ORDER BY users.first_name
-                                                            WHERE makeadiff_warroom.bro_team_coach.bro_team_id = ?',array($bro_team_id));
+                                                            WHERE makeadiff_warroom.bro_team_coach.bro_team_id = ?',array($bro_team_id));*/
 
         return $members;
     }
