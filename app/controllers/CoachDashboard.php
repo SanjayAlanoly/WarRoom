@@ -52,23 +52,43 @@ class CoachDashboard extends BaseController {
                                                                         WHERE volunteer_weekly_target.on_date = ? AND volunteer_coach.coach_id = ?',
                                                                         array($next_saturday,Auth::user()->id));
 
-        $overall_raised_actual = DB::connection('cfrapp')->select('SELECT COALESCE(SUM(donations.donation_amount),0) AS sum
+        $group_raised_actual = DB::connection('cfrapp')->select('SELECT COALESCE(SUM(donations.donation_amount),0) AS sum
 																	FROM donations
 																	INNER JOIN makeadiff_warroom.volunteer_coach
 																	ON makeadiff_warroom.volunteer_coach.volunteer_id = donations.fundraiser_id
 																	WHERE makeadiff_warroom.volunteer_coach.coach_id = ?',array(Auth::user()->id));
 
-        $overall_pledged_actual = DB::connection('WarRoom')->select('SELECT COALESCE(SUM(pledged.amount_pledged),0) AS sum
+        $group_pledged_actual = DB::connection('WarRoom')->select('SELECT COALESCE(SUM(pledged.amount_pledged),0) AS sum
                                                                       FROM pledged
                                                                       INNER JOIN volunteer_coach
                                                                       ON volunteer_coach.volunteer_id = pledged.volunteer_id
                                                                       WHERE volunteer_coach.coach_id = ?',array(Auth::user()->id));
 
-        $overall_conversations_actual = DB::connection('WarRoom')->select('SELECT COUNT(*) AS count
+        $group_conversations_actual = DB::connection('WarRoom')->select('SELECT COUNT(*) AS count
                                                                   FROM contact_master
                                                                   INNER JOIN volunteer_coach
                                                                   ON volunteer_coach.volunteer_id = contact_master.volunteer_id
                                                                   WHERE volunteer_coach.coach_id = ?',array(Auth::user()->id));
+
+        $coach_raised_actual = DB::connection('cfrapp')->select('SELECT COALESCE(SUM(donations.donation_amount),0) AS sum
+																	FROM donations
+																	WHERE donations.fundraiser_id = ?',array(Auth::user()->id));
+
+        $coach_pledged_actual = DB::connection('WarRoom')->select('SELECT COALESCE(SUM(pledged.amount_pledged),0) AS sum
+                                                                      FROM pledged
+                                                                      WHERE pledged.volunteer_id = ?',array(Auth::user()->id));
+
+        $coach_conversations_actual = DB::connection('WarRoom')->select('SELECT COUNT(*) AS count
+                                                                  FROM contact_master
+                                                                  WHERE contact_master.volunteer_id = ?',array(Auth::user()->id));
+
+        $overall_raised_actual = $group_raised_actual + $coach_raised_actual;
+
+        $overall_pledged_actual = $group_pledged_actual + $coach_pledged_actual;
+
+        $overall_conversations_actual = $group_conversations_actual + $coach_conversations_actual;
+
+
 
         $data = compact("overall_raised_actual","overall_pledged_actual","overall_conversations_actual");
 
@@ -126,6 +146,7 @@ class CoachDashboard extends BaseController {
             foreach($result_conversations as $conversation){
                 if(($volunteer->id == $conversation->id) && isset($conversation->count)){
                     $volunteer->conv_count = $conversation->count;
+                    break;
                 }else{
                     $volunteer->conv_count = 0;
                 }
@@ -138,6 +159,7 @@ class CoachDashboard extends BaseController {
             foreach($result_pledged as $pledged){
                 if(($volunteer->id == $pledged->id) && isset($pledged->amount_pledged)){
                     $volunteer->amount_pledged = (int)$pledged->amount_pledged;
+                    break;
                 }else{
                     $volunteer->amount_pledged = 0;
                 }

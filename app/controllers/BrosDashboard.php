@@ -14,6 +14,27 @@ class BrosDashboard extends BaseController{
         return $bro_teams;
     }
 
+    static function returnBroTeamMembers($bro_team_id){
+        $members = DB::connection('WarRoom')->select("SELECT cfrapp.users.id as id,cfrapp.users.first_name as first_name,cfrapp.users.last_name as last_name,cfrapp.users.city_id,cfrapp.users.phone_no,cfrapp.cities.name as city_name FROM cfrapp.users
+                                                        INNER JOIN cfrapp.cities
+                                                        ON cfrapp.users.city_id = cfrapp.cities.id
+                                                        INNER JOIN bro_team_coach
+                                                        ON bro_team_coach.coach_id = cfrapp.users.id
+                                                        WHERE bro_team_coach.bro_team_id = ?",array($bro_team_id));
+
+        $group_raised = DB::connection('cfrapp')->select('SELECT donations.fundraiser_id as id, COALESCE(SUM(donations.donation_amount),0) AS sum
+                                                            FROM donations
+                                                            INNER JOIN makeadiff_warroom.volunteer_coach
+                                                            ON makeadiff_warroom.volunteer_coach.volunteer_id = donations.fundraiser_id
+                                                            INNER JOIN makeadiff_warroom.bro_team_coach
+                                                            ON makeadiff_warroom.bro_team_coach.coach_id = makeadiff_warroom.volunteer_coach.coach_id
+                                                            GROUP BY users.id
+							                                ORDER BY users.first_name
+                                                            WHERE makeadiff_warroom.bro_team_coach.bro_team_id = ?',array($bro_team_id));
+
+        return $members;
+    }
+
     function returnVolunteersList(){
 
         $volunteers_list = DB::connection('cfrapp')->select("SELECT users.id as id, users.first_name as first_name, users.last_name as last_name, users.city_id , users.phone_no, cities.name as city_name FROM users

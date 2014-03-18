@@ -91,8 +91,20 @@
             echo "<h2 class='sub_title text-center'>$bro_team->name</h2>";
             echo "<p class='normal'>Total Amount Raised : " . BrosDashboard::returnTeamOverall($bro_team->id) . "</p>";
 
-           /* echo "<table>";
-            echo "<tr><th class='big'>Name</th><th class='big'>Phone No</th><th class='big'>Group Raised</th><th class='big'>Group Pledged</th><th class='big'>Donors</th><th class='big'>Conversations</th></tr>";*/
+            $bro_team_members = BrosDashboard::returnBroTeamMembers($bro_team->id);
+
+            echo "<table>";
+            echo "<tr><th class='big'>Name</th><th class='big'>Phone No</th><th class='big'>Group Raised</th><th class='big'>Group Pledged</th><th class='big'>Donors</th><th class='big'>Conversations</th></tr>";
+
+
+            foreach($bro_team_members as $member){
+                echo "<tr><td>$member->first_name $member->last_name</td><td>$member->phone_no</td><td></td><td></td><td></td><td></td></tr>";
+
+            }
+
+            echo "</table>";
+
+
 
 
 
