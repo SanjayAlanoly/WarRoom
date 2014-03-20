@@ -43,6 +43,7 @@
                 <li><a href=".">Home</a></li>
                 <li><a target="_blank" href="WarRoom">War Room</a></li>
                 <li class="active"><a href="">Coach Dashboard</a></li>
+                <li><a href="BrosDashboard">Bros Dashboard</a></li>
             </ul>
             <button type="button" class="btn btn-default navbar-btn navbar-right" onclick="location.href='destroySession'">Logout</button>
         </div>
@@ -69,10 +70,10 @@
             echo "<p class='normal'>Amount pledged to hit today : 1000</p>";
             echo "<p class='normal'>Amount raised to hit today : 500</p>";*/
 
-            echo "<h2 class='sub_title_left'>Overall : </h2>";
-            echo "<p class='normal'>Total Amount Raised : " . $overall_raised_actual[0]->sum . "</p>";
-            echo "<p class='normal'>Total Amount Pledged : " . $overall_pledged_actual[0]->sum . "</p>";
-            echo "<p class='normal'>Total Converstaions : " . $overall_conversations_actual[0]->count . "</p>";
+            echo "<h2 class='sub_title_left'>Overall (INCL COACH) : </h2>";
+            echo "<p class='normal'>Total Amount Raised : " . $overall_raised_actual . "</p>";
+            echo "<p class='normal'>Total Amount Pledged : " . $overall_pledged_actual . "</p>";
+            echo "<p class='normal'>Total Converstaions : " . $overall_conversations_actual . "</p>";
 
 
             echo "<form action='CoachDashboard/saveVolunteers' method='post' enctype='multipart/form-data'>";
@@ -97,12 +98,12 @@
             echo "</form><br><br>";
 
             echo "<table>";
-            echo "<tr><th class='big'>Name (Click to view more)</th><th class='big'>Phone No</th><th class='big'>Raised</th><th class='big'>Pledged</th><th class='big'>Donors</th><th class='big'>Conversations</th><th>Next Call</th></tr>";
+            echo "<tr><th class='big'>Name</th><th class='big'>Phone</th><th class='big'>Raised</th><th class='big'>Pledged</th><th class='big'>Should have Raised</th><th class='big'>Target</th><th class='big'>Sparta Days Assigned</th></tr>";
 
 
             foreach($volunteers_list as $volunteer){
 
-                echo "<tr><td><a href=\"Volunteer/$volunteer->id\">$volunteer->first_name $volunteer->last_name</a></td><td>$volunteer->phone_no</td><td>$volunteer->amount</td><td>$volunteer->amount_pledged</td><td>$volunteer->count</td><td>$volunteer->conv_count</td><td>Today</td></tr>";
+                echo "<tr><td><a href=\"Volunteer/$volunteer->id\">$volunteer->first_name $volunteer->last_name</a></td><td>$volunteer->phone_no</td><td>$volunteer->amount_raised</td><td>$volunteer->amount_pledged</td><td>$volunteer->should_have_raised</td><td>$volunteer->overall_target</td><td>$volunteer->sparta_total/21</td></tr>";
 
 
             }

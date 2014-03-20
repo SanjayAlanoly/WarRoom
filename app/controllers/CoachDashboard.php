@@ -82,11 +82,11 @@ class CoachDashboard extends BaseController {
                                                                   FROM contact_master
                                                                   WHERE contact_master.volunteer_id = ?',array(Auth::user()->id));
 
-        $overall_raised_actual = $group_raised_actual + $coach_raised_actual;
+        $overall_raised_actual = $group_raised_actual[0]->sum + $coach_raised_actual[0]->sum;
 
-        $overall_pledged_actual = $group_pledged_actual + $coach_pledged_actual;
+        $overall_pledged_actual = $group_pledged_actual[0]->sum + $coach_pledged_actual[0]->sum;
 
-        $overall_conversations_actual = $group_conversations_actual + $coach_conversations_actual;
+        $overall_conversations_actual = $group_conversations_actual[0]->count + $coach_conversations_actual[0]->count;
 
 
 
@@ -102,7 +102,7 @@ class CoachDashboard extends BaseController {
     function calculateFRaiserTable(){
 
         $volunteers_list = DB::connection('cfrapp')->select("SELECT users.id as id, users.first_name AS first_name, users.last_name AS last_name, users.phone_no as phone_no,
-							SUM(donations.donation_amount) AS amount, COUNT(donations.donation_amount) AS count
+							COALESCE(SUM(donations.donation_amount),0) AS amount_raised, COUNT(donations.donation_amount) AS count
 							FROM donations
 							RIGHT OUTER JOIN users
 							ON donations.fundraiser_id = users.id
@@ -134,13 +134,27 @@ class CoachDashboard extends BaseController {
                                                                     GROUP BY cfrapp.users.id',
                                                                     array(Auth::user()->id));
 
+        $result_sparta_day_remaining = DB::connection('WarRoom')->select('SELECT cfrapp.users.id as id, COUNT(volunteer_sparta.id) as count FROM volunteer_sparta
+                                                                            INNER JOIN cfrapp.users
+                                                                            ON cfrapp.users.id = volunteer_sparta.volunteer_id
+                                                                            WHERE volunteer_sparta.type = ? AND volunteer_sparta.on_date >= CURDATE()
+                                                                            GROUP BY cfrapp.users.id',array('sparta_day'));
+
+        $result_sparta_day_total = DB::connection('WarRoom')->select('SELECT cfrapp.users.id as id, COUNT(volunteer_sparta.id) as count FROM volunteer_sparta
+                                                                            INNER JOIN cfrapp.users
+                                                                            ON cfrapp.users.id = volunteer_sparta.volunteer_id
+                                                                            WHERE volunteer_sparta.type = ?
+                                                                            GROUP BY cfrapp.users.id',array('sparta_day'));
+
+        $result_overall_target = DB::connection('WarRoom')->select('SELECT volunteer_id as id, target FROM
+                                                                    volunteer_overall_target');
+
+        //$result_sparta_days = DB::connection('WarRoom')->select
 
 
-        foreach($volunteers_list as $volunteer){
-            if($volunteer->amount == null){
-                $volunteer->amount = 0;
-            }
-        }
+
+
+
 
         foreach($volunteers_list as $volunteer){
             foreach($result_conversations as $conversation){
@@ -164,6 +178,49 @@ class CoachDashboard extends BaseController {
                     $volunteer->amount_pledged = 0;
                 }
             }
+        }
+
+        foreach($volunteers_list as $volunteer){
+            foreach($result_sparta_day_remaining as $sparta_remaining){
+                if(($volunteer->id == $sparta_remaining->id) && isset($sparta_remaining->count)){
+                    $volunteer->sparta_remaining = (int)$sparta_remaining->count;
+                    break;
+                }else{
+                    $volunteer->sparta_remaining = 0;
+                }
+            }
+        }
+
+        foreach($volunteers_list as $volunteer){
+            foreach($result_sparta_day_total as $sparta_total){
+                if(($volunteer->id == $sparta_total->id) && isset($sparta_total->count)){
+                    $volunteer->sparta_total = (int)$sparta_total->count;
+                    break;
+                }else{
+                    $volunteer->sparta_total = 0;
+                }
+            }
+        }
+
+        foreach($volunteers_list as $volunteer){
+            foreach($result_overall_target as $overall_target){
+                if(($volunteer->id == $overall_target->id) && isset($overall_target->target)){
+                    $volunteer->overall_target = (int)$overall_target->target;
+                    break;
+                }else{
+                    $volunteer->overall_target = 0;
+                }
+            }
+        }
+
+        foreach($volunteers_list as $volunteer){
+
+            if($volunteer->sparta_remaining != 0){
+                $volunteer->should_have_raised =  round((($volunteer->overall_target-$volunteer->amount_raised)/$volunteer->sparta_remaining) + $volunteer->amount_raised,0,PHP_ROUND_HALF_DOWN);
+            }else{
+                $volunteer->should_have_raised = 0;
+            }
+
         }
 
 

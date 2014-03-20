@@ -55,6 +55,12 @@
 
     <br>
 
+    <p class="normal">Total Amount Raised : <?php echo "Rs. " . number_format($mad_amount_raised[0]->amount_raised); ?></p>
+    <p class="normal">Total Amount Pledged : <?php echo "Rs. " . number_format($mad_pledged[0]->amount_pledged); ?></p>
+    <p class="normal">Total Conversations : <?php echo $mad_conversations[0]->count; ?></p>
+
+    <br>
+
     <h2 class='sub_title_left'>Select Bro Teams : </h2>
 
     <form action='BrosDashboard/saveBroTeams' method='post' enctype='multipart/form-data' class="form-inline" role="form">
@@ -94,11 +100,11 @@
             $bro_team_members = BrosDashboard::returnBroTeamMembers($bro_team->id);
 
             echo "<table>";
-            echo "<tr><th class='big'>Name</th><th class='big'>Phone No</th><th class='big'>Group Raised</th><th class='big'>Group Pledged</th><th class='big'>Donors</th><th class='big'>Conversations</th></tr>";
+            echo "<tr><th class='big'>Name</th><th class='big'>Phone No</th><th class='big'>Group Raised</th><th class='big'>Group Pledged</th><th class='big'>Donors</th><th class='big'>Conversations</th><th class='big'>Interns</th></tr>";
 
 
             foreach($bro_team_members as $member){
-                echo "<tr><td>$member->first_name $member->last_name</td><td>$member->phone_no</td><td></td><td></td><td></td><td></td></tr>";
+                echo "<tr><td>$member->first_name $member->last_name</td><td>$member->phone_no</td><td></td><td></td><td></td><td></td><td>$member->interns</td></tr>";
 
             }
 

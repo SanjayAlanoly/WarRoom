@@ -3,7 +3,7 @@
 class BrosDashboard extends BaseController{
 
     public function showBrosDashboard(){
-        return View::make('BrosDashboard')->with('bro_teams',$this->returnBroTeams())->with('volunteers_list',$this->returnVolunteersList());
+        return View::make('BrosDashboard',$this->returnDashboard())->with('bro_teams',$this->returnBroTeams())->with('volunteers_list',$this->returnVolunteersList());
     }
 
     function returnBroTeams(){
@@ -14,6 +14,38 @@ class BrosDashboard extends BaseController{
         return $bro_teams;
     }
 
+    function returnDashboard(){
+
+        $mad_amount_raised = DB::connection('cfrapp')->select('SELECT COALESCE(SUM(donations.donation_amount),0) AS amount_raised
+																	FROM donations
+																	INNER JOIN users
+																	ON donations.fundraiser_id = users.id
+																	INNER JOIN cities
+																	ON cities.id = users.city_id AND cities.name LIKE ?',array('Sparta%'));
+
+        $mad_conversations = DB::connection('WarRoom')->select('SELECT COUNT(*) AS count
+																	FROM contact_master
+																	INNER JOIN cfrapp.users
+																	ON contact_master.volunteer_id = cfrapp.users.id
+																	INNER JOIN cfrapp.cities
+																	ON cfrapp.cities.id = cfrapp.users.city_id AND cities.name LIKE ?
+																	WHERE status <> ?',
+                                                                    array('Sparta%','open'));
+
+        $mad_pledged = DB::connection('WarRoom')->select("SELECT COALESCE(SUM(pledged.amount_pledged),0) AS amount_pledged
+                                                                FROM pledged
+                                                                INNER JOIN cfrapp.users
+                                                                ON pledged.volunteer_id = cfrapp.users.id
+                                                                INNER JOIN cfrapp.cities
+                                                                ON cfrapp.cities.id = cfrapp.users.city_id AND cities.name LIKE ?",array('Sparta%'));
+
+        $data = compact("mad_amount_raised","mad_conversations","mad_pledged");
+
+        return $data;
+
+
+    }
+
     static function returnBroTeamMembers($bro_team_id){
         $members = DB::connection('WarRoom')->select("SELECT cfrapp.users.id as id,cfrapp.users.first_name as first_name,cfrapp.users.last_name as last_name,cfrapp.users.city_id,cfrapp.users.phone_no,cfrapp.cities.name as city_name FROM cfrapp.users
                                                         INNER JOIN cfrapp.cities
@@ -22,15 +54,40 @@ class BrosDashboard extends BaseController{
                                                         ON bro_team_coach.coach_id = cfrapp.users.id
                                                         WHERE bro_team_coach.bro_team_id = ?",array($bro_team_id));
 
-       /*$group_raised = DB::connection('cfrapp')->select('SELECT donations.fundraiser_id as id, COALESCE(SUM(donations.donation_amount),0) AS sum
+       $group_raised = DB::connection('cfrapp')->select('SELECT makeadiff_warroom.bro_team_coach.coach_id as id, COALESCE(SUM(donations.donation_amount),0) AS sum
                                                             FROM donations
                                                             INNER JOIN makeadiff_warroom.volunteer_coach
                                                             ON makeadiff_warroom.volunteer_coach.volunteer_id = donations.fundraiser_id
                                                             INNER JOIN makeadiff_warroom.bro_team_coach
                                                             ON makeadiff_warroom.bro_team_coach.coach_id = makeadiff_warroom.volunteer_coach.coach_id
-                                                            GROUP BY users.id
-							                                ORDER BY users.first_name
-                                                            WHERE makeadiff_warroom.bro_team_coach.bro_team_id = ?',array($bro_team_id));*/
+                                                            WHERE makeadiff_warroom.bro_team_coach.bro_team_id = ?
+                                                            GROUP BY makeadiff_warroom.bro_team_coach.coach_id
+							                                ',array($bro_team_id));
+
+        $number_of_interns = DB::connection('WarRoom')->select('SELECT volunteer_coach.coach_id as id, COUNT(volunteer_coach.volunteer_id) as count FROM volunteer_coach
+                                                                GROUP BY volunteer_coach.coach_id');
+
+        foreach($members as $member){
+            foreach($group_raised as $raised){
+                if(($member->id == $raised->id) && isset($raised->sum)){
+                    $member->group_raised = $raised->sum;
+                    break;
+                }else{
+                    $member->group_raised = 0;
+                }
+            }
+        }
+
+        foreach($members as $member){
+            foreach($number_of_interns as $interns){
+                if(($member->id == $interns->id) && isset($interns->count)){
+                    $member->interns = $interns->count;
+                    break;
+                }else{
+                    $member->interns = 0;
+                }
+            }
+        }
 
         return $members;
     }

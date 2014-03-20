@@ -229,6 +229,34 @@ class Home extends BaseController {
 
 		}
 
+        //Calculate the amount the volunteer should have raised
+
+        $result_sparta_day_remaining = DB::connection('WarRoom')->select('SELECT COUNT(volunteer_sparta.id) as count FROM volunteer_sparta
+                                                                            WHERE volunteer_sparta.type = ? AND volunteer_sparta.volunteer_id = ? AND volunteer_sparta.on_date >= CURDATE()
+                                                                            ',array('sparta_day',Auth::user()->id));
+
+        $result_overall_target = DB::connection('WarRoom')->select('SELECT target FROM
+                                                                    volunteer_overall_target WHERE volunteer_id = ?',array(Auth::user()->id));
+
+        $you_sparta_remaining = $result_sparta_day_remaining[0]->count;
+        if(isset($result_overall_target[0]->target)){
+            $you_target = $result_overall_target[0]->target;
+        }else{
+            $you_target = 0;
+        }
+
+
+        if($you_sparta_remaining != 0){
+            $you_should_have_raised =  round((($you_target - $you_amount_raised) / $you_sparta_remaining) + $you_amount_raised,0,PHP_ROUND_HALF_DOWN);
+        }else{
+            $you_should_have_raised = 0;
+        }
+
+        if($you_sparta_remaining != 0){
+            $amount_to_be_raised_today =  round((($you_target - $you_amount_raised) / $you_sparta_remaining),0,PHP_ROUND_HALF_DOWN);
+        }else{
+            $amount_to_be_raised_today = 0;
+        }
 
 		
 
@@ -344,7 +372,11 @@ class Home extends BaseController {
 
 
 
-		$data = compact("you_amount_raised","city_amount_raised","mad_amount_raised","you_conversations","city_conversations","mad_conversations","sparta_days_completed","you_pledged","city_pledged","mad_pledged");
+
+
+		$data = compact("you_amount_raised","city_amount_raised","mad_amount_raised","you_conversations","city_conversations",
+                        "mad_conversations","sparta_days_completed","you_pledged","city_pledged","mad_pledged",
+                        "you_target","you_should_have_raised","amount_to_be_raised_today");
 
 		return $data;
 

@@ -126,6 +126,9 @@
                 <p class="normal">Children Supported by You : <?php echo round($dashboard['you_amount_raised']/910,0,PHP_ROUND_HALF_DOWN); ?></p>
 		  		<p class="normal">Amount Raised by You : <?php echo "Rs. " . number_format($dashboard['you_amount_raised']); ?></p>
                 <br>
+                <p class="normal">Amount to be Raised Today : <?php echo "Rs. " . number_format($dashboard['amount_to_be_raised_today']); ?></p>
+                <p class="normal">Overall Target : <?php echo "Rs. " . number_format($dashboard['you_target']); ?></p>
+                <br>
                 <p class="normal">Amount Pledged by You : <?php echo "Rs. " . number_format($dashboard['you_pledged']); ?></p>
 		  		<p class="normal">Conversations made by You : <?php echo number_format($dashboard['you_conversations']); ?></p>
                 <br>
