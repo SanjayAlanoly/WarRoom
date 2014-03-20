@@ -181,17 +181,23 @@ class CoachDashboard extends BaseController {
         }
 
         foreach($volunteers_list as $volunteer){
-            foreach($result_sparta_day_remaining as $sparta_remaining){
-                if(($volunteer->id == $sparta_remaining->id) && isset($sparta_remaining->count)){
-                    $volunteer->sparta_remaining = (int)$sparta_remaining->count;
-                    break;
-                }else{
-                    $volunteer->sparta_remaining = 0;
+            if(!empty($result_sparta_day_remaining)){
+                foreach($result_sparta_day_remaining as $sparta_remaining){
+                    if(($volunteer->id == $sparta_remaining->id)){
+                        $volunteer->sparta_remaining = (int)$sparta_remaining->count;
+                        break;
+                    }else{
+                        $volunteer->sparta_remaining = 0;
+
+                    }
                 }
+            }else{
+                $volunteer->sparta_remaining = 0;
             }
+
         }
 
-        foreach($volunteers_list as $volunteer){
+        /*foreach($volunteers_list as $volunteer){
             foreach($result_sparta_day_total as $sparta_total){
                 if(($volunteer->id == $sparta_total->id) && isset($sparta_total->count)){
                     $volunteer->sparta_total = (int)$sparta_total->count;
@@ -200,17 +206,22 @@ class CoachDashboard extends BaseController {
                     $volunteer->sparta_total = 0;
                 }
             }
-        }
+        }*/
 
         foreach($volunteers_list as $volunteer){
-            foreach($result_overall_target as $overall_target){
-                if(($volunteer->id == $overall_target->id) && isset($overall_target->target)){
-                    $volunteer->overall_target = (int)$overall_target->target;
-                    break;
-                }else{
-                    $volunteer->overall_target = 0;
+            if(!empty($result_overall_target)){
+                foreach($result_overall_target as $overall_target){
+                    if(($volunteer->id == $overall_target->id) && isset($overall_target->target)){
+                        $volunteer->overall_target = (int)$overall_target->target;
+                        break;
+                    }else{
+                        $volunteer->overall_target = 0;
+                    }
                 }
+            }else{
+                $volunteer->overall_target = 0;
             }
+
         }
 
         foreach($volunteers_list as $volunteer){
