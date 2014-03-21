@@ -53,6 +53,20 @@
       <column name="updated_at" sqlType="DATETIME" length="19" precision="0" nullable="true" jdbcType="93"/>
       <primary-key name="PRIMARY" columns="id"/>
     </table>
+    <table name="deleted_donations" schema="" catalog="cfrapp" type="TABLE">
+      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" def="MA=="/>
+      <column name="donation_type" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12"/>
+      <column name="version" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4"/>
+      <column name="fundraiser_id" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4"/>
+      <column name="donour_id" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4"/>
+      <column name="donation_status" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12"/>
+      <column name="eighty_g_required" sqlType="TINYINT" length="3" precision="0" nullable="true" jdbcType="-6"/>
+      <column name="product_id" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4"/>
+      <column name="donation_amount" sqlType="FLOAT" length="12" precision="0" nullable="true" jdbcType="7"/>
+      <column name="created_at" sqlType="DATETIME" length="19" precision="0" nullable="true" jdbcType="93"/>
+      <column name="updated_at" sqlType="DATETIME" length="19" precision="0" nullable="true" jdbcType="93"/>
+      <column name="updated_by" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4"/>
+    </table>
     <table name="donation_versions" schema="" catalog="cfrapp" type="TABLE">
       <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="donation_type" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12"/>
@@ -83,20 +97,6 @@
       <column name="updated_at" sqlType="DATETIME" length="19" precision="0" nullable="true" jdbcType="93"/>
       <column name="updated_by" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4"/>
       <primary-key name="PRIMARY" columns="id"/>
-    </table>
-    <table name="donations_deleted" schema="" catalog="cfrapp" type="TABLE">
-      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" def="MA=="/>
-      <column name="donation_type" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12"/>
-      <column name="version" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4"/>
-      <column name="fundraiser_id" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4"/>
-      <column name="donour_id" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4"/>
-      <column name="donation_status" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12"/>
-      <column name="eighty_g_required" sqlType="TINYINT" length="3" precision="0" nullable="true" jdbcType="-6"/>
-      <column name="product_id" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4"/>
-      <column name="donation_amount" sqlType="FLOAT" length="12" precision="0" nullable="true" jdbcType="7"/>
-      <column name="created_at" sqlType="DATETIME" length="19" precision="0" nullable="true" jdbcType="93"/>
-      <column name="updated_at" sqlType="DATETIME" length="19" precision="0" nullable="true" jdbcType="93"/>
-      <column name="updated_by" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4"/>
     </table>
     <table name="donours" schema="" catalog="cfrapp" type="TABLE">
       <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
@@ -1318,6 +1318,12 @@
       <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="volunteer_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
       <column name="coach_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="volunteer_login" schema="" catalog="makeadiff_warroom" type="TABLE">
+      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="volunteer_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="login_time" sqlType="DATETIME" length="19" precision="0" nullable="false" jdbcType="93"/>
       <primary-key name="PRIMARY" columns="id"/>
     </table>
     <table name="volunteer_overall_target" schema="" catalog="makeadiff_warroom" type="TABLE">

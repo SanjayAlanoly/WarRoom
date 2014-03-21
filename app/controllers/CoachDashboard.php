@@ -134,22 +134,29 @@ class CoachDashboard extends BaseController {
                                                                     GROUP BY cfrapp.users.id',
                                                                     array(Auth::user()->id));
 
-        $result_sparta_day_remaining = DB::connection('WarRoom')->select('SELECT cfrapp.users.id as id, COUNT(volunteer_sparta.id) as count FROM volunteer_sparta
-                                                                            INNER JOIN cfrapp.users
-                                                                            ON cfrapp.users.id = volunteer_sparta.volunteer_id
-                                                                            WHERE volunteer_sparta.type = ? AND volunteer_sparta.on_date >= CURDATE()
-                                                                            GROUP BY cfrapp.users.id',array('sparta_day'));
+        $result_sparta_day_remaining = DB::connection('WarRoom')->select('SELECT volunteer_sparta.volunteer_id as id, COUNT(volunteer_sparta.id) as count FROM volunteer_sparta
+                                                                            INNER JOIN volunteer_coach
+							                                                ON volunteer_coach.volunteer_id = volunteer_sparta.volunteer_id
+                                                                            WHERE volunteer_sparta.type = ? AND volunteer_coach.coach_id = ? AND volunteer_sparta.on_date >= CURDATE()
+                                                                            GROUP BY volunteer_sparta.volunteer_id',array('sparta_day',Auth::user()->id));
 
-        $result_sparta_day_total = DB::connection('WarRoom')->select('SELECT cfrapp.users.id as id, COUNT(volunteer_sparta.id) as count FROM volunteer_sparta
-                                                                            INNER JOIN cfrapp.users
-                                                                            ON cfrapp.users.id = volunteer_sparta.volunteer_id
-                                                                            WHERE volunteer_sparta.type = ?
-                                                                            GROUP BY cfrapp.users.id',array('sparta_day'));
+        $result_sparta_day_total = DB::connection('WarRoom')->select('SELECT volunteer_sparta.volunteer_id as id, COUNT(volunteer_sparta.id) as count FROM volunteer_sparta
+                                                                            INNER JOIN volunteer_coach
+							                                                ON volunteer_coach.volunteer_id = volunteer_sparta.volunteer_id
+							                                                WHERE volunteer_sparta.type = ? AND volunteer_coach.coach_id = ?
+                                                                            GROUP BY volunteer_sparta.volunteer_id',array('sparta_day',Auth::user()->id));
 
-        $result_overall_target = DB::connection('WarRoom')->select('SELECT volunteer_id as id, target FROM
-                                                                    volunteer_overall_target');
+        $result_overall_target = DB::connection('WarRoom')->select('SELECT volunteer_overall_target.volunteer_id as id, volunteer_overall_target.target as target FROM
+                                                                    volunteer_overall_target
+                                                                    INNER JOIN volunteer_coach
+                                                                    ON volunteer_coach.volunteer_id = volunteer_overall_target.volunteer_id
+                                                                    WHERE volunteer_coach.coach_id = ?',array(Auth::user()->id));
 
-        //$result_sparta_days = DB::connection('WarRoom')->select
+        $result_volunteer_login = DB::connection('WarRoom')->select('SELECT volunteer_login.volunteer_id as id,MAX(volunteer_login.login_time) as last_login FROM volunteer_login
+                                                                        INNER JOIN volunteer_coach
+                                                                        ON volunteer_login.volunteer_id = volunteer_coach.volunteer_id
+                                                                        WHERE volunteer_coach.coach_id = ?
+                                                                        GROUP BY volunteer_login.volunteer_id',array(Auth::user()->id));
 
 
 
@@ -220,6 +227,24 @@ class CoachDashboard extends BaseController {
                 }
             }else{
                 $volunteer->overall_target = 0;
+            }
+
+        }
+
+        foreach($volunteers_list as $volunteer){
+            if(!empty($result_volunteer_login)){
+                foreach($result_volunteer_login as $volunteer_login){
+                    if(($volunteer->id == $volunteer_login->id) && isset($volunteer_login->last_login)){
+                        $last_login = new DateTime("$volunteer_login->last_login");
+                        $last_login = $last_login->format('j M g:i A');
+                        $volunteer->last_login = $last_login;
+                        break;
+                    }else{
+                        $volunteer->last_login = '-';
+                    }
+                }
+            }else{
+                $volunteer->last_login = '-';
             }
 
         }

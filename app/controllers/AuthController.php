@@ -49,6 +49,9 @@ class AuthController extends BaseController {
                 // Redirect to homepage
 
                 // return Redirect::to('/WarRoom')->with('success', 'You have logged in successfully');
+                $now = new DateTime();
+                DB::connection('WarRoom')->insert('INSERT INTO volunteer_login (volunteer_id,login_time) VALUES (?,?)',
+                                                array(Auth::user()->id,$now));
                 return Redirect::to('/')->with('success', 'You have logged in successfully');
             }
             else
