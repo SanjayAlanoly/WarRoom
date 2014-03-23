@@ -135,6 +135,7 @@
 		  		<p class="normal">Sparta Days completed by You : <?php echo $dashboard['sparta_days_completed']; ?>/21</p>
                 <br>
                 <p class="normal">Your Next Sparta Day : <?php echo $dashboard['you_next_sparta_day']; ?></p>
+                <p class="normal">Sparta Days Remaining : <?php echo $dashboard['you_sparta_remaining']; ?></p>
 
 		  		
 		  	</div>

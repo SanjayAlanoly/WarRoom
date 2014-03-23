@@ -98,12 +98,12 @@
             echo "</form><br><br>";
 
             echo "<table>";
-            echo "<tr><th class='big'>Name</th><th class='big'>Phone</th><th class='big'>Raised</th><th class='big'>Pledged</th><th class='big'>Should have Raised</th><th class='big'>Target</th><th class='big'>Next Sparta Day</th><th class='big'>Last Login</th></tr>";
+            echo "<tr><th class='big'>Name</th><th class='big'>Phone</th><th class='big'>Raised</th><th class='big'>Pledged</th><th class='big'>Should have Raised</th><th class='big'>Target</th><th class='big'>Next Sparta Day</th><th class='big'>SDs Remaining</th><th class='big'>Last Login</th></tr>";
 
 
             foreach($volunteers_list as $volunteer){
 
-                echo "<tr><td><a href=\"Volunteer/$volunteer->id\">$volunteer->first_name $volunteer->last_name</a></td><td>$volunteer->phone_no</td><td>$volunteer->amount_raised</td><td>$volunteer->amount_pledged</td><td>$volunteer->should_have_raised</td><td>$volunteer->overall_target</td><td>$volunteer->next_sparta_day</td><td>$volunteer->last_login</td></tr>";
+                echo "<tr><td><a href=\"Volunteer/$volunteer->id\">$volunteer->first_name $volunteer->last_name</a></td><td>$volunteer->phone_no</td><td>$volunteer->amount_raised</td><td>$volunteer->amount_pledged</td><td>$volunteer->should_have_raised</td><td>$volunteer->overall_target</td><td>$volunteer->next_sparta_day</td><td>$volunteer->sparta_remaining</td><td>$volunteer->last_login</td></tr>";
 
 
             }

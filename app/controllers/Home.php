@@ -238,7 +238,13 @@ class Home extends BaseController {
         $result_overall_target = DB::connection('WarRoom')->select('SELECT target FROM
                                                                     volunteer_overall_target WHERE volunteer_id = ?',array(Auth::user()->id));
 
-        $you_sparta_remaining = $result_sparta_day_remaining[0]->count;
+
+        if(!empty($result_sparta_day_remaining) && isset($result_sparta_day_remaining[0]->count)){
+            $you_sparta_remaining = $result_sparta_day_remaining[0]->count;
+        }else{
+            $you_sparta_remaining = 0;
+        }
+
         if(!empty($result_overall_target) && (isset($result_overall_target[0]->target))){
             $you_target = $result_overall_target[0]->target;
         }else{
@@ -387,7 +393,7 @@ class Home extends BaseController {
 
 		$data = compact("you_amount_raised","city_amount_raised","mad_amount_raised","you_conversations","city_conversations",
                         "mad_conversations","sparta_days_completed","you_pledged","city_pledged","mad_pledged",
-                        "you_target","you_should_have_raised","amount_to_be_raised_today","you_next_sparta_day");
+                        "you_target","you_should_have_raised","amount_to_be_raised_today","you_next_sparta_day","you_sparta_remaining");
 
 		return $data;
 
