@@ -158,6 +158,13 @@ class CoachDashboard extends BaseController {
                                                                         WHERE volunteer_coach.coach_id = ?
                                                                         GROUP BY volunteer_login.volunteer_id',array(Auth::user()->id));
 
+        $result_next_sparta_day = DB::connection('WarRoom')->select('SELECT volunteer_sparta.volunteer_id as id, MIN(volunteer_sparta.on_date) as next_date
+                                                                    FROM volunteer_sparta
+                                                                    INNER JOIN volunteer_coach
+                                                                    ON volunteer_coach.volunteer_id = volunteer_sparta.volunteer_id
+                                                                    WHERE volunteer_sparta.type = ? AND volunteer_sparta.on_date >= CURDATE()
+                                                                    AND volunteer_coach.coach_id = ?',array('sparta_day',Auth::user()->id));
+
 
 
 
@@ -245,6 +252,22 @@ class CoachDashboard extends BaseController {
                 }
             }else{
                 $volunteer->last_login = '-';
+            }
+
+        }
+
+        foreach($volunteers_list as $volunteer){
+            if(!empty($result_next_sparta_day)){
+                foreach($result_next_sparta_day as $next_sparta_day){
+                    if(($volunteer->id == $next_sparta_day->id) && isset($next_sparta_day->next_date)){
+                        $volunteer->next_sparta_day = WarRoom::relativeDate(strtotime($next_sparta_day->next_date));
+                        break;
+                    }else{
+                        $volunteer->next_sparta_day = '-';
+                    }
+                }
+            }else{
+                $volunteer->next_sparta_day = '-';
             }
 
         }

@@ -133,6 +133,9 @@
 		  		<p class="normal">Conversations made by You : <?php echo number_format($dashboard['you_conversations']); ?></p>
                 <br>
 		  		<p class="normal">Sparta Days completed by You : <?php echo $dashboard['sparta_days_completed']; ?>/21</p>
+                <br>
+                <p class="normal">Your Next Sparta Day : <?php echo $dashboard['you_next_sparta_day']; ?></p>
+
 		  		
 		  	</div>
 	  		<div class="tab-pane fade" id="city">
@@ -161,7 +164,7 @@
 
 		
 
-<!-- 		<?php 
+<!-- 		<?php
 		//var_dump($run_rate)
 	
 		echo "<table>";

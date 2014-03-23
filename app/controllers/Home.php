@@ -239,7 +239,7 @@ class Home extends BaseController {
                                                                     volunteer_overall_target WHERE volunteer_id = ?',array(Auth::user()->id));
 
         $you_sparta_remaining = $result_sparta_day_remaining[0]->count;
-        if(isset($result_overall_target[0]->target)){
+        if(!empty($result_overall_target) && (isset($result_overall_target[0]->target))){
             $you_target = $result_overall_target[0]->target;
         }else{
             $you_target = 0;
@@ -256,6 +256,17 @@ class Home extends BaseController {
             $amount_to_be_raised_today =  round((($you_target - $you_amount_raised) / $you_sparta_remaining),0,PHP_ROUND_HALF_DOWN);
         }else{
             $amount_to_be_raised_today = 0;
+        }
+
+        //Calculate the next sparta day for the volunteer
+
+        $result_next_sparta_day = DB::connection('WarRoom')->select('SELECT MIN(on_date) as next_date FROM volunteer_sparta
+                                                                    WHERE type = ? AND volunteer_id = ? AND on_date >= CURDATE()',array('sparta_day',Auth::user()->id));
+
+        if(!empty($result_next_sparta_day) && isset($result_next_sparta_day[0]->next_date)){
+            $you_next_sparta_day = WarRoom::relativeDate(strtotime($result_next_sparta_day[0]->next_date));
+        }else{
+            $you_next_sparta_day = '-';
         }
 
 		
@@ -376,7 +387,7 @@ class Home extends BaseController {
 
 		$data = compact("you_amount_raised","city_amount_raised","mad_amount_raised","you_conversations","city_conversations",
                         "mad_conversations","sparta_days_completed","you_pledged","city_pledged","mad_pledged",
-                        "you_target","you_should_have_raised","amount_to_be_raised_today");
+                        "you_target","you_should_have_raised","amount_to_be_raised_today","you_next_sparta_day");
 
 		return $data;
 
