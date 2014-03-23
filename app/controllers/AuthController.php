@@ -44,7 +44,7 @@ class AuthController extends BaseController {
             
 
             // Try to log the user in.
-            if (Auth::attempt($userdata))
+            if (Auth::attempt(($userdata),true))
             {
                 // Redirect to homepage
 
