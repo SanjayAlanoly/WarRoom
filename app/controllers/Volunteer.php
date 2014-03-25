@@ -89,7 +89,8 @@ class Volunteer extends BaseController {
             DB::connection('WarRoom')->insert('INSERT INTO volunteer_overall_target (volunteer_id,target) VALUES (?,?)',array($_POST['volunteer_id'],$_POST['overall_target']));
         }
 
-        $url = "/CoachDashboard";
+        $vol_id = $_POST['volunteer_id'];
+        $url = "/Volunteer/$vol_id";
 
         return Redirect::to($url);
 

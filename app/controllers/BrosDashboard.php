@@ -64,8 +64,37 @@ class BrosDashboard extends BaseController{
                                                             GROUP BY bro_team_coach.coach_id
 							                                ',array($bro_team_id));
 
+        $group_pledged = DB::connection('WarRoom')->select('SELECT bro_team_coach.coach_id as id, COALESCE(SUM(pledged.amount_pledged),0) AS sum
+                                                            FROM pledged
+                                                            INNER JOIN volunteer_coach
+                                                            ON volunteer_coach.volunteer_id = pledged.volunteer_id
+                                                            INNER JOIN bro_team_coach
+                                                            ON bro_team_coach.coach_id = volunteer_coach.coach_id
+                                                            WHERE bro_team_coach.bro_team_id = ?
+                                                            GROUP BY bro_team_coach.coach_id',array($bro_team_id));
+
+        $coach_raised = DB::connection('WarRoom')->select('SELECT bro_team_coach.coach_id as id, COALESCE(SUM(cfrapp.donations.donation_amount),0) AS sum
+                                                            FROM cfrapp.donations
+                                                            INNER JOIN bro_team_coach
+                                                            ON bro_team_coach.coach_id = cfrapp.donations.fundraiser_id
+                                                            WHERE bro_team_coach.bro_team_id = ?
+                                                            GROUP BY bro_team_coach.coach_id',array($bro_team_id));
+
+        $coach_pledged = DB::connection('WarRoom')->select('SELECT bro_team_coach.coach_id as id, COALESCE(SUM(pledged.amount_pledged),0) AS sum
+                                                            FROM pledged
+                                                            INNER JOIN bro_team_coach
+                                                            ON bro_team_coach.coach_id = pledged.volunteer_id
+                                                            WHERE bro_team_coach.bro_team_id = ?
+                                                            GROUP BY bro_team_coach.coach_id',array($bro_team_id));
+
         $number_of_interns = DB::connection('WarRoom')->select('SELECT volunteer_coach.coach_id as id, COUNT(volunteer_coach.volunteer_id) as count FROM volunteer_coach
                                                                 GROUP BY volunteer_coach.coach_id');
+
+        $coach_login = DB::connection('WarRoom')->select('SELECT volunteer_login.volunteer_id as id,MAX(volunteer_login.login_time) as last_login FROM volunteer_login
+                                                                        INNER JOIN bro_team_coach
+                                                                        ON bro_team_coach.coach_id = volunteer_login.volunteer_id
+                                                                        WHERE bro_team_coach.bro_team_id = ?
+                                                                        GROUP BY bro_team_coach.coach_id',array($bro_team_id));
 
         foreach($members as $member){
             foreach($group_raised as $raised){
@@ -87,6 +116,91 @@ class BrosDashboard extends BaseController{
                     $member->interns = 0;
                 }
             }
+        }
+
+
+        foreach($members as $member){
+            if(!empty($group_raised)){
+                foreach($group_raised as $each_group_raised){
+                    if(($member->id == $each_group_raised->id) && isset($each_group_raised->sum)){
+                        $member->group_raised = $each_group_raised->sum;
+                        break;
+                    }else{
+                        $member->group_raised = 0;
+                    }
+                }
+            }else{
+                $member->group_raised = 0;
+            }
+
+        }
+
+        foreach($members as $member){
+            if(!empty($coach_raised)){
+                foreach($coach_raised as $each_coach_raised){
+                    if(($member->id == $each_coach_raised->id) && isset($each_coach_raised->sum)){
+                        $member->coach_raised = $each_coach_raised->sum;
+                        break;
+                    }else{
+                        $member->coach_raised = 0;
+                    }
+                }
+            }else{
+                $member->coach_raised = 0;
+            }
+
+        }
+
+        foreach($members as $member){
+            if(!empty($group_pledged)){
+                foreach($group_pledged as $each_group_pledged){
+                    if(($member->id == $each_group_pledged->id) && isset($each_group_pledged->sum)){
+                        $member->group_pledged = $each_group_pledged->sum;
+                        break;
+                    }else{
+                        $member->group_pledged = 0;
+                    }
+                }
+            }else{
+                $member->group_pledged = 0;
+            }
+
+        }
+
+        foreach($members as $member){
+            if(!empty($coach_pledged)){
+                foreach($coach_pledged as $each_coach_pledged){
+                    if(($member->id == $each_coach_pledged->id) && isset($each_coach_pledged->sum)){
+                        $member->coach_pledged = $each_coach_pledged->sum;
+                        break;
+                    }else{
+                        $member->coach_pledged = 0;
+                    }
+                }
+            }else{
+                $member->coach_pledged = 0;
+            }
+
+        }
+
+        foreach($members as $member){
+            if(!empty($coach_login)){
+                foreach($coach_login as $login){
+                    if(($member->id == $login->id) && isset($login->last_login)){
+
+                        $last_login = new DateTime("$login->last_login");
+                        $last_login = $last_login->format('j M g:i A');
+                        $member->last_login = $last_login;
+
+                        break;
+                    }else{
+                        $member->last_login = '-';
+                    }
+                }
+            }else{
+                $member->last_login = '-';
+            }
+
         }
 
         return $members;
@@ -120,21 +234,44 @@ class BrosDashboard extends BaseController{
     }
 
     static function returnTeamOverall($bro_team_id){
-        $coach_group = DB::connection('WarRoom')->select('SELECT COALESCE(SUM(cfrapp.donations.donation_amount),0) as sum FROM cfrapp.donations
+        $group_raised = DB::connection('WarRoom')->select('SELECT COALESCE(SUM(cfrapp.donations.donation_amount),0) as sum FROM cfrapp.donations
                                             INNER JOIN volunteer_coach
                                             ON volunteer_coach.volunteer_id = cfrapp.donations.fundraiser_id
                                             INNER JOIN bro_team_coach
                                             ON bro_team_coach.coach_id = volunteer_coach.coach_id
                                             WHERE bro_team_coach.bro_team_id = ?',array($bro_team_id));
 
-        $coach_own = DB::connection('WarRoom')->select('SELECT COALESCE(SUM(cfrapp.donations.donation_amount),0) as sum FROM cfrapp.donations
+
+
+        $coach_raised = DB::connection('WarRoom')->select('SELECT COALESCE(SUM(cfrapp.donations.donation_amount),0) as sum FROM cfrapp.donations
                                             INNER JOIN bro_team_coach
                                             ON bro_team_coach.coach_id = cfrapp.donations.fundraiser_id
                                             WHERE bro_team_coach.bro_team_id = ?',array($bro_team_id));
 
+        $group_pledged = DB::connection('WarRoom')->select('SELECT COALESCE(SUM(pledged.amount_pledged),0) AS sum
+                                                            FROM pledged
+                                                            INNER JOIN volunteer_coach
+                                                            ON volunteer_coach.volunteer_id = pledged.volunteer_id
+                                                            INNER JOIN bro_team_coach
+                                                            ON bro_team_coach.coach_id = volunteer_coach.coach_id
+                                                            WHERE bro_team_coach.bro_team_id = ?
+                                                            ',array($bro_team_id));
 
-        $sum = $coach_group[0]->sum + $coach_own[0]->sum;
-        return $sum;
+        $coach_pledged = DB::connection('WarRoom')->select('SELECT COALESCE(SUM(pledged.amount_pledged),0) AS sum
+                                                            FROM pledged
+                                                            INNER JOIN bro_team_coach
+                                                            ON bro_team_coach.coach_id = pledged.volunteer_id
+                                                            WHERE bro_team_coach.bro_team_id = ?
+                                                            ',array($bro_team_id));
+
+
+
+
+        $raised = $group_raised[0]->sum + $coach_raised[0]->sum;
+        $pledged = $group_pledged[0]->sum + $coach_pledged[0]->sum;
+
+        $data = compact("raised","pledged");
+        return $data;
     }
 
     static function returnCoaches(){

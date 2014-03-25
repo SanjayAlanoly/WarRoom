@@ -94,17 +94,25 @@
 
     <?php
         foreach($bro_teams as $bro_team){
+
+            $data = BrosDashboard::returnTeamOverall($bro_team->id);
+
             echo "<h2 class='sub_title text-center'>$bro_team->name</h2>";
-            echo "<p class='normal'>Total Amount Raised : " . BrosDashboard::returnTeamOverall($bro_team->id) . "</p>";
+            echo "<p class='normal'>Total Amount Raised : Rs. " . number_format($data['raised']) . "</p>";
+            echo "<p class='normal'>Total Amount Pledged : Rs. " . number_format($data['pledged']) . "</p>";
 
             $bro_team_members = BrosDashboard::returnBroTeamMembers($bro_team->id);
 
             echo "<table>";
-            echo "<tr><th class='big'>Name</th><th class='big'>Phone No</th><th class='big'>Group Raised</th><th class='big'>Group Pledged</th><th class='big'>Donors</th><th class='big'>Conversations</th><th class='big'>Interns</th></tr>";
+            echo "<tr><th class='big'>Name</th><th class='big'>Phone No</th><th class='big'>Raised</th><th class='big'>Pledged</th><th class='big'></th><th class='big'></th><th class='big'>Interns</th><th class='big'>Last Login</th></tr>";
 
 
             foreach($bro_team_members as $member){
-                echo "<tr><td>$member->first_name $member->last_name</td><td>$member->phone_no</td><td></td><td></td><td></td><td></td><td>$member->interns</td></tr>";
+
+                $raised = number_format($member->group_raised + $member->coach_raised);
+                $pledged = number_format($member->group_pledged + $member->coach_pledged);
+
+                echo "<tr><td>$member->first_name $member->last_name</td><td>$member->phone_no</td><td>$raised</td><td>$pledged</td><td></td><td></td><td>$member->interns</td><td>$member->last_login</td></tr>";
 
             }
 
