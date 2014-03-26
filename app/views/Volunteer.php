@@ -150,13 +150,23 @@
 
         <br><br>
 
+        <h2 class='sub_title_left'>Add/Remove Pledged</h2>
+        <form action="./submitPledged" method="post" enctype="multipart/form-data" class="form-inline">
+            <input type='text' class='form-control' style='width:25%' name='pledged_amount' placeholder='To remove use negative values'>
+            <button type='submit' class='btn btn-primary'>SAVE</button>
+            <input type='hidden' name='volunteer_id' value=<?php echo $volunteer->id;?>>
+        </form>
+
+
+        <br><br>
+
         <div id="spartaCalendar">
 
             <h2 class="sub_title text-center"><?php echo "$volunteer->first_name's Calendar"?></h2>
 
             <br>
 
-            <form action="../Volunteer/submitCalendar" method="post" enctype="multipart/form-data">
+            <form action="../Volunteer/submitCalendar" method="post" enctype="multipart/form-data" >
 
                 <?php
 

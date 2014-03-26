@@ -95,6 +95,42 @@ class Volunteer extends BaseController {
         return Redirect::to($url);
 
     }
+
+    function submitPledged(){
+
+
+        $cm = new ContactMaster();
+
+        $cm->name = 'AutoAdded';
+        $cm->phone = '0000000000';
+        $cm->email = 'auto@auto.com';
+        $cm->status = 'pledged';
+        $cm->donation_range = '0-500';
+        $cm->volunteer_id = $_POST['volunteer_id'];
+        $cm->first_updated_at = date('Y-m-d H:i:s');
+        $cm->save();
+
+
+        $pl = new Pledged();
+        $pl->contact_id = $cm->id;
+
+        $pl->amount_pledged = $_POST['pledged_amount'];
+
+        $pl->volunteer_id = $_POST['volunteer_id'];
+        $pl->collect_date = date('Y-m-d H:i:s');
+        $pl->comments = '';
+        $pl->save();
+
+        $vol_id = $_POST['volunteer_id'];
+        $url = "/Volunteer/$vol_id";
+
+        return Redirect::to($url);
+
+
+
+
+
+    }
 }
 
 ?>

@@ -65,6 +65,7 @@ Route::group(array('before' => 'auth'), function()
     Route::get('/AccessDenied',function(){return View::make('AccessDenied');});
     Route::post('/CoachDashboard/saveVolunteers','CoachDashboard@saveVolunteers');
     Route::post('/Volunteer/submitCalendar' , 'Volunteer@submitCalendar');
+    Route::post('/Volunteer/submitPledged','Volunteer@submitPledged');
     Route::get('/Volunteer/{id}','Volunteer@showVolunteer');
     Route::get('/CoachDashboard',array('before' => 'coach_check', 'uses' => 'CoachDashboard@showCoachDashboard'));
     Route::get('/WarRoom', 'WarRoom@showWarRoom');
