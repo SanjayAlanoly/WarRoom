@@ -47,6 +47,8 @@ class BrosDashboard extends BaseController{
     }
 
     static function returnBroTeamMembers($bro_team_id){
+
+
         $members = DB::connection('WarRoom')->select("SELECT cfrapp.users.id as id,cfrapp.users.first_name as first_name,cfrapp.users.last_name as last_name,cfrapp.users.city_id,cfrapp.users.phone_no,cfrapp.cities.name as city_name FROM cfrapp.users
                                                         INNER JOIN cfrapp.cities
                                                         ON cfrapp.users.city_id = cfrapp.cities.id
@@ -73,6 +75,8 @@ class BrosDashboard extends BaseController{
                                                             WHERE bro_team_coach.bro_team_id = ?
                                                             GROUP BY bro_team_coach.coach_id',array($bro_team_id));
 
+
+
         $coach_raised = DB::connection('WarRoom')->select('SELECT bro_team_coach.coach_id as id, COALESCE(SUM(cfrapp.donations.donation_amount),0) AS sum
                                                             FROM cfrapp.donations
                                                             INNER JOIN bro_team_coach
@@ -86,6 +90,26 @@ class BrosDashboard extends BaseController{
                                                             ON bro_team_coach.coach_id = pledged.volunteer_id
                                                             WHERE bro_team_coach.bro_team_id = ?
                                                             GROUP BY bro_team_coach.coach_id',array($bro_team_id));
+
+        $coach_target = DB::connection('WarRoom')->select('SELECT bro_team_coach.coach_id as id, COALESCE(SUM(volunteer_overall_target.target),0) as target FROM
+                                                                    volunteer_overall_target
+                                                                    INNER JOIN volunteer_coach
+                                                                    ON volunteer_coach.volunteer_id = volunteer_overall_target.volunteer_id
+                                                                    INNER JOIN bro_team_coach
+                                                                    ON bro_team_coach.coach_id = volunteer_coach.coach_id
+                                                                    WHERE bro_team_coach.bro_team_id = ?
+                                                                    GROUP BY bro_team_coach.coach_id',array($bro_team_id));
+
+        $coach_target_count = DB::connection('WarRoom')->select('SELECT bro_team_coach.coach_id as id, COUNT(volunteer_overall_target.target) as count FROM
+                                                                    volunteer_overall_target
+                                                                    INNER JOIN volunteer_coach
+                                                                    ON volunteer_coach.volunteer_id = volunteer_overall_target.volunteer_id
+                                                                    INNER JOIN bro_team_coach
+                                                                    ON bro_team_coach.coach_id = volunteer_coach.coach_id
+                                                                    WHERE bro_team_coach.bro_team_id = ?
+                                                                    GROUP BY bro_team_coach.coach_id',array($bro_team_id));
+
+
 
         $number_of_interns = DB::connection('WarRoom')->select('SELECT volunteer_coach.coach_id as id, COUNT(volunteer_coach.volunteer_id) as count FROM volunteer_coach
                                                                 GROUP BY volunteer_coach.coach_id');
@@ -179,6 +203,39 @@ class BrosDashboard extends BaseController{
                 }
             }else{
                 $member->coach_pledged = 0;
+            }
+
+        }
+
+
+        foreach($members as $member){
+            if(!empty($coach_target)){
+                foreach($coach_target as $each_coach_target){
+                    if(($member->id == $each_coach_target->id) && isset($each_coach_target->target)){
+                        $member->coach_target = $each_coach_target->target;
+                        break;
+                    }else{
+                        $member->coach_target = 0;
+                    }
+                }
+            }else{
+                $member->coach_target = 0;
+            }
+
+        }
+
+        foreach($members as $member){
+            if(!empty($coach_target_count)){
+                foreach($coach_target_count as $each_coach_target_count){
+                    if(($member->id == $each_coach_target_count->id) && isset($each_coach_target_count->count)){
+                        $member->target_count = $each_coach_target_count->count;
+                        break;
+                    }else{
+                        $member->target_count = 0;
+                    }
+                }
+            }else{
+                $member->target_count = 0;
             }
 
         }

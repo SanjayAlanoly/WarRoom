@@ -104,7 +104,7 @@
             $bro_team_members = BrosDashboard::returnBroTeamMembers($bro_team->id);
 
             echo "<table>";
-            echo "<tr><th class='big'>Name</th><th class='big'>Phone No</th><th class='big'>Raised</th><th class='big'>Pledged</th><th class='big'></th><th class='big'></th><th class='big'>Interns</th><th class='big'>Last Login</th></tr>";
+            echo "<tr><th class='big'>Name</th><th class='big'>Phone No</th><th class='big'>Raised</th><th class='big'>Pledged</th><th class='big'>Overall Target</th><th class='big'>Target Count</th><th class='big'>Interns</th><th class='big'>Last Login</th></tr>";
 
 
             foreach($bro_team_members as $member){
@@ -112,7 +112,7 @@
                 $raised = number_format($member->group_raised + $member->coach_raised);
                 $pledged = number_format($member->group_pledged + $member->coach_pledged);
 
-                echo "<tr><td>$member->first_name $member->last_name</td><td>$member->phone_no</td><td>$raised</td><td>$pledged</td><td></td><td></td><td>$member->interns</td><td>$member->last_login</td></tr>";
+                echo "<tr><td>$member->first_name $member->last_name</td><td>$member->phone_no</td><td>$raised</td><td>$pledged</td><td>$member->coach_target</td><td>$member->target_count</td><td>$member->interns</td><td>$member->last_login</td></tr>";
 
             }
 
