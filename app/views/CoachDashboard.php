@@ -71,9 +71,9 @@
             echo "<p class='normal'>Amount raised to hit today : 500</p>";*/
 
             echo "<h2 class='sub_title_left'>Overall (INCL COACH) : </h2>";
-            echo "<p class='normal'>Total Amount Raised : " . $overall_raised_actual . "</p>";
-            echo "<p class='normal'>Total Amount Pledged : " . $overall_pledged_actual . "</p>";
-            echo "<p class='normal'>Total Converstaions : " . $overall_conversations_actual . "</p>";
+            echo "<p class='normal'>Total Amount Raised : Rs. " . number_format($overall_raised_actual) . "</p>";
+            echo "<p class='normal'>Total Amount Pledged : Rs. " . number_format($overall_pledged_actual) . "</p>";
+            //echo "<p class='normal'>Total Converstaions : " . $overall_conversations_actual . "</p>";
 
 
             echo "<form action='CoachDashboard/saveVolunteers' method='post' enctype='multipart/form-data'>";

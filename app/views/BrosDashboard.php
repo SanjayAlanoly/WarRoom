@@ -57,7 +57,7 @@
 
     <p class="normal">Total Amount Raised : <?php echo "Rs. " . number_format($mad_amount_raised[0]->amount_raised); ?></p>
     <p class="normal">Total Amount Pledged : <?php echo "Rs. " . number_format($mad_pledged[0]->amount_pledged); ?></p>
-    <p class="normal">Total Conversations : <?php echo $mad_conversations[0]->count; ?></p>
+    <!--<p class="normal">Total Conversations : <?php /*echo $mad_conversations[0]->count; */?></p>-->
 
     <br>
 
@@ -92,14 +92,40 @@
 
     <br>
 
+
+
     <?php
         foreach($bro_teams as $bro_team){
 
             $data = BrosDashboard::returnTeamOverall($bro_team->id);
 
             echo "<h2 class='sub_title text-center'>$bro_team->name</h2>";
-            echo "<p class='normal'>Total Amount Raised : Rs. " . number_format($data['raised']) . "</p>";
-            echo "<p class='normal'>Total Amount Pledged : Rs. " . number_format($data['pledged']) . "</p>";
+
+            echo "<div class='row'>";
+
+            echo "<div class='col-md-5'>";
+
+            echo " <h2 class='sub_title_left'>Overall : </h2>";
+            echo "<p class='normal'>Amount Raised : Rs. " . number_format($data['raised']) . "</p>";
+            echo "<p class='normal'>Amount Pledged : Rs. " . number_format($data['pledged']) . "</p>";
+            echo "<p class='normal'>Target : Rs. " . number_format($data['target']) . "</p>";
+            echo "<p class='normal'>Interns : " . number_format($data['interns']) . "</p>";
+
+            echo "</div>";
+
+
+
+            echo "<div class='col-md-4 col-md-offset-3'>";
+
+            echo " <h2 class='sub_title_left'>Yesterday : </h2>";
+
+            echo "<p class='normal'>Calls : " . $data['coached_yesterday'] . "/" . $data['sparta_yesterday'] . "</p>";
+            echo "<p class='normal'>Raised : Rs. " . number_format($data['raised_yesterday']) . "</p>";
+            echo "<p class='normal'>Pledged : Rs. " . number_format($data['pledged_yesterday']) . "</p>";
+
+            echo "</div></div>";
+
+            echo "<br>";
 
             $bro_team_members = BrosDashboard::returnBroTeamMembers($bro_team->id);
 
@@ -112,7 +138,7 @@
                 $raised = number_format($member->group_raised + $member->coach_raised);
                 $pledged = number_format($member->group_pledged + $member->coach_pledged);
 
-                echo "<tr><td>$member->first_name $member->last_name</td><td>$member->phone_no</td><td>$raised</td><td>$pledged</td><td>$member->coach_target</td><td>$member->target_count</td><td>$member->interns</td><td>$member->last_login</td></tr>";
+                echo "<tr><td>$member->first_name $member->last_name</td><td>$member->phone_no</td><td>$raised</td><td>$pledged</td><td>$member->coach_target</td><td>$member->target_count/$member->interns</td><td>$member->interns</td><td>$member->last_login</td></tr>";
 
             }
 

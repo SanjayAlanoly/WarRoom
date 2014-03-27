@@ -321,13 +321,84 @@ class BrosDashboard extends BaseController{
                                                             WHERE bro_team_coach.bro_team_id = ?
                                                             ',array($bro_team_id));
 
+        $overall_target = DB::connection('WarRoom')->select('SELECT COALESCE(SUM(volunteer_overall_target.target),0) as target FROM
+                                                                    volunteer_overall_target
+                                                                    INNER JOIN volunteer_coach
+                                                                    ON volunteer_coach.volunteer_id = volunteer_overall_target.volunteer_id
+                                                                    INNER JOIN bro_team_coach
+                                                                    ON bro_team_coach.coach_id = volunteer_coach.coach_id
+                                                                    WHERE bro_team_coach.bro_team_id = ?
+                                                                    ',array($bro_team_id));
+
+        $no_of_interns = DB::connection('WarRoom')->select('SELECT COUNT(volunteer_coach.volunteer_id) AS count FROM volunteer_coach
+                                                            INNER JOIN bro_team_coach
+                                                            ON bro_team_coach.coach_id = volunteer_coach.coach_id
+                                                            WHERE bro_team_coach.bro_team_id = ?',array($bro_team_id));
+
+        $yesterday = new DateTime('yesterday');
+        $yesterday = $yesterday->format('Y-m-d');
+
+        $sparta_days_yesterday = DB::connection('WarRoom')->select('SELECT COUNT(volunteer_sparta.id) AS count FROM volunteer_sparta
+                                                                INNER JOIN volunteer_coach
+                                                                ON volunteer_coach.volunteer_id = volunteer_sparta.volunteer_id
+                                                                INNER JOIN bro_team_coach
+                                                                ON bro_team_coach.coach_id = volunteer_coach.coach_id
+                                                                WHERE bro_team_coach.bro_team_id = ?
+                                                                AND volunteer_sparta.on_date = ? AND volunteer_sparta.type = ?',
+                                                                array($bro_team_id,$yesterday,'sparta_day'));
+
+        $coached_days_yesterday = DB::connection('WarRoom')->select('SELECT COUNT(volunteer_sparta.id) AS count FROM volunteer_sparta
+                                                                INNER JOIN volunteer_coach
+                                                                ON volunteer_coach.volunteer_id = volunteer_sparta.volunteer_id
+                                                                INNER JOIN bro_team_coach
+                                                                ON bro_team_coach.coach_id = volunteer_coach.coach_id
+                                                                WHERE bro_team_coach.bro_team_id = ?
+                                                                AND volunteer_sparta.on_date = ? AND volunteer_sparta.type = ?',
+                                                                array($bro_team_id,$yesterday,'coached'));
+
+        $group_raised_yesterday = DB::connection('WarRoom')->select('SELECT COALESCE(SUM(cfrapp.donations.donation_amount),0) as sum FROM cfrapp.donations
+                                            INNER JOIN volunteer_coach
+                                            ON volunteer_coach.volunteer_id = cfrapp.donations.fundraiser_id
+                                            INNER JOIN bro_team_coach
+                                            ON bro_team_coach.coach_id = volunteer_coach.coach_id
+                                            WHERE bro_team_coach.bro_team_id = ?
+                                            AND cfrapp.donations.created_at = ?',array($bro_team_id,$yesterday));
+
+        $coach_raised_yesterday = DB::connection('WarRoom')->select('SELECT COALESCE(SUM(cfrapp.donations.donation_amount),0) as sum FROM cfrapp.donations
+                                            INNER JOIN bro_team_coach
+                                            ON bro_team_coach.coach_id = cfrapp.donations.fundraiser_id
+                                            WHERE bro_team_coach.bro_team_id = ?
+                                            AND cfrapp.donations.created_at = ?',array($bro_team_id,$yesterday));
+
+        $group_pledged_yesterday = DB::connection('WarRoom')->select('SELECT COALESCE(SUM(pledged.amount_pledged),0) AS sum
+                                                            FROM pledged
+                                                            INNER JOIN volunteer_coach
+                                                            ON volunteer_coach.volunteer_id = pledged.volunteer_id
+                                                            INNER JOIN bro_team_coach
+                                                            ON bro_team_coach.coach_id = volunteer_coach.coach_id
+                                                            WHERE bro_team_coach.bro_team_id = ?
+                                                            AND pledged.created_at = ?',array($bro_team_id,$yesterday));
+
+        $coach_pledged_yesterday = DB::connection('WarRoom')->select('SELECT COALESCE(SUM(pledged.amount_pledged),0) AS sum
+                                                            FROM pledged
+                                                            INNER JOIN bro_team_coach
+                                                            ON bro_team_coach.coach_id = pledged.volunteer_id
+                                                            WHERE bro_team_coach.bro_team_id = ?
+                                                             AND pledged.created_at = ?',array($bro_team_id,$yesterday));
+
 
 
 
         $raised = $group_raised[0]->sum + $coach_raised[0]->sum;
         $pledged = $group_pledged[0]->sum + $coach_pledged[0]->sum;
+        $target = $overall_target[0]->target;
+        $interns = $no_of_interns[0]->count;
+        $sparta_yesterday = $sparta_days_yesterday[0]->count;
+        $coached_yesterday = $coached_days_yesterday[0]->count;
+        $raised_yesterday = $group_raised_yesterday[0]->sum + $coach_raised_yesterday[0]->sum;
+        $pledged_yesterday = $group_pledged_yesterday[0]->sum + $coach_pledged_yesterday[0]->sum;
 
-        $data = compact("raised","pledged");
+        $data = compact("raised","pledged","target","interns","coached_yesterday","sparta_yesterday","raised_yesterday","pledged_yesterday");
         return $data;
     }
 

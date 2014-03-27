@@ -101,7 +101,7 @@ class Volunteer extends BaseController {
 
         $cm = new ContactMaster();
 
-        $cm->name = 'AutoAdded';
+        $cm->name = 'AddedByCoach';
         $cm->phone = '0000000000';
         $cm->email = 'auto@auto.com';
         $cm->status = 'pledged';
