@@ -362,13 +362,13 @@ class BrosDashboard extends BaseController{
                                             INNER JOIN bro_team_coach
                                             ON bro_team_coach.coach_id = volunteer_coach.coach_id
                                             WHERE bro_team_coach.bro_team_id = ?
-                                            AND cfrapp.donations.created_at = ?',array($bro_team_id,$yesterday));
+                                            AND DATE(cfrapp.donations.created_at) = ?',array($bro_team_id,$yesterday));
 
         $coach_raised_yesterday = DB::connection('WarRoom')->select('SELECT COALESCE(SUM(cfrapp.donations.donation_amount),0) as sum FROM cfrapp.donations
                                             INNER JOIN bro_team_coach
                                             ON bro_team_coach.coach_id = cfrapp.donations.fundraiser_id
                                             WHERE bro_team_coach.bro_team_id = ?
-                                            AND cfrapp.donations.created_at = ?',array($bro_team_id,$yesterday));
+                                            AND DATE(cfrapp.donations.created_at) = ?',array($bro_team_id,$yesterday));
 
         $group_pledged_yesterday = DB::connection('WarRoom')->select('SELECT COALESCE(SUM(pledged.amount_pledged),0) AS sum
                                                             FROM pledged
@@ -377,14 +377,14 @@ class BrosDashboard extends BaseController{
                                                             INNER JOIN bro_team_coach
                                                             ON bro_team_coach.coach_id = volunteer_coach.coach_id
                                                             WHERE bro_team_coach.bro_team_id = ?
-                                                            AND pledged.created_at = ?',array($bro_team_id,$yesterday));
+                                                            AND DATE(pledged.created_at) = ?',array($bro_team_id,$yesterday));
 
         $coach_pledged_yesterday = DB::connection('WarRoom')->select('SELECT COALESCE(SUM(pledged.amount_pledged),0) AS sum
                                                             FROM pledged
                                                             INNER JOIN bro_team_coach
                                                             ON bro_team_coach.coach_id = pledged.volunteer_id
                                                             WHERE bro_team_coach.bro_team_id = ?
-                                                             AND pledged.created_at = ?',array($bro_team_id,$yesterday));
+                                                            AND DATE(pledged.created_at) = ?',array($bro_team_id,$yesterday));
 
 
 

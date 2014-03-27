@@ -3,10 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="fcbe90e1-0536-4bc7-9506-575ed05dfc7b" name="Default" comment="Timing and update to 8 seconds&#10;">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/BrosDashboard.php" afterPath="$PROJECT_DIR$/app/controllers/BrosDashboard.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/BrosDashboard.php" afterPath="$PROJECT_DIR$/app/views/BrosDashboard.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/CoachDashboard.php" afterPath="$PROJECT_DIR$/app/views/CoachDashboard.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/Volunteer.php" afterPath="$PROJECT_DIR$/app/controllers/Volunteer.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="fraise.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -38,10 +34,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CoachDashboard.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="CoachDashboard.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/CoachDashboard.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="146" column="57" selection-start="10187" selection-end="10187" vertical-scroll-proportion="-3.6928701" vertical-offset="4502" max-vertical-offset="5814">
+            <state line="146" column="57" selection-start="10187" selection-end="10187" vertical-scroll-proportion="65.92308" vertical-offset="4196" max-vertical-offset="5814">
               <folding />
             </state>
           </provider>
@@ -59,41 +55,41 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BrosDashboard.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="BrosDashboard.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/BrosDashboard.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="398" column="97" selection-start="23442" selection-end="23442" vertical-scroll-proportion="-96.23077" vertical-offset="4264" max-vertical-offset="7021">
+            <state line="386" column="60" selection-start="22852" selection-end="22852" vertical-scroll-proportion="0.81352836" vertical-offset="6117" max-vertical-offset="7021">
               <folding>
-                <marker date="1395906711299" expanded="true" signature="355:383" placeholder="SELECT id,na..bro_team..." />
-                <marker date="1395906711299" expanded="true" signature="519:810" placeholder="SELECT COALE..donations..." />
-                <marker date="1395906711299" expanded="true" signature="896:1224" placeholder="SELECT COUNT..." />
-                <marker date="1395906711299" expanded="true" signature="1380:1934" placeholder="SELECT COALE..pledged..." />
-                <marker date="1395906711299" expanded="true" signature="2180:2831" placeholder="SELECT cfrap..users..." />
-                <marker date="1395906711299" expanded="true" signature="2914:3692" placeholder="SELECT bro_t..." />
-                <marker date="1395906711299" expanded="true" signature="3817:4566" placeholder="SELECT bro_t..." />
-                <marker date="1395906711299" expanded="true" signature="4652:5224" placeholder="SELECT bro_t..." />
-                <marker date="1395906711299" expanded="true" signature="5309:5852" placeholder="SELECT bro_t..." />
-                <marker date="1395906711299" expanded="true" signature="5936:6787" placeholder="SELECT bro_t..volunteer_overall_target..." />
-                <marker date="1395906711299" expanded="true" signature="6877:7717" placeholder="SELECT bro_t..." />
-                <marker date="1395906711299" expanded="true" signature="7808:8010" placeholder="SELECT volun..." />
-                <marker date="1395906711299" expanded="true" signature="8073:8623" placeholder="SELECT volun..volunteer_login..." />
-                <marker date="1395906711299" expanded="true" signature="13499:14011" placeholder="SELECT users..users..." />
-                <marker date="1395906711299" expanded="true" signature="14159:14207" placeholder="DELETE FROM ..." />
-                <marker date="1395906711299" expanded="true" signature="14419:14481" placeholder="INSERT INTO ..." />
-                <marker date="1395906711299" expanded="true" signature="14714:15228" placeholder="SELECT COALE..." />
-                <marker date="1395906711299" expanded="true" signature="15314:15654" placeholder="SELECT COALE..." />
-                <marker date="1395906711299" expanded="true" signature="15739:16364" placeholder="SELECT COALE..." />
-                <marker date="1395906711299" expanded="true" signature="16510:16929" placeholder="SELECT COALE..." />
-                <marker date="1395906711299" expanded="true" signature="17076:17795" placeholder="SELECT COALE..volunteer_overall_target..." />
-                <marker date="1395906711299" expanded="true" signature="17949:22963" placeholder="SELECT COUNT..volunteer_coach..." />
-                <marker date="1395906711299" expanded="true" signature="17949:18318" placeholder="SELECT COUNT..." />
-                <marker date="1395906711299" expanded="true" signature="18510:19229" placeholder="SELECT COUNT..." />
-                <marker date="1395906711299" expanded="true" signature="19412:20131" placeholder="SELECT COUNT..." />
-                <marker date="1395906711299" expanded="true" signature="20311:20905" placeholder="SELECT COALE..." />
-                <marker date="1395906711299" expanded="true" signature="21010:21430" placeholder="SELECT COALE..." />
-                <marker date="1395906711299" expanded="true" signature="21536:22248" placeholder="SELECT COALE..." />
-                <marker date="1395906711299" expanded="true" signature="22354:22773" placeholder="SELECT COALE..." />
-                <marker date="1395906711299" expanded="true" signature="22354:22861" placeholder="SELECT COALE..." />
+                <marker date="1395907275598" expanded="true" signature="355:383" placeholder="SELECT id,na..bro_team..." />
+                <marker date="1395907275598" expanded="true" signature="519:810" placeholder="SELECT COALE..donations..." />
+                <marker date="1395907275598" expanded="true" signature="896:1224" placeholder="SELECT COUNT..." />
+                <marker date="1395907275598" expanded="true" signature="1380:1934" placeholder="SELECT COALE..pledged..." />
+                <marker date="1395907275598" expanded="true" signature="2180:2831" placeholder="SELECT cfrap..users..." />
+                <marker date="1395907275598" expanded="true" signature="2914:3692" placeholder="SELECT bro_t..." />
+                <marker date="1395907275598" expanded="true" signature="3817:4566" placeholder="SELECT bro_t..." />
+                <marker date="1395907275598" expanded="true" signature="4652:5224" placeholder="SELECT bro_t..." />
+                <marker date="1395907275598" expanded="true" signature="5309:5852" placeholder="SELECT bro_t..." />
+                <marker date="1395907275598" expanded="true" signature="5936:6787" placeholder="SELECT bro_t..volunteer_overall_target..." />
+                <marker date="1395907275598" expanded="true" signature="6877:7717" placeholder="SELECT bro_t..." />
+                <marker date="1395907275598" expanded="true" signature="7808:8010" placeholder="SELECT volun..." />
+                <marker date="1395907275598" expanded="true" signature="8073:8623" placeholder="SELECT volun..volunteer_login..." />
+                <marker date="1395907275598" expanded="true" signature="13499:14011" placeholder="SELECT users..users..." />
+                <marker date="1395907275598" expanded="true" signature="14159:14207" placeholder="DELETE FROM ..." />
+                <marker date="1395907275598" expanded="true" signature="14419:14481" placeholder="INSERT INTO ..." />
+                <marker date="1395907275598" expanded="true" signature="14714:15228" placeholder="SELECT COALE..." />
+                <marker date="1395907275598" expanded="true" signature="15314:15654" placeholder="SELECT COALE..." />
+                <marker date="1395907275598" expanded="true" signature="15739:16364" placeholder="SELECT COALE..." />
+                <marker date="1395907275598" expanded="true" signature="16510:16929" placeholder="SELECT COALE..." />
+                <marker date="1395907275598" expanded="true" signature="17076:17795" placeholder="SELECT COALE..volunteer_overall_target..." />
+                <marker date="1395907275598" expanded="true" signature="17949:22986" placeholder="SELECT COUNT..volunteer_coach..." />
+                <marker date="1395907275598" expanded="true" signature="17949:18318" placeholder="SELECT COUNT..." />
+                <marker date="1395907275598" expanded="true" signature="18510:19229" placeholder="SELECT COUNT..." />
+                <marker date="1395907275598" expanded="true" signature="19412:20131" placeholder="SELECT COUNT..." />
+                <marker date="1395907275598" expanded="true" signature="20311:20911" placeholder="SELECT COALE..." />
+                <marker date="1395907275598" expanded="true" signature="21016:21442" placeholder="SELECT COALE..." />
+                <marker date="1395907275598" expanded="true" signature="21548:22266" placeholder="SELECT COALE..." />
+                <marker date="1395907275598" expanded="true" signature="22372:22791" placeholder="SELECT COALE..." />
+                <marker date="1395907275598" expanded="true" signature="22372:22884" placeholder="SELECT COALE..." />
               </folding>
             </state>
           </provider>
@@ -196,9 +192,9 @@
         <option value="$PROJECT_DIR$/app/views/Volunteer.php" />
         <option value="dbtable:/93b3750/d941cdd4-e942-427c-81c8-98e9050f4307/makeadiff_warroom..contact_master" />
         <option value="$PROJECT_DIR$/app/controllers/Volunteer.php" />
-        <option value="$PROJECT_DIR$/app/controllers/BrosDashboard.php" />
         <option value="$PROJECT_DIR$/app/views/CoachDashboard.php" />
         <option value="$PROJECT_DIR$/app/views/BrosDashboard.php" />
+        <option value="$PROJECT_DIR$/app/controllers/BrosDashboard.php" />
       </list>
     </option>
   </component>
@@ -572,7 +568,7 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="89" />
+      <option name="time" value="91" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -970,44 +966,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/BrosDashboard.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="398" column="97" selection-start="23442" selection-end="23442" vertical-scroll-proportion="-96.23077" vertical-offset="4264" max-vertical-offset="7021">
-          <folding>
-            <marker date="1395906711299" expanded="true" signature="355:383" placeholder="SELECT id,na..bro_team..." />
-            <marker date="1395906711299" expanded="true" signature="519:810" placeholder="SELECT COALE..donations..." />
-            <marker date="1395906711299" expanded="true" signature="896:1224" placeholder="SELECT COUNT..." />
-            <marker date="1395906711299" expanded="true" signature="1380:1934" placeholder="SELECT COALE..pledged..." />
-            <marker date="1395906711299" expanded="true" signature="2180:2831" placeholder="SELECT cfrap..users..." />
-            <marker date="1395906711299" expanded="true" signature="2914:3692" placeholder="SELECT bro_t..." />
-            <marker date="1395906711299" expanded="true" signature="3817:4566" placeholder="SELECT bro_t..." />
-            <marker date="1395906711299" expanded="true" signature="4652:5224" placeholder="SELECT bro_t..." />
-            <marker date="1395906711299" expanded="true" signature="5309:5852" placeholder="SELECT bro_t..." />
-            <marker date="1395906711299" expanded="true" signature="5936:6787" placeholder="SELECT bro_t..volunteer_overall_target..." />
-            <marker date="1395906711299" expanded="true" signature="6877:7717" placeholder="SELECT bro_t..." />
-            <marker date="1395906711299" expanded="true" signature="7808:8010" placeholder="SELECT volun..." />
-            <marker date="1395906711299" expanded="true" signature="8073:8623" placeholder="SELECT volun..volunteer_login..." />
-            <marker date="1395906711299" expanded="true" signature="13499:14011" placeholder="SELECT users..users..." />
-            <marker date="1395906711299" expanded="true" signature="14159:14207" placeholder="DELETE FROM ..." />
-            <marker date="1395906711299" expanded="true" signature="14419:14481" placeholder="INSERT INTO ..." />
-            <marker date="1395906711299" expanded="true" signature="14714:15228" placeholder="SELECT COALE..." />
-            <marker date="1395906711299" expanded="true" signature="15314:15654" placeholder="SELECT COALE..." />
-            <marker date="1395906711299" expanded="true" signature="15739:16364" placeholder="SELECT COALE..." />
-            <marker date="1395906711299" expanded="true" signature="16510:16929" placeholder="SELECT COALE..." />
-            <marker date="1395906711299" expanded="true" signature="17076:17795" placeholder="SELECT COALE..volunteer_overall_target..." />
-            <marker date="1395906711299" expanded="true" signature="17949:22963" placeholder="SELECT COUNT..volunteer_coach..." />
-            <marker date="1395906711299" expanded="true" signature="17949:18318" placeholder="SELECT COUNT..." />
-            <marker date="1395906711299" expanded="true" signature="18510:19229" placeholder="SELECT COUNT..." />
-            <marker date="1395906711299" expanded="true" signature="19412:20131" placeholder="SELECT COUNT..." />
-            <marker date="1395906711299" expanded="true" signature="20311:20905" placeholder="SELECT COALE..." />
-            <marker date="1395906711299" expanded="true" signature="21010:21430" placeholder="SELECT COALE..." />
-            <marker date="1395906711299" expanded="true" signature="21536:22248" placeholder="SELECT COALE..." />
-            <marker date="1395906711299" expanded="true" signature="22354:22773" placeholder="SELECT COALE..." />
-            <marker date="1395906711299" expanded="true" signature="22354:22861" placeholder="SELECT COALE..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/CoachDashboard.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="74" column="63" selection-start="3044" selection-end="3044" vertical-scroll-proportion="-5.230769" vertical-offset="1122" max-vertical-offset="2261">
@@ -1044,8 +1002,46 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/CoachDashboard.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="146" column="57" selection-start="10187" selection-end="10187" vertical-scroll-proportion="-3.6928701" vertical-offset="4502" max-vertical-offset="5814">
+        <state line="146" column="57" selection-start="10187" selection-end="10187" vertical-scroll-proportion="65.92308" vertical-offset="4196" max-vertical-offset="5814">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/BrosDashboard.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="386" column="60" selection-start="22852" selection-end="22852" vertical-scroll-proportion="0.81352836" vertical-offset="6117" max-vertical-offset="7021">
+          <folding>
+            <marker date="1395907275598" expanded="true" signature="355:383" placeholder="SELECT id,na..bro_team..." />
+            <marker date="1395907275598" expanded="true" signature="519:810" placeholder="SELECT COALE..donations..." />
+            <marker date="1395907275598" expanded="true" signature="896:1224" placeholder="SELECT COUNT..." />
+            <marker date="1395907275598" expanded="true" signature="1380:1934" placeholder="SELECT COALE..pledged..." />
+            <marker date="1395907275598" expanded="true" signature="2180:2831" placeholder="SELECT cfrap..users..." />
+            <marker date="1395907275598" expanded="true" signature="2914:3692" placeholder="SELECT bro_t..." />
+            <marker date="1395907275598" expanded="true" signature="3817:4566" placeholder="SELECT bro_t..." />
+            <marker date="1395907275598" expanded="true" signature="4652:5224" placeholder="SELECT bro_t..." />
+            <marker date="1395907275598" expanded="true" signature="5309:5852" placeholder="SELECT bro_t..." />
+            <marker date="1395907275598" expanded="true" signature="5936:6787" placeholder="SELECT bro_t..volunteer_overall_target..." />
+            <marker date="1395907275598" expanded="true" signature="6877:7717" placeholder="SELECT bro_t..." />
+            <marker date="1395907275598" expanded="true" signature="7808:8010" placeholder="SELECT volun..." />
+            <marker date="1395907275598" expanded="true" signature="8073:8623" placeholder="SELECT volun..volunteer_login..." />
+            <marker date="1395907275598" expanded="true" signature="13499:14011" placeholder="SELECT users..users..." />
+            <marker date="1395907275598" expanded="true" signature="14159:14207" placeholder="DELETE FROM ..." />
+            <marker date="1395907275598" expanded="true" signature="14419:14481" placeholder="INSERT INTO ..." />
+            <marker date="1395907275598" expanded="true" signature="14714:15228" placeholder="SELECT COALE..." />
+            <marker date="1395907275598" expanded="true" signature="15314:15654" placeholder="SELECT COALE..." />
+            <marker date="1395907275598" expanded="true" signature="15739:16364" placeholder="SELECT COALE..." />
+            <marker date="1395907275598" expanded="true" signature="16510:16929" placeholder="SELECT COALE..." />
+            <marker date="1395907275598" expanded="true" signature="17076:17795" placeholder="SELECT COALE..volunteer_overall_target..." />
+            <marker date="1395907275598" expanded="true" signature="17949:22986" placeholder="SELECT COUNT..volunteer_coach..." />
+            <marker date="1395907275598" expanded="true" signature="17949:18318" placeholder="SELECT COUNT..." />
+            <marker date="1395907275598" expanded="true" signature="18510:19229" placeholder="SELECT COUNT..." />
+            <marker date="1395907275598" expanded="true" signature="19412:20131" placeholder="SELECT COUNT..." />
+            <marker date="1395907275598" expanded="true" signature="20311:20911" placeholder="SELECT COALE..." />
+            <marker date="1395907275598" expanded="true" signature="21016:21442" placeholder="SELECT COALE..." />
+            <marker date="1395907275598" expanded="true" signature="21548:22266" placeholder="SELECT COALE..." />
+            <marker date="1395907275598" expanded="true" signature="22372:22791" placeholder="SELECT COALE..." />
+            <marker date="1395907275598" expanded="true" signature="22372:22884" placeholder="SELECT COALE..." />
+          </folding>
         </state>
       </provider>
     </entry>
