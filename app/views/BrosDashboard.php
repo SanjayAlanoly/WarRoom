@@ -149,7 +149,14 @@
 
 
         }
+
+
     ?>
+
+    <br>
+    <div  class="text-center">
+        <a href="DeleteDonation">Delete Donation</a>
+    </div>
 
 </div>
 </body>
