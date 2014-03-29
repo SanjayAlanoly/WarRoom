@@ -106,10 +106,11 @@
             echo "<div class='col-md-5'>";
 
             echo " <h2 class='sub_title_left'>Overall : </h2>";
-            echo "<p class='normal'>Amount Raised : Rs. " . number_format($data['raised']) . "</p>";
+            echo "<p class='normal'>Amount Raised : Rs. " . number_format($data['raised']) . " / " . number_format($data['should_have_raised']) . "</p>";
             echo "<p class='normal'>Amount Pledged : Rs. " . number_format($data['pledged']) . "</p>";
             echo "<p class='normal'>Target : Rs. " . number_format($data['target']) . "</p>";
             echo "<p class='normal'>Interns : " . number_format($data['interns']) . "</p>";
+            echo "<p class='normal'>Sparta Days Remaining : " . number_format($data['sparta_day_remaining']) . "</p>";
 
             echo "</div>";
 
@@ -120,7 +121,7 @@
             echo " <h2 class='sub_title_left'>Yesterday : </h2>";
 
             echo "<p class='normal'>Calls : " . $data['coached_yesterday'] . "/" . $data['sparta_yesterday'] . "</p>";
-            echo "<p class='normal'>Raised : Rs. " . number_format($data['raised_yesterday']) . "</p>";
+            echo "<p class='normal'>Raised : Rs. " . number_format($data['raised_yesterday'])  . "</p>";
             echo "<p class='normal'>Pledged : Rs. " . number_format($data['pledged_yesterday']) . "</p>";
 
             echo "</div></div>";
@@ -137,8 +138,9 @@
 
                 $raised = number_format($member->group_raised + $member->coach_raised);
                 $pledged = number_format($member->group_pledged + $member->coach_pledged);
+                $should_have_raised = number_format($member->should_have_raised);
 
-                echo "<tr><td>$member->first_name $member->last_name</td><td>$member->phone_no</td><td>$raised</td><td>$pledged</td><td>$member->coach_target</td><td>$member->target_count/$member->interns</td><td>$member->interns</td><td>$member->last_login</td></tr>";
+                echo "<tr><td>$member->first_name $member->last_name</td><td>$member->phone_no</td><td>$raised / $should_have_raised</td><td>$pledged</td><td>$member->coach_target</td><td>$member->target_count/$member->interns</td><td>$member->interns</td><td>$member->last_login</td></tr>";
 
             }
 

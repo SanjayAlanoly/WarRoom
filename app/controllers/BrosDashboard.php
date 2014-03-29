@@ -120,6 +120,20 @@ class BrosDashboard extends BaseController{
                                                                         WHERE bro_team_coach.bro_team_id = ?
                                                                         GROUP BY bro_team_coach.coach_id',array($bro_team_id));
 
+
+
+
+
+
+        $sparta_day_remaining = DB::connection('WarRoom')->select('SELECT bro_team_coach.coach_id AS id, COUNT(volunteer_sparta.id) as count FROM volunteer_sparta
+                                                                            INNER JOIN volunteer_coach
+							                                                ON volunteer_coach.volunteer_id = volunteer_sparta.volunteer_id
+							                                                INNER JOIN bro_team_coach
+							                                                ON bro_team_coach.coach_id = volunteer_coach.coach_id
+                                                                            WHERE volunteer_sparta.type = ? AND volunteer_sparta.on_date >= CURDATE()
+                                                                            AND bro_team_coach.bro_team_id = ?
+                                                                            GROUP BY bro_team_coach.coach_id',array('sparta_day',$bro_team_id));
+
         foreach($members as $member){
             foreach($group_raised as $raised){
                 if(($member->id == $raised->id) && isset($raised->sum)){
@@ -236,6 +250,33 @@ class BrosDashboard extends BaseController{
                 }
             }else{
                 $member->target_count = 0;
+            }
+
+        }
+
+        foreach($members as $member){
+            if(!empty($sparta_day_remaining)){
+                foreach($sparta_day_remaining as $each_sparta_day_remaining){
+                    if(($member->id == $each_sparta_day_remaining->id) && isset($each_sparta_day_remaining->count)){
+                        $member->sparta_day_remaining = $each_sparta_day_remaining->count;
+                        break;
+                    }else{
+                        $member->sparta_day_remaining = 0;
+                    }
+                }
+            }else{
+                $member->sparta_day_remaining = 0;
+            }
+
+        }
+
+
+        foreach($members as $member){
+
+            if($member->sparta_day_remaining != 0){
+                $member->should_have_raised =  round((($member->coach_target-($member->group_raised+$member->coach_raised))/$member->sparta_day_remaining) + ($member->group_raised+$member->coach_raised),0,PHP_ROUND_HALF_DOWN);
+            }else{
+                $member->should_have_raised = 0;
             }
 
         }
@@ -386,6 +427,17 @@ class BrosDashboard extends BaseController{
                                                             WHERE bro_team_coach.bro_team_id = ?
                                                             AND DATE(pledged.created_at) = ?',array($bro_team_id,$yesterday));
 
+        $result_sparta_day_remaining = DB::connection('WarRoom')->select('SELECT COUNT(volunteer_sparta.id) as count FROM volunteer_sparta
+                                                                            INNER JOIN volunteer_coach
+							                                                ON volunteer_coach.volunteer_id = volunteer_sparta.volunteer_id
+							                                                INNER JOIN bro_team_coach
+							                                                ON bro_team_coach.coach_id = volunteer_coach.coach_id
+                                                                            WHERE volunteer_sparta.type = ? AND volunteer_sparta.on_date >= CURDATE()
+                                                                            AND bro_team_coach.bro_team_id = ?
+                                                                            ',array('sparta_day',$bro_team_id));
+
+
+
 
 
 
@@ -397,8 +449,16 @@ class BrosDashboard extends BaseController{
         $coached_yesterday = $coached_days_yesterday[0]->count;
         $raised_yesterday = $group_raised_yesterday[0]->sum + $coach_raised_yesterday[0]->sum;
         $pledged_yesterday = $group_pledged_yesterday[0]->sum + $coach_pledged_yesterday[0]->sum;
+        $sparta_day_remaining = $result_sparta_day_remaining[0]->count;
 
-        $data = compact("raised","pledged","target","interns","coached_yesterday","sparta_yesterday","raised_yesterday","pledged_yesterday");
+
+        if($sparta_day_remaining != 0){
+            $should_have_raised =  round((($target-$raised)/$sparta_day_remaining) + $raised,0,PHP_ROUND_HALF_DOWN);
+        }else{
+            $should_have_raised = 0;
+        }
+
+        $data = compact("raised","pledged","target","interns","coached_yesterday","sparta_yesterday","raised_yesterday","pledged_yesterday","should_have_raised","sparta_day_remaining");
         return $data;
     }
 
