@@ -379,6 +379,9 @@ class BrosDashboard extends BaseController{
         $yesterday = new DateTime('yesterday');
         $yesterday = $yesterday->format('Y-m-d');
 
+        $today = new DateTime("today");
+        $today = $today->format('Y-m-d');
+
         $sparta_days_yesterday = DB::connection('WarRoom')->select('SELECT COUNT(volunteer_sparta.id) AS count FROM volunteer_sparta
                                                                 INNER JOIN volunteer_coach
                                                                 ON volunteer_coach.volunteer_id = volunteer_sparta.volunteer_id
@@ -387,6 +390,15 @@ class BrosDashboard extends BaseController{
                                                                 WHERE bro_team_coach.bro_team_id = ?
                                                                 AND volunteer_sparta.on_date = ? AND volunteer_sparta.type = ?',
                                                                 array($bro_team_id,$yesterday,'sparta_day'));
+
+        $sparta_days_today = DB::connection('WarRoom')->select('SELECT COUNT(volunteer_sparta.id) AS count FROM volunteer_sparta
+                                                                INNER JOIN volunteer_coach
+                                                                ON volunteer_coach.volunteer_id = volunteer_sparta.volunteer_id
+                                                                INNER JOIN bro_team_coach
+                                                                ON bro_team_coach.coach_id = volunteer_coach.coach_id
+                                                                WHERE bro_team_coach.bro_team_id = ?
+                                                                AND volunteer_sparta.on_date = ? AND volunteer_sparta.type = ?',
+                                                                array($bro_team_id,$today,'sparta_day'));
 
         $coached_days_yesterday = DB::connection('WarRoom')->select('SELECT COUNT(volunteer_sparta.id) AS count FROM volunteer_sparta
                                                                 INNER JOIN volunteer_coach
@@ -450,10 +462,11 @@ class BrosDashboard extends BaseController{
         $raised_yesterday = $group_raised_yesterday[0]->sum + $coach_raised_yesterday[0]->sum;
         $pledged_yesterday = $group_pledged_yesterday[0]->sum + $coach_pledged_yesterday[0]->sum;
         $sparta_day_remaining = $result_sparta_day_remaining[0]->count;
+        $sparta_today = $sparta_days_today[0]->count;
 
 
         if($sparta_day_remaining != 0){
-            $should_have_raised =  round((($target-$raised)/$sparta_day_remaining) + $raised,0,PHP_ROUND_HALF_DOWN);
+            $should_have_raised =  round((($target-$raised)/$sparta_day_remaining)*$sparta_today + $raised,0,PHP_ROUND_HALF_DOWN);
         }else{
             $should_have_raised = 0;
         }
