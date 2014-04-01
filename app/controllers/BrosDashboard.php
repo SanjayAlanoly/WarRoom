@@ -53,7 +53,7 @@ class BrosDashboard extends BaseController{
             $date = new DateTime("now - $d days");
             $date_compare = $date->format('Y-m-d');
 
-            $amount_raised = DB::connection('WarRoom')->select('SELECT COALESCE(SUM(cfrapp.donations.donation_amount),0) AS sum from cfrapp.donations
+            $amount_raised_group = DB::connection('WarRoom')->select('SELECT COALESCE(SUM(cfrapp.donations.donation_amount),0) AS sum from cfrapp.donations
                                                                 INNER JOIN volunteer_coach
                                                                 ON volunteer_coach.volunteer_id = cfrapp.donations.fundraiser_id
                                                                 INNER JOIN bro_team_coach
@@ -61,11 +61,21 @@ class BrosDashboard extends BaseController{
                                                                 WHERE DATE(cfrapp.donations.created_at) <= ?
                                                                 AND bro_team_coach.bro_team_id = ?',array($date_compare,$bro_team_id));
 
-            if(!empty($amount_raised)){
-                $raised = $amount_raised[0]->sum;
+            $amount_raised_coach = DB::connection('WarRoom')->select('SELECT COALESCE(SUM(cfrapp.donations.donation_amount),0) AS sum from cfrapp.donations
+                                                                INNER JOIN bro_team_coach
+                                                                ON bro_team_coach.coach_id = cfrapp.donations.fundraiser_id
+                                                                WHERE DATE(cfrapp.donations.created_at) <= ?
+                                                                AND bro_team_coach.bro_team_id = ?',array($date_compare,$bro_team_id));
 
-            }else{
-                $raised = 0;
+            $raised = 0;
+
+            if(!empty($amount_raised_group)){
+                $raised += $amount_raised_group[0]->sum;
+
+            }
+
+            if(!empty($amount_raised_coach)){
+                $raised += $amount_raised_coach[0]->sum;
             }
 
 
@@ -79,7 +89,7 @@ class BrosDashboard extends BaseController{
         $yesterday = new DateTime("yesterday");
         $yesterday = $yesterday->format('Y-m-d');
 
-        $amount_raised = DB::connection('WarRoom')->select('SELECT COALESCE(SUM(cfrapp.donations.donation_amount),0) AS sum from cfrapp.donations
+        $amount_raised_group = DB::connection('WarRoom')->select('SELECT COALESCE(SUM(cfrapp.donations.donation_amount),0) AS sum from cfrapp.donations
                                                                 INNER JOIN volunteer_coach
                                                                 ON volunteer_coach.volunteer_id = cfrapp.donations.fundraiser_id
                                                                 INNER JOIN bro_team_coach
@@ -87,16 +97,26 @@ class BrosDashboard extends BaseController{
                                                                 WHERE DATE(cfrapp.donations.created_at) <= ?
                                                                 AND bro_team_coach.bro_team_id = ?',array($yesterday,$bro_team_id));
 
-        if(!empty($amount_raised)){
-            $total_raised_yesterday = $amount_raised[0]->sum;
+        $amount_raised_coach = DB::connection('WarRoom')->select('SELECT COALESCE(SUM(cfrapp.donations.donation_amount),0) AS sum from cfrapp.donations
+                                                                INNER JOIN bro_team_coach
+                                                                ON bro_team_coach.coach_id = cfrapp.donations.fundraiser_id
+                                                                WHERE DATE(cfrapp.donations.created_at) <= ?
+                                                                AND bro_team_coach.bro_team_id = ?',array($yesterday,$bro_team_id));
 
-        }else{
-            $total_raised_yesterday = 0;
+        $total_raised_yesterday = 0;
+
+        if(!empty($amount_raised_group)){
+            $total_raised_yesterday += $amount_raised_group[0]->sum;
+
+        }
+
+        if(!empty($amount_raised_coach)){
+            $total_raised_yesterday += $amount_raised_coach[0]->sum;
         }
 
         echo "['Yesterday',$total_raised_yesterday,true],";
 
-        $amount_raised = DB::connection('WarRoom')->select('SELECT COALESCE(SUM(cfrapp.donations.donation_amount),0) AS sum from cfrapp.donations
+        $amount_raised_group = DB::connection('WarRoom')->select('SELECT COALESCE(SUM(cfrapp.donations.donation_amount),0) AS sum from cfrapp.donations
                                                                 INNER JOIN volunteer_coach
                                                                 ON volunteer_coach.volunteer_id = cfrapp.donations.fundraiser_id
                                                                 INNER JOIN bro_team_coach
@@ -104,11 +124,21 @@ class BrosDashboard extends BaseController{
                                                                 WHERE DATE(cfrapp.donations.created_at) = ?
                                                                 AND bro_team_coach.bro_team_id = ?',array($yesterday,$bro_team_id));
 
-        if(!empty($amount_raised)){
-            $raised_yesterday = $amount_raised[0]->sum;
+        $amount_raised_coach = DB::connection('WarRoom')->select('SELECT COALESCE(SUM(cfrapp.donations.donation_amount),0) AS sum from cfrapp.donations
+                                                                INNER JOIN bro_team_coach
+                                                                ON bro_team_coach.coach_id = cfrapp.donations.fundraiser_id
+                                                                WHERE DATE(cfrapp.donations.created_at) = ?
+                                                                AND bro_team_coach.bro_team_id = ?',array($yesterday,$bro_team_id));
 
-        }else{
-            $raised_yesterday = 0;
+        $raised_yesterday = 0;
+
+        if(!empty($amount_raised_group)){
+            $raised_yesterday += $amount_raised_group[0]->sum;
+
+        }
+
+        if(!empty($amount_raised_coach)){
+            $raised_yesterday += $amount_raised_coach[0]->sum;
         }
 
 
