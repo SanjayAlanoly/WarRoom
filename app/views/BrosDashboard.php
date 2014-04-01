@@ -164,9 +164,11 @@
             echo " <h2 class='sub_title_left'>Overall : </h2>";
             echo "<p class='normal'>Amount Raised : Rs. " . number_format($data['raised']) . " / " . number_format($data['should_have_raised']) . "</p>";
             echo "<p class='normal'>Amount Pledged : Rs. " . number_format($data['pledged']) . "</p>";
+            echo "<p class='normal'>Run Rate (Avg of past 7 days) : Rs. " . number_format($data['run_rate']) . "</p>";
             echo "<p class='normal'>Target : Rs. " . number_format($data['target']) . "</p>";
             echo "<p class='normal'>Interns : " . number_format($data['interns']) . "</p>";
             echo "<p class='normal'>Sparta Days Remaining : " . number_format($data['sparta_day_remaining']) . "</p>";
+
 
             echo "</div>";
 

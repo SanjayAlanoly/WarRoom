@@ -144,7 +144,7 @@ class BrosDashboard extends BaseController{
             $raised_seven_days_ago += $amount_raised_coach[0]->sum;
         }
 
-        $raised_seven_days_ago = $raised_seven_days_ago/7;
+        $run_rate = (int)$raised_seven_days_ago/7;
 
 
         $end_date = new DateTime("April 31st 2014");
@@ -155,7 +155,7 @@ class BrosDashboard extends BaseController{
 
         while($end_date->diff($date_compare)->days != 0){
 
-            $raised = $total_raised_yesterday + ($raised_seven_days_ago * $counter);
+            $raised = $total_raised_yesterday + ($run_rate * $counter);
             $display_date = $date_compare->format('d-M');
             echo "['$display_date',$raised,false],";
 
@@ -568,6 +568,36 @@ class BrosDashboard extends BaseController{
                                                                             AND bro_team_coach.bro_team_id = ?
                                                                             ',array('sparta_day',$bro_team_id));
 
+        $seven_days_ago = new DateTime("7 days ago");
+        $seven_days_ago = $seven_days_ago->format('Y-m-d');
+
+        $amount_raised_group = DB::connection('WarRoom')->select('SELECT COALESCE(SUM(cfrapp.donations.donation_amount),0) AS sum from cfrapp.donations
+                                                                INNER JOIN volunteer_coach
+                                                                ON volunteer_coach.volunteer_id = cfrapp.donations.fundraiser_id
+                                                                INNER JOIN bro_team_coach
+                                                                ON bro_team_coach.coach_id = volunteer_coach.coach_id
+                                                                WHERE DATE(cfrapp.donations.created_at) > ?
+                                                                AND bro_team_coach.bro_team_id = ?',array($seven_days_ago,$bro_team_id));
+
+        $amount_raised_coach = DB::connection('WarRoom')->select('SELECT COALESCE(SUM(cfrapp.donations.donation_amount),0) AS sum from cfrapp.donations
+                                                                INNER JOIN bro_team_coach
+                                                                ON bro_team_coach.coach_id = cfrapp.donations.fundraiser_id
+                                                                WHERE DATE(cfrapp.donations.created_at) > ?
+                                                                AND bro_team_coach.bro_team_id = ?',array($seven_days_ago,$bro_team_id));
+
+        $raised_seven_days_ago = 0;
+
+        if(!empty($amount_raised_group)){
+            $raised_seven_days_ago += $amount_raised_group[0]->sum;
+
+        }
+
+        if(!empty($amount_raised_coach)){
+            $raised_seven_days_ago += $amount_raised_coach[0]->sum;
+        }
+
+        $run_rate = (int)$raised_seven_days_ago/7;
+
 
 
 
@@ -591,7 +621,7 @@ class BrosDashboard extends BaseController{
             $should_have_raised = 0;
         }
 
-        $data = compact("raised","pledged","target","interns","coached_yesterday","sparta_yesterday","raised_yesterday","pledged_yesterday","should_have_raised","sparta_day_remaining");
+        $data = compact("raised","pledged","target","interns","coached_yesterday","sparta_yesterday","raised_yesterday","pledged_yesterday","should_have_raised","sparta_day_remaining","run_rate");
         return $data;
     }
 
