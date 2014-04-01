@@ -85,7 +85,7 @@ class BrosDashboard extends BaseController{
                                                                 INNER JOIN bro_team_coach
                                                                 ON bro_team_coach.coach_id = volunteer_coach.coach_id
                                                                 WHERE DATE(cfrapp.donations.created_at) <= ?
-                                                                AND bro_team_coach.bro_team_id = ?',array($date_compare,$bro_team_id));
+                                                                AND bro_team_coach.bro_team_id = ?',array($yesterday,$bro_team_id));
 
         if(!empty($amount_raised)){
             $total_raised_yesterday = $amount_raised[0]->sum;
@@ -102,7 +102,7 @@ class BrosDashboard extends BaseController{
                                                                 INNER JOIN bro_team_coach
                                                                 ON bro_team_coach.coach_id = volunteer_coach.coach_id
                                                                 WHERE DATE(cfrapp.donations.created_at) = ?
-                                                                AND bro_team_coach.bro_team_id = ?',array($date_compare,$bro_team_id));
+                                                                AND bro_team_coach.bro_team_id = ?',array($yesterday,$bro_team_id));
 
         if(!empty($amount_raised)){
             $raised_yesterday = $amount_raised[0]->sum;
