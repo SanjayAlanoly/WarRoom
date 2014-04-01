@@ -25,7 +25,59 @@
         });
     </script>
 
-    
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+        // Load the Visualization API and the piechart package.
+        google.load('visualization', '1.0', {'packages':['corechart']});
+
+        // Set a callback to run when the Google Visualization API is loaded.
+        google.setOnLoadCallback(drawChart);
+
+        // Callback that creates and populates a data table,
+        // instantiates the pie chart, passes in the data and
+        // draws it.
+        function drawChart() {
+
+            <?php
+                foreach($bro_teams as $bro_team){
+                    echo "var chart_data_$bro_team->id = new google.visualization.DataTable();";
+                    echo "chart_data_$bro_team->id.addColumn('string','Date');";
+                    echo "chart_data_$bro_team->id.addColumn('number','Raised');";
+                    echo "chart_data_$bro_team->id.addColumn({type:'boolean',role:'certainty'});";
+                    echo "chart_data_$bro_team->id.addRows([";
+                    BrosDashboard::returnChartData($bro_team->id);
+                    echo "]);";
+
+                    echo "var chart_options_$bro_team->id = {
+                            title: 'Amount Raised',
+                            'backgroundColor':'#ffe800',
+                            'titleTextStyle' : {fontSize:16},
+                            'animation.duration' : 100,
+                            'exlorer' : {}
+                        };";
+
+                    echo "var chart_visual_$bro_team->id = new google.visualization.LineChart(document.getElementById('chart_div_$bro_team->id'));
+                            chart_visual_$bro_team->id.draw(chart_data_$bro_team->id, chart_options_$bro_team->id);
+
+                            function resizeHandler () {
+                                chart_visual_$bro_team->id.draw(chart_data_$bro_team->id, chart_options_$bro_team->id);
+                            }
+                            if (window.addEventListener) {
+                                window.addEventListener('resize', resizeHandler, false);
+                            }
+                            else if (window.attachEvent) {
+                                window.attachEvent('onresize', resizeHandler);
+                            }";
+                }
+            ?>
+
+
+
+        }
+    </script
+
+
 
 </head>
 <body>
@@ -102,6 +154,8 @@
             $data = BrosDashboard::returnTeamOverall($bro_team->id);
 
             echo "<h2 class='sub_title text-center'>$bro_team->name</h2>";
+
+            echo "<div id=\"chart_div_$bro_team->id\"></div>";
 
             echo "<div class='row'>";
 

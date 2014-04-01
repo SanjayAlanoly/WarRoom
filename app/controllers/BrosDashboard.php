@@ -46,6 +46,94 @@ class BrosDashboard extends BaseController{
 
     }
 
+    static function returnChartData($bro_team_id){
+
+        for($d=15; $d>1; $d--){
+
+            $date = new DateTime("now - $d days");
+            $date_compare = $date->format('Y-m-d');
+
+            $amount_raised = DB::connection('WarRoom')->select('SELECT COALESCE(SUM(cfrapp.donations.donation_amount),0) AS sum from cfrapp.donations
+                                                                INNER JOIN volunteer_coach
+                                                                ON volunteer_coach.volunteer_id = cfrapp.donations.fundraiser_id
+                                                                INNER JOIN bro_team_coach
+                                                                ON bro_team_coach.coach_id = volunteer_coach.coach_id
+                                                                WHERE DATE(cfrapp.donations.created_at) <= ?
+                                                                AND bro_team_coach.bro_team_id = ?',array($date_compare,$bro_team_id));
+
+            if(!empty($amount_raised)){
+                $raised = $amount_raised[0]->sum;
+
+            }else{
+                $raised = 0;
+            }
+
+
+            $display_date = $date->format('d-M');
+
+
+            echo "['$display_date',$raised,true],";
+
+        }
+
+        $yesterday = new DateTime("yesterday");
+        $yesterday = $yesterday->format('Y-m-d');
+
+        $amount_raised = DB::connection('WarRoom')->select('SELECT COALESCE(SUM(cfrapp.donations.donation_amount),0) AS sum from cfrapp.donations
+                                                                INNER JOIN volunteer_coach
+                                                                ON volunteer_coach.volunteer_id = cfrapp.donations.fundraiser_id
+                                                                INNER JOIN bro_team_coach
+                                                                ON bro_team_coach.coach_id = volunteer_coach.coach_id
+                                                                WHERE DATE(cfrapp.donations.created_at) <= ?
+                                                                AND bro_team_coach.bro_team_id = ?',array($date_compare,$bro_team_id));
+
+        if(!empty($amount_raised)){
+            $total_raised_yesterday = $amount_raised[0]->sum;
+
+        }else{
+            $total_raised_yesterday = 0;
+        }
+
+        echo "['Yesterday',$total_raised_yesterday,true],";
+
+        $amount_raised = DB::connection('WarRoom')->select('SELECT COALESCE(SUM(cfrapp.donations.donation_amount),0) AS sum from cfrapp.donations
+                                                                INNER JOIN volunteer_coach
+                                                                ON volunteer_coach.volunteer_id = cfrapp.donations.fundraiser_id
+                                                                INNER JOIN bro_team_coach
+                                                                ON bro_team_coach.coach_id = volunteer_coach.coach_id
+                                                                WHERE DATE(cfrapp.donations.created_at) = ?
+                                                                AND bro_team_coach.bro_team_id = ?',array($date_compare,$bro_team_id));
+
+        if(!empty($amount_raised)){
+            $raised_yesterday = $amount_raised[0]->sum;
+
+        }else{
+            $raised_yesterday = 0;
+        }
+
+
+
+
+
+        $end_date = new DateTime("April 31st 2014");
+
+        $date_compare = new DateTime("today");
+
+        $counter = 1;
+
+        while($end_date->diff($date_compare)->days != 0){
+
+            $raised = $total_raised_yesterday + ($raised_yesterday * $counter);
+            $display_date = $date_compare->format('d-M');
+            echo "['$display_date',$raised,false],";
+
+            $date_compare->modify('+1 day');
+            $counter++;
+
+        }
+
+    }
+
     static function returnBroTeamMembers($bro_team_id){
 
 
