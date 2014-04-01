@@ -116,33 +116,35 @@ class BrosDashboard extends BaseController{
 
         echo "['Yesterday',$total_raised_yesterday,true],";
 
+        $seven_days_ago = new DateTime("7 days ago");
+        $seven_days_ago = $seven_days_ago->format('Y-m-d');
+
         $amount_raised_group = DB::connection('WarRoom')->select('SELECT COALESCE(SUM(cfrapp.donations.donation_amount),0) AS sum from cfrapp.donations
                                                                 INNER JOIN volunteer_coach
                                                                 ON volunteer_coach.volunteer_id = cfrapp.donations.fundraiser_id
                                                                 INNER JOIN bro_team_coach
                                                                 ON bro_team_coach.coach_id = volunteer_coach.coach_id
-                                                                WHERE DATE(cfrapp.donations.created_at) = ?
-                                                                AND bro_team_coach.bro_team_id = ?',array($yesterday,$bro_team_id));
+                                                                WHERE DATE(cfrapp.donations.created_at) > ?
+                                                                AND bro_team_coach.bro_team_id = ?',array($seven_days_ago,$bro_team_id));
 
         $amount_raised_coach = DB::connection('WarRoom')->select('SELECT COALESCE(SUM(cfrapp.donations.donation_amount),0) AS sum from cfrapp.donations
                                                                 INNER JOIN bro_team_coach
                                                                 ON bro_team_coach.coach_id = cfrapp.donations.fundraiser_id
-                                                                WHERE DATE(cfrapp.donations.created_at) = ?
-                                                                AND bro_team_coach.bro_team_id = ?',array($yesterday,$bro_team_id));
+                                                                WHERE DATE(cfrapp.donations.created_at) > ?
+                                                                AND bro_team_coach.bro_team_id = ?',array($seven_days_ago,$bro_team_id));
 
-        $raised_yesterday = 0;
+        $raised_seven_days_ago = 0;
 
         if(!empty($amount_raised_group)){
-            $raised_yesterday += $amount_raised_group[0]->sum;
+            $raised_seven_days_ago += $amount_raised_group[0]->sum;
 
         }
 
         if(!empty($amount_raised_coach)){
-            $raised_yesterday += $amount_raised_coach[0]->sum;
+            $raised_seven_days_ago += $amount_raised_coach[0]->sum;
         }
 
-
-
+        $raised_seven_days_ago = $raised_seven_days_ago/7;
 
 
         $end_date = new DateTime("April 31st 2014");
@@ -153,7 +155,7 @@ class BrosDashboard extends BaseController{
 
         while($end_date->diff($date_compare)->days != 0){
 
-            $raised = $total_raised_yesterday + ($raised_yesterday * $counter);
+            $raised = $total_raised_yesterday + ($raised_seven_days_ago * $counter);
             $display_date = $date_compare->format('d-M');
             echo "['$display_date',$raised,false],";
 
