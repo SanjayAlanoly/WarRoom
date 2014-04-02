@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fcbe90e1-0536-4bc7-9506-575ed05dfc7b" name="Default" comment="Timing and update to 8 seconds&#10;">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/BrosDashboard.php" afterPath="$PROJECT_DIR$/app/controllers/BrosDashboard.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/Home.php" afterPath="$PROJECT_DIR$/app/views/Home.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="fraise.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -29,18 +30,15 @@
         <entry file="file://$PROJECT_DIR$/app/views/BrosDashboard.php">
           <provider selected="true" editor-type-id="text-editor">
             <state line="166" column="118" selection-start="6499" selection-end="6499" vertical-scroll-proportion="-61.576923" vertical-offset="1221" max-vertical-offset="3893">
-              <folding>
-                <marker date="1396351417933" expanded="true" signature="5975:5992" placeholder="..." />
-                <marker date="1396351417933" expanded="true" signature="7464:7499" placeholder="..." />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BrosDashboard.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="BrosDashboard.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/BrosDashboard.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="149" column="52" selection-start="7898" selection-end="7898" vertical-scroll-proportion="0.4570384" vertical-offset="2283" max-vertical-offset="10812">
+            <state line="139" column="0" selection-start="7660" selection-end="7660" vertical-scroll-proportion="-28.576923" vertical-offset="1620" max-vertical-offset="10812">
               <folding>
                 <marker date="1396351535496" expanded="true" signature="355:383" placeholder="SELECT id,na..bro_team..." />
                 <marker date="1396351535496" expanded="true" signature="519:810" placeholder="SELECT COALE..donations..." />
@@ -88,10 +86,22 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="Home.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/views/Home.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="126" column="58" selection-start="4080" selection-end="4080" vertical-scroll-proportion="0.2943327" vertical-offset="1981" max-vertical-offset="6885">
+              <folding>
+                <marker date="1396422907714" expanded="true" signature="7354:7409" placeholder="..." />
+                <marker date="1396422907714" expanded="true" signature="8437:8505" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="Volunteer.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/Volunteer.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="0" selection-start="1446" selection-end="1619" vertical-scroll-proportion="-20.923077" vertical-offset="0" max-vertical-offset="2397">
+            <state line="32" column="0" selection-start="1446" selection-end="1619" vertical-scroll-proportion="0.0" vertical-offset="544" max-vertical-offset="2397">
               <folding>
                 <marker date="1395904240088" expanded="true" signature="316:704" placeholder="SELECT users..." />
                 <marker date="1395904240088" expanded="true" signature="793:1061" placeholder="SELECT COUNT..contact_master..." />
@@ -113,7 +123,7 @@
       <file leaf-file-name="Volunteer.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/Volunteer.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="148" column="22" selection-start="5023" selection-end="5028" vertical-scroll-proportion="-3.4117646" vertical-offset="2342" max-vertical-offset="4403">
+            <state line="148" column="22" selection-start="5023" selection-end="5028" vertical-scroll-proportion="0.0" vertical-offset="2342" max-vertical-offset="4403">
               <folding>
                 <marker date="1396178454487" expanded="true" signature="6074:6157" placeholder="SELECT id FR..volunteer_sparta..." />
                 <marker date="1396178454487" expanded="true" signature="6303:6386" placeholder="SELECT id FR..volunteer_sparta..." />
@@ -129,7 +139,7 @@
       <file leaf-file-name="CoachDashboard.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/CoachDashboard.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="227" column="88" selection-start="14415" selection-end="14415" vertical-scroll-proportion="-148.42308" vertical-offset="0" max-vertical-offset="5814">
+            <state line="227" column="88" selection-start="14415" selection-end="14415" vertical-scroll-proportion="0.0" vertical-offset="3859" max-vertical-offset="5814">
               <folding>
                 <marker date="1395737286977" expanded="true" signature="840:1397" placeholder="SELECT COUNT..." />
                 <marker date="1395737286977" expanded="true" signature="1519:2076" placeholder="SELECT COUNT..." />
@@ -174,8 +184,8 @@
     </option>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/app/controllers/Home.php" root0="SKIP_INSPECTION" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/app/views/CoachDashboard.php" root0="SKIP_INSPECTION" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/app/controllers/Home.php" root0="SKIP_INSPECTION" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/app/views/Home.php" root0="SKIP_INSPECTION" root1="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
@@ -200,7 +210,6 @@
         <option value="dbtable:/93b3750/d941cdd4-e942-427c-81c8-98e9050f4307/makeadiff_warroom..bro_team_coach" />
         <option value="dbtable:/93b3750/d941cdd4-e942-427c-81c8-98e9050f4307/cfrapp..donations" />
         <option value="dbtable:/93b3750/d941cdd4-e942-427c-81c8-98e9050f4307/makeadiff_warroom..volunteer_login" />
-        <option value="$PROJECT_DIR$/app/views/Home.php" />
         <option value="$PROJECT_DIR$/app/controllers/Home.php" />
         <option value="$PROJECT_DIR$/app/controllers/AuthController.php" />
         <option value="$PROJECT_DIR$/app/controllers/CoachDashboard.php" />
@@ -213,6 +222,7 @@
         <option value="$PROJECT_DIR$/app/views/Volunteer.php" />
         <option value="$PROJECT_DIR$/app/views/BrosDashboard.php" />
         <option value="$PROJECT_DIR$/app/controllers/BrosDashboard.php" />
+        <option value="$PROJECT_DIR$/app/views/Home.php" />
       </list>
     </option>
   </component>
@@ -273,7 +283,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -434,6 +443,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -570,7 +580,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32843137" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.244713" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18655589" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18655589" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4493464" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3267974" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
@@ -579,12 +589,12 @@
       <window_info id="Documentation" active="true" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" x="92" y="92" width="1182" height="544" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3267974" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3267974" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32843137" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -669,9 +679,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/View/View.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="174" column="0" selection-start="3830" selection-end="3830" vertical-scroll-proportion="0.33333334" vertical-offset="2733" max-vertical-offset="6630">
-          <folding />
-        </state>
+        <state line="174" column="0" selection-start="3830" selection-end="3830" vertical-scroll-proportion="0.33333334" vertical-offset="2733" max-vertical-offset="6630" />
       </provider>
     </entry>
     <entry file="file://C:/xampp/phpMyAdmin/db_structure.php">
@@ -857,16 +865,9 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="586" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/Home.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="127" column="20" selection-start="4174" selection-end="4174" vertical-scroll-proportion="-0.79341865" vertical-offset="2593" max-vertical-offset="6885">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/CoachDashboard.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="227" column="88" selection-start="14415" selection-end="14415" vertical-scroll-proportion="-148.42308" vertical-offset="0" max-vertical-offset="5814">
+        <state line="227" column="88" selection-start="14415" selection-end="14415" vertical-scroll-proportion="0.0" vertical-offset="3859" max-vertical-offset="5814">
           <folding>
             <marker date="1395737286977" expanded="true" signature="840:1397" placeholder="SELECT COUNT..." />
             <marker date="1395737286977" expanded="true" signature="1519:2076" placeholder="SELECT COUNT..." />
@@ -896,7 +897,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/Volunteer.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="0" selection-start="1446" selection-end="1619" vertical-scroll-proportion="-20.923077" vertical-offset="0" max-vertical-offset="2397">
+        <state line="32" column="0" selection-start="1446" selection-end="1619" vertical-scroll-proportion="0.0" vertical-offset="544" max-vertical-offset="2397">
           <folding>
             <marker date="1395904240088" expanded="true" signature="316:704" placeholder="SELECT users..." />
             <marker date="1395904240088" expanded="true" signature="793:1061" placeholder="SELECT COUNT..contact_master..." />
@@ -916,7 +917,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/Volunteer.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="148" column="22" selection-start="5023" selection-end="5028" vertical-scroll-proportion="-3.4117646" vertical-offset="2342" max-vertical-offset="4403">
+        <state line="148" column="22" selection-start="5023" selection-end="5028" vertical-scroll-proportion="0.0" vertical-offset="2342" max-vertical-offset="4403">
           <folding>
             <marker date="1396178454487" expanded="true" signature="6074:6157" placeholder="SELECT id FR..volunteer_sparta..." />
             <marker date="1396178454487" expanded="true" signature="6303:6386" placeholder="SELECT id FR..volunteer_sparta..." />
@@ -931,16 +932,13 @@
     <entry file="file://$PROJECT_DIR$/app/views/BrosDashboard.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="166" column="118" selection-start="6499" selection-end="6499" vertical-scroll-proportion="-61.576923" vertical-offset="1221" max-vertical-offset="3893">
-          <folding>
-            <marker date="1396351417933" expanded="true" signature="5975:5992" placeholder="..." />
-            <marker date="1396351417933" expanded="true" signature="7464:7499" placeholder="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/BrosDashboard.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="149" column="52" selection-start="7898" selection-end="7898" vertical-scroll-proportion="0.4570384" vertical-offset="2283" max-vertical-offset="10812">
+        <state line="139" column="0" selection-start="7660" selection-end="7660" vertical-scroll-proportion="-28.576923" vertical-offset="1620" max-vertical-offset="10812">
           <folding>
             <marker date="1396351535496" expanded="true" signature="355:383" placeholder="SELECT id,na..bro_team..." />
             <marker date="1396351535496" expanded="true" signature="519:810" placeholder="SELECT COALE..donations..." />
@@ -983,6 +981,16 @@
             <marker date="1396351535496" expanded="true" signature="32235:32972" placeholder="SELECT COUNT..." />
             <marker date="1396351535496" expanded="true" signature="33268:33988" placeholder="SELECT COALE..." />
             <marker date="1396351535496" expanded="true" signature="34095:34601" placeholder="SELECT COALE..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/Home.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="126" column="58" selection-start="4080" selection-end="4080" vertical-scroll-proportion="0.2943327" vertical-offset="1981" max-vertical-offset="6885">
+          <folding>
+            <marker date="1396422907714" expanded="true" signature="7354:7409" placeholder="..." />
+            <marker date="1396422907714" expanded="true" signature="8437:8505" placeholder="..." />
           </folding>
         </state>
       </provider>
