@@ -166,6 +166,175 @@ class BrosDashboard extends BaseController{
 
     }
 
+    static function returnSplitUp($bro_team_id){
+
+        $cities = DB::connection('WarRoom')->select('SELECT cfrapp.cities.id as id, cfrapp.cities.name as name FROM cfrapp.cities
+                                                      INNER JOIN cfrapp.users
+                                                      ON cfrapp.users.city_id = cfrapp.cities.id
+                                                      INNER JOIN volunteer_coach
+                                                      ON cfrapp.users.id = volunteer_coach.volunteer_id
+                                                      INNER JOIN bro_team_coach
+                                                      ON bro_team_coach.coach_id = volunteer_coach.coach_id
+                                                      WHERE bro_team_coach.bro_team_id = ?
+                                                      GROUP BY cfrapp.cities.id',array($bro_team_id));
+
+
+
+
+        $with_intern = DB::connection('cfrapp')->select('SELECT cities.id as id, cities.name as name, SUM(donations.donation_amount) as amount
+                                                        FROM donations
+                                                        INNER JOIN users
+                                                        ON donations.fundraiser_id = users.id
+                                                        INNER JOIN cities
+                                                        ON cities.id = users.city_id
+                                                        WHERE donations.donation_status = ?
+                                                        GROUP BY cities.id
+                                                        ',array('TO_BE_APPROVED_BY_POC'));
+
+        $with_poc = DB::connection('cfrapp')->select('SELECT cities.id as id, cities.name as name, SUM(donations.donation_amount) as amount
+                                                        FROM donations
+                                                        INNER JOIN users
+                                                        ON donations.fundraiser_id = users.id
+                                                        INNER JOIN cities
+                                                        ON cities.id = users.city_id
+                                                        WHERE donations.donation_status = ?
+                                                        GROUP BY cities.id
+                                                        ',array('HAND_OVER_TO_FC_PENDING'));
+
+        $with_finance = DB::connection('cfrapp')->select('SELECT cities.id as id, cities.name as name, SUM(donations.donation_amount) as amount
+                                                        FROM donations
+                                                        INNER JOIN users
+                                                        ON donations.fundraiser_id = users.id
+                                                        INNER JOIN cities
+                                                        ON cities.id = users.city_id
+                                                        WHERE donations.donation_status = ?
+                                                        GROUP BY cities.id
+                                                        ',array('DEPOSIT_PENDING'));
+
+        $deposit_complete = DB::connection('cfrapp')->select('SELECT cities.id as id, cities.name as name, SUM(donations.donation_amount) as amount
+                                                        FROM donations
+                                                        INNER JOIN users
+                                                        ON donations.fundraiser_id = users.id
+                                                        INNER JOIN cities
+                                                        ON cities.id = users.city_id
+                                                        WHERE donations.donation_status = ? OR donations.donation_status = ? OR donations.donation_status = ?
+                                                        GROUP BY cities.id
+                                                        ',array('DEPOSIT_COMPLETE','RECEIPT PENDING','RECEIPT SENT'));
+
+
+        foreach($cities as $city){
+            if(!empty($with_intern)){
+                foreach($with_intern as $intern){
+                    if(($city->id == $intern->id) && isset($intern->amount)){
+                        $city->with_intern = $intern->amount;
+                        break;
+                    }else{
+                        $city->with_intern = 0;
+                    }
+                }
+            }else{
+                $city->with_intern = 0;
+            }
+
+        }
+
+        foreach($cities as $city){
+            if(!empty($with_poc)){
+                foreach($with_poc as $poc){
+                    if(($city->id == $poc->id) && isset($poc->amount)){
+                        $city->with_poc = $poc->amount;
+                        break;
+                    }else{
+                        $city->with_poc = 0;
+                    }
+                }
+            }else{
+                $city->with_poc = 0;
+            }
+
+        }
+
+        foreach($cities as $city){
+            if(!empty($with_finance)){
+                foreach($with_finance as $finance){
+                    if(($city->id == $finance->id) && isset($finance->amount)){
+                        $city->with_finance = $finance->amount;
+                        break;
+                    }else{
+                        $city->with_finance = 0;
+                    }
+                }
+            }else{
+                $city->with_finance = 0;
+            }
+
+        }
+
+        foreach($cities as $city){
+            if(!empty($deposit_complete)){
+                foreach($deposit_complete as $complete){
+                    if(($city->id == $complete->id) && isset($complete->amount)){
+                        $city->deposit_complete = $complete->amount;
+                        break;
+                    }else{
+                        $city->deposit_complete = 0;
+                    }
+                }
+            }else{
+                $city->deposit_complete = 0;
+            }
+
+        }
+
+        arsort($cities);
+        return $cities;
+    }
+
+    static function returnTopCities($bro_team_id){
+
+        $cities = DB::connection('cfrapp')->select('SELECT cities.id as id, cities.name AS name
+						FROM cities
+						INNER JOIN users
+						ON cities.id = users.city_id
+						INNER JOIN makeadiff_warroom.volunteer_coach
+                        ON users.id = makeadiff_warroom.volunteer_coach.volunteer_id
+                        INNER JOIN makeadiff_warroom.bro_team_coach
+                        ON makeadiff_warroom.bro_team_coach.coach_id = makeadiff_warroom.volunteer_coach.coach_id
+                        WHERE makeadiff_warroom.bro_team_coach.bro_team_id = ?
+						GROUP BY cities.id
+						',array($bro_team_id));
+
+
+        $top_cities = DB::connection('cfrapp')->select('SELECT cities.id as id, cities.name AS name, SUM(donations.donation_amount) AS amount
+						FROM donations
+						INNER JOIN users
+						ON donations.fundraiser_id = users.id
+						INNER JOIN cities
+						ON cities.id = users.city_id
+						GROUP BY cities.id
+						');
+
+        foreach($cities as $city){
+            if(!empty($top_cities)){
+                foreach($top_cities as $top){
+                    if(($city->id == $top->id) && isset($top->amount)){
+                        $city->amount = $top->amount;
+                        break;
+                    }else{
+                        $city->amount = 0;
+                    }
+                }
+            }else{
+                $city->amount = 0;
+            }
+
+        }
+
+        arsort($cities);
+
+        return $cities;
+    }
+
     static function returnBroTeamMembers($bro_team_id){
 
 

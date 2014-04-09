@@ -205,8 +205,42 @@
             echo "</table>";
 
 
+            echo "<br>";
+
+            echo " <h2 class='sub_title_left'>Top Cities : </h2>";
+
+            $top_cities = BrosDashboard::returnTopCities($bro_team->id);
+
+            echo "<table>";
+            echo "<tr><th class='big'>Name</th><th class='big'>Amount Raised</th></tr>";
 
 
+            foreach($top_cities as $city){
+
+                echo "<tr><td>$city->name</td><td>$city->amount</td></tr>";
+            }
+
+            echo "</table>";
+
+
+            echo "<br>";
+
+            echo " <h2 class='sub_title_left'>Split Up : </h2>";
+
+            $cities_split_up = BrosDashboard::returnSplitUp($bro_team->id);
+
+            echo "<table>";
+            echo "<tr><th class='big'>Name</th><th class='big'>With Intern</th><th class='big'>With POC</th><th class='big'>With FC</th><th class='big'>Complete</th></tr>";
+
+
+            foreach($cities_split_up as $city){
+
+                echo "<tr><td>$city->name</td><td>$city->with_intern</td><td>$city->with_poc</td><td>$city->with_finance</td><td>$city->deposit_complete</td></tr>";
+            }
+
+            echo "</table>";
+
+            echo "<br>";
 
         }
 
