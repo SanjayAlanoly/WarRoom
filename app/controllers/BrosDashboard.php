@@ -166,6 +166,8 @@ class BrosDashboard extends BaseController{
 
     }
 
+
+
     static function returnSplitUp($bro_team_id){
 
         $cities = DB::connection('WarRoom')->select('SELECT cfrapp.cities.id as id, cfrapp.cities.name as name FROM cfrapp.cities
@@ -181,7 +183,7 @@ class BrosDashboard extends BaseController{
 
 
 
-        $with_intern = DB::connection('cfrapp')->select('SELECT cities.id as id, cities.name as name, SUM(donations.donation_amount) as amount
+        $with_intern = DB::connection('cfrapp')->select('SELECT cities.id as id, cities.name as name, COALESCE(SUM(donations.donation_amount),0) as amount
                                                         FROM donations
                                                         INNER JOIN users
                                                         ON donations.fundraiser_id = users.id
@@ -191,7 +193,7 @@ class BrosDashboard extends BaseController{
                                                         GROUP BY cities.id
                                                         ',array('TO_BE_APPROVED_BY_POC'));
 
-        $with_poc = DB::connection('cfrapp')->select('SELECT cities.id as id, cities.name as name, SUM(donations.donation_amount) as amount
+        $with_poc = DB::connection('cfrapp')->select('SELECT cities.id as id, cities.name as name, COALESCE(SUM(donations.donation_amount),0) as amount
                                                         FROM donations
                                                         INNER JOIN users
                                                         ON donations.fundraiser_id = users.id
@@ -201,7 +203,7 @@ class BrosDashboard extends BaseController{
                                                         GROUP BY cities.id
                                                         ',array('HAND_OVER_TO_FC_PENDING'));
 
-        $with_finance = DB::connection('cfrapp')->select('SELECT cities.id as id, cities.name as name, SUM(donations.donation_amount) as amount
+        $with_finance = DB::connection('cfrapp')->select('SELECT cities.id as id, cities.name as name, COALESCE(SUM(donations.donation_amount),0) as amount
                                                         FROM donations
                                                         INNER JOIN users
                                                         ON donations.fundraiser_id = users.id
@@ -211,7 +213,7 @@ class BrosDashboard extends BaseController{
                                                         GROUP BY cities.id
                                                         ',array('DEPOSIT_PENDING'));
 
-        $deposit_complete = DB::connection('cfrapp')->select('SELECT cities.id as id, cities.name as name, SUM(donations.donation_amount) as amount
+        $deposit_complete = DB::connection('cfrapp')->select('SELECT cities.id as id, cities.name as name, COALESCE(SUM(donations.donation_amount),0) as amount
                                                         FROM donations
                                                         INNER JOIN users
                                                         ON donations.fundraiser_id = users.id
@@ -219,7 +221,7 @@ class BrosDashboard extends BaseController{
                                                         ON cities.id = users.city_id
                                                         WHERE donations.donation_status = ? OR donations.donation_status = ? OR donations.donation_status = ?
                                                         GROUP BY cities.id
-                                                        ',array('DEPOSIT_COMPLETE','RECEIPT PENDING','RECEIPT SENT'));
+                                                        ',array('DEPOSIT COMPLETE','RECEIPT PENDING','RECEIPT SENT'));
 
 
         foreach($cities as $city){
@@ -286,7 +288,8 @@ class BrosDashboard extends BaseController{
 
         }
 
-        arsort($cities);
+        osort($cities,'deposit_complete');
+
         return $cities;
     }
 
@@ -330,10 +333,19 @@ class BrosDashboard extends BaseController{
 
         }
 
-        arsort($cities);
+        BrosDashboard::osort($cities,'amount');
 
         return $cities;
     }
+
+    static function osort(&$array, $prop)
+    {
+        usort($array, function($a, $b) use ($prop) {
+            return $a->$prop > $b->$prop ? -1 : 1;
+        });
+    }
+
+
 
     static function returnBroTeamMembers($bro_team_id){
 
