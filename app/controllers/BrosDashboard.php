@@ -288,7 +288,7 @@ class BrosDashboard extends BaseController{
 
         }
 
-        osort($cities,'deposit_complete');
+        BrosDashboard::osort($cities,'deposit_complete');
 
         return $cities;
     }
