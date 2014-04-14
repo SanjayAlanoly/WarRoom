@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fcbe90e1-0536-4bc7-9506-575ed05dfc7b" name="Default" comment="Timing and update to 8 seconds&#10;">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/BrosDashboard.php" afterPath="$PROJECT_DIR$/app/controllers/BrosDashboard.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="fraise.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -28,7 +28,7 @@
       <file leaf-file-name="BrosDashboard.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/BrosDashboard.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="242" column="24" selection-start="9497" selection-end="9497" vertical-scroll-proportion="-11.230769" vertical-offset="3822" max-vertical-offset="4471">
+            <state line="242" column="24" selection-start="9497" selection-end="9497" vertical-scroll-proportion="0.0" vertical-offset="3822" max-vertical-offset="4471">
               <folding />
             </state>
           </provider>
@@ -37,7 +37,7 @@
       <file leaf-file-name="BrosDashboard.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/BrosDashboard.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="290" column="23" selection-start="14589" selection-end="14589" vertical-scroll-proportion="0.5708583" vertical-offset="4644" max-vertical-offset="13889">
+            <state line="259" column="38" selection-start="13609" selection-end="13609" vertical-scroll-proportion="1.0342206" vertical-offset="3859" max-vertical-offset="13889">
               <folding>
                 <marker date="1397034109704" expanded="true" signature="355:383" placeholder="SELECT id,na..bro_team..." />
                 <marker date="1397034109704" expanded="true" signature="519:810" placeholder="SELECT COALE..donations..." />
@@ -95,7 +95,7 @@
       <file leaf-file-name="Home.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/Home.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="306" column="22" selection-start="10326" selection-end="10326" vertical-scroll-proportion="-97.53846" vertical-offset="2666" max-vertical-offset="6885">
+            <state line="306" column="22" selection-start="10326" selection-end="10326" vertical-scroll-proportion="0.0" vertical-offset="2666" max-vertical-offset="6885">
               <folding>
                 <marker date="1396777911441" expanded="true" signature="7354:7409" placeholder="..." />
                 <marker date="1396777911441" expanded="true" signature="8437:8505" placeholder="..." />
@@ -107,7 +107,7 @@
       <file leaf-file-name="routes.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/routes.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="65" column="0" selection-start="2529" selection-end="2529" vertical-scroll-proportion="-10.923077" vertical-offset="668" max-vertical-offset="1224">
+            <state line="65" column="0" selection-start="2529" selection-end="2529" vertical-scroll-proportion="0.0" vertical-offset="1105" max-vertical-offset="1377">
               <folding>
                 <marker date="1397026723971" expanded="true" signature="1556:1604" placeholder="SELECT id FR..bro_team_coach..." />
                 <marker date="1397026723971" expanded="true" signature="1810:2043" placeholder="SELECT users..users..." />
@@ -157,31 +157,8 @@
       <file leaf-file-name="CoachDashboard.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/CoachDashboard.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="227" column="88" selection-start="14415" selection-end="14415" vertical-scroll-proportion="-148.42308" vertical-offset="0" max-vertical-offset="5814">
-              <folding>
-                <marker date="1395737286977" expanded="true" signature="840:1397" placeholder="SELECT COUNT..." />
-                <marker date="1395737286977" expanded="true" signature="1519:2076" placeholder="SELECT COUNT..." />
-                <marker date="1395737286977" expanded="true" signature="2197:2629" placeholder="SELECT COALE..." />
-                <marker date="1395737286977" expanded="true" signature="2813:3292" placeholder="SELECT COALE..." />
-                <marker date="1395737286977" expanded="true" signature="3474:3787" placeholder="SELECT COALE..." />
-                <marker date="1395737286977" expanded="true" signature="3883:4346" placeholder="SELECT COALE..." />
-                <marker date="1395737286977" expanded="true" signature="4448:4880" placeholder="SELECT COUNT..." />
-                <marker date="1395737286977" expanded="true" signature="4974:5113" placeholder="SELECT COALE..." />
-                <marker date="1395737286977" expanded="true" signature="5209:5446" placeholder="SELECT COALE..." />
-                <marker date="1395737286977" expanded="true" signature="5548:5762" placeholder="SELECT COUNT..." />
-                <marker date="1395737286977" expanded="true" signature="6346:6903" placeholder="SELECT users..." />
-                <marker date="1395737286977" expanded="true" signature="7000:7851" placeholder="SELECT cfrap..." />
-                <marker date="1395737286977" expanded="true" signature="8017:8781" placeholder="SELECT cfrap..pledged..." />
-                <marker date="1395737286977" expanded="true" signature="8953:9574" placeholder="SELECT volun..." />
-                <marker date="1395737286977" expanded="true" signature="9686:10244" placeholder="SELECT volun..." />
-                <marker date="1395737286977" expanded="true" signature="10354:10883" placeholder="SELECT volun..volunteer_overall_target..." />
-                <marker date="1395737286977" expanded="true" signature="10981:11540" placeholder="SELECT volun..volunteer_login..." />
-                <marker date="1395737286977" expanded="true" signature="11638:12284" placeholder="SELECT volun..volunteer_sparta..." />
-                <marker date="1395737286977" expanded="true" signature="16669:17143" placeholder="SELECT users..users..." />
-                <marker date="1395737286977" expanded="true" signature="17236:17376" placeholder="SELECT volun..volunteer_coach..." />
-                <marker date="1395737286977" expanded="true" signature="17826:17872" placeholder="DELETE FROM ..." />
-                <marker date="1395737286977" expanded="true" signature="18124:18188" placeholder="INSERT INTO ..." />
-              </folding>
+            <state line="227" column="88" selection-start="14415" selection-end="14415" vertical-scroll-proportion="0.0" vertical-offset="3859" max-vertical-offset="5814">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -202,8 +179,8 @@
     </option>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/app/controllers/Home.php" root0="SKIP_INSPECTION" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/app/views/CoachDashboard.php" root0="SKIP_INSPECTION" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/app/controllers/Home.php" root0="SKIP_INSPECTION" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/app/views/Home.php" root0="SKIP_INSPECTION" root1="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
@@ -303,7 +280,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -374,6 +350,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -508,10 +485,9 @@
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32843137" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3267974" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32843137" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3267974" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.244713" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18655589" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18882175" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4493464" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3267974" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
@@ -521,10 +497,11 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3267974" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32843137" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -552,6 +529,27 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/app/views/Volunteer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="148" column="22" selection-start="5023" selection-end="5028" vertical-scroll-proportion="0.0" vertical-offset="2342" max-vertical-offset="4403">
+          <folding>
+            <marker date="1396178454487" expanded="true" signature="6074:6157" placeholder="SELECT id FR..volunteer_sparta..." />
+            <marker date="1396178454487" expanded="true" signature="6303:6386" placeholder="SELECT id FR..volunteer_sparta..." />
+            <marker date="1396178454487" expanded="true" signature="6527:6637" placeholder="SELECT COUNT..." />
+            <marker date="1396178454487" expanded="true" signature="6777:6858" placeholder="SELECT targe..volunteer_weekly_target..." />
+            <marker date="1396178454487" expanded="true" signature="8786:8852" placeholder="SELECT targe..volunteer_overall_target..." />
+            <marker date="1396178454487" expanded="false" signature="9273:9282" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/CoachDashboard.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="227" column="88" selection-start="14415" selection-end="14415" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="5814">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://C:/xampp/phpMyAdmin/tbl_row_action.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="11" column="0" selection-start="150" selection-end="150" vertical-scroll-proportion="0.3607595" vertical-offset="73" max-vertical-offset="2533" />
@@ -808,37 +806,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/CoachDashboard.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="227" column="88" selection-start="14415" selection-end="14415" vertical-scroll-proportion="-148.42308" vertical-offset="0" max-vertical-offset="5814">
-          <folding>
-            <marker date="1395737286977" expanded="true" signature="840:1397" placeholder="SELECT COUNT..." />
-            <marker date="1395737286977" expanded="true" signature="1519:2076" placeholder="SELECT COUNT..." />
-            <marker date="1395737286977" expanded="true" signature="2197:2629" placeholder="SELECT COALE..." />
-            <marker date="1395737286977" expanded="true" signature="2813:3292" placeholder="SELECT COALE..." />
-            <marker date="1395737286977" expanded="true" signature="3474:3787" placeholder="SELECT COALE..." />
-            <marker date="1395737286977" expanded="true" signature="3883:4346" placeholder="SELECT COALE..." />
-            <marker date="1395737286977" expanded="true" signature="4448:4880" placeholder="SELECT COUNT..." />
-            <marker date="1395737286977" expanded="true" signature="4974:5113" placeholder="SELECT COALE..." />
-            <marker date="1395737286977" expanded="true" signature="5209:5446" placeholder="SELECT COALE..." />
-            <marker date="1395737286977" expanded="true" signature="5548:5762" placeholder="SELECT COUNT..." />
-            <marker date="1395737286977" expanded="true" signature="6346:6903" placeholder="SELECT users..." />
-            <marker date="1395737286977" expanded="true" signature="7000:7851" placeholder="SELECT cfrap..." />
-            <marker date="1395737286977" expanded="true" signature="8017:8781" placeholder="SELECT cfrap..pledged..." />
-            <marker date="1395737286977" expanded="true" signature="8953:9574" placeholder="SELECT volun..." />
-            <marker date="1395737286977" expanded="true" signature="9686:10244" placeholder="SELECT volun..." />
-            <marker date="1395737286977" expanded="true" signature="10354:10883" placeholder="SELECT volun..volunteer_overall_target..." />
-            <marker date="1395737286977" expanded="true" signature="10981:11540" placeholder="SELECT volun..volunteer_login..." />
-            <marker date="1395737286977" expanded="true" signature="11638:12284" placeholder="SELECT volun..volunteer_sparta..." />
-            <marker date="1395737286977" expanded="true" signature="16669:17143" placeholder="SELECT users..users..." />
-            <marker date="1395737286977" expanded="true" signature="17236:17376" placeholder="SELECT volun..volunteer_coach..." />
-            <marker date="1395737286977" expanded="true" signature="17826:17872" placeholder="DELETE FROM ..." />
-            <marker date="1395737286977" expanded="true" signature="18124:18188" placeholder="INSERT INTO ..." />
-          </folding>
+        <state line="227" column="88" selection-start="14415" selection-end="14415" vertical-scroll-proportion="0.0" vertical-offset="3859" max-vertical-offset="5814">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/routes.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="65" column="0" selection-start="2529" selection-end="2529" vertical-scroll-proportion="-10.923077" vertical-offset="668" max-vertical-offset="1224">
+        <state line="65" column="0" selection-start="2529" selection-end="2529" vertical-scroll-proportion="0.0" vertical-offset="1105" max-vertical-offset="1377">
           <folding>
             <marker date="1397026723971" expanded="true" signature="1556:1604" placeholder="SELECT id FR..bro_team_coach..." />
             <marker date="1397026723971" expanded="true" signature="1810:2043" placeholder="SELECT users..users..." />
@@ -848,7 +823,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/Home.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="306" column="22" selection-start="10326" selection-end="10326" vertical-scroll-proportion="-97.53846" vertical-offset="2666" max-vertical-offset="6885">
+        <state line="306" column="22" selection-start="10326" selection-end="10326" vertical-scroll-proportion="0.0" vertical-offset="2666" max-vertical-offset="6885">
           <folding>
             <marker date="1396777911441" expanded="true" signature="7354:7409" placeholder="..." />
             <marker date="1396777911441" expanded="true" signature="8437:8505" placeholder="..." />
@@ -861,21 +836,19 @@
         <state />
       </provider>
       <provider editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="102">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="102" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/BrosDashboard.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="242" column="24" selection-start="9497" selection-end="9497" vertical-scroll-proportion="-11.230769" vertical-offset="3822" max-vertical-offset="4471">
+        <state line="242" column="24" selection-start="9497" selection-end="9497" vertical-scroll-proportion="0.0" vertical-offset="3822" max-vertical-offset="4471">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/BrosDashboard.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="290" column="23" selection-start="14589" selection-end="14589" vertical-scroll-proportion="0.5708583" vertical-offset="4644" max-vertical-offset="13889">
+        <state line="259" column="38" selection-start="13609" selection-end="13609" vertical-scroll-proportion="1.0342206" vertical-offset="3859" max-vertical-offset="13889">
           <folding>
             <marker date="1397034109704" expanded="true" signature="355:383" placeholder="SELECT id,na..bro_team..." />
             <marker date="1397034109704" expanded="true" signature="519:810" placeholder="SELECT COALE..donations..." />
