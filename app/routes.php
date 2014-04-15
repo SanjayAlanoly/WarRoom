@@ -60,6 +60,8 @@ Route::filter('bro_check',function()
 
 Route::group(array('before' => 'auth'), function()
 {
+
+    Route::get('/financefunctions/createevent','FinanceFunctions@createEvent');
     Route::post('/BrosDashboard/saveBroTeams','BrosDashboard@saveBroTeams');
     Route::get('/BrosDashboard',array('before' => 'bro_check', 'uses' => 'BrosDashboard@showBrosDashboard'));
     Route::get('/DeleteDonation',array('before' => 'bro_check', 'uses' => 'DeleteDonation@showDeleteDonation'));
