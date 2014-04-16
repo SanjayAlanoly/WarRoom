@@ -11,7 +11,7 @@
 |
 */
 
-Route::post('/financefunctions/createevent','FinanceFunctions@createEvent');
+Route::post('/FinanceFunctions/createEvent','FinanceFunctions@createEvent');
 
 
 Route::get('/WarRoom/add_conv', 'WarRoom@addConv');
