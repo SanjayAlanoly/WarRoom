@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="fcbe90e1-0536-4bc7-9506-575ed05dfc7b" name="Default" comment="Timing and update to 8 seconds&#10;">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/FinanceFunctions.php" afterPath="$PROJECT_DIR$/app/controllers/FinanceFunctions.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/routes.php" afterPath="$PROJECT_DIR$/app/routes.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="fraise.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -29,10 +29,10 @@
       <file leaf-file-name="routes.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/routes.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="0" selection-start="393" selection-end="393" vertical-scroll-proportion="-1.9615384" vertical-offset="0" max-vertical-offset="1326">
+            <state line="16" column="51" selection-start="524" selection-end="524" vertical-scroll-proportion="-4.576923" vertical-offset="0" max-vertical-offset="1326">
               <folding>
-                <marker date="1397641632927" expanded="true" signature="1634:1682" placeholder="SELECT id FR..bro_team_coach..." />
-                <marker date="1397641632927" expanded="true" signature="1888:2121" placeholder="SELECT users..users..." />
+                <marker date="1397649052986" expanded="true" signature="1634:1682" placeholder="SELECT id FR..bro_team_coach..." />
+                <marker date="1397649052986" expanded="true" signature="1888:2121" placeholder="SELECT users..users..." />
               </folding>
             </state>
           </provider>
@@ -41,12 +41,12 @@
       <file leaf-file-name="FinanceFunctions.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/FinanceFunctions.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="38" column="0" selection-start="1578" selection-end="1578" vertical-scroll-proportion="0.6975089" vertical-offset="254" max-vertical-offset="816">
+            <state line="37" column="107" selection-start="1673" selection-end="1673" vertical-scroll-proportion="0.60535717" vertical-offset="290" max-vertical-offset="850">
               <folding>
-                <marker date="1397647520592" expanded="true" signature="271:308" placeholder="SELECT TOP 1..." />
-                <marker date="1397647520592" expanded="true" signature="386:431" placeholder="SELECT id,st..cities..." />
-                <marker date="1397647520592" expanded="true" signature="635:901" placeholder="INSERT INTO ..." />
-                <marker date="1397647520592" expanded="true" signature="1184:1370" placeholder="UPDATE event..." />
+                <marker date="1398148544301" expanded="true" signature="271:313" placeholder="SELECT id FR..events..." />
+                <marker date="1398148544301" expanded="true" signature="391:436" placeholder="SELECT id,st..cities..." />
+                <marker date="1398148544301" expanded="true" signature="691:957" placeholder="INSERT INTO ..." />
+                <marker date="1398148544301" expanded="true" signature="1246:1458" placeholder="UPDATE event..." />
               </folding>
             </state>
           </provider>
@@ -415,7 +415,7 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="97" />
+      <option name="time" value="104" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -578,11 +578,6 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="102" />
       </provider>
     </entry>
-    <entry file="file://C:/xampp/phpMyAdmin/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="0" selection-start="158" selection-end="158" vertical-scroll-proportion="0.2047532" vertical-offset="58" max-vertical-offset="10625" />
-      </provider>
-    </entry>
     <entry file="dbDummy://dbtable:/93b3750/d941cdd4-e942-427c-81c8-98e9050f4307/makeadiff_warroom..volunteer_login">
       <provider selected="true" editor-type-id="com.intellij.persistence.database.editor.DatabaseTableFileEditorProvider">
         <state />
@@ -637,11 +632,6 @@
     <entry file="file://$PROJECT_DIR$/app/views/auth/login.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="18" column="48" selection-start="393" selection-end="428" vertical-scroll-proportion="-11.769231" vertical-offset="0" max-vertical-offset="1207" />
-      </provider>
-    </entry>
-    <entry file="file://C:/xampp/phpMyAdmin/sql.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="0" selection-start="288" selection-end="288" vertical-scroll-proportion="0.16141002" vertical-offset="134" max-vertical-offset="29682" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/AuthController.php">
@@ -825,22 +815,40 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/routes.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="0" selection-start="393" selection-end="393" vertical-scroll-proportion="-1.9615384" vertical-offset="0" max-vertical-offset="1326">
+        <state line="16" column="51" selection-start="524" selection-end="524" vertical-scroll-proportion="-4.576923" vertical-offset="0" max-vertical-offset="1326">
           <folding>
-            <marker date="1397641632927" expanded="true" signature="1634:1682" placeholder="SELECT id FR..bro_team_coach..." />
-            <marker date="1397641632927" expanded="true" signature="1888:2121" placeholder="SELECT users..users..." />
+            <marker date="1397649052986" expanded="true" signature="1634:1682" placeholder="SELECT id FR..bro_team_coach..." />
+            <marker date="1397649052986" expanded="true" signature="1888:2121" placeholder="SELECT users..users..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/xampp/phpMyAdmin/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="0" selection-start="158" selection-end="158" vertical-scroll-proportion="0.33088234" vertical-offset="80" max-vertical-offset="10625">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/xampp/phpMyAdmin/sql.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="0" selection-start="288" selection-end="288" vertical-scroll-proportion="0.33088234" vertical-offset="131" max-vertical-offset="29682">
+          <folding>
+            <marker date="1383585901000" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1383585901000" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1383585901000" expanded="false" signature="-1:-1" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/FinanceFunctions.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="0" selection-start="1578" selection-end="1578" vertical-scroll-proportion="0.6975089" vertical-offset="254" max-vertical-offset="816">
+        <state line="37" column="107" selection-start="1673" selection-end="1673" vertical-scroll-proportion="0.60535717" vertical-offset="290" max-vertical-offset="850">
           <folding>
-            <marker date="1397647520592" expanded="true" signature="271:308" placeholder="SELECT TOP 1..." />
-            <marker date="1397647520592" expanded="true" signature="386:431" placeholder="SELECT id,st..cities..." />
-            <marker date="1397647520592" expanded="true" signature="635:901" placeholder="INSERT INTO ..." />
-            <marker date="1397647520592" expanded="true" signature="1184:1370" placeholder="UPDATE event..." />
+            <marker date="1398148544301" expanded="true" signature="271:313" placeholder="SELECT id FR..events..." />
+            <marker date="1398148544301" expanded="true" signature="391:436" placeholder="SELECT id,st..cities..." />
+            <marker date="1398148544301" expanded="true" signature="691:957" placeholder="INSERT INTO ..." />
+            <marker date="1398148544301" expanded="true" signature="1246:1458" placeholder="UPDATE event..." />
           </folding>
         </state>
       </provider>
