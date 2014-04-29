@@ -1,6 +1,67 @@
 <?php
+
 class FinanceFunctions extends BaseController
 {
+
+    function getClient()
+    {
+        ini_set("soap.wsdl_cache_enabled", "0");
+        require_once(app_path().'/includes/soapclient/SforcePartnerClient.php');
+        require_once(app_path().'/includes/soapclient/SforceHeaderOptions.php');
+
+        // Salesforce Login information
+        $wsdl = app_path().'/includes/soapclient/partner.wsdl.xml';
+        $userName = "binnyva@makeadiff.in";
+        $password = "tracker101"."2pCRukHlm47CKXCmUWpDuLIKv";
+
+        // Process of logging on and getting a salesforce.com session
+        $client = new SforcePartnerClient();
+        $client->createConnection($wsdl);
+        $loginResult = $client->login($userName, $password);
+
+        return $client;
+    }
+
+
+    function updateSalesforceEventTicketSale()
+    {
+        $client = $this->getClient();
+
+        $query = "SELECT Id,Name FROM Event__c";
+        $result = $client->query($query);
+
+        $i = 0;
+
+        foreach ($result as $record) {
+            $events[$i] = new SObject();
+            $events[$i]->Id = $record->Id;
+            $ticket_sale = $this->getTicketSale($record->Name);
+
+            $events[$i]->fields = array(
+                'Total_Ticket_Sale__c' => $ticket_sale,
+            );
+            $events[$i]->type = 'Event__c';
+            $i++;
+        }
+
+        $client->update($events);
+
+
+
+    }
+
+    function getTicketSale($id)
+    {
+        $ticket_sale = DB::connection('cfrapp')->select('SELECT COALESCE(SUM(donation_amount),0) as sum FROM event_donations
+                                                            WHERE event_id = ?',array($id));
+        if (!empty($ticket_sale[0]->sum)) {
+           return $ticket_sale[0]->sum;
+
+        }else{
+            return 0;
+        }
+
+    }
 
 
     public function createEvent()

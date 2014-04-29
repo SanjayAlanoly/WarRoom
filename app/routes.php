@@ -12,6 +12,7 @@
 */
 
 Route::post('/FinanceFunctions/createEvent','FinanceFunctions@createEvent');
+Route::get('/FinanceFunctions/updateSalesforceEventTicketSale','FinanceFunctions@updateSalesforceEventTicketSale');
 
 
 Route::get('/WarRoom/add_conv', 'WarRoom@addConv');
