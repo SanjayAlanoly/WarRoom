@@ -153,7 +153,7 @@ class BrosDashboard extends BaseController{
 
         $counter = 1;
 
-        while($end_date->diff($date_compare)->days != 0){
+        while($end_date->diff($date_compare)->days < 0){
 
             $raised = (int)($total_raised_yesterday + ($run_rate * $counter));
             $display_date = $date_compare->format('d-M');
