@@ -36,6 +36,7 @@ class FinanceFunctions extends BaseController
             $events[$i] = new SObject();
             $events[$i]->Id = $record->Id;
             $ticket_sale = $this->getTicketSale($record->Name);
+            echo "Event : " . $events[$i]->Name . " Ticket Sale : " . $ticket_sale . "<br>";
 
             $events[$i]->fields = array(
                 'Total_Ticket_Sale__c' => $ticket_sale,
