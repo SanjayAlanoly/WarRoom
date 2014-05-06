@@ -36,10 +36,20 @@ class FinanceFunctions extends BaseController
             $events[$i] = new SObject();
             $events[$i]->Id = $record->Id;
             $ticket_sale = $this->getTicketSale($record->Name);
+            $with_intern = $this->getEventAmountWithIntern($record->Name);
+            $with_event_head = $this->getEventAmountWithEventHead($record->Name);
+            $with_FC = $this->getEventAmountWithFC($record->Name);
+            $deposit_complete = $this->getEventAmountDepositComplete($record->Name);
+
             echo "Event : " . $record->Name . " Ticket Sale : " . $ticket_sale . "<br>";
+            echo "With Intern : $with_intern With Events Head : $with_event_head With FC : $with_FC  Deposit Complete : $deposit_complete <br><br>";
 
             $events[$i]->fields = array(
                 'Total_Ticket_Sale__c' => $ticket_sale,
+                'With_Intern__c' => $with_intern,
+                'With_Event_Head__c' => $with_event_head,
+                'With_FC__c' => $with_FC,
+                'Deposit_Complete__c' => $deposit_complete,
             );
             $events[$i]->type = 'Event__c';
             $i++;
@@ -57,6 +67,67 @@ class FinanceFunctions extends BaseController
                                                             WHERE event_id = ?',array($id));
         if (!empty($ticket_sale[0]->sum)) {
            return $ticket_sale[0]->sum;
+
+        }else{
+            return 0;
+        }
+
+    }
+
+    function getEventAmountWithIntern($id)
+    {
+        $with_intern = DB::connection('cfrapp')->select('SELECT COALESCE(SUM(donation_amount),0) AS sum from event_donations
+                                                            WHERE event_id = ? AND donation_status = ?',
+                                                            array($id,'TO_BE_APPROVED_BY_EVENT_HEAD'));
+
+        if (!empty($with_intern[0]->sum)) {
+            return $with_intern[0]->sum;
+
+        }else{
+            return 0;
+        }
+
+    }
+
+    function getEventAmountWithEventHead($id)
+    {
+        $with_event_head = DB::connection('cfrapp')->select('SELECT COALESCE(SUM(donation_amount),0) AS sum from event_donations
+                                                            WHERE event_id = ? AND donation_status = ?',
+                                                            array($id,'EVENT_DONATION_HAND_OVER_TO_FC_PENDING'));
+
+        if (!empty($with_event_head[0]->sum)) {
+            return $with_event_head[0]->sum;
+
+        }else{
+            return 0;
+        }
+
+    }
+
+    function getEventAmountWithFC($id)
+    {
+        $with_FC = DB::connection('cfrapp')->select('SELECT COALESCE(SUM(donation_amount),0) AS sum from event_donations
+                                                            WHERE event_id = ? AND donation_status = ?',
+                                                            array($id,'EVENT_DONATION_DEPOSIT_PENDING'));
+
+        if (!empty($with_FC[0]->sum)) {
+            return $with_FC[0]->sum;
+
+        }else{
+            return 0;
+        }
+
+    }
+
+
+    function getEventAmountDepositComplete($id)
+    {
+        $deposit_complete = DB::connection('cfrapp')->select('SELECT COALESCE(SUM(donation_amount),0) AS sum from event_donations
+                                                            WHERE event_id = ? AND donation_status = ?',
+                                                            array($id,'EVENT_DONATION_DEPOSIT_COMPLETE'));
+
+        if (!empty($deposit_complete[0]->sum)) {
+            return $deposit_complete[0]->sum;
 
         }else{
             return 0;
