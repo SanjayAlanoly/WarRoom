@@ -13,7 +13,7 @@
 
 Route::post('/FinanceFunctions/createEvent','FinanceFunctions@createEvent');
 Route::get('/FinanceFunctions/updateSalesforceEventTicketSale','FinanceFunctions@updateSalesforceEventTicketSale');
-
+Route::get('/FinanceFunctions/updateSalesforceCFRDonation','FinanceFunctions@updateSalesforceCFRDonation');
 
 Route::get('/WarRoom/add_conv', 'WarRoom@addConv');
 Route::get('/WarRoom/add_pledged', 'WarRoom@addPledged');

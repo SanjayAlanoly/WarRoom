@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="fcbe90e1-0536-4bc7-9506-575ed05dfc7b" name="Default" comment="Timing and update to 8 seconds&#10;">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/FinanceFunctions.php" afterPath="$PROJECT_DIR$/app/controllers/FinanceFunctions.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/routes.php" afterPath="$PROJECT_DIR$/app/routes.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="fraise.iws" />
@@ -29,38 +30,51 @@
       <file leaf-file-name="routes.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/routes.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="61" selection-start="501" selection-end="532" vertical-scroll-proportion="-3.2692308" vertical-offset="0" max-vertical-offset="1343">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FinanceFunctions.php" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/controllers/FinanceFunctions.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="80" column="99" selection-start="2915" selection-end="2915" vertical-scroll-proportion="0.21857923" vertical-offset="1240" max-vertical-offset="3111">
+            <state line="15" column="57" selection-start="599" selection-end="644" vertical-scroll-proportion="-3.9230769" vertical-offset="0" max-vertical-offset="1343">
               <folding>
-                <marker date="1399353945260" expanded="true" signature="875:903" placeholder="SELECT Id,Na..Event__c..." />
-                <marker date="1399353945260" expanded="true" signature="2236:4752" placeholder="SELECT SUM(d..event_donations..." />
-                <marker date="1399353945260" expanded="true" signature="2236:2382" placeholder="SELECT COALE..." />
-                <marker date="1399353945260" expanded="true" signature="2236:2382" placeholder="SELECT COALE..." />
-                <marker date="1399353945260" expanded="true" signature="2643:2813" placeholder="SELECT COALE..." />
-                <marker date="1399353945260" expanded="true" signature="3175:3345" placeholder="SELECT COALE..." />
-                <marker date="1399353945260" expanded="true" signature="3710:3880" placeholder="SELECT COALE..." />
-                <marker date="1399353945260" expanded="true" signature="4240:4410" placeholder="SELECT COALE..." />
-                <marker date="1399353945260" expanded="true" signature="4888:4930" placeholder="SELECT id FR..events..." />
-                <marker date="1399353945260" expanded="true" signature="5008:5053" placeholder="SELECT id,st..cities..." />
-                <marker date="1399353945260" expanded="true" signature="5308:5574" placeholder="INSERT INTO ..." />
-                <marker date="1399353945260" expanded="true" signature="5863:6075" placeholder="UPDATE event..." />
+                <marker date="1400675832751" expanded="true" signature="1857:1905" placeholder="SELECT id FR..bro_team_coach..." />
+                <marker date="1400675832751" expanded="true" signature="2111:2344" placeholder="SELECT users..users..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BrosDashboard.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="FinanceFunctions.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/FinanceFunctions.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="42" column="45" selection-start="1504" selection-end="1504" vertical-scroll-proportion="12.423077" vertical-offset="1037" max-vertical-offset="5372">
+              <folding>
+                <marker date="1400675985957" expanded="true" signature="870:899" placeholder="SELECT Id,Ci..CFR__c..." />
+                <marker date="1400675985957" expanded="true" signature="2220:2702" placeholder="SELECT COALE..." />
+                <marker date="1400675985957" expanded="true" signature="2220:2705" placeholder="SELECT COALE..." />
+                <marker date="1400675985957" expanded="true" signature="2981:3028" placeholder="SELECT COALE..." />
+                <marker date="1400675985957" expanded="true" signature="2981:3560" placeholder="SELECT COALE..." />
+                <marker date="1400675985957" expanded="true" signature="3850:3897" placeholder="SELECT COALE..." />
+                <marker date="1400675985957" expanded="true" signature="3850:4429" placeholder="SELECT COALE..." />
+                <marker date="1400675985957" expanded="true" signature="4706:4753" placeholder="SELECT COALE..." />
+                <marker date="1400675985957" expanded="true" signature="4706:5285" placeholder="SELECT COALE..." />
+                <marker date="1400675985957" expanded="true" signature="5571:5618" placeholder="SELECT COALE..." />
+                <marker date="1400675985957" expanded="true" signature="5571:6218" placeholder="SELECT COALE..." />
+                <marker date="1400675985957" expanded="true" signature="6610:6638" placeholder="SELECT Id,Na..Event__c..." />
+                <marker date="1400675985957" expanded="true" signature="7971:10487" placeholder="SELECT SUM(d..event_donations..." />
+                <marker date="1400675985957" expanded="true" signature="7971:8117" placeholder="SELECT COALE..." />
+                <marker date="1400675985957" expanded="true" signature="8378:8548" placeholder="SELECT COALE..." />
+                <marker date="1400675985957" expanded="true" signature="8910:9080" placeholder="SELECT COALE..." />
+                <marker date="1400675985957" expanded="true" signature="9445:9615" placeholder="SELECT COALE..." />
+                <marker date="1400675985957" expanded="true" signature="9975:10145" placeholder="SELECT COALE..." />
+                <marker date="1400675985957" expanded="true" signature="10623:10665" placeholder="SELECT id FR..events..." />
+                <marker date="1400675985957" expanded="true" signature="10743:10788" placeholder="SELECT id,st..cities..." />
+                <marker date="1400675985957" expanded="true" signature="11043:11309" placeholder="INSERT INTO ..." />
+                <marker date="1400675985957" expanded="true" signature="11598:11810" placeholder="UPDATE event..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BrosDashboard.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/BrosDashboard.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="0" selection-start="387" selection-end="387" vertical-scroll-proportion="108.53846" vertical-offset="3009" max-vertical-offset="13889">
+            <state line="19" column="82" selection-start="617" selection-end="617" vertical-scroll-proportion="0.5883424" vertical-offset="0" max-vertical-offset="13889">
               <folding>
                 <marker date="1399026316703" expanded="true" signature="355:383" placeholder="SELECT id,na..bro_team..." />
                 <marker date="1399026316703" expanded="true" signature="519:810" placeholder="SELECT COALE..donations..." />
@@ -168,8 +182,8 @@
         <option value="$PROJECT_DIR$/app/controllers/AvengersDashboard.php" />
         <option value="dbtable:/93b3750/d941cdd4-e942-427c-81c8-98e9050f4307/cfrapp..donations" />
         <option value="$PROJECT_DIR$/app/views/BrosDashboard.php" />
-        <option value="$PROJECT_DIR$/app/routes.php" />
         <option value="$PROJECT_DIR$/app/controllers/BrosDashboard.php" />
+        <option value="$PROJECT_DIR$/app/routes.php" />
         <option value="$PROJECT_DIR$/app/controllers/FinanceFunctions.php" />
       </list>
     </option>
@@ -181,7 +195,7 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="1358" />
+    <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1382" />
     <option name="height" value="744" />
@@ -231,6 +245,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -301,7 +316,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -430,15 +444,15 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1358" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32843137" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3267974" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32843137" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.10422961" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.163142" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1925982" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19864048" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4493464" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3267974" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
@@ -738,9 +752,49 @@
         <state line="10" column="0" selection-start="158" selection-end="158" vertical-scroll-proportion="0.33088234" vertical-offset="80" max-vertical-offset="10625" />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/routes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="57" selection-start="599" selection-end="644" vertical-scroll-proportion="-3.9230769" vertical-offset="0" max-vertical-offset="1343">
+          <folding>
+            <marker date="1400675832751" expanded="true" signature="1857:1905" placeholder="SELECT id FR..bro_team_coach..." />
+            <marker date="1400675832751" expanded="true" signature="2111:2344" placeholder="SELECT users..users..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/FinanceFunctions.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="42" column="45" selection-start="1504" selection-end="1504" vertical-scroll-proportion="12.423077" vertical-offset="1037" max-vertical-offset="5372">
+          <folding>
+            <marker date="1400675985957" expanded="true" signature="870:899" placeholder="SELECT Id,Ci..CFR__c..." />
+            <marker date="1400675985957" expanded="true" signature="2220:2702" placeholder="SELECT COALE..." />
+            <marker date="1400675985957" expanded="true" signature="2220:2705" placeholder="SELECT COALE..." />
+            <marker date="1400675985957" expanded="true" signature="2981:3028" placeholder="SELECT COALE..." />
+            <marker date="1400675985957" expanded="true" signature="2981:3560" placeholder="SELECT COALE..." />
+            <marker date="1400675985957" expanded="true" signature="3850:3897" placeholder="SELECT COALE..." />
+            <marker date="1400675985957" expanded="true" signature="3850:4429" placeholder="SELECT COALE..." />
+            <marker date="1400675985957" expanded="true" signature="4706:4753" placeholder="SELECT COALE..." />
+            <marker date="1400675985957" expanded="true" signature="4706:5285" placeholder="SELECT COALE..." />
+            <marker date="1400675985957" expanded="true" signature="5571:5618" placeholder="SELECT COALE..." />
+            <marker date="1400675985957" expanded="true" signature="5571:6218" placeholder="SELECT COALE..." />
+            <marker date="1400675985957" expanded="true" signature="6610:6638" placeholder="SELECT Id,Na..Event__c..." />
+            <marker date="1400675985957" expanded="true" signature="7971:10487" placeholder="SELECT SUM(d..event_donations..." />
+            <marker date="1400675985957" expanded="true" signature="7971:8117" placeholder="SELECT COALE..." />
+            <marker date="1400675985957" expanded="true" signature="8378:8548" placeholder="SELECT COALE..." />
+            <marker date="1400675985957" expanded="true" signature="8910:9080" placeholder="SELECT COALE..." />
+            <marker date="1400675985957" expanded="true" signature="9445:9615" placeholder="SELECT COALE..." />
+            <marker date="1400675985957" expanded="true" signature="9975:10145" placeholder="SELECT COALE..." />
+            <marker date="1400675985957" expanded="true" signature="10623:10665" placeholder="SELECT id FR..events..." />
+            <marker date="1400675985957" expanded="true" signature="10743:10788" placeholder="SELECT id,st..cities..." />
+            <marker date="1400675985957" expanded="true" signature="11043:11309" placeholder="INSERT INTO ..." />
+            <marker date="1400675985957" expanded="true" signature="11598:11810" placeholder="UPDATE event..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/BrosDashboard.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="0" selection-start="387" selection-end="387" vertical-scroll-proportion="108.53846" vertical-offset="3009" max-vertical-offset="13889">
+        <state line="19" column="82" selection-start="617" selection-end="617" vertical-scroll-proportion="0.5883424" vertical-offset="0" max-vertical-offset="13889">
           <folding>
             <marker date="1399026316703" expanded="true" signature="355:383" placeholder="SELECT id,na..bro_team..." />
             <marker date="1399026316703" expanded="true" signature="519:810" placeholder="SELECT COALE..donations..." />
@@ -788,33 +842,6 @@
             <marker date="1399026316703" expanded="true" signature="40302:41039" placeholder="SELECT COUNT..." />
             <marker date="1399026316703" expanded="true" signature="41335:42055" placeholder="SELECT COALE..." />
             <marker date="1399026316703" expanded="true" signature="42162:42668" placeholder="SELECT COALE..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/routes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="61" selection-start="501" selection-end="532" vertical-scroll-proportion="-3.2692308" vertical-offset="0" max-vertical-offset="1343">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/FinanceFunctions.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="80" column="99" selection-start="2915" selection-end="2915" vertical-scroll-proportion="0.21857923" vertical-offset="1240" max-vertical-offset="3111">
-          <folding>
-            <marker date="1399353945260" expanded="true" signature="875:903" placeholder="SELECT Id,Na..Event__c..." />
-            <marker date="1399353945260" expanded="true" signature="2236:4752" placeholder="SELECT SUM(d..event_donations..." />
-            <marker date="1399353945260" expanded="true" signature="2236:2382" placeholder="SELECT COALE..." />
-            <marker date="1399353945260" expanded="true" signature="2236:2382" placeholder="SELECT COALE..." />
-            <marker date="1399353945260" expanded="true" signature="2643:2813" placeholder="SELECT COALE..." />
-            <marker date="1399353945260" expanded="true" signature="3175:3345" placeholder="SELECT COALE..." />
-            <marker date="1399353945260" expanded="true" signature="3710:3880" placeholder="SELECT COALE..." />
-            <marker date="1399353945260" expanded="true" signature="4240:4410" placeholder="SELECT COALE..." />
-            <marker date="1399353945260" expanded="true" signature="4888:4930" placeholder="SELECT id FR..events..." />
-            <marker date="1399353945260" expanded="true" signature="5008:5053" placeholder="SELECT id,st..cities..." />
-            <marker date="1399353945260" expanded="true" signature="5308:5574" placeholder="INSERT INTO ..." />
-            <marker date="1399353945260" expanded="true" signature="5863:6075" placeholder="UPDATE event..." />
           </folding>
         </state>
       </provider>

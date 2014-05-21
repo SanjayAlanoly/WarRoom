@@ -22,6 +22,139 @@ class FinanceFunctions extends BaseController
         return $client;
     }
 
+    function updateSalesforceCFRDonation()
+    {
+        $client = $this->getClient();
+
+        $query = "SELECT Id,City__c FROM CFR__c";
+        $result = $client->query($query);
+
+        $i = 0;
+
+        foreach ($result as $record) {
+            $cfr[$i] = new SObject();
+            $cfr[$i]->Id = $record->Id;
+            $total_donation = $this->getTotalDonation($record->City__c);
+            $with_volunteer = $this->getCFRAmountWithVolunteer($record->City__c);
+            $with_poc = $this->getCFRAmountWithPOC($record->City__c);
+            $with_fc = $this->getCFRAmountWithFC($record->City__c);
+            $deposit_complete = $this->getCFRAmountDepositComplete($record->City__c);
+
+            echo "City : " . $record->City__c . " Total Donation : " . $total_donation . "<br>";
+            echo "With Volunteer : $with_volunteer With POC : $with_poc With FC : $with_fc  Deposit Complete : $deposit_complete <br><br>";
+
+            $cfr[$i]->fields = array(
+                'Total_Donation__c' => $total_donation,
+                'With_Volunteer__c' => $with_volunteer,
+                'With_POC__c' => $with_poc,
+                'With_FC__c' => $with_fc,
+                'Deposit_Complete__c' => $deposit_complete,
+            );
+            $cfr[$i]->type = 'CFR__c';
+            $i++;
+        }
+
+        $client->update($cfr);
+
+
+
+    }
+
+    function getTotalDonation($city)
+    {
+        $total_donation = DB::connection('cfrapp')->select('SELECT COALESCE(SUM(donation_amount),0) as sum FROM donations
+                                                            INNER JOIN users
+                                                            ON donations.fundraiser_id = users.id
+                                                            INNER JOIN cities
+                                                            ON users.city_id = cities.id
+                                                            WHERE cities.name = ?',array($city));
+        if (!empty($total_donation[0]->sum)) {
+            return $total_donation[0]->sum;
+
+        }else{
+            return 0;
+        }
+
+    }
+
+    function getCFRAmountWithVolunteer($city)
+    {
+        $with_volunteer = DB::connection('cfrapp')->select('SELECT COALESCE(SUM(donation_amount),0) AS sum FROM donations
+                                                            INNER JOIN users
+                                                            ON donations.fundraiser_id = users.id
+                                                            INNER JOIN cities
+                                                            ON users.city_id = cities.id
+                                                            WHERE cities.name = ?
+                                                            AND donations.donation_status = ?',array($city,'TO_BE_APPROVED_BY_POC'));
+
+
+        if (!empty($with_volunteer[0]->sum)) {
+            return $with_volunteer[0]->sum;
+
+        }else{
+            return 0;
+        }
+
+    }
+
+    function getCFRAmountWithPOC($city)
+    {
+        $with_poc = DB::connection('cfrapp')->select('SELECT COALESCE(SUM(donation_amount),0) AS sum FROM donations
+                                                            INNER JOIN users
+                                                            ON donations.fundraiser_id = users.id
+                                                            INNER JOIN cities
+                                                            ON users.city_id = cities.id
+                                                            WHERE cities.name = ?
+                                                            AND donations.donation_status = ?',array($city,'HAND_OVER_TO_FC_PENDING'));
+
+        if (!empty($with_poc[0]->sum)) {
+            return $with_poc[0]->sum;
+
+        }else{
+            return 0;
+        }
+
+    }
+
+    function getCFRAmountWithFC($city)
+    {
+        $with_fc = DB::connection('cfrapp')->select('SELECT COALESCE(SUM(donation_amount),0) AS sum FROM donations
+                                                            INNER JOIN users
+                                                            ON donations.fundraiser_id = users.id
+                                                            INNER JOIN cities
+                                                            ON users.city_id = cities.id
+                                                            WHERE cities.name = ?
+                                                            AND donations.donation_status = ?',array($city,'DEPOSIT_PENDING'));
+
+        if (!empty($with_fc[0]->sum)) {
+            return $with_fc[0]->sum;
+
+        }else{
+            return 0;
+        }
+
+    }
+
+
+    function getCFRAmountDepositComplete($city)
+    {
+        $deposit_complete = DB::connection('cfrapp')->select('SELECT COALESCE(SUM(donation_amount),0) AS sum FROM donations
+                                                            INNER JOIN users
+                                                            ON donations.fundraiser_id = users.id
+                                                            INNER JOIN cities
+                                                            ON users.city_id = cities.id
+                                                            WHERE cities.name = ?
+                                                            AND (donations.donation_status = ? OR donations.donation_status = ? OR donations.donation_status = ?)
+                                                            ',array($city,'DEPOSIT COMPLETE','RECEIPT PENDING','RECEIPT SENT'));
+
+        if (!empty($deposit_complete[0]->sum)) {
+            return $deposit_complete[0]->sum;
+
+        }else{
+            return 0;
+        }
+
+    }
 
     function updateSalesforceEventTicketSale()
     {
