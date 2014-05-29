@@ -290,18 +290,66 @@ class FinanceFunctions extends BaseController
 
         if (empty($row[0])) {
 
-            DB::connection('cfrapp')->insert("INSERT INTO events (id, event_name, image_url, ticket_price, description,
+            DB::connection('cfrapp')->insert("INSERT INTO events (id, event_name, image_url, description,
               date_range_from, date_range_to, venue_address, venue_address1, city_id, state_id, created_at, updated_at)
               VALUES(?, ?,  '', ?, ?, ?, ?, ?, NULL, ?, ?, NOW(), NOW())",
-              array((int)$data->event_id, $data->event_name, $data->ticket_price, $data->event_descp,
+              array((int)$data->event_id, $data->event_name, $data->event_descp,
               $data->event_start_date, $data->event_end_date, $data->venue_address, $city[0]->id, $city[0]->state_id));
 
+            $letters = range('a','e');
+
+            foreach($letters as $letter){
+
+                $ticket = "ticket_";
+                $type = "_type";
+                $price = "_price";
+
+                if($data->{$ticket.$letter.$type} != ''){
+
+                    $keyword = preg_replace("/\s+/", " ", $data->$data->{$ticket.$letter.$type});
+                    $keyword = str_replace(" ", "_", $keyword);
+                    $keyword = preg_replace("/[^A-Za-z0-9_]/","",$keyword);
+                    $keyword=strtolower($keyword);
+
+
+                    DB::connection('cfrapp')->insert("INSERT INTO event_ticket_types (name,ticket_price,event_id,keyword) VALUES (?,?,?,?)",
+                        array($data->$data->{$ticket.$letter.$type},$data->$data->{$ticket.$letter.$price},(int)$data->event_id),$keyword);
+                }
+
+            }
+
+
+
         } else {
-            DB::connection('cfrapp')->update('UPDATE events SET event_name = ?, ticket_price = ?, description = ?,
+            DB::connection('cfrapp')->update('UPDATE events SET event_name = ?, description = ?,
               date_range_from = ?, date_range_to = ?, venue_address = ?, city_id = ?, state_id = ?,updated_at = NOW()
               WHERE id =?',
-              array($data->event_name, $data->ticket_price, $data->event_descp, $data->event_start_date,
+              array($data->event_name,$data->event_descp, $data->event_start_date,
               $data->event_end_date, $data->venue_address, $city[0]->id, $city[0]->state_id, $row[0]->id));
+
+            DB::connection('cfrapp')->delete('DELETE FROM event_ticket_types WHERE event_id = ?',array((int)$data->event_id));
+
+            $letters = range('a','e');
+
+            foreach($letters as $letter){
+
+                $ticket = "ticket_";
+                $type = "_type";
+                $price = "_price";
+
+                if($data->{$ticket.$letter.$type} != ''){
+
+                    $keyword = preg_replace("/\s+/", " ", $data->$data->{$ticket.$letter.$type});
+                    $keyword = str_replace(" ", "_", $keyword);
+                    $keyword = preg_replace("/[^A-Za-z0-9_]/","",$keyword);
+                    $keyword=strtolower($keyword);
+
+
+                    DB::connection('cfrapp')->insert("INSERT INTO event_ticket_types (name,ticket_price,event_id,keyword) VALUES (?,?,?,?)",
+                        array($data->$data->{$ticket.$letter.$type},$data->$data->{$ticket.$letter.$price},(int)$data->event_id),$keyword);
+                }
+
+            }
         }
 
 
