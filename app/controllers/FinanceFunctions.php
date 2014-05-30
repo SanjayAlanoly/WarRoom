@@ -278,7 +278,21 @@ class FinanceFunctions extends BaseController
 
         $data = json_decode($content);
 
-        $row = DB::connection('cfrapp')->select('SELECT id FROM events WHERE id = ? LIMIT 1',array($data->event_id));
+        /*if ( empty($data->event_id) ) {
+
+            $data = new stdClass();
+
+            $data->event_id = 100;
+            $data->event_name = 'Tirgger Test Event';
+            $data->event_city = 'Bangalore';
+            $data->event_descp = "Test Event";
+            $data->event_start_date = '';
+            $data->event_end_date = '';
+            $data->venue_address = '';
+
+        }*/
+
+        $row = DB::connection('cfrapp')->select('SELECT id FROM events WHERE id = ? LIMIT 1',array((int)$data->event_id));
 
         $city = DB::connection('cfrapp')->select('SELECT id,state_id FROM cities WHERE name = ?',array($data->event_city));
 
@@ -292,7 +306,7 @@ class FinanceFunctions extends BaseController
 
             DB::connection('cfrapp')->insert("INSERT INTO events (id, event_name, image_url, description,
               date_range_from, date_range_to, venue_address, venue_address1, city_id, state_id, created_at, updated_at)
-              VALUES(?, ?,  '', ?, ?, ?, ?, ?, NULL, ?, ?, NOW(), NOW())",
+              VALUES(?, ?,  '', ?, ?, ?, ?, NULL, ?, ?, NOW(), NOW())",
               array((int)$data->event_id, $data->event_name, $data->event_descp,
               $data->event_start_date, $data->event_end_date, $data->venue_address, $city[0]->id, $city[0]->state_id));
 
