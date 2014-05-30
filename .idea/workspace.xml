@@ -4,7 +4,6 @@
     <list default="true" id="fcbe90e1-0536-4bc7-9506-575ed05dfc7b" name="Default" comment="Timing and update to 8 seconds&#10;">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/FinanceFunctions.php" afterPath="$PROJECT_DIR$/app/controllers/FinanceFunctions.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/routes.php" afterPath="$PROJECT_DIR$/app/routes.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="fraise.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -30,10 +29,10 @@
       <file leaf-file-name="routes.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/routes.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="2" selection-start="471" selection-end="550" vertical-scroll-proportion="-3.125" vertical-offset="0" max-vertical-offset="1200">
+            <state line="14" column="0" selection-start="471" selection-end="546" vertical-scroll-proportion="-3.125" vertical-offset="0" max-vertical-offset="1200">
               <folding>
-                <marker date="1401427230652" expanded="true" signature="1937:1985" placeholder="SELECT id FR..bro_team_coach..." />
-                <marker date="1401427230652" expanded="true" signature="2191:2424" placeholder="SELECT users..users..." />
+                <marker date="1401427499848" expanded="true" signature="1933:1981" placeholder="SELECT id FR..bro_team_coach..." />
+                <marker date="1401427499848" expanded="true" signature="2187:2420" placeholder="SELECT users..users..." />
               </folding>
             </state>
           </provider>
@@ -42,28 +41,28 @@
       <file leaf-file-name="FinanceFunctions.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/FinanceFunctions.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="276" column="42" selection-start="10532" selection-end="10532" vertical-scroll-proportion="0.1923077" vertical-offset="4035" max-vertical-offset="5670">
+            <state line="325" column="0" selection-start="12386" selection-end="12386" vertical-scroll-proportion="-0.64835167" vertical-offset="5229" max-vertical-offset="5820">
               <folding>
-                <marker date="1401427230648" expanded="true" signature="870:899" placeholder="SELECT Id,Ci..CFR__c..." />
-                <marker date="1401427230648" expanded="true" signature="2220:2705" placeholder="SELECT COALE..." />
-                <marker date="1401427230648" expanded="true" signature="2981:3560" placeholder="SELECT COALE..." />
-                <marker date="1401427230648" expanded="true" signature="3850:4429" placeholder="SELECT COALE..." />
-                <marker date="1401427230648" expanded="true" signature="4706:5285" placeholder="SELECT COALE..." />
-                <marker date="1401427230648" expanded="true" signature="5571:6218" placeholder="SELECT COALE..." />
-                <marker date="1401427230648" expanded="true" signature="6610:6638" placeholder="SELECT Id,Na..Event__c..." />
-                <marker date="1401427230648" expanded="true" signature="7971:8117" placeholder="SELECT COALE..." />
-                <marker date="1401427230648" expanded="true" signature="8378:8548" placeholder="SELECT COALE..." />
-                <marker date="1401427230648" expanded="true" signature="8910:9080" placeholder="SELECT COALE..." />
-                <marker date="1401427230648" expanded="true" signature="9445:9615" placeholder="SELECT COALE..." />
-                <marker date="1401427230648" expanded="true" signature="9975:10145" placeholder="SELECT COALE..." />
-                <marker date="1401427230648" expanded="true" signature="11019:11061" placeholder="SELECT id FR..events..." />
-                <marker date="1401427230648" expanded="true" signature="11144:11189" placeholder="SELECT id,st..cities..." />
-                <marker date="1401427230648" expanded="true" signature="11444:11693" placeholder="INSERT INTO ..." />
-                <marker date="1401427230648" expanded="true" signature="12491:12575" placeholder="INSERT INTO ..." />
-                <marker date="1401427230648" expanded="true" signature="12752:12809" placeholder="INSERT INTO ..." />
-                <marker date="1401427230648" expanded="true" signature="12817:13011" placeholder="UPDATE event..." />
-                <marker date="1401427230648" expanded="true" signature="13252:13301" placeholder="DELETE FROM ..." />
-                <marker date="1401427230648" expanded="true" signature="13927:14011" placeholder="INSERT INTO ..." />
+                <marker date="1401427883508" expanded="true" signature="870:899" placeholder="SELECT Id,Ci..CFR__c..." />
+                <marker date="1401427883508" expanded="true" signature="2220:2705" placeholder="SELECT COALE..." />
+                <marker date="1401427883508" expanded="true" signature="2981:3560" placeholder="SELECT COALE..." />
+                <marker date="1401427883508" expanded="true" signature="3850:4429" placeholder="SELECT COALE..." />
+                <marker date="1401427883508" expanded="true" signature="4706:5285" placeholder="SELECT COALE..." />
+                <marker date="1401427883508" expanded="true" signature="5571:6218" placeholder="SELECT COALE..." />
+                <marker date="1401427883508" expanded="true" signature="6610:6638" placeholder="SELECT Id,Na..Event__c..." />
+                <marker date="1401427883508" expanded="true" signature="7971:8117" placeholder="SELECT COALE..." />
+                <marker date="1401427883508" expanded="true" signature="8378:8548" placeholder="SELECT COALE..." />
+                <marker date="1401427883508" expanded="true" signature="8910:9080" placeholder="SELECT COALE..." />
+                <marker date="1401427883508" expanded="true" signature="9445:9615" placeholder="SELECT COALE..." />
+                <marker date="1401427883508" expanded="true" signature="9975:10145" placeholder="SELECT COALE..." />
+                <marker date="1401427883508" expanded="true" signature="11425:11467" placeholder="SELECT id FR..events..." />
+                <marker date="1401427883508" expanded="true" signature="11550:11595" placeholder="SELECT id,st..cities..." />
+                <marker date="1401427883508" expanded="true" signature="11850:12099" placeholder="INSERT INTO ..." />
+                <marker date="1401427883508" expanded="true" signature="12890:12974" placeholder="INSERT INTO ..." />
+                <marker date="1401427883508" expanded="true" signature="13137:13194" placeholder="INSERT INTO ..." />
+                <marker date="1401427883508" expanded="true" signature="13202:13396" placeholder="UPDATE event..." />
+                <marker date="1401427883508" expanded="true" signature="13637:13686" placeholder="DELETE FROM ..." />
+                <marker date="1401427883508" expanded="true" signature="14305:14389" placeholder="INSERT INTO ..." />
               </folding>
             </state>
           </provider>
@@ -72,7 +71,7 @@
       <file leaf-file-name="BrosDashboard.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/BrosDashboard.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="71" column="21" selection-start="3745" selection-end="3750" vertical-scroll-proportion="-7.0" vertical-offset="897" max-vertical-offset="12255">
+            <state line="71" column="21" selection-start="3745" selection-end="3750" vertical-scroll-proportion="-20.125" vertical-offset="582" max-vertical-offset="12255">
               <folding>
                 <marker date="1400765331948" expanded="true" signature="355:383" placeholder="SELECT id,na..bro_team..." />
                 <marker date="1400765331948" expanded="true" signature="519:810" placeholder="SELECT COALE..donations..." />
@@ -182,8 +181,8 @@
         <option value="$PROJECT_DIR$/app/views/BrosDashboard.php" />
         <option value="$PROJECT_DIR$/app/controllers/BrosDashboard.php" />
         <option value="$PROJECT_DIR$/public/index.php" />
-        <option value="$PROJECT_DIR$/app/controllers/FinanceFunctions.php" />
         <option value="$PROJECT_DIR$/app/routes.php" />
+        <option value="$PROJECT_DIR$/app/controllers/FinanceFunctions.php" />
       </list>
     </option>
   </component>
@@ -230,7 +229,7 @@
     <option name="STATE" value="0" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
+    <navigator proportions="" version="1" splitterProportion="0.5">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -241,93 +240,7 @@
       <autoscrollFromSource />
       <sortByType />
     </navigator>
-    <panes>
-      <pane id="Scope" />
-      <pane id="ProjectPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="fraise" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="fraise" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="fraise" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="fraise" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="fraise" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="fraise" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="fraise" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="fraise" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="fraise" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="fraise" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="fraise" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-    </panes>
+    <panes />
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -563,8 +476,8 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="16" column="0" selection-start="695" selection-end="695" vertical-scroll-proportion="0.0" vertical-offset="240" max-vertical-offset="1320">
           <folding>
-            <marker date="1401427230652" expanded="true" signature="1937:1985" placeholder="SELECT id FR..bro_team_coach..." />
-            <marker date="1401427230652" expanded="true" signature="2191:2424" placeholder="SELECT users..users..." />
+            <marker date="1401427499848" expanded="true" signature="1933:1981" placeholder="SELECT id FR..bro_team_coach..." />
+            <marker date="1401427499848" expanded="true" signature="2187:2420" placeholder="SELECT users..users..." />
           </folding>
         </state>
       </provider>
@@ -573,26 +486,26 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="299" column="62" selection-start="11606" selection-end="11606" vertical-scroll-proportion="0.0" vertical-offset="4485" max-vertical-offset="4800">
           <folding>
-            <marker date="1401427230648" expanded="true" signature="870:899" placeholder="SELECT Id,Ci..CFR__c..." />
-            <marker date="1401427230648" expanded="true" signature="2220:2705" placeholder="SELECT COALE..." />
-            <marker date="1401427230648" expanded="true" signature="2981:3560" placeholder="SELECT COALE..." />
-            <marker date="1401427230648" expanded="true" signature="3850:4429" placeholder="SELECT COALE..." />
-            <marker date="1401427230648" expanded="true" signature="4706:5285" placeholder="SELECT COALE..." />
-            <marker date="1401427230648" expanded="true" signature="5571:6218" placeholder="SELECT COALE..." />
-            <marker date="1401427230648" expanded="true" signature="6610:6638" placeholder="SELECT Id,Na..Event__c..." />
-            <marker date="1401427230648" expanded="true" signature="7971:8117" placeholder="SELECT COALE..." />
-            <marker date="1401427230648" expanded="true" signature="8378:8548" placeholder="SELECT COALE..." />
-            <marker date="1401427230648" expanded="true" signature="8910:9080" placeholder="SELECT COALE..." />
-            <marker date="1401427230648" expanded="true" signature="9445:9615" placeholder="SELECT COALE..." />
-            <marker date="1401427230648" expanded="true" signature="9975:10145" placeholder="SELECT COALE..." />
-            <marker date="1401427230648" expanded="true" signature="11019:11061" placeholder="SELECT id FR..events..." />
-            <marker date="1401427230648" expanded="true" signature="11144:11189" placeholder="SELECT id,st..cities..." />
-            <marker date="1401427230648" expanded="true" signature="11444:11693" placeholder="INSERT INTO ..." />
-            <marker date="1401427230648" expanded="true" signature="12491:12575" placeholder="INSERT INTO ..." />
-            <marker date="1401427230648" expanded="true" signature="12752:12809" placeholder="INSERT INTO ..." />
-            <marker date="1401427230648" expanded="true" signature="12817:13011" placeholder="UPDATE event..." />
-            <marker date="1401427230648" expanded="true" signature="13252:13301" placeholder="DELETE FROM ..." />
-            <marker date="1401427230648" expanded="true" signature="13927:14011" placeholder="INSERT INTO ..." />
+            <marker date="1401427883508" expanded="true" signature="870:899" placeholder="SELECT Id,Ci..CFR__c..." />
+            <marker date="1401427883508" expanded="true" signature="2220:2705" placeholder="SELECT COALE..." />
+            <marker date="1401427883508" expanded="true" signature="2981:3560" placeholder="SELECT COALE..." />
+            <marker date="1401427883508" expanded="true" signature="3850:4429" placeholder="SELECT COALE..." />
+            <marker date="1401427883508" expanded="true" signature="4706:5285" placeholder="SELECT COALE..." />
+            <marker date="1401427883508" expanded="true" signature="5571:6218" placeholder="SELECT COALE..." />
+            <marker date="1401427883508" expanded="true" signature="6610:6638" placeholder="SELECT Id,Na..Event__c..." />
+            <marker date="1401427883508" expanded="true" signature="7971:8117" placeholder="SELECT COALE..." />
+            <marker date="1401427883508" expanded="true" signature="8378:8548" placeholder="SELECT COALE..." />
+            <marker date="1401427883508" expanded="true" signature="8910:9080" placeholder="SELECT COALE..." />
+            <marker date="1401427883508" expanded="true" signature="9445:9615" placeholder="SELECT COALE..." />
+            <marker date="1401427883508" expanded="true" signature="9975:10145" placeholder="SELECT COALE..." />
+            <marker date="1401427883508" expanded="true" signature="11425:11467" placeholder="SELECT id FR..events..." />
+            <marker date="1401427883508" expanded="true" signature="11550:11595" placeholder="SELECT id,st..cities..." />
+            <marker date="1401427883508" expanded="true" signature="11850:12099" placeholder="INSERT INTO ..." />
+            <marker date="1401427883508" expanded="true" signature="12890:12974" placeholder="INSERT INTO ..." />
+            <marker date="1401427883508" expanded="true" signature="13137:13194" placeholder="INSERT INTO ..." />
+            <marker date="1401427883508" expanded="true" signature="13202:13396" placeholder="UPDATE event..." />
+            <marker date="1401427883508" expanded="true" signature="13637:13686" placeholder="DELETE FROM ..." />
+            <marker date="1401427883508" expanded="true" signature="14305:14389" placeholder="INSERT INTO ..." />
           </folding>
         </state>
       </provider>
@@ -655,8 +568,8 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="16" column="0" selection-start="695" selection-end="695" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1320">
           <folding>
-            <marker date="1401427230652" expanded="true" signature="1937:1985" placeholder="SELECT id FR..bro_team_coach..." />
-            <marker date="1401427230652" expanded="true" signature="2191:2424" placeholder="SELECT users..users..." />
+            <marker date="1401427499848" expanded="true" signature="1933:1981" placeholder="SELECT id FR..bro_team_coach..." />
+            <marker date="1401427499848" expanded="true" signature="2187:2420" placeholder="SELECT users..users..." />
           </folding>
         </state>
       </provider>
@@ -670,26 +583,26 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="42" column="45" selection-start="1504" selection-end="1504" vertical-scroll-proportion="0.0" vertical-offset="630" max-vertical-offset="4740">
           <folding>
-            <marker date="1401427230648" expanded="true" signature="870:899" placeholder="SELECT Id,Ci..CFR__c..." />
-            <marker date="1401427230648" expanded="true" signature="2220:2705" placeholder="SELECT COALE..." />
-            <marker date="1401427230648" expanded="true" signature="2981:3560" placeholder="SELECT COALE..." />
-            <marker date="1401427230648" expanded="true" signature="3850:4429" placeholder="SELECT COALE..." />
-            <marker date="1401427230648" expanded="true" signature="4706:5285" placeholder="SELECT COALE..." />
-            <marker date="1401427230648" expanded="true" signature="5571:6218" placeholder="SELECT COALE..." />
-            <marker date="1401427230648" expanded="true" signature="6610:6638" placeholder="SELECT Id,Na..Event__c..." />
-            <marker date="1401427230648" expanded="true" signature="7971:8117" placeholder="SELECT COALE..." />
-            <marker date="1401427230648" expanded="true" signature="8378:8548" placeholder="SELECT COALE..." />
-            <marker date="1401427230648" expanded="true" signature="8910:9080" placeholder="SELECT COALE..." />
-            <marker date="1401427230648" expanded="true" signature="9445:9615" placeholder="SELECT COALE..." />
-            <marker date="1401427230648" expanded="true" signature="9975:10145" placeholder="SELECT COALE..." />
-            <marker date="1401427230648" expanded="true" signature="11019:11061" placeholder="SELECT id FR..events..." />
-            <marker date="1401427230648" expanded="true" signature="11144:11189" placeholder="SELECT id,st..cities..." />
-            <marker date="1401427230648" expanded="true" signature="11444:11693" placeholder="INSERT INTO ..." />
-            <marker date="1401427230648" expanded="true" signature="12491:12575" placeholder="INSERT INTO ..." />
-            <marker date="1401427230648" expanded="true" signature="12752:12809" placeholder="INSERT INTO ..." />
-            <marker date="1401427230648" expanded="true" signature="12817:13011" placeholder="UPDATE event..." />
-            <marker date="1401427230648" expanded="true" signature="13252:13301" placeholder="DELETE FROM ..." />
-            <marker date="1401427230648" expanded="true" signature="13927:14011" placeholder="INSERT INTO ..." />
+            <marker date="1401427883508" expanded="true" signature="870:899" placeholder="SELECT Id,Ci..CFR__c..." />
+            <marker date="1401427883508" expanded="true" signature="2220:2705" placeholder="SELECT COALE..." />
+            <marker date="1401427883508" expanded="true" signature="2981:3560" placeholder="SELECT COALE..." />
+            <marker date="1401427883508" expanded="true" signature="3850:4429" placeholder="SELECT COALE..." />
+            <marker date="1401427883508" expanded="true" signature="4706:5285" placeholder="SELECT COALE..." />
+            <marker date="1401427883508" expanded="true" signature="5571:6218" placeholder="SELECT COALE..." />
+            <marker date="1401427883508" expanded="true" signature="6610:6638" placeholder="SELECT Id,Na..Event__c..." />
+            <marker date="1401427883508" expanded="true" signature="7971:8117" placeholder="SELECT COALE..." />
+            <marker date="1401427883508" expanded="true" signature="8378:8548" placeholder="SELECT COALE..." />
+            <marker date="1401427883508" expanded="true" signature="8910:9080" placeholder="SELECT COALE..." />
+            <marker date="1401427883508" expanded="true" signature="9445:9615" placeholder="SELECT COALE..." />
+            <marker date="1401427883508" expanded="true" signature="9975:10145" placeholder="SELECT COALE..." />
+            <marker date="1401427883508" expanded="true" signature="11425:11467" placeholder="SELECT id FR..events..." />
+            <marker date="1401427883508" expanded="true" signature="11550:11595" placeholder="SELECT id,st..cities..." />
+            <marker date="1401427883508" expanded="true" signature="11850:12099" placeholder="INSERT INTO ..." />
+            <marker date="1401427883508" expanded="true" signature="12890:12974" placeholder="INSERT INTO ..." />
+            <marker date="1401427883508" expanded="true" signature="13137:13194" placeholder="INSERT INTO ..." />
+            <marker date="1401427883508" expanded="true" signature="13202:13396" placeholder="UPDATE event..." />
+            <marker date="1401427883508" expanded="true" signature="13637:13686" placeholder="DELETE FROM ..." />
+            <marker date="1401427883508" expanded="true" signature="14305:14389" placeholder="INSERT INTO ..." />
           </folding>
         </state>
       </provider>
@@ -752,8 +665,8 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="15" column="57" selection-start="599" selection-end="644" vertical-scroll-proportion="0.0" vertical-offset="225" max-vertical-offset="1320">
           <folding>
-            <marker date="1401427230652" expanded="true" signature="1937:1985" placeholder="SELECT id FR..bro_team_coach..." />
-            <marker date="1401427230652" expanded="true" signature="2191:2424" placeholder="SELECT users..users..." />
+            <marker date="1401427499848" expanded="true" signature="1933:1981" placeholder="SELECT id FR..bro_team_coach..." />
+            <marker date="1401427499848" expanded="true" signature="2187:2420" placeholder="SELECT users..users..." />
           </folding>
         </state>
       </provider>
@@ -762,26 +675,26 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="42" column="45" selection-start="1504" selection-end="1504" vertical-scroll-proportion="0.0" vertical-offset="630" max-vertical-offset="4740">
           <folding>
-            <marker date="1401427230648" expanded="true" signature="870:899" placeholder="SELECT Id,Ci..CFR__c..." />
-            <marker date="1401427230648" expanded="true" signature="2220:2705" placeholder="SELECT COALE..." />
-            <marker date="1401427230648" expanded="true" signature="2981:3560" placeholder="SELECT COALE..." />
-            <marker date="1401427230648" expanded="true" signature="3850:4429" placeholder="SELECT COALE..." />
-            <marker date="1401427230648" expanded="true" signature="4706:5285" placeholder="SELECT COALE..." />
-            <marker date="1401427230648" expanded="true" signature="5571:6218" placeholder="SELECT COALE..." />
-            <marker date="1401427230648" expanded="true" signature="6610:6638" placeholder="SELECT Id,Na..Event__c..." />
-            <marker date="1401427230648" expanded="true" signature="7971:8117" placeholder="SELECT COALE..." />
-            <marker date="1401427230648" expanded="true" signature="8378:8548" placeholder="SELECT COALE..." />
-            <marker date="1401427230648" expanded="true" signature="8910:9080" placeholder="SELECT COALE..." />
-            <marker date="1401427230648" expanded="true" signature="9445:9615" placeholder="SELECT COALE..." />
-            <marker date="1401427230648" expanded="true" signature="9975:10145" placeholder="SELECT COALE..." />
-            <marker date="1401427230648" expanded="true" signature="11019:11061" placeholder="SELECT id FR..events..." />
-            <marker date="1401427230648" expanded="true" signature="11144:11189" placeholder="SELECT id,st..cities..." />
-            <marker date="1401427230648" expanded="true" signature="11444:11693" placeholder="INSERT INTO ..." />
-            <marker date="1401427230648" expanded="true" signature="12491:12575" placeholder="INSERT INTO ..." />
-            <marker date="1401427230648" expanded="true" signature="12752:12809" placeholder="INSERT INTO ..." />
-            <marker date="1401427230648" expanded="true" signature="12817:13011" placeholder="UPDATE event..." />
-            <marker date="1401427230648" expanded="true" signature="13252:13301" placeholder="DELETE FROM ..." />
-            <marker date="1401427230648" expanded="true" signature="13927:14011" placeholder="INSERT INTO ..." />
+            <marker date="1401427883508" expanded="true" signature="870:899" placeholder="SELECT Id,Ci..CFR__c..." />
+            <marker date="1401427883508" expanded="true" signature="2220:2705" placeholder="SELECT COALE..." />
+            <marker date="1401427883508" expanded="true" signature="2981:3560" placeholder="SELECT COALE..." />
+            <marker date="1401427883508" expanded="true" signature="3850:4429" placeholder="SELECT COALE..." />
+            <marker date="1401427883508" expanded="true" signature="4706:5285" placeholder="SELECT COALE..." />
+            <marker date="1401427883508" expanded="true" signature="5571:6218" placeholder="SELECT COALE..." />
+            <marker date="1401427883508" expanded="true" signature="6610:6638" placeholder="SELECT Id,Na..Event__c..." />
+            <marker date="1401427883508" expanded="true" signature="7971:8117" placeholder="SELECT COALE..." />
+            <marker date="1401427883508" expanded="true" signature="8378:8548" placeholder="SELECT COALE..." />
+            <marker date="1401427883508" expanded="true" signature="8910:9080" placeholder="SELECT COALE..." />
+            <marker date="1401427883508" expanded="true" signature="9445:9615" placeholder="SELECT COALE..." />
+            <marker date="1401427883508" expanded="true" signature="9975:10145" placeholder="SELECT COALE..." />
+            <marker date="1401427883508" expanded="true" signature="11425:11467" placeholder="SELECT id FR..events..." />
+            <marker date="1401427883508" expanded="true" signature="11550:11595" placeholder="SELECT id,st..cities..." />
+            <marker date="1401427883508" expanded="true" signature="11850:12099" placeholder="INSERT INTO ..." />
+            <marker date="1401427883508" expanded="true" signature="12890:12974" placeholder="INSERT INTO ..." />
+            <marker date="1401427883508" expanded="true" signature="13137:13194" placeholder="INSERT INTO ..." />
+            <marker date="1401427883508" expanded="true" signature="13202:13396" placeholder="UPDATE event..." />
+            <marker date="1401427883508" expanded="true" signature="13637:13686" placeholder="DELETE FROM ..." />
+            <marker date="1401427883508" expanded="true" signature="14305:14389" placeholder="INSERT INTO ..." />
           </folding>
         </state>
       </provider>
@@ -1027,7 +940,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/BrosDashboard.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="71" column="21" selection-start="3745" selection-end="3750" vertical-scroll-proportion="-7.0" vertical-offset="897" max-vertical-offset="12255">
+        <state line="71" column="21" selection-start="3745" selection-end="3750" vertical-scroll-proportion="-20.125" vertical-offset="582" max-vertical-offset="12255">
           <folding>
             <marker date="1400765331948" expanded="true" signature="355:383" placeholder="SELECT id,na..bro_team..." />
             <marker date="1400765331948" expanded="true" signature="519:810" placeholder="SELECT COALE..donations..." />
@@ -1081,38 +994,38 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/routes.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="2" selection-start="471" selection-end="550" vertical-scroll-proportion="-3.125" vertical-offset="0" max-vertical-offset="1200">
+        <state line="14" column="0" selection-start="471" selection-end="546" vertical-scroll-proportion="-3.125" vertical-offset="0" max-vertical-offset="1200">
           <folding>
-            <marker date="1401427230652" expanded="true" signature="1937:1985" placeholder="SELECT id FR..bro_team_coach..." />
-            <marker date="1401427230652" expanded="true" signature="2191:2424" placeholder="SELECT users..users..." />
+            <marker date="1401427499848" expanded="true" signature="1933:1981" placeholder="SELECT id FR..bro_team_coach..." />
+            <marker date="1401427499848" expanded="true" signature="2187:2420" placeholder="SELECT users..users..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/FinanceFunctions.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="276" column="42" selection-start="10532" selection-end="10532" vertical-scroll-proportion="0.1923077" vertical-offset="4035" max-vertical-offset="5670">
+        <state line="325" column="0" selection-start="12386" selection-end="12386" vertical-scroll-proportion="-0.64835167" vertical-offset="5229" max-vertical-offset="5820">
           <folding>
-            <marker date="1401427230648" expanded="true" signature="870:899" placeholder="SELECT Id,Ci..CFR__c..." />
-            <marker date="1401427230648" expanded="true" signature="2220:2705" placeholder="SELECT COALE..." />
-            <marker date="1401427230648" expanded="true" signature="2981:3560" placeholder="SELECT COALE..." />
-            <marker date="1401427230648" expanded="true" signature="3850:4429" placeholder="SELECT COALE..." />
-            <marker date="1401427230648" expanded="true" signature="4706:5285" placeholder="SELECT COALE..." />
-            <marker date="1401427230648" expanded="true" signature="5571:6218" placeholder="SELECT COALE..." />
-            <marker date="1401427230648" expanded="true" signature="6610:6638" placeholder="SELECT Id,Na..Event__c..." />
-            <marker date="1401427230648" expanded="true" signature="7971:8117" placeholder="SELECT COALE..." />
-            <marker date="1401427230648" expanded="true" signature="8378:8548" placeholder="SELECT COALE..." />
-            <marker date="1401427230648" expanded="true" signature="8910:9080" placeholder="SELECT COALE..." />
-            <marker date="1401427230648" expanded="true" signature="9445:9615" placeholder="SELECT COALE..." />
-            <marker date="1401427230648" expanded="true" signature="9975:10145" placeholder="SELECT COALE..." />
-            <marker date="1401427230648" expanded="true" signature="11019:11061" placeholder="SELECT id FR..events..." />
-            <marker date="1401427230648" expanded="true" signature="11144:11189" placeholder="SELECT id,st..cities..." />
-            <marker date="1401427230648" expanded="true" signature="11444:11693" placeholder="INSERT INTO ..." />
-            <marker date="1401427230648" expanded="true" signature="12491:12575" placeholder="INSERT INTO ..." />
-            <marker date="1401427230648" expanded="true" signature="12752:12809" placeholder="INSERT INTO ..." />
-            <marker date="1401427230648" expanded="true" signature="12817:13011" placeholder="UPDATE event..." />
-            <marker date="1401427230648" expanded="true" signature="13252:13301" placeholder="DELETE FROM ..." />
-            <marker date="1401427230648" expanded="true" signature="13927:14011" placeholder="INSERT INTO ..." />
+            <marker date="1401427883508" expanded="true" signature="870:899" placeholder="SELECT Id,Ci..CFR__c..." />
+            <marker date="1401427883508" expanded="true" signature="2220:2705" placeholder="SELECT COALE..." />
+            <marker date="1401427883508" expanded="true" signature="2981:3560" placeholder="SELECT COALE..." />
+            <marker date="1401427883508" expanded="true" signature="3850:4429" placeholder="SELECT COALE..." />
+            <marker date="1401427883508" expanded="true" signature="4706:5285" placeholder="SELECT COALE..." />
+            <marker date="1401427883508" expanded="true" signature="5571:6218" placeholder="SELECT COALE..." />
+            <marker date="1401427883508" expanded="true" signature="6610:6638" placeholder="SELECT Id,Na..Event__c..." />
+            <marker date="1401427883508" expanded="true" signature="7971:8117" placeholder="SELECT COALE..." />
+            <marker date="1401427883508" expanded="true" signature="8378:8548" placeholder="SELECT COALE..." />
+            <marker date="1401427883508" expanded="true" signature="8910:9080" placeholder="SELECT COALE..." />
+            <marker date="1401427883508" expanded="true" signature="9445:9615" placeholder="SELECT COALE..." />
+            <marker date="1401427883508" expanded="true" signature="9975:10145" placeholder="SELECT COALE..." />
+            <marker date="1401427883508" expanded="true" signature="11425:11467" placeholder="SELECT id FR..events..." />
+            <marker date="1401427883508" expanded="true" signature="11550:11595" placeholder="SELECT id,st..cities..." />
+            <marker date="1401427883508" expanded="true" signature="11850:12099" placeholder="INSERT INTO ..." />
+            <marker date="1401427883508" expanded="true" signature="12890:12974" placeholder="INSERT INTO ..." />
+            <marker date="1401427883508" expanded="true" signature="13137:13194" placeholder="INSERT INTO ..." />
+            <marker date="1401427883508" expanded="true" signature="13202:13396" placeholder="UPDATE event..." />
+            <marker date="1401427883508" expanded="true" signature="13637:13686" placeholder="DELETE FROM ..." />
+            <marker date="1401427883508" expanded="true" signature="14305:14389" placeholder="INSERT INTO ..." />
           </folding>
         </state>
       </provider>

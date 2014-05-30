@@ -278,7 +278,7 @@ class FinanceFunctions extends BaseController
 
         $data = json_decode($content);
 
-        /*if ( empty($data->event_id) ) {
+        if ( empty($data->event_id) ) {
 
             $data = new stdClass();
 
@@ -289,8 +289,18 @@ class FinanceFunctions extends BaseController
             $data->event_start_date = '';
             $data->event_end_date = '';
             $data->venue_address = '';
+            $data->ticket_a_type = 'Gold';
+            $data->ticket_a_price = 100;
+            $data->ticket_b_type = 'Silver';
+            $data->ticket_b_price = 50;
+            $data->ticket_c_type = 'Bronze';
+            $data->ticket_c_price = 10;
+            $data->ticket_d_type = '';
+            $data->ticket_d_price = 0;
+            $data->ticket_e_type = '';
+            $data->ticket_e_price = 0;
 
-        }*/
+        }
 
         $row = DB::connection('cfrapp')->select('SELECT id FROM events WHERE id = ? LIMIT 1',array((int)$data->event_id));
 
@@ -320,14 +330,14 @@ class FinanceFunctions extends BaseController
 
                 if($data->{$ticket.$letter.$type} != ''){
 
-                    $keyword = preg_replace("/\s+/", " ", $data->$data->{$ticket.$letter.$type});
+                    $keyword = preg_replace("/\s+/", " ", $data->{$ticket.$letter.$type});
                     $keyword = str_replace(" ", "_", $keyword);
                     $keyword = preg_replace("/[^A-Za-z0-9_]/","",$keyword);
                     $keyword=strtolower($keyword);
 
 
                     DB::connection('cfrapp')->insert("INSERT INTO event_ticket_types (name,ticket_price,event_id,keyword) VALUES (?,?,?,?)",
-                        array($data->$data->{$ticket.$letter.$type},$data->$data->{$ticket.$letter.$price},(int)$data->event_id),$keyword);
+                        array($data->{$ticket.$letter.$type},$data->{$ticket.$letter.$price},(int)$data->event_id,$keyword));
                 }
 
             }
@@ -353,14 +363,14 @@ class FinanceFunctions extends BaseController
 
                 if($data->{$ticket.$letter.$type} != ''){
 
-                    $keyword = preg_replace("/\s+/", " ", $data->$data->{$ticket.$letter.$type});
+                    $keyword = preg_replace("/\s+/", " ", $data->{$ticket.$letter.$type});
                     $keyword = str_replace(" ", "_", $keyword);
                     $keyword = preg_replace("/[^A-Za-z0-9_]/","",$keyword);
                     $keyword=strtolower($keyword);
 
 
                     DB::connection('cfrapp')->insert("INSERT INTO event_ticket_types (name,ticket_price,event_id,keyword) VALUES (?,?,?,?)",
-                        array($data->$data->{$ticket.$letter.$type},$data->$data->{$ticket.$letter.$price},(int)$data->event_id),$keyword);
+                        array($data->{$ticket.$letter.$type},$data->{$ticket.$letter.$price},(int)$data->event_id,$keyword));
                 }
 
             }
