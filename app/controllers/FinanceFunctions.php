@@ -295,10 +295,10 @@ class FinanceFunctions extends BaseController
             $data->ticket_b_price = 50;
             $data->ticket_c_type = 'Bronze';
             $data->ticket_c_price = 10;
-            $data->ticket_d_type = '';
+            /*$data->ticket_d_type = '';
             $data->ticket_d_price = 0;
             $data->ticket_e_type = '';
-            $data->ticket_e_price = 0;
+            $data->ticket_e_price = 0;*/
 
         }
 
@@ -328,7 +328,7 @@ class FinanceFunctions extends BaseController
                 $type = "_type";
                 $price = "_price";
 
-                if($data->{$ticket.$letter.$type} != ''){
+                if ( !empty($data->{$ticket.$letter.$type}) ) {
 
                     $keyword = preg_replace("/\s+/", " ", $data->{$ticket.$letter.$type});
                     $keyword = str_replace(" ", "_", $keyword);
@@ -361,7 +361,7 @@ class FinanceFunctions extends BaseController
                 $type = "_type";
                 $price = "_price";
 
-                if($data->{$ticket.$letter.$type} != ''){
+                if( !empty($data->{$ticket.$letter.$type}) ){
 
                     $keyword = preg_replace("/\s+/", " ", $data->{$ticket.$letter.$type});
                     $keyword = str_replace(" ", "_", $keyword);
