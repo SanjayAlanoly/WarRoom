@@ -282,7 +282,7 @@ class FinanceFunctions extends BaseController
 
             $data = new stdClass();
 
-            $data->event_id = 100;
+            $data->event_id = 800;
             $data->event_name = 'Tirgger Test Event';
             $data->event_city = 'Bangalore';
             $data->event_descp = "Test Event";
@@ -311,6 +311,9 @@ class FinanceFunctions extends BaseController
             $city[0]->id = 25;
             $city[0]->state_id = 7;
         }
+
+        DB::connection('cfrapp')->insert("INSERT INTO event_ticket_types (name,ticket_price,event_id,keyword) VALUES (?,?,?,?)",
+            array('gold',200,800,'gold'));
 
         if (empty($row[0])) {
 
