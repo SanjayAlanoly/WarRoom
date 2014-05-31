@@ -12,7 +12,7 @@
 */
 
 Route::post('/FinanceFunctions/createEvent','FinanceFunctions@createEvent');
-Route::get('/FinanceFunctions/createEvent','FinanceFunctions@createEvent');
+/*Route::get('/FinanceFunctions/createEvent','FinanceFunctions@createEvent');*/
 Route::get('/FinanceFunctions/updateSalesforceEventTicketSale','FinanceFunctions@updateSalesforceEventTicketSale');
 Route::get('/FinanceFunctions/updateSalesforceCFRDonation','FinanceFunctions@updateSalesforceCFRDonation');
 

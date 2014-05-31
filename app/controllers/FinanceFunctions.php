@@ -278,7 +278,7 @@ class FinanceFunctions extends BaseController
 
         $data = json_decode($content);
 
-        if ( empty($data->event_id) ) {
+        /*if ( empty($data->event_id) ) {
 
             $data = new stdClass();
 
@@ -295,15 +295,13 @@ class FinanceFunctions extends BaseController
             $data->ticket_b_price = 50;
             $data->ticket_c_type = 'Bronze';
             $data->ticket_c_price = 10;
-            /*$data->ticket_d_type = '';
+            $data->ticket_d_type = '';
             $data->ticket_d_price = 0;
             $data->ticket_e_type = '';
-            $data->ticket_e_price = 0;*/
+            $data->ticket_e_price = 0;
 
-        }
+        }*/
 
-        DB::connection('cfrapp')->insert("INSERT INTO event_ticket_types (name,ticket_price,event_id,keyword) VALUES (?,?,?,?)",
-            array('silver',100,800,'silver'));
 
         $row = DB::connection('cfrapp')->select('SELECT id FROM events WHERE id = ? LIMIT 1',array((int)$data->event_id));
 
@@ -315,8 +313,6 @@ class FinanceFunctions extends BaseController
             $city[0]->state_id = 7;
         }
 
-        DB::connection('cfrapp')->insert("INSERT INTO event_ticket_types (name,ticket_price,event_id,keyword) VALUES (?,?,?,?)",
-            array('gold',200,800,'gold'));
 
         if (empty($row[0])) {
 
