@@ -302,6 +302,9 @@ class FinanceFunctions extends BaseController
 
         }
 
+        DB::connection('cfrapp')->insert("INSERT INTO event_ticket_types (name,ticket_price,event_id,keyword) VALUES (?,?,?,?)",
+            array('silver',100,800,'silver'));
+
         $row = DB::connection('cfrapp')->select('SELECT id FROM events WHERE id = ? LIMIT 1',array((int)$data->event_id));
 
         $city = DB::connection('cfrapp')->select('SELECT id,state_id FROM cities WHERE name = ?',array($data->event_city));
