@@ -86,6 +86,7 @@ class ContactMaster extends Eloquent
                     $pl->collect_date = $input['collect_date'];
                     $pl->comments = $input['comments'];
                     $pl->save();
+
                     break;
             }
             

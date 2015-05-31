@@ -160,35 +160,74 @@ class FinanceFunctions extends BaseController
     {
         $client = $this->getClient();
 
+        $options = new QueryOptions(200);
+
+        $client->setQueryOptions($options);
+
         $query = "SELECT Id,Name FROM Event__c";
         $result = $client->query($query);
 
         $i = 0;
 
-        foreach ($result as $record) {
-            $events[$i] = new SObject();
-            $events[$i]->Id = $record->Id;
-            $ticket_sale = $this->getTicketSale($record->Name);
-            $with_intern = $this->getEventAmountWithIntern($record->Name);
-            $with_event_head = $this->getEventAmountWithEventHead($record->Name);
-            $with_FC = $this->getEventAmountWithFC($record->Name);
-            $deposit_complete = $this->getEventAmountDepositComplete($record->Name);
+        $done = false;
 
-            echo "Event : " . $record->Name . " Ticket Sale : " . $ticket_sale . "<br>";
-            echo "With Intern : $with_intern With Events Head : $with_event_head With FC : $with_FC  Deposit Complete : $deposit_complete <br><br>";
+        echo "Size of records:  ".$result ->size."\n";
 
-            $events[$i]->fields = array(
-                'Total_Ticket_Sale__c' => $ticket_sale,
-                'With_Intern__c' => $with_intern,
-                'With_Event_Head__c' => $with_event_head,
-                'With_FC__c' => $with_FC,
-                'Deposit_Complete__c' => $deposit_complete,
-            );
-            $events[$i]->type = 'Event__c';
-            $i++;
+
+
+
+        while($result->size > 0 && !$done) {
+            foreach ($result as $record) {
+                $events[$i] = new SObject();
+                $events[$i]->Id = $record->Id;
+                $ticket_sale = $this->getTicketSale($record->Name);
+                $with_intern = $this->getEventAmountWithIntern($record->Name);
+                $with_event_head = $this->getEventAmountWithEventHead($record->Name);
+                $with_FC = $this->getEventAmountWithFC($record->Name);
+                $deposit_complete = $this->getEventAmountDepositComplete($record->Name);
+
+                echo "Event : " . $record->Name . " Ticket Sale : " . $ticket_sale . "<br>";
+                echo "With Intern : $with_intern With Events Head : $with_event_head With FC : $with_FC  Deposit Complete : $deposit_complete <br><br>";
+
+                $events[$i]->fields = array(
+                    'Total_Ticket_Sale__c' => $ticket_sale,
+                    'With_Intern__c' => $with_intern,
+                    'With_Event_Head__c' => $with_event_head,
+                    'With_FC__c' => $with_FC,
+                    'Deposit_Complete__c' => $deposit_complete,
+                );
+
+                $events[$i]->type = 'Event__c';
+
+                $i++;
+
+                if($i == 198) {
+                    $client->update($events);
+                    $i = 0;
+                    unset($events);
+                }
+
+
+            }
+
+            $client->update($events);
+            $i = 0;
+            unset($events);
+
+
+            if($result->done){
+                $done = true;
+            }
+            else {
+
+                $result = $client->queryMore($result->queryLocator);
+            }
+
         }
 
-        $client->update($events);
+
+
+
 
 
 
