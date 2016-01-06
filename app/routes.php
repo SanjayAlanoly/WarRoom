@@ -54,7 +54,7 @@ Route::filter('bro_check',function()
     $data = DB::connection('cfrapp')->select('SELECT users.id FROM users
                                         INNER JOIN cities
                                         ON users.city_id = cities.id
-                                        WHERE  cities.name = ? AND users.id = ?',array('National',Auth::user()->id));
+                                        WHERE  cities.name = ? AND users.id = ?',array('National Team',Auth::user()->id));
     if (!isset($data[0]->id))
     {
         return Redirect::to('/AccessDenied');
